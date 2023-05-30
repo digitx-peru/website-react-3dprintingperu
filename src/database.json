@@ -1,0 +1,100 @@
+{
+  "materials": [
+    {
+      "key": "VisiJet Armor M2G-CL",
+      "technology": "MJP",
+      "heatDistortionTemp045mpa": {
+        "max": 47.0,
+        "unit": "Celsius",
+        "min": 47.0
+      },
+      "printers": ["ProJet MJP 2500 Plus"],
+      "density_g/cm3": 1.14,
+      "heatDistortionTemp182mpa": {
+        "max": 43.0,
+        "unit": "Celsius",
+        "min": 43.0
+      },
+      "tensileStrength": {
+        "max": 35.0,
+        "unit": "mpa",
+        "min": 30.0
+      },
+      "impactStrength": {
+        "max": 50.0,
+        "unit": "J/m",
+        "min": 40.0
+      },
+      "name": "VisiJet Armor M2G-CL",
+      "shoreDHardness": {
+        "max": 70.0,
+        "unit": "shore D",
+        "min": 70.0
+      },
+      "elongationAtBreak": {
+        "max": 0.65,
+        "unit": "%",
+        "min": 0.55
+      },
+      "waterAbsorption_24hrs": 0.0049,
+      "tensileModulus": {
+        "max": 2000.0,
+        "unit": "mpa",
+        "min": 1500.0
+      },
+      "composition": "UV curable plastic",
+      "flexuralModulus": {
+        "max": 1200.0,
+        "unit": "mpa",
+        "min": 1000.0
+      },
+      "ULFlammability": "HB",
+      "description": "Transparent clear, simulating ABS",
+      "flexuralStrength": {
+        "max": 45.0,
+        "unit": "mpa",
+        "min": 40.0
+      },
+      "color": "Clear",
+      "bottleQuantity_kg": 1.5
+    },
+    {
+      "key": "VisiJet ProFlex M2G-DUR",
+      "technology": "MJP",
+      "printers": ["ProJet MJP 2500 Plus", "ProJet MJP 2500"],
+      "density_g/cm3": 1.14,
+      "tensileStrength": {
+        "max": 20.0,
+        "unit": "mpa",
+        "min": 15.0
+      },
+      "impactStrength": {
+        "max": 80.0,
+        "unit": "J/m",
+        "min": 70.0
+      },
+      "name": "VisiJet ProFlex M2G-DUR",
+      "shoreDHardness": {
+        "max": 60.0,
+        "unit": "shore D",
+        "min": 60.0
+      },
+      "elongationAtBreak": {
+        "max": 0.75,
+        "unit": "%",
+        "min": 0.65
+      },
+      "waterAbsorption_24hrs": 0.0049,
+      "tensileModulus": {
+        "max": 300.0,
+        "unit": "mpa",
+        "min": 250.0
+      },
+      "composition": "UV curable plastic",
+      "ULFlammability": "HB",
+      "description": "Transparent clear, simulating PP",
+      "color": "Clear",
+      "bottleQuantity_kg": 1.5
+    }
+  ]
+}

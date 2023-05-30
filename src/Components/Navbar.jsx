@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import { DownOutlined, SmileOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 
 const itemsIndustrias = [
@@ -11,17 +10,14 @@ const itemsIndustrias = [
   {
     key: "2",
     label: <Link to="/industrias/fundicion">Fundicion</Link>,
-    disabled: true,
   },
   {
     key: "3",
     label: <Link to="/industrias/joyeria">Joyeria</Link>,
-    disabled: true,
   },
   {
     key: "4",
     label: <Link to="/industrias/replicas">Replicas</Link>,
-    disabled: true,
   },
 ];
 
@@ -29,12 +25,10 @@ const itemsSalud = [
   {
     key: "1",
     label: <Link to="/salud/medicina">Medicina</Link>,
-    disabled: true,
   },
   {
     key: "2",
     label: <Link to="/salud/odontologia">Odontologia</Link>,
-    disabled: true,
   },
 ];
 
@@ -47,12 +41,10 @@ const itemsProductos = [
   {
     key: "2",
     label: <Link to="/productos/impresoras">Impresoras</Link>,
-    disabled: true,
   },
   {
     key: "3",
     label: <Link to="/productos/materiales">Materiales</Link>,
-    disabled: true,
   },
 ];
 
@@ -83,6 +75,7 @@ export default function Navbar() {
   return (
     <nav style={styles.navbar}>
       <Dropdown
+        arrow={false}
         menu={{
           items: itemsIndustrias,
         }}
@@ -90,7 +83,6 @@ export default function Navbar() {
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Industrias
-            <DownOutlined />
           </Space>
         </a>
       </Dropdown>
@@ -103,7 +95,6 @@ export default function Navbar() {
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Salud
-            <DownOutlined />
           </Space>
         </a>
       </Dropdown>
@@ -116,7 +107,6 @@ export default function Navbar() {
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Productos
-            <DownOutlined />
           </Space>
         </a>
       </Dropdown>
@@ -130,7 +120,6 @@ export default function Navbar() {
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Servicios
-            <DownOutlined />
           </Space>
         </a>
       </Dropdown>
@@ -142,6 +131,6 @@ const styles = {
   navbar: {
     display: "flex",
     flexDirection: "row",
-    columnGap: 20,
+    columnGap: 50,
   },
 };

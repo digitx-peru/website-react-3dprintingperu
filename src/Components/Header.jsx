@@ -1,25 +1,35 @@
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-    return (
-        <header style={styles.header}>
-            <img src={require("../assets/icons/3dp_logo.png")} style={styles.icon} alt="" />
-            <Navbar />
-        </header>
-    );
+  return (
+    <header style={styles.header}>
+      <Link to="/">
+        <img
+          src={require("../assets/icons/3dp_logo.png")}
+          style={styles.icon}
+          alt=""
+        />
+      </Link>
+      <Navbar />
+    </header>
+  );
 }
 
 const styles = {
-    header: {
-        display: 'flex',
-        flexDirection: 'row',
-        height: 87,
-        backgroundColor: '#FFFFFF',
-        alignItems: 'center',
-        border: '1px solid grey',
-    },
-    icon: {
-        width: 85,
-        height: 85,
-    }
-}
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    borderBottom: "3px solid grey",
+    columnGap: 50,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 50,
+  },
+  icon: {
+    height: 80,
+    objectFit: 'contain',
+  },
+};

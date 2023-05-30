@@ -1,5 +1,8 @@
 import Header from "../Components/Header"
+import Footer from "../Components/Footer"
 import NewsCard from "../Components/NewsCard"
+import Hero from "../Components/Hero"
+import ContactUs from "../Components/ContactUs"
 
 export default function Home() {
 
@@ -7,35 +10,29 @@ export default function Home() {
         <>
             <Header />
             <div style={styles.mainContainer}>
-                <div style={styles.heroPic}></div>
+                <Hero backgroundUrl={'https://picsum.photos/3000/600'} />
                 <div style={styles.newsCardContainer}>
                     <NewsCard />
                     <NewsCard />
-                    <NewsCard />
                 </div>
+                <ContactUs />
             </div>
+            <Footer />    
         </>
     )
 }
 
 const styles = {
+    mainContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 50,
+        alignItems: 'center',
+    },
     newsCardContainer: {
         display: 'flex',
         flexDirection: 'row',
         columnGap: 15,
-    },
-
-    heroPic: {
-        width: '100%',
-        height: 500,
-        backgroundColor: '#353535'
-    },
-
-    mainContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        columnGap: 15,
-        padding: 15,
-        alignItems: 'center',
+        width: '60%',
     },
 }

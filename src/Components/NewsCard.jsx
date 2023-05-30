@@ -3,7 +3,7 @@ import { Button, Card } from "antd";
 export default function NewsCard() {
   return (
     <Card style={styles.container}>
-      <img src="https://picsum.photos/200/300" alt="" />
+      <img src="https://picsum.photos/300/200" alt="" />
       <h3>
         Introducing the SLA 750, the Next Revolution in Stereolithography (SLA)
       </h3>
@@ -19,7 +19,5 @@ export default function NewsCard() {
 }
 
 const styles = {
-    container: {
-        width: 400,
-    }
-}
+  container: {},
+};
