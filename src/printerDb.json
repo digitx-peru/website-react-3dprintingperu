@@ -1,28 +1,64 @@
 {
   "printers": [
-      {
-          "technology": "Colorjet",
-          "builVolume_mm": {
-              "x": 254.0,
-              "y": 381.0,
-              "z": 203.0
-          },
-          "description": "Affordable, photo-realistic full-color parts, in record time.",
-          "name": "Projet CJP 660 Pro",
-          "refPrice": "$80k",
-          "software": "3D Sprint"
+    {
+      "technology": "CJP",
+      "builVolume_mm": {
+        "x": 254.0,
+        "y": 381.0,
+        "z": 203.0
+      },
+      "description": "Affordable, photo-realistic full-color parts, in record time.",
+      "name": "Projet CJP 660 Pro",
+      "refPrice": "$80k",
+      "software": "3D Sprint"
+    },
+    {
+        "technology": "CJP",
+        "builVolume_mm": {
+          "x": 254.0,
+          "y": 381.0,
+          "z": 203.0
+        },
+        "description": "Affordable, photo-realistic full-color parts, in record time.",
+        "name": "Projet CJP 860 Pro",
+        "refPrice": "$80k",
+        "software": "3D Sprint"
+      },
+    {
+      "technology": "MJP",
+      "builVolume_mm": {
+        "x": 294.0,
+        "y": 211.0,
+        "z": 144.0
+      },
+      "description": "Fast and easy printing of functional precision plastic, elastomeric and composite parts",
+      "name": "Projet MJP 2500 Plus",
+      "refPrice": "$60k",
+      "software": "3D Sprint"
+    },
+    {
+        "technology": "MJP",
+        "builVolume_mm": {
+          "x": 294.0,
+          "y": 211.0,
+          "z": 144.0
+        },
+        "description": "Fast and easy printing of functional precision plastic, elastomeric and composite parts",
+        "name": "Projet MJP 2500",
+        "refPrice": "$60k",
+        "software": "3D Sprint"
       },
       {
-          "technology": "Multijet",
-          "builVolume_mm": {
-              "x": 294.0,
-              "y": 211.0,
-              "z": 144.0
-          },
-          "description": "Fast and easy printing of functional precision plastic, elastomeric and composite parts",
-          "name": "Projet MJP 2500 Plus",
-          "refPrice": "$60k",
-          "software": "3D Sprint"
+        "technology": "MJP",
+        "builVolume_mm": {
+          "x": 294.0,
+          "y": 211.0,
+          "z": 144.0
+        },
+        "description": "Fast and easy printing of functional precision plastic, elastomeric and composite parts",
+        "name": "Projet MJP 3600",
+        "refPrice": "$60k",
+        "software": "3D Sprint"
       }
   ]
 }
