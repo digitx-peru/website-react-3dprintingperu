@@ -39,7 +39,7 @@
     {
         "technology": "MJP",
         "builVolume_mm": {
-          "x": 294.0,
+          "x": 274.0,
           "y": 211.0,
           "z": 144.0
         },
@@ -51,7 +51,7 @@
       {
         "technology": "MJP",
         "builVolume_mm": {
-          "x": 294.0,
+          "x": 284.0,
           "y": 211.0,
           "z": 144.0
         },

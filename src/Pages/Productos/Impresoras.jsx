@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
 
-import { Collapse, Checkbox, Table, Card } from "antd";
+import { Collapse, Checkbox, Table, Card, List, Input, Pagination } from "antd";
 
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
@@ -10,10 +10,10 @@ import db from "../../printerDb.json";
 
 const { Panel } = Collapse;
 
-//Get Materials
-function getMaterials() {
-  fetch("http://localhost:3000/printers").then((response) => response.json());
-}
+// Get Materials
+// function getPrintersFromDB() {
+//   fetch("http://localhost:3000/printers").then((response) => response.json());
+// }
 
 function getPrintersFromDB() {
   return db.printers;
@@ -21,19 +21,17 @@ function getPrintersFromDB() {
 
 //Secondary Components
 function PrinterCard({ name, description, software, price }) {
-
-  console.log(name)
-  console.log(description)
-  console.log(software)
-  console.log(price)
-
   return (
-    <Card>
-      <div style={styles.printerCardContent}>
-        <img src="https://picsum.photos/300/150" alt="" />
+    <div style={styles.printerCardContent}>
+      <img
+        src="https://picsum.photos/300/150"
+        alt=""
+        style={styles.printerCardImage}
+      />
+      <div style={styles.printerCardInfoContent}>
         <h3>{name}</h3>
         <p>{description}</p>
-        <div style={{display: 'flex', flexDirection: 'row', gap: 50}}>
+        <div style={{ display: "flex", flexDirection: "row", gap: 50 }}>
           <div>
             <h3>Software</h3>
             <p>{software}</p>
@@ -44,7 +42,7 @@ function PrinterCard({ name, description, software, price }) {
           </div>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
 
@@ -55,83 +53,90 @@ export default function Impresoras() {
   //   getMaterialsFromDB()
   // );
 
-  const [searchFilter, setSearchFilter] = useState("");
-  const [printerFilter, setPrinterFilter] = useState([]);
+  const [searchFilterX, setSearchFilterX] = useState("");
+  const [searchFilterY, setSearchFilterY] = useState("");
+  const [searchFilterZ, setSearchFilterZ] = useState("");
   const [technologyFilter, setTechnologyFilter] = useState([]);
-  const [industryFilter, setIndustryFilter] = useState([]);
+  const [brandFilter, setBrandFilter] = useState([]);
   const [applicationFilter, setApplicationFilter] = useState([]);
   const [materialTypeFilter, setMaterialTypeFilter] = useState([]);
 
   //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
-  // const allFilterAreOff =
-  //   printerFilter.length === 0 && technologyFilter.length === 0;
+  const allFilterAreOff =
+    // technologyFilter.length === 0 && brandFilter.length === 0;
+    technologyFilter.length === 0 &&
+    searchFilterX == "" &&
+    searchFilterY == "" &&
+    searchFilterZ == "";
 
   const data = getPrintersFromDB();
-  console.log(data)
-  // const filteredData = data
-  //   .filter((material) =>
-  //     material.printers.some((materialPrinter) =>
-  //       printerFilter.includes(materialPrinter)
-  //     )
-  //   )
-  //   .filter((material) =>
-  //     technologyFilter.length !== 0
-  //       ? technologyFilter.includes(material.technology)
-  //       : material
-  //   );
+  const filteredData = data
+    .filter((printer) => technologyFilter.includes(printer.technology))
+    .filter((printer) => {
+      if (allFilterAreOff) {
+        return printer;
+      }
+      console.log(parseFloat(searchFilterX).toFixed(1));
+      return searchFilterX
+        ? printer.builVolume_mm.x >= parseFloat(searchFilterX).toFixed(1)
+        : true;
+    })
+    .filter((printer) => {
+      if (allFilterAreOff) {
+        return printer;
+      }
+      return searchFilterY
+        ? printer.builVolume_mm.y >= parseFloat(searchFilterY).toFixed(1)
+        : true;
+    })
+    .filter((printer) => {
+      if (allFilterAreOff) {
+        return printer;
+      }
+      return searchFilterZ
+        ? printer.builVolume_mm.z >= parseFloat(searchFilterZ).toFixed(1)
+        : true;
+    });
+  // .filter((printer) =>
+  //   brandFilter.length !== 0
+  //     ? brandFilter.includes(printer.technology)
+  //     : printer
+  // );
 
-  const printerOptions = [
-    { label: "DMP Factory 350", value: "DMP Factory 350" },
-    { label: "DMP Factory 500 Solution", value: "DMP Factory 500 Solution" },
-    { label: "ProJet MJP 2500", value: "ProJet MJP 2500" },
-    { label: "ProJet MJP 2500 Plus", value: "ProJet MJP 2500 Plus" },
-  ];
   const techOptions = [
     { label: "ColorJet Printing", value: "CJP" },
     { label: "Direct Light Processing", value: "DLP" },
     { label: "Direct Metal Printing", value: "DMP" },
     { label: "Extrusion", value: "Extrusion" },
     { label: "MultiJet Printing", value: "MJP" },
+    { label: "Selective Laser Sintering", value: "SLS" },
+    { label: "Stereolithography", value: "SLA" },
   ];
-  const industryOptions = [
-    { label: "ColorJet Printing", value: "CJP" },
-    { label: "Direct Light Processing", value: "DLP" },
-    { label: "Direct Metal Printing", value: "DMP" },
-    { label: "Extrusion", value: "Extrusion" },
-    { label: "MultiJet Printing", value: "MJP" },
-  ];
-  const applicationOptions = [
-    { label: "ColorJet Printing", value: "CJP" },
-    { label: "Direct Light Processing", value: "DLP" },
-    { label: "Direct Metal Printing", value: "DMP" },
-    { label: "Extrusion", value: "Extrusion" },
-    { label: "MultiJet Printing", value: "MJP" },
-  ];
-  const materialTypeOptions = [
-    { label: "ABS", value: "Apple" },
-    { label: "Aleacion de aluminio", value: "Pear" },
-    { label: "Cromo-cobalto", value: "Orange" },
-  ];
-
-  function onPrinterCheckBoxChange(checkboxValue) {
-    setPrinterFilter(checkboxValue);
-  }
+  // const brandOptions = [
+  //   { label: "DMP Factory 350", value: "DMP Factory 350" },
+  //   { label: "DMP Factory 500 Solution", value: "DMP Factory 500 Solution" },
+  //   { label: "ProJet MJP 2500", value: "ProJet MJP 2500" },
+  //   { label: "ProJet MJP 2500 Plus", value: "ProJet MJP 2500 Plus" },
+  // ];
+  // const industryOptions = [
+  //   { label: "ColorJet Printing", value: "CJP" },
+  //   { label: "Direct Light Processing", value: "DLP" },
+  //   { label: "Direct Metal Printing", value: "DMP" },
+  // ];
 
   function onTechnologyCheckBoxChange(checkboxValue) {
     setTechnologyFilter(checkboxValue);
   }
 
-  function onIndustryCheckBoxChange(checkboxValue) {
-    setPrinterFilter([...printerFilter, checkboxValue]);
-  }
-
-  function onApplicationCheckBoxChange(checkboxValue) {
-    setPrinterFilter([...printerFilter, checkboxValue]);
-  }
-
-  function onMaterialTypeCheckBoxChange(checkboxValue) {
-    setPrinterFilter([...printerFilter, checkboxValue]);
-  }
+  const onSearchTextChanged = (dimension, onChangeEvent) => {
+    if (dimension == "X") {
+      setSearchFilterX(onChangeEvent.target.value);
+    } else if (dimension == "Y") {
+      setSearchFilterY(onChangeEvent.target.value);
+    } else {
+      setSearchFilterZ(onChangeEvent.target.value);
+    }
+  };
 
   return (
     <>
@@ -142,16 +147,7 @@ export default function Impresoras() {
             defaultActiveKey={["1"]}
             style={{ display: "flex", flexDirection: "column", gap: 10 }}
           >
-            <Panel header="Impresora" key="1">
-              <div>
-                <Checkbox.Group
-                  options={printerOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onPrinterCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Tecnologia" key="2">
+            <Panel header="Tecnologia" key="1">
               <div>
                 <Checkbox.Group
                   options={techOptions}
@@ -160,41 +156,60 @@ export default function Impresoras() {
                 />
               </div>
             </Panel>
-            <Panel header="Industria" key="3">
-              <div>
-                <Checkbox.Group
-                  options={industryOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onIndustryCheckBoxChange}
+            <Panel header="Volumen" key="2">
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <Input
+                  prefix="X (mm)"
+                  style={{ width: 200 }}
+                  onChange={(e) => onSearchTextChanged("X", e)}
                 />
-              </div>
-            </Panel>
-            <Panel header="Aplicacion" key="4">
-              <div>
-                <Checkbox.Group
-                  options={applicationOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onApplicationCheckBoxChange}
+                <Input
+                  prefix="Y (mm)"
+                  style={{ width: 200 }}
+                  onChange={(e) => onSearchTextChanged("Y", e)}
                 />
-              </div>
-            </Panel>
-            <Panel header="Tipo de material" key="5">
-              <div>
-                <Checkbox.Group
-                  options={materialTypeOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onMaterialTypeCheckBoxChange}
+                <Input
+                  prefix="Z (mm)"
+                  style={{ width: 200 }}
+                  onChange={(e) => onSearchTextChanged("Z", e)}
                 />
               </div>
             </Panel>
           </Collapse>
         </div>
-        <div className="table">
-          {data.map(printer => {
-            return (
-              <PrinterCard name={printer.name} description={printer.description} software={printer.software} price={printer.refPrice}/>
+        <div className="itemList" style={styles.itemList}>
+          {/* {(allFilterAreOff ? data : filteredData).map((printer) => {            
+            return(
+              <PrinterCard
+              name={printer.name}
+              description={printer.description}
+              software={printer.software}
+              price={printer.refPrice}
+              />
             )
-          })}
+          })} */}
+          <List
+            grid={{
+              gutter: 16,
+              xs: 1,
+              sm: 2,
+              md: 4,
+              lg: 4,
+              xl: 6,
+              xxl: 3,
+            }}
+            dataSource={allFilterAreOff ? data : filteredData}
+            renderItem={(printer) => (
+              <List.Item>
+                <PrinterCard
+                  name={printer.name}
+                  description={printer.description}
+                  software={printer.software}
+                  price={printer.refPrice}
+                />
+              </List.Item>
+            )}
+          />
         </div>
       </main>
       <Footer />
@@ -214,21 +229,23 @@ const styles = {
     alignItems: "flex-start",
     justifyContent: "space-between",
   },
-  table: {},
-  tableCell: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    textAlign: "Left",
-    fontSize: 14,
-  },
-  newsCardContainer: {
+  itemList: {
     display: "flex",
-    flexDirection: "row",
-    columnGap: 15,
+    flexWrap: "wrap",
+    gap: 20,
   },
   printerCardContent: {
-    padding: 25,
+    border: "1px solid #EEEEEE",
+    borderRadius: 8,
     width: 400,
+  },
+  printerCardImage: {
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    width: "100%",
+  },
+  printerCardInfoContent: {
+    padding: 25,
   },
   softPriceContainer: {},
 };
