@@ -12,7 +12,7 @@ export default function Automotriz() {
     <>
       <Header />
       <div style={styles.mainContainer}>
-        <Hero backgroundUrl={"https://picsum.photos/3000/600"} />
+        <Hero backgroundUrl={"https://picsum.photos/3000/600"} title='Hero title' message='Lorem ipsum'/>
         <div className={"applicationContent"} style={styles.applicationContent}>
           <Row>
             <Col
