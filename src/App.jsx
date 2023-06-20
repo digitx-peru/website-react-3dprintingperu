@@ -12,6 +12,8 @@ import Odontologia from "./Pages/Salud/Odontologia";
 import Impresoras from "./Pages/Productos/Impresoras";
 import Materiales from "./Pages/Productos/Materiales";
 
+import NoticiaUno from "./Pages/Noticias/NoticiaUno";
+
 export default function App() {
     return (
         <Routes>
@@ -25,7 +27,10 @@ export default function App() {
           <Route path="/salud/odontologia" element={<Odontologia />} />
 
           <Route path="/productos/impresoras" element={<Impresoras />} />
-          <Route path="/productos/materiales" element={<Materiales />} />  
+          <Route path="/productos/materiales" element={<Materiales />} />
+
+          <Route path="/noticias/noticiaUno" element={<NoticiaUno />} />
+          <Route path="/noticias/noticiaDos" element={<Materiales />} />
         </Routes>
     );
 };
