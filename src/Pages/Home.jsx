@@ -10,10 +10,10 @@ export default function Home() {
         <>
             <Header />
             <div style={styles.mainContainer}>
-                <Hero backgroundUrl={'https://picsum.photos/3000/600'} />
+                <Hero backgroundUrl={'https://picsum.photos/3000/600'} title='Hero header' message='Lorem ipsum'/>
                 <div style={styles.newsCardContainer}>
-                    <NewsCard />
-                    <NewsCard />
+                    <NewsCard redirectUrl='/noticias/noticiaUno' title='Newscard title' message='Lorem ipsum'/>
+                    <NewsCard redirectUrl='/noticias/noticiaUno' title='Newscard title 2' message='Lorem ipsum'/>
                 </div>
                 <ContactUs />
             </div>
@@ -34,5 +34,6 @@ const styles = {
         flexDirection: 'row',
         columnGap: 15,
         width: '60%',
+        justifyContent: 'space-between',
     },
 }
