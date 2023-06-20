@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
 
-import { Collapse, Checkbox, Table } from "antd";
+import { Collapse, Checkbox, Table, Input, Form } from "antd";
 
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
@@ -11,13 +11,13 @@ import db from "../../database.json";
 const { Panel } = Collapse;
 
 //Get Materials
-function getMaterialsFromDB() {
-  fetch('http://35.173.242.21:8000/materials/').then((response) => response.json());
-}
-
 // function getMaterialsFromDB() {
-//   return db.materials;
+//   fetch('http://35.173.242.21:8000/materials/').then((response) => response.json());
 // }
+
+function getMaterialsFromDB() {
+  return db.materials;
+}
 
 //Secondary Components
 const mainColumns = [
@@ -54,31 +54,35 @@ const ExpansionTable = ({ record }) => {
           <td>Density (g/cm³)</td>
           <td className="valueCell">{record["density_g/cm3"] ?? "-"}</td>
           <td className="leftPaddingCell">Impact Strength (J/m)</td>
-          <td className="valueCell">{record.impactStrength?.min ?? "-"}</td>
+          <td className="valueCell">{record.impactStrength?.min ? record.impactStrength?.min + " - " + record.impactStrength?.max : "-"}</td>
         </tr>
         <tr>
           <td>Tensile Strength</td>
-          <td className="valueCell">{record.tensileStrength?.min ?? "-"}</td>
+          <td className="valueCell">{record.tensileStrength?.min ? record.tensileStrength?.min + " - " + record.tensileStrength?.max : "-"}</td>
           <td className="leftPaddingCell">Tensile Modulus</td>
-          <td className="valueCell">{record.tensileModulus?.min ?? "-"}</td>
+          <td className="valueCell">{record.tensileModulus?.min ? record.tensileModulus?.min + " - " + record.tensileModulus?.max : "-"}</td>
         </tr>
         <tr>
           <td>Shore-D Hardness</td>
-          <td className="valueCell">{record.shoreDHardness?.min ?? "-"}</td>
+          <td className="valueCell">{record.shoreDHardness?.min ? record.shoreDHardness?.min + " - " + record.shoreDHardness?.max : "-"}</td>
           <td className="leftPaddingCell">Elongation At Break</td>
-          <td className="valueCell">{record.elongationAtBreak?.min ?? "-"}</td>
+          <td className="valueCell">{record.elongationAtBreak?.min ? record.elongationAtBreak?.min + " - " + record.elongationAtBreak?.max : "-"}</td>
         </tr>
         <tr>
           <td>Heat Distortion Temp @045mpa</td>
-          <td className="valueCell">{record.heatDistortionTemp045mpa?.min ?? "-"}</td>
+          <td className="valueCell">
+            { record.heatDistortionTemp045mpa?.min ? record.heatDistortionTemp045mpa?.min + " - " + record.heatDistortionTemp045mpa?.max : "-"}
+          </td>
           <td className="leftPaddingCell">Heat Distortion Temp @182mpa</td>
-          <td className="valueCell">{record.heatDistortionTemp182mpa?.min ?? "-"}</td>
+          <td className="valueCell">
+            {record.heatDistortionTemp182mpa?.min ? record.heatDistortionTemp182mpa?.min + " - " + record.heatDistortionTemp182mpa?.max : "-"}
+          </td>
         </tr>
         <tr>
           <td>Flexural Modulus</td>
-          <td className="valueCell">{record.flexuralModulus?.min ?? "-"}</td>
+          <td className="valueCell">{record.flexuralModulus?.min ? record.flexuralModulus?.min + " - " + record.flexuralModulus?.max : "-"}</td>
           <td className="leftPaddingCell">Flexural Strength</td>
-          <td className="valueCell">{record.flexuralStrength?.min ?? "-"}</td>
+          <td className="valueCell">{record.flexuralStrength?.min ? record.flexuralStrength?.min + " - " + record.flexuralStrength?.max : "-"}</td>
         </tr>
         <tr>
           <td>Water Absorption (24hrs)</td>
@@ -104,7 +108,12 @@ export default function Materiales() {
   //   getMaterialsFromDB()
   // );
 
-  const [searchFilter, setSearchFilter] = useState("");
+  const [propertyFilterTensileModulusMin, setPropertyFilterTensileModulusMin] =
+    useState("");
+  const [propertyFilterTensileModulusMax, setPropertyFilterTensileModulusMax] =
+    useState("");
+  const [searchFilterY, setSearchFilterY] = useState("");
+  const [searchFilterZ, setSearchFilterZ] = useState("");
   const [printerFilter, setPrinterFilter] = useState([]);
   const [technologyFilter, setTechnologyFilter] = useState([]);
   const [industryFilter, setIndustryFilter] = useState([]);
@@ -113,20 +122,59 @@ export default function Materiales() {
 
   //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
   const allFilterAreOff =
-    printerFilter.length === 0 && technologyFilter.length === 0;
+    printerFilter.length === 0 &&
+    technologyFilter.length === 0 &&
+    propertyFilterTensileModulusMin === "" &&
+    propertyFilterTensileModulusMax === "";
 
   const data = getMaterialsFromDB();
   const filteredData = data
-    // .filter((material) =>
-    //   material.printers.some((materialPrinter) =>
-    //     printerFilter.includes(materialPrinter)
-    //   )
-    // )
-    // .filter((material) =>
-    //   technologyFilter.length !== 0
-    //     ? technologyFilter.includes(material.technology)
-    //     : material
-    // );
+    .filter((material) => {
+      if (printerFilter.length !== 0) {
+        const result = material.printers.some((materialPrinter) =>
+          printerFilter.includes(materialPrinter)
+        );
+        return result;
+      }
+      return material;
+    })
+    .filter((material) =>
+      technologyFilter.length !== 0
+        ? technologyFilter.includes(material.technology)
+        : material
+    )
+    .filter((material) => {
+      return propertyFilterTensileModulusMin
+      ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >= material.tensileModulus.min && parseFloat(propertyFilterTensileModulusMin).toFixed(1) <= material.tensileModulus.max
+      : true;
+    })
+    .filter((material) => {
+      return propertyFilterTensileModulusMax
+      ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <= material.tensileModulus.max          
+      : true;
+    });
+  // .filter((material) => {
+  //   if (allFilterAreOff) {
+  //     return material;
+  //   } else if (propertyFilterTensileModulusMax == "") {
+  //     console.log('got here');
+  //     return material;
+  //   }
+  //   return propertyFilterTensileModulusMax
+  //     ?  parseFloat(propertyFilterTensileModulusMax).toFixed(1) <= material.tensileModulus.max
+  //     : true;
+  // }
+  // );
+  // .filter((material) =>
+  //   technologyFilter.length !== 0
+  //     ? technologyFilter.includes(material.technology)
+  //     : material
+  // )
+  // .filter((material) =>
+  //   technologyFilter.length !== 0
+  //     ? technologyFilter.includes(material.technology)
+  //     : material
+  // );
 
   const printerOptions = [
     { label: "DMP Factory 350", value: "DMP Factory 350" },
@@ -181,6 +229,15 @@ export default function Materiales() {
     setPrinterFilter([...printerFilter, checkboxValue]);
   }
 
+  const onPropertyFilterTextChanged = (property, minmax, onChangeEvent) => {
+    if (property == "tensileModulus" && minmax == "min") {
+      setPropertyFilterTensileModulusMin(onChangeEvent.target.value);
+    }
+    if (property == "tensileModulus" && minmax == "max") {
+      setPropertyFilterTensileModulusMax(onChangeEvent.target.value);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -233,6 +290,36 @@ export default function Materiales() {
                   style={{ display: "flex", flexDirection: "column" }}
                   onChange={onMaterialTypeCheckBoxChange}
                 />
+              </div>
+            </Panel>
+            <Panel header="Volumen" key="6">
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <Form name="basic">
+                  <Form.Item
+                    label="Tensile Modulus"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
+                  >
+                    <Input
+                      prefix="min"
+                      style={{ width: 225 }}
+                      onChange={(e) =>
+                        onPropertyFilterTextChanged("tensileModulus", "min", e)
+                      }
+                    />
+                    <Input
+                      prefix="max"
+                      style={{ width: 225 }}
+                      onChange={(e) =>
+                        onPropertyFilterTextChanged("tensileModulus", "max", e)
+                      }
+                    />
+                  </Form.Item>
+                </Form>
               </div>
             </Panel>
           </Collapse>

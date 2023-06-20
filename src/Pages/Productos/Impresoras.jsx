@@ -57,9 +57,9 @@ export default function Impresoras() {
   const [searchFilterY, setSearchFilterY] = useState("");
   const [searchFilterZ, setSearchFilterZ] = useState("");
   const [technologyFilter, setTechnologyFilter] = useState([]);
-  const [brandFilter, setBrandFilter] = useState([]);
-  const [applicationFilter, setApplicationFilter] = useState([]);
-  const [materialTypeFilter, setMaterialTypeFilter] = useState([]);
+  // const [brandFilter, setBrandFilter] = useState([]);
+  // const [applicationFilter, setApplicationFilter] = useState([]);
+  // const [materialTypeFilter, setMaterialTypeFilter] = useState([]);
 
   //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
   const allFilterAreOff =
@@ -129,9 +129,9 @@ export default function Impresoras() {
   }
 
   const onSearchTextChanged = (dimension, onChangeEvent) => {
-    if (dimension == "X") {
+    if (dimension === "X") {
       setSearchFilterX(onChangeEvent.target.value);
-    } else if (dimension == "Y") {
+    } else if (dimension ==="Y") {
       setSearchFilterY(onChangeEvent.target.value);
     } else {
       setSearchFilterZ(onChangeEvent.target.value);
