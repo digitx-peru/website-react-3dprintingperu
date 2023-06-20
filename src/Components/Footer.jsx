@@ -8,6 +8,7 @@ export default function Footer() {
       <div style={styles.footerContent}>
         <div style={styles.footerNav}>
           <div style={styles.footerNavColumn}>
+            <p style={{ color: "yellow" }}>Industrias</p>
             <Link style={styles.footerNavLink} to="/industrias/automotriz">
               Automotriz
             </Link>
@@ -22,24 +23,33 @@ export default function Footer() {
             </Link>
           </div>
           <div style={styles.footerNavColumn}>
+            <p style={{ color: "yellow" }}>Salud</p>
             <Link style={styles.footerNavLink} to="/salud/medicina">
-              Medicina
+              Dispositivos Médicos
             </Link>
             <Link style={styles.footerNavLink} to="/salud/odontologia">
-              Odontología
+              Bioprinting
             </Link>
           </div>
         </div>
         <div style={styles.footerSocial}>
-          <p>
+          <p style={{textAlign: 'center'}}>
             Siguenos para estar al tanto de las novedades en impresoras y
             materiales
           </p>
           <div style={styles.footerSocialIcons}>
-            <a target="_blank" href="https://www.facebook.com/3DPrintingPeru" rel="noreferrer">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/3DPrintingPeru"
+              rel="noreferrer"
+            >
               <FacebookFilled style={{ fontSize: 32 }} />
             </a>
-            <a target="_blank" href="https://www.linkedin.com/company/3dprintingperu/" rel="noreferrer">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/company/3dprintingperu/"
+              rel="noreferrer"
+            >
               <LinkedinFilled style={{ fontSize: 32 }} />
             </a>
           </div>
@@ -52,15 +62,14 @@ export default function Footer() {
 const styles = {
   footer: {
     display: "flex",
-    height: 240,
     backgroundColor: "#000000",
     alignItems: "center",
     border: "1px solid black",
     paddingRight: 100,
     paddingLeft: 100,
-    paddingTop: 30,
-    paddingBottom: 30,
-    marginTop: 20,
+    paddingTop: 50,
+    paddingBottom: 50,
+    marginTop: 25,
   },
   footerContent: {
     display: "flex",
@@ -72,6 +81,8 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     gap: 60,
+    borderLeft: "3px solid yellow",
+    paddingLeft: 30,
   },
   footerNavColumn: {
     display: "flex",
@@ -87,6 +98,8 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     color: "white",
+    width: 400,
+    gap: 15,
   },
   footerSocialIcons: {
     display: "flex",
