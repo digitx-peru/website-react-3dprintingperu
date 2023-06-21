@@ -54,8 +54,8 @@ footer a {
   background: transparent !important;
 }
 
-.materialDetailTable tbody tr:nth-child(odd){
-  background-color: #EEEEEE;
+.materialDetailTable tbody tr:nth-child(odd) {
+  background-color: #eeeeee;
 }
 
 .ant-checkbox-wrapper + .ant-checkbox-wrapper {
