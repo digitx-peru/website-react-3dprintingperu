@@ -1,27 +1,31 @@
 import { Button, Form, Input } from "antd";
-const { TextArea } = Input;
 
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+import emailHandler from "../utils/emailHandler";
 
 export default function ContactUs() {
+  const [form] = Form.useForm();
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <Form
+      form={form}
       name="contactUs"
       layout="vertical"
       style={styles.form}
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={(values) => {
+        emailHandler(values);
+        form.resetFields();
+      }}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <h2 style={{color: 'white'}}>Haz tu consulta</h2>
+      <h2 style={{ color: "white" }}>Haz tu consulta</h2>
       <div style={styles.formItemGroup}>
         <Form.Item
           label={<label style={{ color: "white" }}>Name</label>}
@@ -69,7 +73,7 @@ export default function ContactUs() {
 
         <Form.Item
           label={<label style={{ color: "white" }}>Company</label>}
-          name="company"
+          name="companyName"
           style={styles.formItem}
           rules={[
             {
@@ -84,9 +88,10 @@ export default function ContactUs() {
 
       <Form.Item
         label={<label style={{ color: "white" }}>Message</label>}
+        name="message"
         style={styles.formItem}
       >
-        <TextArea rows={4} />
+        <Input.TextArea rows={4} />
       </Form.Item>
 
       <Form.Item style={styles.formItem}>
@@ -100,6 +105,7 @@ export default function ContactUs() {
 
 const styles = {
   form: {
+    borderRadius: 8,
     display: "flex",
     flexDirection: "column",
     flexGrow: 1,
@@ -113,8 +119,8 @@ const styles = {
     paddingLeft: 50,
   },
   formItemGroup: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     gap: 30,
   },
   formItem: {

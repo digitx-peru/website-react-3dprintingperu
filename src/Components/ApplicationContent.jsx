@@ -1,5 +1,3 @@
-import { Button, Card } from "antd";
-
 export default function ApplicationContent({ width }) {
   return (
     <div style={{ ...styles.container, width: width }}>

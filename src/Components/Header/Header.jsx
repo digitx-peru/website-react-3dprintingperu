@@ -6,7 +6,7 @@ export default function Header() {
     <header style={styles.header}>
       <Link to="/">
         <img
-          src={require("../assets/icons/3dp_logo.png")}
+          src={require("../../assets/icons/3dp_logo.png")}
           style={styles.icon}
           alt=""
         />
@@ -30,6 +30,6 @@ const styles = {
   },
   icon: {
     height: 80,
-    objectFit: 'contain',
+    objectFit: "contain",
   },
 };

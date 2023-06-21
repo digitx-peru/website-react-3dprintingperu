@@ -1,6 +1,6 @@
 import { Col, Row, Card } from "antd";
 
-import Header from "../../Components/Header";
+import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
@@ -12,7 +12,11 @@ export default function Automotriz() {
     <>
       <Header />
       <div style={styles.mainContainer}>
-        <Hero backgroundUrl={"https://picsum.photos/3000/600"} title='Hero title' message='Lorem ipsum'/>
+        <Hero
+          backgroundUrl={"https://picsum.photos/3000/600"}
+          title="Hero title"
+          message="Lorem ipsum"
+        />
         <div className={"applicationContent"} style={styles.applicationContent}>
           <Row>
             <Col

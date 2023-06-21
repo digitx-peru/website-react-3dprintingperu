@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { Dropdown, Space } from "antd";
 
+////////////////////////// Dropdown list Items //////////////////////////
+
 const itemsIndustrias = [
   {
     key: "1",
@@ -71,6 +73,8 @@ const itemsServicios = [
   },
 ];
 
+////////////////////////// Main Component //////////////////////////
+
 export default function Navbar() {
   return (
     <nav style={styles.navbar}>
@@ -80,10 +84,8 @@ export default function Navbar() {
           items: itemsIndustrias,
         }}
       >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Industrias
-          </Space>
+        <a>
+          <Space>Industrias</Space>
         </a>
       </Dropdown>
 
@@ -93,9 +95,7 @@ export default function Navbar() {
         }}
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Salud
-          </Space>
+          <Space>Salud</Space>
         </a>
       </Dropdown>
 
@@ -105,9 +105,7 @@ export default function Navbar() {
         }}
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Productos
-          </Space>
+          <Space>Productos</Space>
         </a>
       </Dropdown>
 
@@ -118,9 +116,7 @@ export default function Navbar() {
         disabled
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            Servicios
-          </Space>
+          <Space>Servicios</Space>
         </a>
       </Dropdown>
     </nav>

@@ -1,13 +1,12 @@
 import { Button } from "antd";
 
-export default function Hero({backgroundUrl, title, message}) {
-
+export default function Hero({ backgroundUrl, title, message }) {
   return (
-    <section style={{...styles.hero, backgroundImage: `url(${backgroundUrl})`}}>
+    <section
+      style={{ ...styles.hero, backgroundImage: `url(${backgroundUrl})` }}
+    >
       <h1 style={{ fontSize: 64 }}>{title}</h1>
-      <p>
-        {message}
-      </p>
+      <p>{message}</p>
       <Button style={styles.heroButton}>Saber mas</Button>
     </section>
   );

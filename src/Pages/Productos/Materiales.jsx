@@ -1,125 +1,22 @@
-import { useQuery } from "react-query";
 import { useState } from "react";
 
-import { Collapse, Checkbox, Table, Input, Form } from "antd";
-
-import Header from "../../Components/Header";
+import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer";
+import MaterialListingTable from "../../Components/MaterialScreen/MaterialListingTable";
+import MaterialFilterPanel from "../../Components/MaterialScreen/MaterialFilterPanel/MaterialFilterPanel";
 
-import db from "../../database.json";
+import { getMaterialsFromDB } from "../../utils/dataHandler";
 
-const { Panel } = Collapse;
-
-//Get Materials
-// function getMaterialsFromDB() {
-//   fetch('http://35.173.242.21:8000/materials/').then((response) => response.json());
-// }
-
-function getMaterialsFromDB() {
-  return db.materials;
-}
-
-//Secondary Components
-const mainColumns = [
-  {
-    title: "Nombre",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Color",
-    dataIndex: "color",
-    key: "color",
-    width: 200,
-  },
-  {
-    title: "Descripcion",
-    dataIndex: "description",
-    key: "description",
-    width: 700,
-  },
-  {
-    title: "Ficha",
-    dataIndex: "brochureUrl",
-    key: "brochureUrl",
-    width: 200,
-  },
-];
-
-const ExpansionTable = ({ record }) => {
-  return (
-    <table className="materialDetailTable">
-      <tbody>
-        <tr>
-          <td>Density (g/cm³)</td>
-          <td className="valueCell">{record["density_g/cm3"] ?? "-"}</td>
-          <td className="leftPaddingCell">Impact Strength (J/m)</td>
-          <td className="valueCell">{record.impactStrength?.min ? record.impactStrength?.min + " - " + record.impactStrength?.max : "-"}</td>
-        </tr>
-        <tr>
-          <td>Tensile Strength</td>
-          <td className="valueCell">{record.tensileStrength?.min ? record.tensileStrength?.min + " - " + record.tensileStrength?.max : "-"}</td>
-          <td className="leftPaddingCell">Tensile Modulus</td>
-          <td className="valueCell">{record.tensileModulus?.min ? record.tensileModulus?.min + " - " + record.tensileModulus?.max : "-"}</td>
-        </tr>
-        <tr>
-          <td>Shore-D Hardness</td>
-          <td className="valueCell">{record.shoreDHardness?.min ? record.shoreDHardness?.min + " - " + record.shoreDHardness?.max : "-"}</td>
-          <td className="leftPaddingCell">Elongation At Break</td>
-          <td className="valueCell">{record.elongationAtBreak?.min ? record.elongationAtBreak?.min + " - " + record.elongationAtBreak?.max : "-"}</td>
-        </tr>
-        <tr>
-          <td>Heat Distortion Temp @045mpa</td>
-          <td className="valueCell">
-            { record.heatDistortionTemp045mpa?.min ? record.heatDistortionTemp045mpa?.min + " - " + record.heatDistortionTemp045mpa?.max : "-"}
-          </td>
-          <td className="leftPaddingCell">Heat Distortion Temp @182mpa</td>
-          <td className="valueCell">
-            {record.heatDistortionTemp182mpa?.min ? record.heatDistortionTemp182mpa?.min + " - " + record.heatDistortionTemp182mpa?.max : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Flexural Modulus</td>
-          <td className="valueCell">{record.flexuralModulus?.min ? record.flexuralModulus?.min + " - " + record.flexuralModulus?.max : "-"}</td>
-          <td className="leftPaddingCell">Flexural Strength</td>
-          <td className="valueCell">{record.flexuralStrength?.min ? record.flexuralStrength?.min + " - " + record.flexuralStrength?.max : "-"}</td>
-        </tr>
-        <tr>
-          <td>Water Absorption (24hrs)</td>
-          <td className="valueCell">{record.waterAbsorption_24hrs ?? "-"}</td>
-          <td className="leftPaddingCell">Composition</td>
-          <td className="valueCell">{record.composition ?? "-"}</td>
-        </tr>
-        <tr>
-          <td>UL Flammability</td>
-          <td className="valueCell">{record.ULFlammability ?? "-"}</td>
-          <td className="leftPaddingCell">Bottle Size (kg)</td>
-          <td className="valueCell">{record.bottleQuantity_kg ?? "-"}</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
-//Main component
 export default function Materiales() {
-  // const { isLoading, data } = useQuery(
-  //   "fetchMaterials",
-  //   getMaterialsFromDB()
-  // );
-
+  //States
   const [propertyFilterTensileModulusMin, setPropertyFilterTensileModulusMin] =
     useState("");
   const [propertyFilterTensileModulusMax, setPropertyFilterTensileModulusMax] =
     useState("");
-  const [searchFilterY, setSearchFilterY] = useState("");
-  const [searchFilterZ, setSearchFilterZ] = useState("");
   const [printerFilter, setPrinterFilter] = useState([]);
   const [technologyFilter, setTechnologyFilter] = useState([]);
-  const [industryFilter, setIndustryFilter] = useState([]);
-  const [applicationFilter, setApplicationFilter] = useState([]);
-  const [materialTypeFilter, setMaterialTypeFilter] = useState([]);
 
+  //Data Handling
   //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
   const allFilterAreOff =
     printerFilter.length === 0 &&
@@ -145,95 +42,45 @@ export default function Materiales() {
     )
     .filter((material) => {
       return propertyFilterTensileModulusMin
-      ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >= material.tensileModulus.min && parseFloat(propertyFilterTensileModulusMin).toFixed(1) <= material.tensileModulus.max
-      : true;
+        ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
+            material.tensileModulus.min &&
+            parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
+              material.tensileModulus.max
+        : true;
     })
     .filter((material) => {
       return propertyFilterTensileModulusMax
-      ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <= material.tensileModulus.max          
-      : true;
+        ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
+            material.tensileModulus.max
+        : true;
     });
-  // .filter((material) => {
-  //   if (allFilterAreOff) {
-  //     return material;
-  //   } else if (propertyFilterTensileModulusMax == "") {
-  //     console.log('got here');
-  //     return material;
-  //   }
-  //   return propertyFilterTensileModulusMax
-  //     ?  parseFloat(propertyFilterTensileModulusMax).toFixed(1) <= material.tensileModulus.max
-  //     : true;
-  // }
-  // );
-  // .filter((material) =>
-  //   technologyFilter.length !== 0
-  //     ? technologyFilter.includes(material.technology)
-  //     : material
-  // )
-  // .filter((material) =>
-  //   technologyFilter.length !== 0
-  //     ? technologyFilter.includes(material.technology)
-  //     : material
-  // );
 
-  const printerOptions = [
-    { label: "DMP Factory 350", value: "DMP Factory 350" },
-    { label: "DMP Factory 500 Solution", value: "DMP Factory 500 Solution" },
-    { label: "ProJet MJP 2500", value: "ProJet MJP 2500" },
-    { label: "ProJet MJP 2500 Plus", value: "ProJet MJP 2500 Plus" },
-  ];
-  const techOptions = [
-    { label: "ColorJet Printing", value: "CJP" },
-    { label: "Direct Light Processing", value: "DLP" },
-    { label: "Direct Metal Printing", value: "DMP" },
-    { label: "Extrusion", value: "Extrusion" },
-    { label: "MultiJet Printing", value: "MJP" },
-  ];
-  const industryOptions = [
-    { label: "ColorJet Printing", value: "CJP" },
-    { label: "Direct Light Processing", value: "DLP" },
-    { label: "Direct Metal Printing", value: "DMP" },
-    { label: "Extrusion", value: "Extrusion" },
-    { label: "MultiJet Printing", value: "MJP" },
-  ];
-  const applicationOptions = [
-    { label: "ColorJet Printing", value: "CJP" },
-    { label: "Direct Light Processing", value: "DLP" },
-    { label: "Direct Metal Printing", value: "DMP" },
-    { label: "Extrusion", value: "Extrusion" },
-    { label: "MultiJet Printing", value: "MJP" },
-  ];
-  const materialTypeOptions = [
-    { label: "ABS", value: "Apple" },
-    { label: "Aleacion de aluminio", value: "Pear" },
-    { label: "Cromo-cobalto", value: "Orange" },
-  ];
-
-  function onPrinterCheckBoxChange(checkboxValue) {
+  //Event Handlers
+  const onPrinterCheckBoxChange = (checkboxValue) => {
     setPrinterFilter(checkboxValue);
-  }
+  };
 
-  function onTechnologyCheckBoxChange(checkboxValue) {
+  const onTechnologyCheckBoxChange = (checkboxValue) => {
     setTechnologyFilter(checkboxValue);
-  }
+  };
 
-  function onIndustryCheckBoxChange(checkboxValue) {
+  const onIndustryCheckBoxChange = (checkboxValue) => {
     setPrinterFilter([...printerFilter, checkboxValue]);
-  }
+  };
 
-  function onApplicationCheckBoxChange(checkboxValue) {
+  const onApplicationCheckBoxChange = (checkboxValue) => {
     setPrinterFilter([...printerFilter, checkboxValue]);
-  }
+  };
 
-  function onMaterialTypeCheckBoxChange(checkboxValue) {
+  const onMaterialTypeCheckBoxChange = (checkboxValue) => {
     setPrinterFilter([...printerFilter, checkboxValue]);
-  }
+  };
 
   const onPropertyFilterTextChanged = (property, minmax, onChangeEvent) => {
-    if (property == "tensileModulus" && minmax == "min") {
+    if (property === "tensileModulus" && minmax === "min") {
       setPropertyFilterTensileModulusMin(onChangeEvent.target.value);
     }
-    if (property == "tensileModulus" && minmax == "max") {
+    if (property === "tensileModulus" && minmax === "max") {
       setPropertyFilterTensileModulusMax(onChangeEvent.target.value);
     }
   };
@@ -243,95 +90,17 @@ export default function Materiales() {
       <Header />
       <main style={styles.mainContainer}>
         <div className="filters" style={{ minWidth: 250 }}>
-          <Collapse
-            defaultActiveKey={["1"]}
-            style={{ display: "flex", flexDirection: "column", gap: 10 }}
-          >
-            <Panel header="Impresora" key="1">
-              <div>
-                <Checkbox.Group
-                  options={printerOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onPrinterCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Tecnologia" key="2">
-              <div>
-                <Checkbox.Group
-                  options={techOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onTechnologyCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Industria" key="3">
-              <div>
-                <Checkbox.Group
-                  options={industryOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onIndustryCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Aplicacion" key="4">
-              <div>
-                <Checkbox.Group
-                  options={applicationOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onApplicationCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Tipo de material" key="5">
-              <div>
-                <Checkbox.Group
-                  options={materialTypeOptions}
-                  style={{ display: "flex", flexDirection: "column" }}
-                  onChange={onMaterialTypeCheckBoxChange}
-                />
-              </div>
-            </Panel>
-            <Panel header="Volumen" key="6">
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <Form name="basic">
-                  <Form.Item
-                    label="Tensile Modulus"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your username!",
-                      },
-                    ]}
-                  >
-                    <Input
-                      prefix="min"
-                      style={{ width: 225 }}
-                      onChange={(e) =>
-                        onPropertyFilterTextChanged("tensileModulus", "min", e)
-                      }
-                    />
-                    <Input
-                      prefix="max"
-                      style={{ width: 225 }}
-                      onChange={(e) =>
-                        onPropertyFilterTextChanged("tensileModulus", "max", e)
-                      }
-                    />
-                  </Form.Item>
-                </Form>
-              </div>
-            </Panel>
-          </Collapse>
+          <MaterialFilterPanel
+            printerCheckBoxChange={onPrinterCheckBoxChange}
+            technologyCheckBoxChange={onTechnologyCheckBoxChange}
+            applicationCheckBoxChange={onApplicationCheckBoxChange}
+            industryCheckBoxChange={onIndustryCheckBoxChange}
+            materialTypeCheckBoxChange={onMaterialTypeCheckBoxChange}
+            propertyFilterTextChanged={onPropertyFilterTextChanged}
+          />
         </div>
         <div className="table" style={{ flexGrow: 1 }}>
-          <Table
-            columns={mainColumns}
-            expandable={{
-              expandedRowRender: (record) => <ExpansionTable record={record} />,
-            }}
-            dataSource={allFilterAreOff ? data : filteredData}
-          />
+          <MaterialListingTable data={allFilterAreOff ? data : filteredData} />
         </div>
       </main>
       <Footer />
@@ -350,17 +119,5 @@ const styles = {
     minHeight: 890,
     alignItems: "flex-start",
     justifyContent: "space-between",
-  },
-  table: {},
-  tableCell: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    textAlign: "Left",
-    fontSize: 14,
-  },
-  newsCardContainer: {
-    display: "flex",
-    flexDirection: "row",
-    columnGap: 15,
   },
 };

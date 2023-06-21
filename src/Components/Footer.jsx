@@ -7,6 +7,7 @@ export default function Footer() {
     <footer style={styles.footer}>
       <div style={styles.footerContent}>
         <div style={styles.footerNav}>
+          {/* Footer Navigation Links */}
           <div style={styles.footerNavColumn}>
             <p style={{ color: "yellow" }}>Industrias</p>
             <Link style={styles.footerNavLink} to="/industrias/automotriz">
@@ -32,8 +33,9 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+        {/* Footer Social Media Links */}
         <div style={styles.footerSocial}>
-          <p style={{textAlign: 'center'}}>
+          <p style={{ textAlign: "center" }}>
             Siguenos para estar al tanto de las novedades en impresoras y
             materiales
           </p>
