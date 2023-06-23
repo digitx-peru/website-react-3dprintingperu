@@ -4,7 +4,7 @@ export default function useMediaQuery(maxWidth) {
   //width State
   const [widthState, setWidthState] = useState({
     windowWidth: window.innerWidth,
-    isDesiredWidth: false,
+    isDesiredWidth: window.innerWidth < maxWidth ? true : false,
   });
 
   useEffect(() => {
