@@ -35,12 +35,11 @@ export default function NavMenu() {
         open={isModalOpen}
         style={{ padding: 20 }}
         centered
-        onOk={handleOk}
         onCancel={handleCancel}
         closeIcon={<CloseOutlined style={{ fontSize: '24px' }}/>}
         footer={
             <div style={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', padding: '10px 20px' }}>
-              <Button key="ok" type="primary" style={{height: 40}}>OK</Button>
+              <Button key="ok" type="primary" style={{height: 40}} onClick={handleOk}>OK</Button>
             </div>
           }
       >

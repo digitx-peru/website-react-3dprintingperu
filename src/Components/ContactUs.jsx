@@ -1,12 +1,38 @@
 import { Button, Form, Input } from "antd";
 
 import emailHandler from "../utils/emailHandler";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 export default function ContactUs() {
+  const isDevice = useMediaQuery(768);
   const [form] = Form.useForm();
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
+  };
+
+  const styles = {
+    form: {
+      borderRadius: 8,
+      display: "flex",
+      flexDirection: "column",
+      flexGrow: 1,
+      gap: 30,
+      alignItems: "stretch",
+      alignSelf: isDevice ? "stretch" : "initial",
+      backgroundColor: "#323232",
+      margin: isDevice ? "0 30px" : 0,
+      padding: "20px 50px",
+    },
+    formItemGroup: {
+      display: "flex",
+      flexDirection: isDevice ? "column" : "row",
+      gap: 30,
+    },
+    formItem: {
+      marginBottom: 0,
+      flexGrow: 1,
+    },
   };
 
   return (
@@ -102,29 +128,3 @@ export default function ContactUs() {
     </Form>
   );
 }
-
-const styles = {
-  form: {
-    borderRadius: 8,
-    display: "flex",
-    flexDirection: "column",
-    flexGrow: 1,
-    gap: 30,
-    width: "60%",
-    alignItems: "stretch",
-    backgroundColor: "#323232",
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingRight: 50,
-    paddingLeft: 50,
-  },
-  formItemGroup: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 30,
-  },
-  formItem: {
-    marginBottom: 0,
-    flexGrow: 1,
-  },
-};
