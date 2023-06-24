@@ -2,14 +2,68 @@ import { Link } from "react-router-dom";
 
 import { FacebookFilled, LinkedinFilled } from "@ant-design/icons";
 
+import useMediaQuery from "../hooks/useMediaQuery";
+
 export default function Footer() {
+  // const isMobile = useMediaQuery(480);
+  const isDevice = useMediaQuery(768);
+
+  const styles = {
+    footer: {
+      display: "flex",
+      backgroundColor: "#000000",
+      alignItems: "center",
+      border: "1px solid black",
+      padding: isDevice ? "50px 30px" : "50px 100px",
+      marginTop: 25,
+    },
+    footerContent: {
+      display: "flex",
+      flexDirection: isDevice ? "column" : "row",
+      alignItems: isDevice ? "center" : "innitial",
+      gap: isDevice ? "75px" : 0,
+      flexGrow: 1,
+      justifyContent: "space-between",
+    },
+    footerNav: {
+      display: "flex",
+      flexDirection: "row",
+      gap: isDevice ? "100px" : "60px",
+      justifyContent: isDevice ? "space-between" : "innitial",
+      borderLeft: "3px solid yellow",
+      paddingLeft: 30,
+    },
+    footerNavColumn: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 30,
+    },
+    footerNavLink: {
+      textDecoration: "none",
+      color: "white",
+    },
+    footerSocial: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      color: "white",
+      width: 400,
+      gap: 15,
+    },
+    footerSocialIcons: {
+      display: "flex",
+      flexDirection: "row",
+      gap: 32,
+    },
+  };
+
   return (
     <footer style={styles.footer}>
-      <div style={styles.footerContent}>
+      <div className="footerContent" style={styles.footerContent}>
         <div style={styles.footerNav}>
           {/* Footer Navigation Links */}
           <div style={styles.footerNavColumn}>
-            <p style={{ color: "yellow" }}>Industrias</p>
+            <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>Industrias</h4>
             <Link style={styles.footerNavLink} to="/industrias/automotriz">
               Automotriz
             </Link>
@@ -24,7 +78,7 @@ export default function Footer() {
             </Link>
           </div>
           <div style={styles.footerNavColumn}>
-            <p style={{ color: "yellow" }}>Salud</p>
+            <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>Salud</h4>
             <Link style={styles.footerNavLink} to="/salud/medicina">
               Dispositivos Médicos
             </Link>
@@ -37,7 +91,7 @@ export default function Footer() {
         <div style={styles.footerSocial}>
           <p style={{ textAlign: "center" }}>
             Siguenos para estar al tanto de las novedades en impresoras y
-            materiales
+            materiales.
           </p>
           <div style={styles.footerSocialIcons}>
             <a
@@ -60,52 +114,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-const styles = {
-  footer: {
-    display: "flex",
-    backgroundColor: "#000000",
-    alignItems: "center",
-    border: "1px solid black",
-    paddingRight: 100,
-    paddingLeft: 100,
-    paddingTop: 50,
-    paddingBottom: 50,
-    marginTop: 25,
-  },
-  footerContent: {
-    display: "flex",
-    flexDirection: "row",
-    flexGrow: 1,
-    justifyContent: "space-between",
-  },
-  footerNav: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 60,
-    borderLeft: "3px solid yellow",
-    paddingLeft: 30,
-  },
-  footerNavColumn: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 30,
-  },
-  footerNavLink: {
-    textDecoration: "none",
-    color: "white",
-  },
-  footerSocial: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    color: "white",
-    width: 400,
-    gap: 15,
-  },
-  footerSocialIcons: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 32,
-  },
-};
