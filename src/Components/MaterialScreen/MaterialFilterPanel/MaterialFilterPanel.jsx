@@ -66,7 +66,7 @@ export default function MaterialFilterPanel({
           />
         </div>
       </Collapse.Panel>
-      {/* <Collapse.Panel header="Volumen" key="6">
+      <Collapse.Panel header="Volumen" key="6">
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Form name="basic">
             <Form.Item label="Tensile Modulus" layout="vertical">
@@ -87,7 +87,7 @@ export default function MaterialFilterPanel({
             </Form.Item>
           </Form>
         </div>
-      </Collapse.Panel> */}
+      </Collapse.Panel>
     </Collapse>
   );
 }

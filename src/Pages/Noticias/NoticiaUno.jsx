@@ -2,8 +2,27 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer";
 import Hero from "../../Components/Hero";
 import ApplicationContent from "../../Components/ApplicationContent";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 export default function Automotriz() {
+  const isDevice = useMediaQuery(768);
+
+  const styles = {
+    mainContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 50,
+      alignItems: "center",
+    },
+    applicationContent: {
+      display: "flex",
+      justifyContent: "center",
+      columnGap: 100,
+      paddingLeft: 100,
+      paddingRight: 100,
+    },
+  };
+
   return (
     <>
       <Header />
@@ -21,19 +40,3 @@ export default function Automotriz() {
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 50,
-    alignItems: "center",
-  },
-  applicationContent: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: 100,
-    paddingLeft: 100,
-    paddingRight: 100,
-  },
-};

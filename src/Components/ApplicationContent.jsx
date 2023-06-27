@@ -1,11 +1,36 @@
+import useMediaQuery from "../hooks/useMediaQuery";
+
 export default function ApplicationContent({ width }) {
+  const isDevice = useMediaQuery(768);
+
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      padding: isDevice ? "30px" : "50px",
+      textAlign: "justify",
+      rowGap: 40,
+    },
+    imageRight: {
+      float: "right",
+      marginLeft: 20,
+    },
+    imageLeft: {
+      float: "left",
+      marginRight: 20,
+    },
+    imageCenter: {
+      alignSelf: "stretch"
+    }
+  };
+
   return (
     <div style={{ ...styles.container, width: width }}>
-      <div >
+      <div>
         <img
           src="https://picsum.photos/400/300"
           alt=""
-          style={styles.imageRight}
+          style={!isDevice ? styles.imageRight : styles.imageCenter}
         />
         <h3>The Challenge</h3>
         <p>
@@ -52,11 +77,11 @@ export default function ApplicationContent({ width }) {
           donec ultrices tincidunt arcu non sodales neque sodales.
         </p>
       </div>
-      <div >
+      <div>
         <img
           src="https://picsum.photos/400/300"
           alt=""
-          style={styles.imageLeft}
+          style={!isDevice ? styles.imageRight : styles.imageCenter}
         />
         <h3>The Challenge</h3>
         <p>
@@ -106,21 +131,3 @@ export default function ApplicationContent({ width }) {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: 50,
-    textAlign: "left",
-    rowGap: 40,
-  },
-  imageRight: {
-    float: 'right',
-    marginLeft: 20,
-  },
-  imageLeft: {
-    float: "left",
-    marginRight: 20, 
-  }
-};
