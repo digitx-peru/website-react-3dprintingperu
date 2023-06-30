@@ -3,7 +3,7 @@ import { useState } from "react";
 import { List } from "antd";
 
 import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer/Footer";
 import PrinterFilterPanel from "../../Components/PrinterScreen/PrinterFilterPanel/PrinterFilterPanel";
 import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 

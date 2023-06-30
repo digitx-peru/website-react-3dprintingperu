@@ -21,7 +21,7 @@ export default function ContactUs() {
       alignItems: "stretch",
       alignSelf: isDevice ? "stretch" : "initial",
       backgroundColor: "#323232",
-      margin: isDevice ? "0 30px" : 0,
+      margin: isDevice ? "0 15px" : 0,
       padding: "20px 50px",
     },
     formItemGroup: {

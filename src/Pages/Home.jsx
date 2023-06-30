@@ -1,5 +1,5 @@
 import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer/Footer";
 import NewsCard from "../Components/NewsCard";
 import Hero from "../Components/Hero";
 import ContactUs from "../Components/ContactUs";
@@ -20,7 +20,7 @@ export default function Home() {
       flexDirection: isDevice ? "column" : "row",
       gap: 15,
       justifyContent: "space-between",
-      padding: 30,
+      padding: 15,
     },
   };
 

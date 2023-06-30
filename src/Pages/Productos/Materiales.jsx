@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer/Footer";
 import MaterialListingTable from "../../Components/MaterialScreen/MaterialListingTable";
 import MaterialFilterPanel from "../../Components/MaterialScreen/MaterialFilterPanel/MaterialFilterPanel";
 

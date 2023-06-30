@@ -1,5 +1,5 @@
 import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ApplicationContent from "../../Components/ApplicationContent";
 import useMediaQuery from "../../hooks/useMediaQuery";
