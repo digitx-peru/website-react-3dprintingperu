@@ -7,9 +7,9 @@ export default function ApplicationContent({ width }) {
     container: {
       display: "flex",
       flexDirection: "column",
-      padding: isDevice ? "30px" : "50px",
       textAlign: "justify",
       rowGap: 40,
+      width: width,
     },
     imageRight: {
       float: "right",
@@ -20,17 +20,20 @@ export default function ApplicationContent({ width }) {
       marginRight: 20,
     },
     imageCenter: {
-      alignSelf: "stretch"
-    }
+      width: "100%",
+    },
   };
 
   return (
-    <div style={{ ...styles.container, width: width }}>
-      <div>
+    <div
+      className="textContainer"
+      style={styles.container}
+    >
+      <div className="imageTextWrapper">
         <img
           src="https://picsum.photos/400/300"
           alt=""
-          style={!isDevice ? styles.imageRight : styles.imageCenter}
+          style={isDevice ? styles.imageCenter : styles.imageRight}
         />
         <h3>The Challenge</h3>
         <p>
@@ -77,7 +80,7 @@ export default function ApplicationContent({ width }) {
           donec ultrices tincidunt arcu non sodales neque sodales.
         </p>
       </div>
-      <div>
+      <div className="imageTextWrapper">
         <img
           src="https://picsum.photos/400/300"
           alt=""

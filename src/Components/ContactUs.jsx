@@ -22,7 +22,7 @@ export default function ContactUs() {
       alignSelf: isDevice ? "stretch" : "initial",
       backgroundColor: "#323232",
       margin: isDevice ? "0 15px" : 0,
-      padding: "20px 50px",
+      padding: "20px 15px",
     },
     formItemGroup: {
       display: "flex",

@@ -1,0 +1,1 @@
+export const genericContentHorizontalPaddingDevice = "15px"

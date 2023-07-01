@@ -1,10 +1,15 @@
+import { Col, Row } from "antd";
+
+import useMediaQuery from "../../hooks/useMediaQuery";
+
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
+import ContactUs from "../../Components/ContactUs";
 import ApplicationContent from "../../Components/ApplicationContent";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
-export default function Automotriz() {
+export default function NoticiaUno() {
   const isDevice = useMediaQuery(768);
 
   const styles = {
