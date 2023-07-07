@@ -85,7 +85,7 @@ export default function Navbar() {
         }}
       >
         <a>
-          <Space>Industrias</Space>
+          <Space style={styles.dropDownText}>Industrias</Space>
         </a>
       </Dropdown>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
         }}
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>Salud</Space>
+          <Space style={styles.dropDownText}>Salud</Space>
         </a>
       </Dropdown>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
         }}
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>Productos</Space>
+          <Space style={styles.dropDownText}>Productos</Space>
         </a>
       </Dropdown>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
         disabled
       >
         <a onClick={(e) => e.preventDefault()}>
-          <Space>Servicios</Space>
+          <Space style={styles.dropDownText}>Servicios</Space>
         </a>
       </Dropdown>
     </nav>
@@ -129,4 +129,7 @@ const styles = {
     flexDirection: "row",
     columnGap: 50,
   },
+  dropDownText: {
+    fontSize: 18
+  }
 };
