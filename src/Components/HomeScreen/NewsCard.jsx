@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 export default function NewsCard({ redirectUrl, title, message }) {
   const isDevice = useMediaQuery(768);

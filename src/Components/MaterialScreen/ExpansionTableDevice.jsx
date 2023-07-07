@@ -1,11 +1,13 @@
-export default function ExpansionTable({ record }) {
+export default function ExpansionTableDevice({ record }) {
   return (
     <table className="materialDetailTable">
       <tbody>
         <tr>
           <td>Density (g/cm³)</td>
           <td className="valueCell">{record["density_g/cm3"].value ?? "-"}</td>
-          <td className="leftPaddingCell">Impact Strength (J/m)</td>
+        </tr>
+        <tr>
+          <td>Impact Strength (J/m)</td>
           <td className="valueCell">
             {record.impactStrength?.min
               ? record.impactStrength?.min + " - " + record.impactStrength?.max
@@ -21,7 +23,9 @@ export default function ExpansionTable({ record }) {
                 record.tensileStrength?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Tensile Modulus (mpa)</td>
+        </tr>
+        <tr>
+          <td>Tensile Modulus (mpa)</td>
           <td className="valueCell">
             {record.tensileModulus?.min
               ? record.tensileModulus?.min + " - " + record.tensileModulus?.max
@@ -35,7 +39,9 @@ export default function ExpansionTable({ record }) {
               ? record.shoreDHardness?.min + " - " + record.shoreDHardness?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Elongation At Break (%)</td>
+        </tr>
+        <tr>
+          <td>Elongation At Break (%)</td>
           <td className="valueCell">
             {record.elongationAtBreak?.min
               ? record.elongationAtBreak?.min +
@@ -53,7 +59,9 @@ export default function ExpansionTable({ record }) {
                 record.heatDistortionTemp045mpa?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Heat Distortion Temp @182mpa (°C)</td>
+        </tr>
+        <tr>
+          <td>Heat Distortion Temp @182mpa (°C)</td>
           <td className="valueCell">
             {record.heatDistortionTemp182mpa?.min
               ? record.heatDistortionTemp182mpa?.min +
@@ -71,14 +79,14 @@ export default function ExpansionTable({ record }) {
                 record.flexuralModulus?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Flexural Strength (mpa)</td>
+        </tr>
+        <tr>
+          <td>Flexural Strength (mpa)</td>
           <td className="valueCell">
             {record.flexuralStrength?.min
               ? record.flexuralStrength?.min +
                 " - " +
-                record.flexuralStrength?.max +
-                " " +
-                record.flexuralStrength?.unit
+                record.flexuralStrength?.max
               : "-"}
           </td>
         </tr>
@@ -87,13 +95,17 @@ export default function ExpansionTable({ record }) {
           <td className="valueCell">
             {record.waterAbsorption_24hrs.value ?? "-"}
           </td>
-          <td className="leftPaddingCell">Composition</td>
+        </tr>
+        <tr>
+          <td>Composition</td>
           <td className="valueCell">{record.composition ?? "-"}</td>
         </tr>
         <tr>
           <td>UL Flammability</td>
           <td className="valueCell">{record.ULFlammability.value ?? "-"}</td>
-          <td className="leftPaddingCell">Bottle Size (kg)</td>
+        </tr>
+        <tr>
+          <td>Bottle Size (kg)</td>
           <td className="valueCell">{record.format.quantity ?? "-"}</td>
         </tr>
       </tbody>

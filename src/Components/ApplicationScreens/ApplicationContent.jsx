@@ -1,4 +1,4 @@
-import useMediaQuery from "../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 export default function ApplicationContent({ width }) {
   const isDevice = useMediaQuery(768);

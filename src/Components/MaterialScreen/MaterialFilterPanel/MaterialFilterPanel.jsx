@@ -18,6 +18,7 @@ export default function MaterialFilterPanel({
 }) {
   return (
     <Collapse
+      className="filterMaterialPanel"
       defaultActiveKey={["1"]}
       style={{ display: "flex", flexDirection: "column", gap: 10 }}
     >
