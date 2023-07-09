@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useQuery } from "react-query";
 
-import { List } from "antd";
+import { Pagination } from "antd";
+
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -9,49 +12,103 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 
 import { getPrintersFromDB } from "../../utils/dataHandler";
 
+import {
+  smallScreenSize,
+  mediumScreenSize,
+} from "../../style/screenSizes";
+
 export default function Impresoras() {
   //State
   const [searchFilterX, setSearchFilterX] = useState("");
   const [searchFilterY, setSearchFilterY] = useState("");
   const [searchFilterZ, setSearchFilterZ] = useState("");
   const [technologyFilter, setTechnologyFilter] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  //Data Handling
-  //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
-  const allFilterAreOff =
-    technologyFilter.length === 0 &&
-    searchFilterX === "" &&
-    searchFilterY === "" &&
-    searchFilterZ === "";
+  //Screenwidth breakpoints
+  const isSmallScreenSize = useMediaQuery(smallScreenSize);
+  const isMediumScreenSize = useMediaQuery(mediumScreenSize);
 
-  const data = getPrintersFromDB();
-  const filteredData = data
-    .filter((printer) => technologyFilter.includes(printer.technology))
-    .filter((printer) => {
-      if (allFilterAreOff) {
-        return printer;
-      }
-      console.log(parseFloat(searchFilterX).toFixed(1));
-      return searchFilterX
-        ? printer.builVolume_mm.x >= parseFloat(searchFilterX).toFixed(1)
-        : true;
-    })
-    .filter((printer) => {
-      if (allFilterAreOff) {
-        return printer;
-      }
-      return searchFilterY
-        ? printer.builVolume_mm.y >= parseFloat(searchFilterY).toFixed(1)
-        : true;
-    })
-    .filter((printer) => {
-      if (allFilterAreOff) {
-        return printer;
-      }
-      return searchFilterZ
-        ? printer.builVolume_mm.z >= parseFloat(searchFilterZ).toFixed(1)
-        : true;
-    });
+  //Esto marca el punto en el que pasa de tener un layout columna a fila
+  const isColumnLayoutWidth = useMediaQuery(1024)
+
+  //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
+  const is1280 = useMediaQuery(1280)
+  const is1580 = useMediaQuery(1580)
+
+  //Data fetching
+  const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
+    select: (printerData) => {
+      return (
+        printerData.printers
+          //Search filter
+          .filter((printer) => {
+            return technologyFilter.length === 0
+              ? printer
+              : technologyFilter.includes(printer.technology) && printer;
+          })
+          .filter((printer) => {
+            return searchFilterX === ""
+              ? printer
+              : searchFilterX
+              ? printer.builVolume.x <= parseFloat(searchFilterX).toFixed(1)
+              : false;
+          })
+          .filter((printer) => {
+            return searchFilterY === ""
+              ? printer
+              : searchFilterY
+              ? printer.builVolume.y <= parseFloat(searchFilterY).toFixed(1)
+              : false;
+          })
+          .filter((printer) => {
+            return searchFilterZ === ""
+              ? printer
+              : searchFilterZ
+              ? printer.builVolume.z <= parseFloat(searchFilterZ).toFixed(1)
+              : false;
+          })
+      );
+    },
+  });
+
+  //Pagination
+  const itemsPerPage = 8;
+  // const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  //Styling
+  const styles = {
+    mainContainer: {
+      display: "flex",
+      flexDirection: isColumnLayoutWidth ? "column" : "row",
+      // gap: isMediumScreen ? "20px" : "200px",
+      padding: is1280 ? "15px" : "50px 50px",
+      minHeight: isColumnLayoutWidth ? "auto" : "890px",
+      alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
+      justifyContent: "space-between",
+    },
+    itemListContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 40,
+    },
+    itemListColumn: {
+      display: "flex",
+      flexDirection: "column",
+      flexWrap: isColumnLayoutWidth ? "nowrap" : "wrap",
+      padding: "0 15px",
+      gap: 20,
+    },
+    itemListGrid: {
+      display: "grid",
+      gridTemplateColumns:  isColumnLayoutWidth ? "1fr 1fr" : is1280 ? "1fr 1fr" : is1580 ? "1fr 1fr 1fr" : "1fr 1fr 1fr 1fr",
+      gridGap: "10px",
+    },
+    paginationContainer: {
+      display: "flex",
+      justifyContent: "flex-start",
+    },
+  };
 
   //Event Handlers
   function onTechnologyCheckBoxChange(checkboxValue) {
@@ -68,6 +125,14 @@ export default function Impresoras() {
     }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  // const itemsForCurrentPage = data.slice(startIndex, endIndex);
+
   return (
     <>
       <Header />
@@ -78,62 +143,40 @@ export default function Impresoras() {
             searchTextChanged={onSearchTextChanged}
           />
         </div>
-        <div className="itemList" style={styles.itemList}>
-          {/* {(allFilterAreOff ? data : filteredData).map((printer) => {            
-            return(
-              <PrinterCard
-              name={printer.name}
-              description={printer.description}
-              software={printer.software}
-              price={printer.refPrice}
-              />
-            )
-          })} */}
-          <List
-            grid={{
-              gutter: 16,
-              xs: 1,
-              sm: 2,
-              md: 4,
-              lg: 4,
-              xl: 6,
-              xxl: 3,
-            }}
-            dataSource={allFilterAreOff ? data : filteredData}
-            renderItem={(printer) => (
-              <List.Item>
-                <PrinterCard
-                  name={printer.name}
-                  description={printer.description}
-                  software={printer.software}
-                  price={printer.refPrice}
-                />
-              </List.Item>
+        <div className="itemListContainer" style={styles.itemListContainer}>
+          <div
+            className="itemList"
+            style={isColumnLayoutWidth ? styles.itemListColumn : styles.itemListGrid}
+          >
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              data.slice(startIndex, endIndex).map((printer) => {
+                return (
+                  <PrinterCard
+                    name={printer.name}
+                    description={printer.description}
+                    software={printer.software}
+                    price={printer.refPrice}
+                  />
+                );
+              })
             )}
-          />
+          </div>
+          <div
+            className="paginationContainer"
+            style={styles.paginationContainer}
+          >
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={isLoading ? 1 : data.length}
+              onChange={handlePageChange}
+            />
+          </div>
         </div>
       </main>
       <Footer />
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 200,
-    padding: 50,
-    paddingLeft: 100,
-    paddingRight: 100,
-    minHeight: 890,
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
-  itemList: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 20,
-  },
-  softPriceContainer: {},
-};

@@ -16,10 +16,4 @@ export const mainColumns = [
     key: "description",
     width: 700,
   },
-  {
-    title: "Ficha",
-    dataIndex: "brochureUrl",
-    key: "brochureUrl",
-    width: 200,
-  },
 ];

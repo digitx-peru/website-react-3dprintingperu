@@ -1,11 +1,20 @@
 import { useState } from "react";
+import { useQuery } from "react-query";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import MaterialListingTable from "../../Components/MaterialScreen/MaterialListingTable";
 import MaterialFilterPanel from "../../Components/MaterialScreen/MaterialFilterPanel/MaterialFilterPanel";
 
+import useMediaQuery from "../../hooks/useMediaQuery";
+
 import { getMaterialsFromDB } from "../../utils/dataHandler";
+import { getPrintersFromDB } from "../../utils/dataHandler";
+
+import {
+  smallScreenSize,
+  mediumScreenSize,
+} from "../../style/screenSizes";
 
 export default function Materiales() {
   //States
@@ -16,44 +25,83 @@ export default function Materiales() {
   const [printerFilter, setPrinterFilter] = useState([]);
   const [technologyFilter, setTechnologyFilter] = useState([]);
 
-  //Data Handling
-  //Check if all filters are off (false). Returns true if all false, and false if any of the categories is active.
-  const allFilterAreOff =
-    printerFilter.length === 0 &&
-    technologyFilter.length === 0 &&
-    propertyFilterTensileModulusMin === "" &&
-    propertyFilterTensileModulusMax === "";
+  //Screenwidth breakpoints
+  const isSmallScreenSize = useMediaQuery(smallScreenSize);
+  const isMediumScreenSize = useMediaQuery(mediumScreenSize);
 
-  const data = getMaterialsFromDB();
-  const filteredData = data
-    .filter((material) => {
-      if (printerFilter.length !== 0) {
-        const result = material.printers.some((materialPrinter) =>
-          printerFilter.includes(materialPrinter)
-        );
-        return result;
-      }
-      return material;
-    })
-    .filter((material) =>
-      technologyFilter.length !== 0
-        ? technologyFilter.includes(material.technology)
-        : material
-    )
-    .filter((material) => {
-      return propertyFilterTensileModulusMin
-        ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
-            material.tensileModulus.min &&
-            parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
-              material.tensileModulus.max
-        : true;
-    })
-    .filter((material) => {
-      return propertyFilterTensileModulusMax
-        ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
-            material.tensileModulus.max
-        : true;
-    });
+  //Esto marca el punto en el que pasa de tener un layout columna a fila
+  const isColumnLayoutWidth = useMediaQuery(1024)
+
+  //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
+  const is1280 = useMediaQuery(1280)
+  const is1580 = useMediaQuery(1580)
+
+  //Styling
+  const styles = {
+    mainContainer: {
+      display: "flex",
+      flexDirection: isColumnLayoutWidth ? "column" : "row",
+      // gap: isLargeScreen ? "20px" : "200px",
+      padding: is1280 ? "15px" : "50px 50px",
+      minHeight: isColumnLayoutWidth ? "auto" : "890px",
+      alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
+      justifyContent: "space-between",
+    },
+  };
+
+  //Data material fetching
+  const { data } = useQuery(["printerFetching"], getMaterialsFromDB, {
+    select: (materialData) => {
+      return (
+        materialData.materials
+          //Search filter
+          .filter((material) => {
+            if (printerFilter.length !== 0) {
+              const result = material.printers.some((materialPrinter) =>
+                printerFilter.includes(materialPrinter)
+              );
+              return result;
+            }
+            return material;
+          })
+          .filter((material) =>
+            technologyFilter.length !== 0
+              ? technologyFilter.includes(material.technology)
+              : material
+          )
+          .filter((material) => {
+            return propertyFilterTensileModulusMin
+              ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
+                  material.tensileModulus.min &&
+                  parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
+                    material.tensileModulus.max
+              : true;
+          })
+          .filter((material) => {
+            return propertyFilterTensileModulusMax
+              ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
+                  material.tensileModulus.max
+              : true;
+          })
+          .map((material) => {
+            material.key = material.name;
+            return material;
+          })
+      );
+    },
+  });
+
+  const printersData = useQuery(["printerFetching"], getPrintersFromDB, {
+    select: (printerData) => {
+      const printerNameArray = printerData.printers.map(
+        (printer) => printer.name
+      );
+
+      const uniquePrinterNameArray = [...new Set(printerNameArray)]
+
+      return uniquePrinterNameArray;
+    },
+  });
 
   //Event Handlers
   const onPrinterCheckBoxChange = (checkboxValue) => {
@@ -85,10 +133,12 @@ export default function Materiales() {
     }
   };
 
+  // console.log(data)
+
   return (
     <>
       <Header />
-      <main style={styles.mainContainer}>
+      <main className="mainContainer" style={styles.mainContainer}>
         <div className="filters" style={{ minWidth: 250 }}>
           <MaterialFilterPanel
             printerCheckBoxChange={onPrinterCheckBoxChange}
@@ -100,24 +150,10 @@ export default function Materiales() {
           />
         </div>
         <div className="table" style={{ flexGrow: 1 }}>
-          <MaterialListingTable data={allFilterAreOff ? data : filteredData} />
+          <MaterialListingTable data={data} />
         </div>
       </main>
       <Footer />
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 200,
-    padding: 50,
-    paddingLeft: 100,
-    paddingRight: 100,
-    minHeight: 890,
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
-};

@@ -1,13 +1,9 @@
-import { Col, Row } from "antd";
-
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
-import ContactUs from "../../Components/ContactUs";
-import ApplicationContent from "../../Components/ApplicationContent";
-import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
+import ApplicationContent from "../../Components/ApplicationScreens/ApplicationContent";
 
 export default function NoticiaUno() {
   const isDevice = useMediaQuery(768);
@@ -21,10 +17,10 @@ export default function NoticiaUno() {
     },
     applicationContent: {
       display: "flex",
+      flexDirection: isDevice ? "column" : "row",
       justifyContent: "center",
-      columnGap: 100,
-      paddingLeft: 100,
-      paddingRight: 100,
+      gap: 20,
+      padding: isDevice ? "0 15px" : "0 100px"
     },
   };
 
@@ -38,7 +34,7 @@ export default function NoticiaUno() {
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
         <div className={"applicationContent"} style={styles.applicationContent}>
-          <ApplicationContent width="60%" />
+          <ApplicationContent  />
         </div>
       </div>
       <Footer />
