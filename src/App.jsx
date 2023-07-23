@@ -1,36 +1,27 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Home"
-import Automotriz from "./Pages/Industrias/Automotriz";
-import Fundicion from "./Pages/Industrias/Fundicion";
-import Joyeria from "./Pages/Industrias/Joyeria";
-import Replicas from "./Pages/Industrias/Replicas";
+import Home from "./Pages/Home";
+import Industria from "./Pages/Industrias/Industria";
 
-import Medicina from "./Pages/Salud/Medicina";
-import Odontologia from "./Pages/Salud/Odontologia";
+import Salud from "./Pages/Salud/Salud";
 
 import Impresoras from "./Pages/Productos/Impresoras";
 import Materiales from "./Pages/Productos/Materiales";
 
-import NoticiaUno from "./Pages/Noticias/NoticiaUno";
+import Noticia from "./Pages/Noticias/Noticia";
 
 export default function App() {
-    return (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/industrias/automotriz" element={<Automotriz />} />
-          <Route path="/industrias/fundicion" element={<Fundicion />} />
-          <Route path="/industrias/joyeria" element={<Joyeria />} />
-          <Route path="/industrias/replicas" element={<Replicas />} />
+  return (
+    <Routes>
+      <Route path="/" exact element={<Home />} />
+      <Route path="/industrias/:industryType" element={<Industria />} />
 
-          <Route path="/salud/medicina" element={<Medicina />} />
-          <Route path="/salud/odontologia" element={<Odontologia />} />
+      <Route path="/salud/:healthType" element={<Salud />} />
 
-          <Route path="/productos/impresoras" element={<Impresoras />} />
-          <Route path="/productos/materiales" element={<Materiales />} />
+      <Route path="/productos/impresoras" element={<Impresoras />} />
+      <Route path="/productos/materiales" element={<Materiales />} />
 
-          <Route path="/noticias/noticiaUno" element={<NoticiaUno />} />
-          <Route path="/noticias/noticiaDos" element={<Materiales />} />
-        </Routes>
-    );
-};
+      <Route path="/noticias/:title" element={<Noticia />} />
+    </Routes>
+  );
+}

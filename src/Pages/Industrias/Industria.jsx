@@ -1,15 +1,22 @@
-import { Col, Row } from "antd";
+import { useParams } from "react-router-dom";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { Col, Row } from "antd";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
 import ApplicationContent from "../../Components/ApplicationScreens/ApplicationContent";
+
+import useMediaQuery from "../../hooks/useMediaQuery";
 import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
-export default function Odontologia() {
+import { getIndustryContentFromDB } from "../../utils/dataHandler";
+import { getHeroContentFromDB } from "../../utils/dataHandler";
+
+export default function Industria() {
+  const routerParams = useParams();
+
   const isDevice = useMediaQuery(768);
 
   const styles = {
@@ -27,18 +34,23 @@ export default function Odontologia() {
       padding: isDevice ? "0 15px" : "0 100px",
     },
   };
+
   return (
     <>
       <Header />
-      <div style={styles.mainContainer}>
-        <Hero backgroundUrl={"https://picsum.photos/3000/600"} />
+      <main style={styles.mainContainer}>
+      <Hero content={getHeroContentFromDB("industria")} />
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
           {isDevice ? (
             <>
-              <ApplicationContent />
+              <ApplicationContent
+                typeContent={getIndustryContentFromDB(
+                  routerParams.industryType
+                )}
+              />
               <UsedTechnologyList />
             </>
           ) : (
@@ -49,7 +61,11 @@ export default function Odontologia() {
                 align={"middle"}
                 style={{ paddingLeft: 100, paddingRight: 100 }}
               >
-                <ApplicationContent />
+                <ApplicationContent
+                  typeContent={getIndustryContentFromDB(
+                    routerParams.industryType
+                  )}
+                />
               </Col>
               <Col span={4}>
                 <UsedTechnologyList />
@@ -58,33 +74,8 @@ export default function Odontologia() {
           )}
         </section>
         <ContactUs />
-      </div>
+      </main>
       <Footer />
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 50,
-    alignItems: "center",
-  },
-  applicationContent: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: 100,
-    paddingLeft: 100,
-    paddingRight: 100,
-  },
-  technologyCardContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 25,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 20,
-  },
-};

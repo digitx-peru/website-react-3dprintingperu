@@ -154,6 +154,7 @@ export default function Impresoras() {
               data.slice(startIndex, endIndex).map((printer) => {
                 return (
                   <PrinterCard
+                    key={printer.name}
                     name={printer.name}
                     description={printer.description}
                     software={printer.software}

@@ -9,7 +9,6 @@ import MaterialFilterPanel from "../../Components/MaterialScreen/MaterialFilterP
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import { getMaterialsFromDB } from "../../utils/dataHandler";
-import { getPrintersFromDB } from "../../utils/dataHandler";
 
 import {
   smallScreenSize,
@@ -49,59 +48,89 @@ export default function Materiales() {
     },
   };
 
-  //Data material fetching
-  const { data } = useQuery(["printerFetching"], getMaterialsFromDB, {
-    select: (materialData) => {
-      return (
-        materialData.materials
-          //Search filter
-          .filter((material) => {
-            if (printerFilter.length !== 0) {
-              const result = material.printers.some((materialPrinter) =>
-                printerFilter.includes(materialPrinter)
-              );
-              return result;
-            }
-            return material;
-          })
-          .filter((material) =>
-            technologyFilter.length !== 0
-              ? technologyFilter.includes(material.technology)
-              : material
-          )
-          .filter((material) => {
-            return propertyFilterTensileModulusMin
-              ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
-                  material.tensileModulus.min &&
-                  parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
+  // //Data material fetching
+  // const { data } = useQuery(["materialDataFetching"], getMaterialsFromDB, {
+  //   select: (materialData) => {
+  //     return (
+  //       materialData.materials
+  //         //Search filter
+  //         .filter((material) => {
+  //           if (printerFilter.length !== 0) {
+  //             const result = material.printers.some((materialPrinter) =>
+  //               printerFilter.includes(materialPrinter)
+  //             );
+  //             return result;
+  //           }
+  //           return material;
+  //         })
+  //         .filter((material) =>
+  //           technologyFilter.length !== 0
+  //             ? technologyFilter.includes(material.technology)
+  //             : material
+  //         )
+  //         .filter((material) => {
+  //           return propertyFilterTensileModulusMin
+  //             ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
+  //                 material.tensileModulus.min &&
+  //                 parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
+  //                   material.tensileModulus.max
+  //             : true;
+  //         })
+  //         .filter((material) => {
+  //           return propertyFilterTensileModulusMax
+  //             ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
+  //                 material.tensileModulus.max
+  //             : true;
+  //         })
+  //         .map((material) => {
+  //           material.key = material.name;
+  //           return material;
+  //         })
+  //     );
+  //   },
+  // });
+
+    //Data material fetching
+    const materialData = useQuery(["materialDataFetching"], getMaterialsFromDB, {
+      select: (materialData) => {
+        return (
+          materialData.materials
+            //Search filter
+            .filter((material) => {
+              if (printerFilter.length !== 0) {
+                const result = material.printers.some((materialPrinter) =>
+                  printerFilter.includes(materialPrinter)
+                );
+                return result;
+              }
+              return material;
+            })
+            .filter((material) =>
+              technologyFilter.length !== 0
+                ? technologyFilter.includes(material.technology)
+                : material
+            )
+            .filter((material) => {
+              return propertyFilterTensileModulusMin
+                ? parseFloat(propertyFilterTensileModulusMin).toFixed(1) >=
+                    material.tensileModulus.min &&
+                    parseFloat(propertyFilterTensileModulusMin).toFixed(1) <=
+                      material.tensileModulus.max
+                : true;
+            })
+            .filter((material) => {
+              return propertyFilterTensileModulusMax
+                ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
                     material.tensileModulus.max
-              : true;
-          })
-          .filter((material) => {
-            return propertyFilterTensileModulusMax
-              ? parseFloat(propertyFilterTensileModulusMax).toFixed(1) <=
-                  material.tensileModulus.max
-              : true;
-          })
-          .map((material) => {
-            material.key = material.name;
-            return material;
-          })
-      );
-    },
-  });
-
-  const printersData = useQuery(["printerFetching"], getPrintersFromDB, {
-    select: (printerData) => {
-      const printerNameArray = printerData.printers.map(
-        (printer) => printer.name
-      );
-
-      const uniquePrinterNameArray = [...new Set(printerNameArray)]
-
-      return uniquePrinterNameArray;
-    },
-  });
+                : true;
+            })
+            .map((material) => {
+              material.key = material.name;
+              return material;
+            })
+        );
+      },
+    });
 
   //Event Handlers
   const onPrinterCheckBoxChange = (checkboxValue) => {
@@ -150,7 +179,7 @@ export default function Materiales() {
           />
         </div>
         <div className="table" style={{ flexGrow: 1 }}>
-          <MaterialListingTable data={data} />
+          <MaterialListingTable data={materialData.data} />
         </div>
       </main>
       <Footer />

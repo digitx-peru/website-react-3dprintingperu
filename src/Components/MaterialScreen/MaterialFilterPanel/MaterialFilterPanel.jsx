@@ -1,94 +1,95 @@
-import { Checkbox, Collapse, Form, Input } from "antd";
+import { useState } from "react";
+
+import { useQuery } from "react-query";
+
+import MaterialFilterPanelForm from "./MaterialFilterPanelForm";
+
+import { getPrintersFromDB } from "../../../utils/dataHandler";
+
+import { Checkbox, Collapse } from "antd";
 
 import {
-  printerOptions,
-  techOptions,
-  industryOptions,
-  applicationOptions,
-  materialTypeOptions,
-} from "./materialFilterOptions";
+  defaultPrinterOptions,
+  defaultTechOptions,
+} from "./defaultMaterialFilterOptions";
 
 export default function MaterialFilterPanel({
   printerCheckBoxChange,
   technologyCheckBoxChange,
-  applicationCheckBoxChange,
-  industryCheckBoxChange,
-  materialTypeCheckBoxChange,
   propertyFilterTextChanged,
 }) {
+  const [printersSelection, setPrintersSelection] = useState({});
+  const [technologiesSelection, setTechnologiesSelection] = useState({});
+  const [propertiesInput, setPropertiesInput] = useState({});
+
+  //Printer Data fetching
+  const printerListData = useQuery(["printerFetching"], getPrintersFromDB, {
+    //Unique Names Filtering
+    select: (printerData) => {
+      const printerNameArray = printerData.printers.map(
+        (printer) => printer.name
+      );
+      const uniquePrinterNameArray = [...new Set(printerNameArray)];
+
+      //Transforming unique names list into an object list
+      const uniquePrinterArrayFormatted = uniquePrinterNameArray.map(
+        (printerName) => {
+          const printerOption = {
+            label: printerName,
+            value: printerName,
+          };
+
+          return printerOption;
+        }
+      );
+
+      //Retuns array of objects with structure {label, value}
+      return uniquePrinterArrayFormatted;
+    },
+  });
+
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+    },
+    checkboxGroup: {
+      display: "flex",
+      flexDirection: "column",
+    },
+  };
+
   return (
     <Collapse
       className="filterMaterialPanel"
       defaultActiveKey={["1"]}
-      style={{ display: "flex", flexDirection: "column", gap: 10 }}
+      style={styles.container}
     >
       <Collapse.Panel header="Impresora" key="1">
-        <div>
-          <Checkbox.Group
-            options={printerOptions}
-            style={{ display: "flex", flexDirection: "column" }}
-            onChange={printerCheckBoxChange}
-          />
-        </div>
+        <Checkbox.Group
+          options={
+            printerListData.isLoading
+              ? defaultPrinterOptions
+              : printerListData.data
+          }
+          style={styles.checkboxGroup}
+          onChange={printerCheckBoxChange}
+        />
       </Collapse.Panel>
+
       <Collapse.Panel header="Tecnologia" key="2">
-        <div>
-          <Checkbox.Group
-            options={techOptions}
-            style={{ display: "flex", flexDirection: "column" }}
-            onChange={technologyCheckBoxChange}
-          />
-        </div>
+        <Checkbox.Group
+          options={defaultTechOptions}
+          style={styles.checkboxGroup}
+          onChange={technologyCheckBoxChange}
+        />
       </Collapse.Panel>
-      <Collapse.Panel header="Industria" key="3">
-        <div>
-          <Checkbox.Group
-            options={industryOptions}
-            style={{ display: "flex", flexDirection: "column" }}
-            onChange={industryCheckBoxChange}
-          />
-        </div>
+
+      <Collapse.Panel header="Propiedades" key="3">
+        <MaterialFilterPanelForm />
       </Collapse.Panel>
-      <Collapse.Panel header="Aplicacion" key="4">
-        <div>
-          <Checkbox.Group
-            options={applicationOptions}
-            style={{ display: "flex", flexDirection: "column" }}
-            onChange={applicationCheckBoxChange}
-          />
-        </div>
-      </Collapse.Panel>
-      <Collapse.Panel header="Tipo de material" key="5">
-        <div>
-          <Checkbox.Group
-            options={materialTypeOptions}
-            style={{ display: "flex", flexDirection: "column" }}
-            onChange={materialTypeCheckBoxChange}
-          />
-        </div>
-      </Collapse.Panel>
-      <Collapse.Panel header="Volumen" key="6">
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <Form name="basic">
-            <Form.Item label="Tensile Modulus" layout="vertical">
-              <Input
-                prefix="min"
-                style={{ width: 225 }}
-                onChange={(event) =>
-                  propertyFilterTextChanged("tensileModulus", "min", event)
-                }
-              />
-              <Input
-                prefix="max"
-                style={{ width: 225 }}
-                onChange={(event) =>
-                  propertyFilterTextChanged("tensileModulus", "max", event)
-                }
-              />
-            </Form.Item>
-          </Form>
-        </div>
-      </Collapse.Panel>
+      
     </Collapse>
   );
 }

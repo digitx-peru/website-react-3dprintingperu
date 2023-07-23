@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ApplicationContent from "../../Components/ApplicationScreens/ApplicationContent";
 
-export default function NoticiaUno() {
+export default function Noticia() {
   const isDevice = useMediaQuery(768);
 
   const styles = {

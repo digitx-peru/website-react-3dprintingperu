@@ -5,23 +5,21 @@ import Hero from "../Components/Hero";
 import ContactUs from "../Components/ContactUs";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-import {
-  smallScreenSize,
-  mediumScreenSize,
-} from "../style/screenSizes";
+import { smallScreenSize, mediumScreenSize } from "../style/screenSizes";
+
+import { getHeroContentFromDB } from "../utils/dataHandler";
 
 export default function Home() {
-
   //Screenwidth breakpoints
   const isSmallScreenSize = useMediaQuery(smallScreenSize);
   const isMediumScreenSize = useMediaQuery(mediumScreenSize);
 
   //Esto marca el punto en el que pasa de tener un layout columna a fila
-  const isColumnLayoutWidth = useMediaQuery(1024)
+  const isColumnLayoutWidth = useMediaQuery(1024);
 
   //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
-  const is1280 = useMediaQuery(1280)
-  const is1580 = useMediaQuery(1580)
+  const is1280 = useMediaQuery(1280);
+  const is1580 = useMediaQuery(1580);
 
   const styles = {
     mainContainer: {
@@ -43,11 +41,7 @@ export default function Home() {
     <>
       <Header />
       <div className="mainContainer" style={styles.mainContainer}>
-        <Hero
-          backgroundUrl={"https://picsum.photos/3000/600"}
-          title="Hero header"
-          message="Lorem ipsum"
-        />
+        <Hero content={getHeroContentFromDB("home")} />
         <div style={styles.newsCardContainer}>
           <NewsCard
             redirectUrl="/noticias/noticiaUno"

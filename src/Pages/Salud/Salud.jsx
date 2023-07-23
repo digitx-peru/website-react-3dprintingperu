@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+
 import { Col, Row } from "antd";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -9,7 +11,12 @@ import ContactUs from "../../Components/ContactUs";
 import ApplicationContent from "../../Components/ApplicationScreens/ApplicationContent";
 import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
-export default function Joyeria() {
+import { getHealthContentFromDB } from "../../utils/dataHandler";
+import { getHeroContentFromDB } from "../../utils/dataHandler";
+
+export default function Salud() {
+  const routerParams = useParams();
+
   const isDevice = useMediaQuery(768);
 
   const styles = {
@@ -27,18 +34,21 @@ export default function Joyeria() {
       padding: isDevice ? "0 15px" : "0 100px",
     },
   };
+
   return (
     <>
       <Header />
       <div style={styles.mainContainer}>
-        <Hero backgroundUrl={"https://picsum.photos/3000/600"} />
+        <Hero content={getHeroContentFromDB("salud")} />
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
           {isDevice ? (
             <>
-              <ApplicationContent />
+              <ApplicationContent
+                typeContent={getHealthContentFromDB(routerParams.healthType)}
+              />
               <UsedTechnologyList />
             </>
           ) : (
@@ -49,7 +59,9 @@ export default function Joyeria() {
                 align={"middle"}
                 style={{ paddingLeft: 100, paddingRight: 100 }}
               >
-                <ApplicationContent />
+                <ApplicationContent
+                  typeContent={getHealthContentFromDB(routerParams.healthType)}
+                />
               </Col>
               <Col span={4}>
                 <UsedTechnologyList />

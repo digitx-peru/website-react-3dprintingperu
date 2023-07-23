@@ -1,4 +1,6 @@
-import { Button, Form, Input } from "antd";
+import { useState } from "react";
+
+import { Button, Form, Input, Modal } from "antd";
 
 import emailHandler from "../utils/emailHandler";
 import useMediaQuery from "../hooks/useMediaQuery";
@@ -6,6 +8,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { mediumScreenSize } from "../style/screenSizes";
 
 export default function ContactUs() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   //Screenwidth breakpoints
   const isMediumScreenSize = useMediaQuery(mediumScreenSize);
 
@@ -17,11 +21,6 @@ export default function ContactUs() {
 
   //Form reference
   const [form] = Form.useForm();
-
-  //OnFinish eventHandler
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
 
   const styles = {
     form: {
@@ -47,101 +46,159 @@ export default function ContactUs() {
       marginBottom: 0,
       flexGrow: 1,
     },
+    formItemButton: {
+      display: "flex",
+      justifyContent: "center",
+    },
     formItemLabel: {
       color: "white",
     },
+    formItemSubmitButton: {
+      height: isColumnLayoutWidth ? "60px" : "auto",
+      width: "200px",
+    },
+    modalMessage: {
+      fontSize: "14px",
+    },
+  };
+
+  //OnFinish eventHandler
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <Form
-      form={form}
-      name="contactUs"
-      layout="vertical"
-      style={styles.form}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={(values) => {
-        emailHandler(values);
-        form.resetFields();
-      }}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <h2 style={styles.formItemLabel}>Haz tu consulta</h2>
-      <div style={styles.formItemGroup}>
-        <Form.Item
-          label={<label style={styles.formItemLabel}>Nombre completo</label>}
-          name="customerName"
-          style={styles.formItem}
-          rules={[
-            {
-              required: true,
-              message: "Name required",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          label={<label style={styles.formItemLabel}>Email</label>}
-          name="email"
-          style={styles.formItem}
-          rules={[
-            {
-              required: true,
-              message: "Email required",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-      </div>
-
-      <div style={styles.formItemGroup}>
-        <Form.Item
-          label={<label style={styles.formItemLabel}>Teléfono</label>}
-          name="phone"
-          style={styles.formItem}
-          rules={[
-            {
-              required: true,
-              message: "Phone required",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          label={<label style={styles.formItemLabel}>Empresa</label>}
-          name="companyName"
-          style={styles.formItem}
-          rules={[
-            {
-              required: true,
-              message: "Company required",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-      </div>
-
-      <Form.Item
-        label={<label style={styles.formItemLabel}>Mensaje</label>}
-        name="message"
-        style={styles.formItem}
+    <>
+      <Form
+        form={form}
+        name="contactUs"
+        layout="vertical"
+        style={styles.form}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={(values) => {
+          emailHandler(values);
+          showModal();
+          form.resetFields();
+        }}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
       >
-        <Input.TextArea rows={4} />
-      </Form.Item>
+        <h2 style={styles.formItemLabel}>Haz tu consulta</h2>
+        <div style={styles.formItemGroup}>
+          <Form.Item
+            label={<label style={styles.formItemLabel}>Nombre completo</label>}
+            name="customerName"
+            style={styles.formItem}
+            rules={[
+              {
+                required: true,
+                message: "Name required",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-      <Form.Item style={styles.formItem}>
-        <Button type="primary" htmlType="submit">
-          Enviar
-        </Button>
-      </Form.Item>
-    </Form>
+          <Form.Item
+            label={<label style={styles.formItemLabel}>Email</label>}
+            name="email"
+            style={styles.formItem}
+            rules={[
+              {
+                required: true,
+                message: "Email required",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </div>
+
+        <div style={styles.formItemGroup}>
+          <Form.Item
+            label={<label style={styles.formItemLabel}>Teléfono</label>}
+            name="phone"
+            style={styles.formItem}
+            rules={[
+              {
+                required: true,
+                message: "Phone required",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label={<label style={styles.formItemLabel}>Empresa</label>}
+            name="companyName"
+            style={styles.formItem}
+            rules={[
+              {
+                required: true,
+                message: "Company required",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </div>
+
+        <Form.Item
+          label={<label style={styles.formItemLabel}>Mensaje</label>}
+          name="message"
+          style={styles.formItem}
+        >
+          <Input.TextArea rows={4} />
+        </Form.Item>
+
+        <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>
+          <Button
+            style={styles.formItemSubmitButton}
+            type="primary"
+            htmlType="submit"
+          >
+            Enviar
+          </Button>
+        </Form.Item>
+      </Form>
+      <Modal
+        open={isModalOpen}
+        style={{ padding: 20 }}
+        centered
+        closable={false}
+        footer={
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignSelf: "center",
+              padding: "10px 20px",
+            }}
+          >
+            <Button
+              key="ok"
+              type="primary"
+              style={{ height: 40 }}
+              onClick={handleOk}
+            >
+              OK
+            </Button>
+          </div>
+        }
+      >
+        <p style={styles.modalMessage}>Tu mensaje ha sido enviado</p>
+      </Modal>
+    </>
   );
 }
