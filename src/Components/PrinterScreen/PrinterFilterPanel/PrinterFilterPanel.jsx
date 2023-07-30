@@ -11,6 +11,7 @@ export default function PrinterFilterPanel({
     container: {
       display: "flex",
       flexDirection: "column",
+      width: "250px",
       gap: 10,
     },
   };

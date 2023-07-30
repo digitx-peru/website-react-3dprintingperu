@@ -52,6 +52,9 @@ export default function Materiales() {
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
       justifyContent: "space-between",
     },
+    table: {
+      flexGrow: 1,
+    }
   };
 
   //Data material fetching
@@ -104,7 +107,7 @@ export default function Materiales() {
     <>
       <Header />
       <main className="mainContainer" style={styles.mainContainer}>
-        <div className="filters" style={{ minWidth: 250 }}>
+        <div className="filters">
           <MaterialFilterPanel
             printerFilterCheckBoxChangeHandler={
               printerFilterCheckBoxChangeHandler
@@ -115,7 +118,7 @@ export default function Materiales() {
             propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
           />
         </div>
-        <div className="table" style={{ flexGrow: 1 }}>
+        <div className="table" style={styles.table}>
           <MaterialListingTable data={materialData.data} />
         </div>
       </main>

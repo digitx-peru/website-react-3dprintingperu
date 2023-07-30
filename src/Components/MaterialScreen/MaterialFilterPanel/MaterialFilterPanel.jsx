@@ -50,6 +50,7 @@ export default function MaterialFilterPanel({
     container: {
       display: "flex",
       flexDirection: "column",
+      width: "250px",
       gap: 10,
     },
     checkboxGroup: {

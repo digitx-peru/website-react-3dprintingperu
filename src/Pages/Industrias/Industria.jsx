@@ -33,6 +33,10 @@ export default function Industria() {
       gap: 20,
       padding: isDevice ? "0 15px" : "0 100px",
     },
+    column: {
+      paddingLeft: 100,
+      paddingRight: 100
+    }
   };
 
   return (
@@ -59,7 +63,7 @@ export default function Industria() {
                 span={20}
                 justify={"end"}
                 align={"middle"}
-                style={{ paddingLeft: 100, paddingRight: 100 }}
+                style={styles.column}
               >
                 <ApplicationContent
                   typeContent={getIndustryContentFromDB(

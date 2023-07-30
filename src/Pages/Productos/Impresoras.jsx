@@ -55,6 +55,8 @@ export default function Impresoras() {
 
   //Pagination
   const itemsPerPage = 8;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   //Styling
   const styles = {
@@ -95,8 +97,6 @@ export default function Impresoras() {
     },
   };
 
-  console.log(volumeFilterCriteria);
-
   //Event Handlers
   function technologyCheckBoxChangeHandler(checkboxValue) {
     setTechnologyFilterCriteria(checkboxValue);
@@ -113,15 +113,11 @@ export default function Impresoras() {
     setCurrentPage(page);
   };
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  // const itemsForCurrentPage = data.slice(startIndex, endIndex);
-
   return (
     <>
       <Header />
       <main style={styles.mainContainer}>
-        <div className="filters" style={{ minWidth: 250 }}>
+        <div className="filters">
           <PrinterFilterPanel
             technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
             dimensionChangeHandler={dimensionChangeHandler}
