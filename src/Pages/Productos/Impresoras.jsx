@@ -12,11 +12,6 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 
 import { getPrintersFromDB } from "../../utils/dataHandler";
 
-import {
-  smallScreenSize,
-  mediumScreenSize,
-} from "../../style/screenSizes";
-
 export default function Impresoras() {
   //State
   const [searchFilterX, setSearchFilterX] = useState("");
@@ -26,8 +21,6 @@ export default function Impresoras() {
   const [currentPage, setCurrentPage] = useState(1);
 
   //Screenwidth breakpoints
-  const isSmallScreenSize = useMediaQuery(smallScreenSize);
-  const isMediumScreenSize = useMediaQuery(mediumScreenSize);
 
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024)
@@ -68,6 +61,10 @@ export default function Impresoras() {
               ? printer.builVolume.z <= parseFloat(searchFilterZ).toFixed(1)
               : false;
           })
+          .map((printer) => {
+            printer.imageUrl = "https://picsum.photos/id/" + (Math.floor(Math.random() * (100 - 1 + 1)) + 1) + "/300"
+            return printer;
+          })
       );
     },
   });
@@ -81,11 +78,10 @@ export default function Impresoras() {
     mainContainer: {
       display: "flex",
       flexDirection: isColumnLayoutWidth ? "column" : "row",
-      // gap: isMediumScreen ? "20px" : "200px",
+      gap: is1280 ? "20px" : "200px",
       padding: is1280 ? "15px" : "50px 50px",
       minHeight: isColumnLayoutWidth ? "auto" : "890px",
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
-      justifyContent: "space-between",
     },
     itemListContainer: {
       display: "flex",
@@ -155,10 +151,11 @@ export default function Impresoras() {
                 return (
                   <PrinterCard
                     key={printer.name}
+                    printerImageUrl={printer.imageUrl}
                     name={printer.name}
                     description={printer.description}
-                    software={printer.software}
-                    price={printer.refPrice}
+                    builVolume={printer.builVolume}
+                    technology={printer.technology}
                   />
                 );
               })
