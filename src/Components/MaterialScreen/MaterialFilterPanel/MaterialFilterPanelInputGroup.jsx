@@ -2,7 +2,8 @@ import { Input, Form } from "antd";
 
 export default function MaterialFilterPanelInputGroup({
   formItemLabel,
-  propertyFilterTextChanged,
+  formItemPropertyName,
+  propertyFilterInputChangeHandler,
 }) {
   const styles = {
     container: {
@@ -19,20 +20,20 @@ export default function MaterialFilterPanelInputGroup({
   };
 
   return (
-    <Form.Item label={formItemLabel}>
+    <Form.Item label={formItemLabel} name={formItemLabel} id={formItemLabel}>
       <div className="materialFilterPanelInputGroup" style={styles.container}>
         <Input
           style={styles.input}
           addonBefore={<p style={styles.addonBefore}>Min</p>}
           onChange={(event) =>
-            propertyFilterTextChanged("tensileModulus", "min", event)
+            propertyFilterInputChangeHandler(formItemPropertyName, "min", event)
           }
         />
         <Input
           style={styles.input}
           addonBefore={<p style={styles.addonBefore}>Max</p>}
           onChange={(event) =>
-            propertyFilterTextChanged("tensileModulus", "max", event)
+            propertyFilterInputChangeHandler(formItemPropertyName, "max", event)
           }
         />
       </div>

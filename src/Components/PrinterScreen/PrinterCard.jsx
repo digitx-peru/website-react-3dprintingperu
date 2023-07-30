@@ -44,10 +44,10 @@ export default function PrinterCard({ name, description, software, price }) {
             <h4>Volume XYZ (mm)</h4>
             <p style={styles.printCardBodyText}>100x100x100</p>
           </div>
-          <div>
+          {/* <div>
             <h4>Precio Ref</h4>
             <p style={styles.printCardBodyText}>{price}</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

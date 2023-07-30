@@ -1,12 +1,24 @@
 import { Form } from "antd";
 import MaterialFilterPanelInputGroup from "./MaterialFilterPanelInputGroup";
 
-export default function MaterialFilterPanelForm({ propertyFilterTextChanged }) {
+export default function MaterialFilterPanelForm({ propertyFilterInputChangeHandler }) {
   return (
     <Form name="basic" layout="vertical">
-      <MaterialFilterPanelInputGroup formItemLabel={"Tensile Modulus"} propertyFilterTextChanged={propertyFilterTextChanged}/>
-      <MaterialFilterPanelInputGroup formItemLabel={"Elongation at Break"} propertyFilterTextChanged={propertyFilterTextChanged}/>
-      <MaterialFilterPanelInputGroup formItemLabel={"Heat Distortion Temp @182C"} propertyFilterTextChanged={propertyFilterTextChanged}/>
+      <MaterialFilterPanelInputGroup
+        formItemLabel={"Tensile Modulus"}
+        formItemPropertyName={"tensileModulus"}
+        propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+      />
+      <MaterialFilterPanelInputGroup
+        formItemLabel={"Elongation at Break"}
+        formItemPropertyName={"elongationAtBreak"}
+        propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+      />
+      <MaterialFilterPanelInputGroup
+        formItemLabel={"Heat Distortion Temp @182mpa"}
+        formItemPropertyName={"heatDistortionTemp182mpa"}
+        propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+      />
     </Form>
   );
 }

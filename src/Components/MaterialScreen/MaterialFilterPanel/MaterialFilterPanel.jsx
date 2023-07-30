@@ -14,15 +14,12 @@ import {
 } from "./defaultMaterialFilterOptions";
 
 export default function MaterialFilterPanel({
-  printerCheckBoxChange,
-  technologyCheckBoxChange,
-  propertyFilterTextChanged,
+  printerFilterCheckBoxChangeHandler,
+  technologyFilterCheckBoxChangeHandler,
+  propertyFilterInputChangeHandler,
 }) {
-  const [printersSelection, setPrintersSelection] = useState({});
-  const [technologiesSelection, setTechnologiesSelection] = useState({});
-  const [propertiesInput, setPropertiesInput] = useState({});
 
-  //Printer Data fetching
+  //Printer Data fetching //////////////////////////////////////////////////////////////////////////////////////////
   const printerListData = useQuery(["printerFetching"], getPrintersFromDB, {
     //Unique Names Filtering
     select: (printerData) => {
@@ -47,6 +44,7 @@ export default function MaterialFilterPanel({
       return uniquePrinterArrayFormatted;
     },
   });
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const styles = {
     container: {
@@ -74,7 +72,7 @@ export default function MaterialFilterPanel({
               : printerListData.data
           }
           style={styles.checkboxGroup}
-          onChange={printerCheckBoxChange}
+          onChange={printerFilterCheckBoxChangeHandler}
         />
       </Collapse.Panel>
 
@@ -82,14 +80,15 @@ export default function MaterialFilterPanel({
         <Checkbox.Group
           options={defaultTechOptions}
           style={styles.checkboxGroup}
-          onChange={technologyCheckBoxChange}
+          onChange={technologyFilterCheckBoxChangeHandler}
         />
       </Collapse.Panel>
 
       <Collapse.Panel header="Propiedades" key="3">
-        <MaterialFilterPanelForm />
+        <MaterialFilterPanelForm
+          propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+        />
       </Collapse.Panel>
-      
     </Collapse>
   );
 }
