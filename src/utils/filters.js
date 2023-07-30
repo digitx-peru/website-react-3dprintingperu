@@ -33,7 +33,7 @@ export function propertyFiltering(material, propertyFilterCriteria) {
     "heatDistortionTemp182mpa"
   );
 
-  return tensileFilter && elongationFilter && heatFilter
+  return tensileFilter && elongationFilter && heatFilter;
 }
 
 function propertyValueFiltering(
@@ -41,18 +41,17 @@ function propertyValueFiltering(
   propertyFilterCriteria,
   propertyName
 ) {
+  const minValue =
+    propertyFilterCriteria[propertyName].min && material[propertyName]
+      ? parseFloat(propertyFilterCriteria[propertyName].min).toFixed(1) <=
+          material[propertyName].min
+      : true;
 
-  const minValue = propertyFilterCriteria[propertyName].min && material[propertyName]
-    ? parseFloat(propertyFilterCriteria[propertyName].min).toFixed(1) >=
-        material[propertyName].min &&
-      parseFloat(propertyFilterCriteria[propertyName].min).toFixed(1) <=
+  const maxValue =
+    propertyFilterCriteria[propertyName].max && material[propertyName]
+      ? parseFloat(propertyFilterCriteria[propertyName].max).toFixed(1) >=
         material[propertyName].max
-    : true;
-
-  const maxValue = propertyFilterCriteria[propertyName].max && material[propertyName]
-    ? parseFloat(propertyFilterCriteria[propertyName].max).toFixed(1) <=
-      material[propertyName].max
-    : true;
+      : true;
 
   return minValue && maxValue;
 }

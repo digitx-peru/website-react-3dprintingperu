@@ -46,7 +46,7 @@ export default function Materiales() {
     mainContainer: {
       display: "flex",
       flexDirection: isColumnLayoutWidth ? "column" : "row",
-      // gap: isLargeScreen ? "20px" : "200px",
+      gap: is1280 ? "20px" : "200px",
       padding: is1280 ? "15px" : "50px 50px",
       minHeight: isColumnLayoutWidth ? "auto" : "890px",
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
