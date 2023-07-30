@@ -1,3 +1,5 @@
+///////////////////////////////////////////////MATERIAL
+
 export function printerFiltering(material, printerFilterCriteria) {
   if (printerFilterCriteria.length !== 0) {
     const result = material.printers.some((materialPrinter) => {
@@ -6,12 +8,6 @@ export function printerFiltering(material, printerFilterCriteria) {
     return result;
   }
   return material;
-}
-
-export function technologyFiltering(material, technologyFilterCriteria) {
-  return technologyFilterCriteria.length !== 0
-    ? technologyFilterCriteria.includes(material.technology)
-    : material;
 }
 
 export function propertyFiltering(material, propertyFilterCriteria) {
@@ -44,7 +40,7 @@ function propertyValueFiltering(
   const minValue =
     propertyFilterCriteria[propertyName].min && material[propertyName]
       ? parseFloat(propertyFilterCriteria[propertyName].min).toFixed(1) <=
-          material[propertyName].min
+        material[propertyName].min
       : true;
 
   const maxValue =
@@ -54,4 +50,30 @@ function propertyValueFiltering(
       : true;
 
   return minValue && maxValue;
+}
+
+///////////////////////////////////////////////PRINTERS
+
+export function volumeFiltering(printer, volumeFilterCriteria) {
+  const xValue = dimensionValueFiltering(printer, volumeFilterCriteria, "x")
+
+  const yValue = dimensionValueFiltering(printer, volumeFilterCriteria, "y")
+
+  const zValue = dimensionValueFiltering(printer, volumeFilterCriteria, "z")
+
+  return xValue && yValue && zValue;
+}
+
+function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
+  return volumeFilterCriteria[dimensionName]
+    ? printer.builVolume[dimensionName] >= parseFloat(volumeFilterCriteria[dimensionName]).toFixed(1)
+    : true;
+}
+
+///////////////////////////////////////////////GENERIC
+
+export function technologyFiltering(unit, technologyFilterCriteria) {
+  return technologyFilterCriteria.length !== 0
+    ? technologyFilterCriteria.includes(unit.technology)
+    : unit;
 }

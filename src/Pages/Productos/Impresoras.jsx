@@ -11,23 +11,25 @@ import PrinterFilterPanel from "../../Components/PrinterScreen/PrinterFilterPane
 import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 
 import { getPrintersFromDB } from "../../utils/dataHandler";
+import { volumeFiltering, technologyFiltering } from "../../utils/filters";
 
 export default function Impresoras() {
   //State
-  const [searchFilterX, setSearchFilterX] = useState("");
-  const [searchFilterY, setSearchFilterY] = useState("");
-  const [searchFilterZ, setSearchFilterZ] = useState("");
-  const [technologyFilter, setTechnologyFilter] = useState([]);
+  const [technologyFilterCriteria, setTechnologyFilterCriteria] = useState([]);
+  const [volumeFilterCriteria, setVolumeFilterCriteria] = useState({
+    x: "",
+    y: "",
+    z: "",
+  });
   const [currentPage, setCurrentPage] = useState(1);
 
   //Screenwidth breakpoints
-
   //Esto marca el punto en el que pasa de tener un layout columna a fila
-  const isColumnLayoutWidth = useMediaQuery(1024)
+  const isColumnLayoutWidth = useMediaQuery(1024);
 
   //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
-  const is1280 = useMediaQuery(1280)
-  const is1580 = useMediaQuery(1580)
+  const is1280 = useMediaQuery(1280);
+  const is1580 = useMediaQuery(1580);
 
   //Data fetching
   const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
@@ -35,34 +37,16 @@ export default function Impresoras() {
       return (
         printerData.printers
           //Search filter
-          .filter((printer) => {
-            return technologyFilter.length === 0
-              ? printer
-              : technologyFilter.includes(printer.technology) && printer;
-          })
-          .filter((printer) => {
-            return searchFilterX === ""
-              ? printer
-              : searchFilterX
-              ? printer.builVolume.x <= parseFloat(searchFilterX).toFixed(1)
-              : false;
-          })
-          .filter((printer) => {
-            return searchFilterY === ""
-              ? printer
-              : searchFilterY
-              ? printer.builVolume.y <= parseFloat(searchFilterY).toFixed(1)
-              : false;
-          })
-          .filter((printer) => {
-            return searchFilterZ === ""
-              ? printer
-              : searchFilterZ
-              ? printer.builVolume.z <= parseFloat(searchFilterZ).toFixed(1)
-              : false;
-          })
+          .filter((printer) =>
+            technologyFiltering(printer, technologyFilterCriteria)
+          )
+          .filter((printer) => volumeFiltering(printer, volumeFilterCriteria))
+          //Temporary
           .map((printer) => {
-            printer.imageUrl = "https://picsum.photos/id/" + (Math.floor(Math.random() * (100 - 1 + 1)) + 1) + "/300"
+            printer.imageUrl =
+              "https://picsum.photos/id/" +
+              (Math.floor(Math.random() * (100 - 1 + 1)) + 1) +
+              "/300";
             return printer;
           })
       );
@@ -71,7 +55,6 @@ export default function Impresoras() {
 
   //Pagination
   const itemsPerPage = 8;
-  // const totalPages = Math.ceil(data.length / itemsPerPage);
 
   //Styling
   const styles = {
@@ -97,7 +80,13 @@ export default function Impresoras() {
     },
     itemListGrid: {
       display: "grid",
-      gridTemplateColumns:  isColumnLayoutWidth ? "1fr 1fr" : is1280 ? "1fr 1fr" : is1580 ? "1fr 1fr 1fr" : "1fr 1fr 1fr 1fr",
+      gridTemplateColumns: isColumnLayoutWidth
+        ? "1fr 1fr"
+        : is1280
+        ? "1fr 1fr"
+        : is1580
+        ? "1fr 1fr 1fr"
+        : "1fr 1fr 1fr 1fr",
       gridGap: "10px",
     },
     paginationContainer: {
@@ -106,22 +95,21 @@ export default function Impresoras() {
     },
   };
 
+  console.log(volumeFilterCriteria);
+
   //Event Handlers
-  function onTechnologyCheckBoxChange(checkboxValue) {
-    setTechnologyFilter(checkboxValue);
+  function technologyCheckBoxChangeHandler(checkboxValue) {
+    setTechnologyFilterCriteria(checkboxValue);
   }
 
-  const onSearchTextChanged = (dimension, onChangeEvent) => {
-    if (dimension === "X") {
-      setSearchFilterX(onChangeEvent.target.value);
-    } else if (dimension === "Y") {
-      setSearchFilterY(onChangeEvent.target.value);
-    } else {
-      setSearchFilterZ(onChangeEvent.target.value);
-    }
+  const dimensionChangeHandler = (dimension, onChangeEvent) => {
+    setVolumeFilterCriteria({
+      ...volumeFilterCriteria,
+      [dimension]: onChangeEvent.target.value,
+    });
   };
 
-  const handlePageChange = (page) => {
+  const pageChangeHandler = (page) => {
     setCurrentPage(page);
   };
 
@@ -135,14 +123,16 @@ export default function Impresoras() {
       <main style={styles.mainContainer}>
         <div className="filters" style={{ minWidth: 250 }}>
           <PrinterFilterPanel
-            technologyCheckBoxChange={onTechnologyCheckBoxChange}
-            searchTextChanged={onSearchTextChanged}
+            technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
+            dimensionChangeHandler={dimensionChangeHandler}
           />
         </div>
         <div className="itemListContainer" style={styles.itemListContainer}>
           <div
             className="itemList"
-            style={isColumnLayoutWidth ? styles.itemListColumn : styles.itemListGrid}
+            style={
+              isColumnLayoutWidth ? styles.itemListColumn : styles.itemListGrid
+            }
           >
             {isLoading ? (
               <div>Loading...</div>
@@ -169,7 +159,7 @@ export default function Impresoras() {
               current={currentPage}
               pageSize={itemsPerPage}
               total={isLoading ? 1 : data.length}
-              onChange={handlePageChange}
+              onChange={pageChangeHandler}
             />
           </div>
         </div>
