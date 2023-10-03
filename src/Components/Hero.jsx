@@ -1,34 +1,24 @@
-import { Button } from "antd";
-
-export default function Hero({ content }) {
+export default function Hero({ title, message, backgroundImagePath }) {
+  const styles = {
+    hero: {
+      height: 500,
+      backgroundColor: "#353535",
+      alignItems: "center",
+      color: "white",
+      padding: 50,
+      alignSelf: "stretch",
+      backgroundImage: `url(${backgroundImagePath})`,
+      backgroundSize: "cover",
+    },
+    heroTitle: {
+      fontSize: 64,
+    },
+  };
 
   return (
-    <section
-      style={{
-        ...styles.hero,
-        backgroundImage: `url(${content.backgroundUrl})`,
-      }}
-    >
-      <h1 style={{ fontSize: 64 }}>{content.title}</h1>
-      <p>{content.message}</p>
-      <Button style={styles.heroButton}>Saber mas</Button>
+    <section style={styles.hero}>
+      <h1 style={styles.heroTitle}>{title}</h1>
+      {message !== null && <p>{message}</p>}      
     </section>
   );
 }
-
-const styles = {
-  hero: {
-    height: 500,
-    backgroundColor: "#353535",
-    alignItems: "center",
-    color: "white",
-    padding: 50,
-    alignSelf: "stretch",
-  },
-  heroButton: {
-    backgroundColor: "transparent",
-    borderColor: "white",
-    color: "white",
-    marginTop: 20,
-  },
-};
