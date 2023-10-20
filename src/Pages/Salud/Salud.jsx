@@ -8,10 +8,9 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
-import ApplicationContent from "../../Components/ApplicationScreens/ApplicationContent";
+import CustomContentMedDevices from "../../Components/ApplicationScreens/CustomContentMedDevices";
 import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
-import { getHealthContentFromDB } from "../../utils/dataHandler";
 import { getHeroContentFromDB } from "../../utils/dataHandler";
 
 export default function Salud() {
@@ -50,9 +49,7 @@ export default function Salud() {
         >
           {isDevice ? (
             <>
-              <ApplicationContent
-                typeContent={getHealthContentFromDB(routerParams.healthType)}
-              />
+              <CustomContentMedDevices />
               <UsedTechnologyList />
             </>
           ) : (
@@ -63,9 +60,7 @@ export default function Salud() {
                 align={"middle"}
                 style={styles.column}
               >
-                <ApplicationContent
-                  typeContent={getHealthContentFromDB(routerParams.healthType)}
-                />
+              <CustomContentMedDevices />
               </Col>
               <Col span={4}>
                 <UsedTechnologyList />

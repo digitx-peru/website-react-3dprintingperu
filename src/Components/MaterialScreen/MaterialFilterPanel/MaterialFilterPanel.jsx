@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import { useQuery } from "react-query";
 
 import MaterialFilterPanelForm from "./MaterialFilterPanelForm";
 
-import { getPrintersFromDB } from "../../../utils/dataHandler";
+import { getPrintersNamesListFromAPI, getTechnologiesNamesListFromAPI } from "../../../utils/dataHandler";
 
 import { Checkbox, Collapse } from "antd";
 
@@ -19,31 +17,12 @@ export default function MaterialFilterPanel({
   propertyFilterInputChangeHandler,
 }) {
 
-  //Printer Data fetching //////////////////////////////////////////////////////////////////////////////////////////
-  const printerListData = useQuery(["printerFetching"], getPrintersFromDB, {
-    //Unique Names Filtering
-    select: (printerData) => {
-      const printerNameArray = printerData.printers.map(
-        (printer) => printer.name
-      );
-      const uniquePrinterNameArray = [...new Set(printerNameArray)];
+  //Data fetching //////////////////////////////////////////////////////////////////////////////////////////
 
-      //Transforming unique names list into an object list
-      const uniquePrinterArrayFormatted = uniquePrinterNameArray.map(
-        (printerName) => {
-          const printerOption = {
-            label: printerName,
-            value: printerName,
-          };
+  const printersNameListData = useQuery(["printersNamesListFetching"], getPrintersNamesListFromAPI);
 
-          return printerOption;
-        }
-      );
+  const techNameListData = useQuery(["techNamesListFetching"], getTechnologiesNamesListFromAPI);
 
-      //Retuns array of objects with structure {label, value}
-      return uniquePrinterArrayFormatted;
-    },
-  });
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const styles = {
@@ -68,9 +47,9 @@ export default function MaterialFilterPanel({
       <Collapse.Panel header="Impresora" key="1">
         <Checkbox.Group
           options={
-            printerListData.isLoading
+            printersNameListData.isLoading
               ? defaultPrinterOptions
-              : printerListData.data
+              : printersNameListData.data.names
           }
           style={styles.checkboxGroup}
           onChange={printerFilterCheckBoxChangeHandler}
@@ -79,7 +58,11 @@ export default function MaterialFilterPanel({
 
       <Collapse.Panel header="Tecnologia" key="2">
         <Checkbox.Group
-          options={defaultTechOptions}
+          options={
+            techNameListData.isLoading
+              ? defaultTechOptions
+              : techNameListData.data.tec
+          }
           style={styles.checkboxGroup}
           onChange={technologyFilterCheckBoxChangeHandler}
         />

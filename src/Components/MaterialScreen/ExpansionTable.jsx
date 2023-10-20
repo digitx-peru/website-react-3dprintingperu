@@ -3,17 +3,17 @@ export default function ExpansionTable({ record }) {
     <table className="materialDetailTable">
       <tbody>
         <tr>
-          <td>Density (g/cm³)</td>
-          <td className="valueCell">{record["density_g/cm3"].value ?? "-"}</td>
-          <td className="leftPaddingCell">Impact Strength (J/m)</td>
+          <td>Density {record.density.solid.unit}</td>
+          <td className="valueCell">{record.value ?? "-"}</td>
+          <td className="leftPaddingCell">Impact Strength {record.impactStrength["Notched Izod"].unit}</td>
           <td className="valueCell">
-            {record.impactStrength?.min
-              ? record.impactStrength?.min + " - " + record.impactStrength?.max
+            {record.impactStrength["Notched Izod"]?.min
+              ? record.impactStrength["Notched Izod"]?.min + " - " + record.impactStrength["Notched Izod"]?.max
               : "-"}
           </td>
         </tr>
         <tr>
-          <td>Tensile Strength (mpa)</td>
+          <td>Tensile Strength {record.tensileStrength?.unit}</td>
           <td className="valueCell">
             {record.tensileStrength?.min
               ? record.tensileStrength?.min +
@@ -21,7 +21,7 @@ export default function ExpansionTable({ record }) {
                 record.tensileStrength?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Tensile Modulus (mpa)</td>
+          <td className="leftPaddingCell">Tensile Modulus {record.tensileModulus?.unit}</td>
           <td className="valueCell">
             {record.tensileModulus?.min
               ? record.tensileModulus?.min + " - " + record.tensileModulus?.max
@@ -29,13 +29,13 @@ export default function ExpansionTable({ record }) {
           </td>
         </tr>
         <tr>
-          <td>Shore-D Hardness</td>
+          <td>Hardness</td>
           <td className="valueCell">
-            {record.shoreDHardness?.min
-              ? record.shoreDHardness?.min + " - " + record.shoreDHardness?.max
+            {record.Hardness?.min
+              ? record.Hardness?.min + " - " + record.Hardness?.max
               : "-"}
           </td>
-          <td className="leftPaddingCell">Elongation At Break (%)</td>
+          <td className="leftPaddingCell">Elongation At Break {record.elongationAtBreak.unit}</td>
           <td className="valueCell">
             {record.elongationAtBreak?.min
               ? record.elongationAtBreak?.min +

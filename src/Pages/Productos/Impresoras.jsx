@@ -13,6 +13,15 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 import { getPrintersFromDB } from "../../utils/dataHandler";
 import { volumeFiltering, technologyFiltering } from "../../utils/filters";
 
+import titanPellet1070 from "../../assets/printerImages/printer_image_1070_titan_pellet.jpg";
+import titan1270 from "../../assets/printerImages/printer_image_1270_titan.jpg";
+import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
+import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
+import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
+import figure4Standalon from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
+import projetMjp2500 from "../../assets/printerImages/printer_image_projet_mjp_2500.jpg";
+import projetMjp2500W from "../../assets/printerImages/printer_image_projet_mjp_2500W_plus.jpg";
+
 export default function Impresoras() {
   //State
   const [technologyFilterCriteria, setTechnologyFilterCriteria] = useState([]);
@@ -31,6 +40,36 @@ export default function Impresoras() {
   const is1280 = useMediaQuery(1280);
   const is1580 = useMediaQuery(1580);
 
+  //Printer imagelist
+  function getPrinterImageUsingName(printerName) {
+    switch (printerName) {
+      case "Figure 4 Joyeria":
+        return figure4Jewelry;
+      case "Projet MJP 2500W Plus":
+        return projetMjp2500W;
+      // case "Projet CJP 660 Pro":
+      //   return 
+      // case "DMP Flex 200":
+      //   return
+      case "Figure 4 Modular":
+        return figure4Modular;
+      case "Figure 4 Standalone":
+        return figure4Standalon;
+      // case "Projet MJP 2500 Plus":
+      //   return
+      // case "SLA 750":
+      //   return
+      case "EXT 1070 Titan Pellet":
+        return titanPellet1070;
+      // case "SLS 300":
+      //   return
+      default:
+        return "https://picsum.photos/300"
+    }
+    
+  }
+
+
   //Data fetching
   const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
     select: (printerData) => {
@@ -43,10 +82,7 @@ export default function Impresoras() {
           .filter((printer) => volumeFiltering(printer, volumeFilterCriteria))
           //Temporary
           .map((printer) => {
-            printer.imageUrl =
-              "https://picsum.photos/id/" +
-              (Math.floor(Math.random() * (100 - 1 + 1)) + 1) +
-              "/300";
+            printer.imageUrl = getPrinterImageUsingName(printer.name)
             return printer;
           })
       );
@@ -113,6 +149,8 @@ export default function Impresoras() {
     setCurrentPage(page);
   };
 
+  console.log(data)
+
   return (
     <>
       <Header />
@@ -141,7 +179,7 @@ export default function Impresoras() {
                     name={printer.name}
                     description={printer.description}
                     builVolume={printer.builVolume}
-                    technology={printer.technology}
+                    technology={printer.technology.value}
                   />
                 );
               })

@@ -4,11 +4,18 @@ import NewsCard from "../Components/HomeScreen/NewsCard";
 import Hero from "../Components/Hero";
 import ContactUs from "../Components/ContactUs";
 import useMediaQuery from "../hooks/useMediaQuery";
-import { getHeroContentFromDB } from "../utils/dataHandler";
+
+import HeroImageHome from "../assets/heroImages/hero_img_home.jpg"
 
 export default function Home() {
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024);
+
+  const heroContent = {
+    title: "Desafia los limites con la Impresion 3D Industrial",
+    message: null,
+    heroImage: HeroImageHome,
+  };
 
   const styles = {
     mainContainer: {
@@ -30,16 +37,25 @@ export default function Home() {
     <>
       <Header />
       <div className="mainContainer" style={styles.mainContainer}>
-        <Hero content={getHeroContentFromDB("home")} />
+        <Hero
+          title={heroContent.title}
+          message={heroContent.message}
+          imageSrc={heroContent.heroImage}
+        />
         <div style={styles.newsCardContainer}>
           <NewsCard
-            redirectUrl="/noticias/noticiaUno"
+            redirectUrl="/noticias/one"
             title="Newscard title"
             message="Lorem ipsum"
           />
           <NewsCard
-            redirectUrl="/noticias/noticiaUno"
+            redirectUrl="/noticias/two"
             title="Newscard title 2"
+            message="Lorem ipsum"
+          />
+          <NewsCard
+            redirectUrl="/noticias/one"
+            title="Newscard title 3"
             message="Lorem ipsum"
           />
         </div>

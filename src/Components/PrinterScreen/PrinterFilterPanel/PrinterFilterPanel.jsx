@@ -1,12 +1,26 @@
-import { Checkbox, Collapse, Input } from "antd";
-import { techOptions } from "./printerFilterOptions";
+import { useQuery } from "react-query";
+
+import { Checkbox, Collapse } from "antd";
 
 import VolumeFilterInputGroup from "./VolumeFilter/VolumeFilterInputGroup";
+
+import { techOptions } from "./printerFilterOptions";
+
+import { getTechnologiesNamesListFromAPI } from "../../../utils/dataHandler";
 
 export default function PrinterFilterPanel({
   technologyCheckBoxChangeHandler,
   dimensionChangeHandler,
 }) {
+  //Data fetching //////////////////////////////////////////////////////////////////////////////////////////
+
+  const techNameListData = useQuery(
+    ["techNamesListFetching"],
+    getTechnologiesNamesListFromAPI
+  );
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   const styles = {
     container: {
       display: "flex",
@@ -16,19 +30,29 @@ export default function PrinterFilterPanel({
     },
   };
 
+  console.log(techNameListData.data);
+
   return (
     <Collapse defaultActiveKey={["1"]} style={styles.container}>
       <Collapse.Panel header="Tecnología" key="1">
         <div>
           <Checkbox.Group
-            options={techOptions}
+            options={
+              techNameListData.isLoading
+                ? techOptions
+                : techNameListData.data.tec.map((tech) => {
+                    return tech.label;
+                  })
+            }
             style={{ display: "flex", flexDirection: "column" }}
             onChange={technologyCheckBoxChangeHandler}
           />
         </div>
       </Collapse.Panel>
       <Collapse.Panel header="Volumen" key="2">
-        <VolumeFilterInputGroup dimensionChangeHandler={dimensionChangeHandler}/>
+        <VolumeFilterInputGroup
+          dimensionChangeHandler={dimensionChangeHandler}
+        />
       </Collapse.Panel>
     </Collapse>
   );

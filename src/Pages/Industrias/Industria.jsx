@@ -41,8 +41,8 @@ export default function Industria() {
 
   return (
     <>
-      <Header />
-      <main style={styles.mainContainer}>
+      {/* <Header /> */}
+      {/* <main style={styles.mainContainer}>
       <Hero content={getHeroContentFromDB("industria")} />
         <section
           className={"applicationContent"}
@@ -79,7 +79,7 @@ export default function Industria() {
         </section>
         <ContactUs />
       </main>
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
