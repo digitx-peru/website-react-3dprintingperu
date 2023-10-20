@@ -15,7 +15,7 @@ const itemsIndustrias = [
   },
   {
     key: "4",
-    label: <Link to="/industrias/arte y proto">Arte y prototipos</Link>,
+    label: <Link to="/industrias/prototipos-y-arte">Arte y prototipos</Link>,
   },
 ];
 
@@ -24,10 +24,10 @@ const itemsSalud = [
     key: "1",
     label: <Link to="/salud/medicina">Dispositivos Médicos</Link>,
   },
-  {
-    key: "2",
-    label: <Link to="/salud/odontologia">Bioprinting</Link>,
-  },
+  // {
+  //   key: "2",
+  //   label: <Link to="/salud/odontologia">Bioprinting</Link>,
+  // },
 ];
 
 const itemsProductos = [

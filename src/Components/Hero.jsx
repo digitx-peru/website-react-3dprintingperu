@@ -1,24 +1,52 @@
-export default function Hero({ title, message, backgroundImagePath }) {
+export default function Hero({ title, message, imageSrc }) {
+
   const styles = {
-    hero: {
-      height: 500,
-      backgroundColor: "#353535",
-      alignItems: "center",
-      color: "white",
-      padding: 50,
+    container: {
+      position: "relative",
       alignSelf: "stretch",
-      backgroundImage: `url(${backgroundImagePath})`,
-      backgroundSize: "cover",
+    },
+    heroImage: {
+      position: "relative",
+      width: "100%",
+      height: "500px",
+      objectFit: "cover",
+    },
+    overlay: {
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "black",
+      opacity: "0.7",
+      display: "flex",
+      alignItems: "center",
+    },
+    textContainer: {
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      padding: "0 0 0 50px",
     },
     heroTitle: {
+      color: "white",
       fontSize: 64,
     },
   };
 
   return (
-    <section style={styles.hero}>
-      <h1 style={styles.heroTitle}>{title}</h1>
-      {message !== null && <p>{message}</p>}      
+    <section style={styles.container}>
+      <img style={styles.heroImage} src={imageSrc} alt="" />
+      <div style={styles.overlay}></div>
+      <div style={styles.textContainer}>
+        <h1 style={styles.heroTitle}>{title}</h1>
+        {message !== null && <p>{message}</p>}
+      </div>
     </section>
   );
 }

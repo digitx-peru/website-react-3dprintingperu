@@ -3,7 +3,7 @@ const printerDataURL = process.env.REACT_APP_DATA_API_URL + "printers";
 const printerNameListDataURL =
   process.env.REACT_APP_DATA_API_URL + "printers/list";
 const technologyNameListDataURL =
-  process.env.REACT_APP_DATA_API_URL + "technologieslist";
+  process.env.REACT_APP_DATA_API_URL + "technology/list";
 
 export async function getPrintersFromDB() {
   console.log("Fetching printers");
