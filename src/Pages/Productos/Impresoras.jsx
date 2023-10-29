@@ -11,7 +11,7 @@ import PrinterFilterPanel from "../../Components/PrinterScreen/PrinterFilterPane
 import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 
 import { getPrintersFromDB } from "../../utils/dataHandler";
-import { volumeFiltering, technologyFiltering } from "../../utils/filters";
+import { volumeFiltering, technologyFiltering, technologyLabelValueSwap } from "../../utils/filters";
 
 import titanPellet1070 from "../../assets/printerImages/printer_image_1070_titan_pellet.jpg";
 import titan1270 from "../../assets/printerImages/printer_image_1270_titan.jpg";
@@ -135,7 +135,9 @@ export default function Impresoras() {
 
   //Event Handlers
   function technologyCheckBoxChangeHandler(checkboxValue) {
-    setTechnologyFilterCriteria(checkboxValue);
+    console.log(technologyFilterCriteria);
+    const technologyValue = technologyLabelValueSwap(checkboxValue);
+    setTechnologyFilterCriteria(technologyValue);
   }
 
   const dimensionChangeHandler = (dimension, onChangeEvent) => {
@@ -148,8 +150,6 @@ export default function Impresoras() {
   const pageChangeHandler = (page) => {
     setCurrentPage(page);
   };
-
-  console.log(data)
 
   return (
     <>

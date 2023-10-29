@@ -30,7 +30,7 @@ export default function PrinterFilterPanel({
     },
   };
 
-  console.log(techNameListData.data);
+  // console.log(techNameListData.data);
 
   return (
     <Collapse defaultActiveKey={["1"]} style={styles.container}>

@@ -18,7 +18,9 @@ export default function PrinterCard({
     printerCardImage: {
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
-      width: "100%",
+      height: "300px",
+      width: "300px",
+      objectFit: "contain",
     },
     printerCardInfoContent: {
       padding: "10px",

@@ -55,18 +55,19 @@ function propertyValueFiltering(
 ///////////////////////////////////////////////PRINTERS
 
 export function volumeFiltering(printer, volumeFilterCriteria) {
-  const xValue = dimensionValueFiltering(printer, volumeFilterCriteria, "x")
+  const xValue = dimensionValueFiltering(printer, volumeFilterCriteria, "x");
 
-  const yValue = dimensionValueFiltering(printer, volumeFilterCriteria, "y")
+  const yValue = dimensionValueFiltering(printer, volumeFilterCriteria, "y");
 
-  const zValue = dimensionValueFiltering(printer, volumeFilterCriteria, "z")
+  const zValue = dimensionValueFiltering(printer, volumeFilterCriteria, "z");
 
   return xValue && yValue && zValue;
 }
 
 function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
   return volumeFilterCriteria[dimensionName]
-    ? printer.builVolume[dimensionName] >= parseFloat(volumeFilterCriteria[dimensionName]).toFixed(1)
+    ? printer.builVolume[dimensionName] >=
+        parseFloat(volumeFilterCriteria[dimensionName]).toFixed(1)
     : true;
 }
 
@@ -74,6 +75,36 @@ function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
 
 export function technologyFiltering(unit, technologyFilterCriteria) {
   return technologyFilterCriteria.length !== 0
-    ? technologyFilterCriteria.includes(unit.technology)
+    ? technologyFilterCriteria.includes(unit.technology.value)
     : unit;
+}
+
+export function technologyLabelValueSwap(technologies) {
+  return technologies.map((tech) => {
+    switch (tech) {
+      case "Direct Light Processing":
+        return "DLP";
+
+      case "MultiJet Printing":
+        return "MJP";
+
+      case "ColorJet Printing":
+        return "CJP";
+
+      case "Direct Metal Printing":
+        return "DMP";
+
+      case "Stereolithography":
+        return "SLA";
+
+      case "Extrusion":
+        return "EXT";
+
+      case "Selective Laser Sintering":
+        return "SLS";
+
+      default:
+        break;
+    }
+  });
 }
