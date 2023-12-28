@@ -32,26 +32,20 @@ export default function FooterNav() {
         <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>
           Industrias
         </h4>
-        <Link style={styles.footerNavLink} to="/industrias/automotriz">
-          Automotriz
-        </Link>
         <Link style={styles.footerNavLink} to="/industrias/fundicion">
           Fundicion
         </Link>
         <Link style={styles.footerNavLink} to="/industrias/joyeria">
           Joyeria
         </Link>
-        <Link style={styles.footerNavLink} to="/industrias/replicas">
-          Replicas
+        <Link style={styles.footerNavLink} to="/industrias/prototipos-y-arte">
+          Arte y Prototipos
         </Link>
       </div>
       <div style={styles.footerNavColumn}>
         <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>Salud</h4>
         <Link style={styles.footerNavLink} to="/salud/medicina">
           Dispositivos Médicos
-        </Link>
-        <Link style={styles.footerNavLink} to="/salud/odontologia">
-          Bioprinting
         </Link>
       </div>
     </div>
