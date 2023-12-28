@@ -21,6 +21,7 @@ import figure4Production from "../../assets/printerImages/printer_image_figure_4
 import figure4Standalon from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
 import projetMjp2500 from "../../assets/printerImages/printer_image_projet_mjp_2500.jpg";
 import projetMjp2500W from "../../assets/printerImages/printer_image_projet_mjp_2500W_plus.jpg";
+import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 
 export default function Impresoras() {
   //State
@@ -64,7 +65,7 @@ export default function Impresoras() {
       // case "SLS 300":
       //   return
       default:
-        return "https://picsum.photos/300"
+        return notAvailable;
     }
     
   }
