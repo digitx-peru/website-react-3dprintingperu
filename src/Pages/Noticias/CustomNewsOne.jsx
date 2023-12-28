@@ -19,7 +19,7 @@ export default function Noticia() {
     },
     {
       key: "2",
-      label: "Original",
+      label: "Nota Original",
       children: <CustomContentNewsOneOriginal />,
     },
   ];
@@ -36,7 +36,7 @@ export default function Noticia() {
       flexDirection: isDevice ? "column" : "row",
       justifyContent: "center",
       gap: 20,
-      padding: isDevice ? "0 15px" : "100px 100px",
+      padding: isDevice ? "0 15px" : "100px 400px",
     },
   };
 

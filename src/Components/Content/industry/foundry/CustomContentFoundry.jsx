@@ -122,14 +122,14 @@ export default function CustomContentFoundry({ width }) {
       >
         <img style={{ height: "400px" }} src={foundryLostWax} alt="" />
       </div>
-      <h4>Projet MJP 2500IC</h4>
       <p>
-        La tecnología Multijet permite la impresión de piezas 100% de cera, con
-        una resolución de 42u en z . Además, el costo del material de
-        construcción es bajo lo que resulta en un costo por parte muy económico.
-        Esta impresora es recomendable para tamaños de pieza mediana (volumen de
-        impresión x,y,z es 310x212x145) y destaca por el reducido tiempo de post
-        proceso que además requiere muy poca intervención manual.
+        Projet MJP 2500IC; La tecnología Multijet permite la impresión de piezas
+        100% de cera, con una resolución de 42u en z . Además, el costo del
+        material de construcción es bajo lo que resulta en un costo por parte
+        muy económico. Esta impresora es recomendable para tamaños de pieza
+        mediana (volumen de impresión x,y,z es 310x212x145) y destaca por el
+        reducido tiempo de post proceso que además requiere muy poca
+        intervención manual.
       </p>
       <div
         style={{
@@ -140,9 +140,8 @@ export default function CustomContentFoundry({ width }) {
       >
         <img style={{ height: "400px" }} src={foundryQuickCast} alt="" />
       </div>
-      <h4>SLA 750, 950</h4>
       <p>
-        Las impresoras de Stereolitografia (SLA); cuentan con el
+        SLA 750, 950 Las impresoras de Stereolitografia (SLA); cuentan con el
         material CastPro, una resina calcinable que se desintegra. Con este
         material y el modo de impresión Quickcast, es posible imprimir con capas
         de 0.05 - 0.15mm, y así producir piezas muy grandes, súper ligeras,

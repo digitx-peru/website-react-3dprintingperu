@@ -1,4 +1,7 @@
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import EndOfContent from "../EndOfContent";
+import newsOneFirstImage from "../../../assets/newsImages/newsOne/news_image_skull_design_fix.png";
+import newsOneSecondImage from "../../../assets/newsImages/newsOne/news_image_user_printer.jpg";
 
 export default function CustomContentFoundry({ width }) {
   const isDevice = useMediaQuery(768);
@@ -63,7 +66,7 @@ export default function CustomContentFoundry({ width }) {
           padding: "40px 0 40px 0",
         }}
       >
-        <img src="https://picsum.photos/400/300" alt="" />
+        <img style={{width: "800px"}} src={newsOneFirstImage} alt="" />
       </div>
       <p>
         Se espera que La Adopción de implantes craneales impresos en 3D se
@@ -113,8 +116,9 @@ export default function CustomContentFoundry({ width }) {
           padding: "40px 0 40px 0",
         }}
       >
-        <img src="https://picsum.photos/400/300" alt="" />
+        <img style={{width: "500px"}} src={newsOneSecondImage} alt="" />
       </div>
+      <EndOfContent />
     </div>
   );
 }
