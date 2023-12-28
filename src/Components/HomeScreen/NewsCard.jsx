@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-export default function NewsCard({ redirectUrl, title, message }) {
+export default function NewsCard({ redirectUrl, title, message, image }) {
   const isDevice = useMediaQuery(768);
 
   const styles = {
@@ -28,7 +28,7 @@ export default function NewsCard({ redirectUrl, title, message }) {
   return (
     <Link to={redirectUrl} style={styles.linkContainer}>
       <div style={styles.container}>
-        <img src="https://picsum.photos/800/400" alt="" style={styles.image} />
+        <img src={image} alt="" style={styles.image} />
         <div style={styles.infoContainer}>
           <h3>{title}</h3>
           <p>{message}</p>
