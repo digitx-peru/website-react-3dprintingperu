@@ -85,7 +85,7 @@ export default function ExpansionTable({ record }) {
         <tr>
           <td>Water Absorption@24hrs (%)</td>
           <td className="valueCell">
-            {record.waterAbsorption_24hrs.value ?? "-"}
+            {record.waterAbsorption.value ?? "-"}
           </td>
           <td className="leftPaddingCell">Composition</td>
           <td className="valueCell">{record.composition ?? "-"}</td>
