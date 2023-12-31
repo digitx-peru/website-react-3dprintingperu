@@ -7,6 +7,10 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 import HeroImageHome from "../assets/heroImages/hero_img_home.jpg"
 
+import newsOneThumbnail from "../assets/newsImages/newsOne/news_image_thumbail_3dprint_organs.jpeg"
+import newsTwoThumbnail from "../assets/newsImages/newsTwo/news_image_thumbnail_new_sls_300.png"
+import newsThreeThumbnail from "../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png"
+
 export default function Home() {
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024);
@@ -44,19 +48,22 @@ export default function Home() {
         />
         <div style={styles.newsCardContainer}>
           <NewsCard
-            redirectUrl="/noticias/one"
-            title="Newscard title"
-            message="Lorem ipsum"
+            redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"
+            title="La universidad de Salsburgo realiza sorprendente cirugía"
+            // message="Lorem ipsum"
+            image={newsOneThumbnail}
           />
           <NewsCard
-            redirectUrl="/noticias/two"
-            title="Newscard title 2"
-            message="Lorem ipsum"
+            redirectUrl="/noticias/la-nueva-sls-300"
+            title="La nueva SLS 300"
+            image={newsTwoThumbnail}
+            // message="Lorem ipsum"
           />
           <NewsCard
-            redirectUrl="/noticias/one"
-            title="Newscard title 3"
-            message="Lorem ipsum"
+            redirectUrl="/noticias/la-nueva-ext-1270"
+            title="La nueva EXT 1270"
+            image={newsThreeThumbnail}
+            // message="Lorem ipsum"
           />
         </div>
         <ContactUs />

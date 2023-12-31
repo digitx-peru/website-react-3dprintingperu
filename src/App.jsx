@@ -10,7 +10,8 @@ import Impresoras from "./Pages/Productos/Impresoras";
 import Materiales from "./Pages/Productos/Materiales";
 
 import CustomNewsOne from "./Pages/Noticias/CustomNewsOne";
-import CustomNewsTwo from "./Pages/Noticias/CustomNewsTwo"
+import CustomNewsTwo from "./Pages/Noticias/CustomNewsTwo";
+import CustomNewsThree from "./Pages/Noticias/CustomNewsThree";
 import CustomPrototype from "./Pages/Industrias/CustomPrototype";
 
 
@@ -28,8 +29,9 @@ export default function App() {
       <Route path="/productos/impresoras" element={<Impresoras />} />
       <Route path="/productos/materiales" element={<Materiales />} />
 
-      <Route path="/noticias/one" element={<CustomNewsOne />} />
-      <Route path="/noticias/two" element={<CustomNewsTwo />} />
+      <Route path="/noticias/universidad-salsburgo-realiza-cirugia" element={<CustomNewsOne />} />
+      <Route path="/noticias/la-nueva-sls-300" element={<CustomNewsTwo />} />
+      <Route path="/noticias/la-nueva-ext-1270" element={<CustomNewsThree />} />
     </Routes>
   );
 }

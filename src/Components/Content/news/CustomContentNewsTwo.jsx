@@ -27,6 +27,7 @@ export default function CustomContentFoundry({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
+      <h2>La nueva SLS 300</h2>
       <p>
         ROCK HILL, Carolina del Sur, 1 de mayo de 2023 - Hoy, 3D Systems (NYSE:
         DDD) anunció que ha llegado a un acuerdo para adquirir Wematter, un

@@ -31,7 +31,7 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
         <img src={image} alt="" style={styles.image} />
         <div style={styles.infoContainer}>
           <h3>{title}</h3>
-          <p>{message}</p>
+          {/* <p>{message}</p> */}
         </div>
       </div>
     </Link>
