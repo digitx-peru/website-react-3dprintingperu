@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 
+import { Tabs } from "antd";
+
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
-import CustomContentPrototypes from "../../Components/Content/industry/prototyping/CustomContentPrototypes";
+import CustomContentPrototypesOverview from "../../Components/Content/industry/prototyping/CustomContentPrototypesOverview";
+import CustomContentPrototypesPrototyping from "../../Components/Content/industry/prototyping/CustomContentPrototypesPrototyping";
+import CustomContentPrototypesArt from "../../Components/Content/industry/prototyping/CustomContentPrototypesArt";
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
 
 import heroImgPrototype from "../../assets/heroImages/hero_img_replicates.jpg";
@@ -21,6 +25,24 @@ export default function CustomPrototype() {
     message: null,
     heroImage: heroImgPrototype,
   }
+
+  const tabItems = [
+    {
+      key: "1",
+      label: "Introdución",
+      children: <CustomContentPrototypesOverview />,
+    },
+    {
+      key: "2",
+      label: "Prototipado",
+      children: <CustomContentPrototypesPrototyping />,
+    },
+    {
+      key: "3",
+      label: "Arte",
+      children: <CustomContentPrototypesArt />,
+    },
+  ];
 
   const styles = {
     mainContainer: {
@@ -55,7 +77,7 @@ export default function CustomPrototype() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <CustomContentPrototypes />
+          <Tabs defaultActiveKey="1" items={tabItems} />
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
