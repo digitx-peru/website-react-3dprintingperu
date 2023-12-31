@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 
+import { Tabs } from 'antd';
+
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
-import CustomContentFoundry from "../../Components/Content/industry/foundry/CustomContentFoundry";
+import CustomContentFoundryOverview from "../../Components/Content/industry/foundry/CustomContentFoundryOverview";
+import CustomContentFoundrySandCasting from "../../Components/Content/industry/foundry/CustomContentFoundrySandCasting";
+import CustomContentFoundryLostWax from "../../Components/Content/industry/foundry/CustomContentFoundryLostWax";
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
 
 import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
@@ -21,6 +25,24 @@ export default function CustomFoundry() {
     message: null,
     heroImage: heroImgFoundry,
   }
+
+  const tabItems = [
+    {
+      key: '1',
+      label: 'Introdución',
+      children: <CustomContentFoundryOverview />
+    },
+    {
+      key: '2',
+      label: 'Moldes de arena',
+      children: <CustomContentFoundrySandCasting />
+    },
+    {
+      key: '3',
+      label: 'Cera perdida',
+      children: <CustomContentFoundryLostWax />
+    },
+  ];
 
   const styles = {
     mainContainer: {
@@ -55,7 +77,7 @@ export default function CustomFoundry() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <CustomContentFoundry />
+          <Tabs defaultActiveKey="1" items={tabItems} />
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
