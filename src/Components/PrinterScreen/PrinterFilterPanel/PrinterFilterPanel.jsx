@@ -42,7 +42,7 @@ export default function PrinterFilterPanel({
                 ? techOptions
                 : techNameListData.data.tec.map((tech) => {
                     return tech.label;
-                  })
+                  }).sort()
             }
             style={{ display: "flex", flexDirection: "column" }}
             onChange={technologyCheckBoxChangeHandler}
