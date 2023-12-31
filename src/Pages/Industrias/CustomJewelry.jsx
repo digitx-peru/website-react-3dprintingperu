@@ -1,12 +1,17 @@
 import { useParams } from "react-router-dom";
 
+import { Tabs } from "antd";
+
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
-import CustomContentJewelry from "../../Components/Content/industry/jewelry/CustomContentJewelry";
+import CustomContentJewelryOverview from "../../Components/Content/industry/jewelry/CustomContentJewelryOverview";
+import CustomContentJewelryLostWax from "../../Components/Content/industry/jewelry/CustomContentJewelryLostWax";
+import CustomContentJewelryRubberMold from "../../Components/Content/industry/jewelry/CustomContentJewelryRubberMold";
+
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
 
 import heroImgJewelry from "../../assets/heroImages/hero_img_jewelry.jpg";
@@ -21,6 +26,24 @@ export default function CustomJewelry() {
     message: null,
     heroImage: heroImgJewelry,
   };
+
+  const tabItems = [
+    {
+      key: "1",
+      label: "Introdución",
+      children: <CustomContentJewelryOverview />,
+    },
+    {
+      key: "2",
+      label: "Cera perdida",
+      children: <CustomContentJewelryLostWax />,
+    },
+    {
+      key: "3",
+      label: "Moldes de caucho",
+      children: <CustomContentJewelryRubberMold />,
+    },
+  ];
 
   const styles = {
     mainContainer: {
@@ -55,7 +78,7 @@ export default function CustomJewelry() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <CustomContentJewelry />
+          <Tabs defaultActiveKey="1" items={tabItems} />
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
@@ -64,28 +87,3 @@ export default function CustomJewelry() {
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 50,
-    alignItems: "center",
-  },
-  applicationContent: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: 100,
-    paddingLeft: 100,
-    paddingRight: 100,
-  },
-  technologyCardContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 25,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 20,
-  },
-};

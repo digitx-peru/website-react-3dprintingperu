@@ -80,28 +80,3 @@ export default function CustomDevices() {
     </>
   );
 }
-
-const styles = {
-  mainContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 50,
-    alignItems: "center",
-  },
-  applicationContent: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: 100,
-    paddingLeft: 100,
-    paddingRight: 100,
-  },
-  technologyCardContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 25,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 20,
-  },
-};
