@@ -1,101 +1,232 @@
+import ExpansionTableRow from "./ExpansionTableRow";
+
 export default function ExpansionTable({ record }) {
+
+  const properties = {
+    composition: {
+      name: "Composition",
+      value: record.composition,
+    },
+
+    technology: {
+      name: "Technology",
+      value: record.technology,
+    },
+
+    liquidDensity: {
+      name: `Density liquid (g/cm3)`,
+      value: record.density?.liquid?.value,
+    },
+
+    solidDensity: {
+      name: "Density solid (g/cm3)",
+      value: record.density?.solid?.value,
+    },
+
+    impactStrenghtNotchedIzod: {
+      name: `IS Notched Izod (J/m)`,
+      value:
+        record && record.impactStrength && record.impactStrength["Notched Izod"]
+          ? `${
+              record.impactStrength["Notched Izod"].min -
+              record.impactStrength["Notched Izod"].max
+            }`
+          : undefined,
+    },
+
+    impactStrenghtUnnotchedIzod: {
+      name: `IS Unnotched Izod (J/m)`,
+      value:
+        record &&
+        record.impactStrength &&
+        record.impactStrength["Unnotched Izod"]
+          ? `${
+              record.impactStrength["Unnotched Izod"].min -
+              record.impactStrength["Unnotched Izod"].max
+            }`
+          : undefined,
+    },
+
+    coefThermalExpansion20to50: {
+      name: `Thermal Expansion@-20to50C (ppm/Celsius)`,
+      value:
+        record &&
+        record.coefThermalExpansion &&
+        record.coefThermalExpansion["-20to50C"]
+          ? `${
+              record.coefThermalExpansion["-20to50C"].min -
+              record.coefThermalExpansion["-20to50C"].max
+            }`
+          : undefined,
+    },
+
+    coefThermalExpansion75to180: {
+      name: `Thermal Expansion@75to180C (ppm/Celsius)`,
+      value:
+        record &&
+        record.coefThermalExpansion &&
+        record.coefThermalExpansion["75to180C"]
+          ? `${
+              record.coefThermalExpansion["75to180C"].min -
+              record.coefThermalExpansion["75to180C"].max
+            }`
+          : undefined,
+    },
+
+    heatDistortionTemp045: {
+      name: `Heat Distortion Temp@0.45Mpa (Celsius)`,
+      value:
+        record &&
+        record.heatDistortionTemp &&
+        record.heatDistortionTemp["0.45Mpa"]
+          ? `${
+              record.heatDistortionTemp["0.45Mpa"].min -
+              record.heatDistortionTemp["0.45Mpa"].max
+            }`
+          : undefined,
+    },
+
+    heatDistortionTemp182: {
+      name: `Heat Distortion Temp@1.82Mpa (Celsius)`,
+      value:
+        record &&
+        record.heatDistortionTemp &&
+        record.heatDistortionTemp["1.82Mpa"]
+          ? `${
+              record.heatDistortionTemp["1.82Mpa"].min -
+              record.heatDistortionTemp["1.82Mpa"].max
+            }`
+          : undefined,
+    },
+
+    tensileStrength: {
+      name: `Tensile Strength (mpa)`,
+      value: `${record.tensileStrength?.min - record.tensileStrength?.max}`,
+    },
+
+    yieldStrength: {
+      name: `Yield Strength (mpa)`,
+      value: `${record.yieldStrength?.min - record.yieldStrength?.max}`,
+    },
+
+    tensileModulus: {
+      name: `Tensile Moudlus (mpa)`,
+      value: `${record.tensileModulus?.min - record.tensileModulus?.max}`,
+    },
+
+    waterAbsorption: {
+      name: `Water Absorption (%)`,
+      value: record.waterAbsorption?.value,
+    },
+
+    flexuralStrength: {
+      name: `Flexural Strength (mpa)`,
+      value: `${record.flexuralStrength?.min - record.flexuralStrength?.max}`,
+    },
+
+    flexuralModulus: {
+      name: `Flexural Modulus (mpa)`,
+      value: `${record.flexuralModulus?.min - record.flexuralModulus?.max}`,
+    },
+
+    dielectricStrength: {
+      name: `Dielectric Strength@3.0mm thickness (kV/mm)`,
+      value: `${
+        record.dielectricStrength?.min - record.dielectricStrength?.max
+      }`,
+    },
+
+    dielectricConstant: {
+      name: `Dielectric Constant@ 1 MHz`,
+      value: `${
+        record.dielectricConstant?.min - record.dielectricConstant?.max
+      }`,
+    },
+
+    dissipationFactor: {
+      name: `Dissipation Factor@ 1 MHz`,
+      value: `${record.dissipationFactor?.min - record.dissipationFactor?.max}`,
+    },
+
+    glassTransitionTemp_Tg: {
+      name: `Glass Transition Temp (Celsius)`,
+      value: `${
+        record.glassTransitionTemp_Tg?.min - record.glassTransitionTemp_Tg?.max
+      }`,
+    },
+
+    elongationAtBreak: {
+      name: `Elongation at Break (%)`,
+      value: `${record.elongationAtBreak?.min - record.elongationAtBreak?.max}`,
+    },
+
+    elongationAtYield: {
+      name: `Elongation at Yield (Celsius)`,
+      value: `${record.elongationAtYield?.min - record.elongationAtYield?.max}`,
+    },
+
+    hardness: {
+      name: `Hardness Shore D`,
+      value: `${record.hardness?.min - record.hardness?.max}`,
+    },
+
+    ulFlammability: {
+      name: `Flammability`,
+      value: `${record.ulFlammability?.min - record.ulFlammability?.max}`,
+    },
+  };
+
   return (
     <table className="materialDetailTable">
       <tbody>
-        <tr>
-          <td>Density {record.density.solid.unit}</td>
-          <td className="valueCell">{record.value ?? "-"}</td>
-          <td className="leftPaddingCell">Impact Strength {record.impactStrength["Notched Izod"].unit}</td>
-          <td className="valueCell">
-            {record.impactStrength["Notched Izod"]?.min
-              ? record.impactStrength["Notched Izod"]?.min + " - " + record.impactStrength["Notched Izod"]?.max
-              : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Tensile Strength {record.tensileStrength?.unit}</td>
-          <td className="valueCell">
-            {record.tensileStrength?.min
-              ? record.tensileStrength?.min +
-                " - " +
-                record.tensileStrength?.max
-              : "-"}
-          </td>
-          <td className="leftPaddingCell">Tensile Modulus {record.tensileModulus?.unit}</td>
-          <td className="valueCell">
-            {record.tensileModulus?.min
-              ? record.tensileModulus?.min + " - " + record.tensileModulus?.max
-              : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Hardness</td>
-          <td className="valueCell">
-            {record.Hardness?.min
-              ? record.Hardness?.min + " - " + record.Hardness?.max
-              : "-"}
-          </td>
-          <td className="leftPaddingCell">Elongation At Break {record.elongationAtBreak.unit}</td>
-          <td className="valueCell">
-            {record.elongationAtBreak?.min
-              ? record.elongationAtBreak?.min +
-                " - " +
-                record.elongationAtBreak?.max
-              : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Heat Distortion Temp @045mpa (°C)</td>
-          <td className="valueCell">
-            {record.heatDistortionTemp045mpa?.min
-              ? record.heatDistortionTemp045mpa?.min +
-                " - " +
-                record.heatDistortionTemp045mpa?.max
-              : "-"}
-          </td>
-          <td className="leftPaddingCell">Heat Distortion Temp @182mpa (°C)</td>
-          <td className="valueCell">
-            {record.heatDistortionTemp182mpa?.min
-              ? record.heatDistortionTemp182mpa?.min +
-                " - " +
-                record.heatDistortionTemp182mpa?.max
-              : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Flexural Modulus (mpa)</td>
-          <td className="valueCell">
-            {record.flexuralModulus?.min
-              ? record.flexuralModulus?.min +
-                " - " +
-                record.flexuralModulus?.max
-              : "-"}
-          </td>
-          <td className="leftPaddingCell">Flexural Strength (mpa)</td>
-          <td className="valueCell">
-            {record.flexuralStrength?.min
-              ? record.flexuralStrength?.min +
-                " - " +
-                record.flexuralStrength?.max +
-                " " +
-                record.flexuralStrength?.unit
-              : "-"}
-          </td>
-        </tr>
-        <tr>
-          <td>Water Absorption@24hrs (%)</td>
-          <td className="valueCell">
-            {record.waterAbsorption.value ?? "-"}
-          </td>
-          <td className="leftPaddingCell">Composition</td>
-          <td className="valueCell">{record.composition ?? "-"}</td>
-        </tr>
-        <tr>
-          <td>UL Flammability</td>
-          <td className="valueCell">{record.ULFlammability.value ?? "-"}</td>
-          <td className="leftPaddingCell">Bottle Size (kg)</td>
-          <td className="valueCell">{record.format.quantity ?? "-"}</td>
-        </tr>
+        <ExpansionTableRow
+          leftProperty={properties.composition}
+          rightProperty={properties.technology}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.liquidDensity}
+          rightProperty={properties.impactStrenghtNotchedIzod}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.solidDensity}
+          rightProperty={properties.impactStrenghtUnnotchedIzod}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.coefThermalExpansion20to50}
+          rightProperty={properties.heatDistortionTemp045}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.coefThermalExpansion75to180}
+          rightProperty={properties.heatDistortionTemp182}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.tensileStrength}
+          rightProperty={properties.yieldStrength}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.tensileModulus}
+          rightProperty={properties.flexuralStrength}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.waterAbsorption}
+          rightProperty={properties.flexuralModulus}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.dielectricStrength}
+          rightProperty={properties.glassTransitionTemp_Tg}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.dielectricConstant}
+          rightProperty={properties.elongationAtBreak}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.dissipationFactor}
+          rightProperty={properties.elongationAtYield}
+        />
+        <ExpansionTableRow
+          leftProperty={properties.hardness}
+          rightProperty={properties.ulFlammability}
+        />
       </tbody>
     </table>
   );
