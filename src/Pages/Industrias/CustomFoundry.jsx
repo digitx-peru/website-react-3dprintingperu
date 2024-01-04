@@ -21,8 +21,8 @@ export default function CustomFoundry() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
-    message: null,
+    title: "Reduce costos y tiempos de entrega",
+    message: "Incrementa tu capacidad de producir piezas mas complejas",
     heroImage: heroImgFoundry,
   }
 

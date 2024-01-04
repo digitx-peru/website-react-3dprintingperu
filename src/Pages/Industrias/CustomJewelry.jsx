@@ -22,8 +22,8 @@ export default function CustomJewelry() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
-    message: null,
+    title: "Libertad de diseño y mayor calidad",
+    message: "Incrementa la productividad en la manufactura de joyería",
     heroImage: heroImgJewelry,
   };
 

@@ -20,8 +20,8 @@ export default function CustomDevices() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
-    message: null,
+    title: "Cada paciente un caso diferente",
+    message: "La Impresion 3D es la forma de atender las necesidades especificas de cada uno",
     heroImage: heroImgMedDevices,
   };
 

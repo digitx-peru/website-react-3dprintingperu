@@ -30,8 +30,10 @@ export default function Hero({ title, message, imageSrc }) {
       height: "100%",
       color: "white",
       display: "flex",
-      alignItems: "center",
+      flexDirection: "column",
+      justifyContent: "center",
       padding: "0 0 0 50px",
+      gap: "10px 0",
     },
     heroTitle: {
       color: "white",
@@ -45,7 +47,7 @@ export default function Hero({ title, message, imageSrc }) {
       <div style={styles.overlay}></div>
       <div style={styles.textContainer}>
         <h1 style={styles.heroTitle}>{title}</h1>
-        {message !== null && <p>{message}</p>}
+        {message !== null && <p style={{fontSize: 24}}>{message}</p>}
       </div>
     </section>
   );

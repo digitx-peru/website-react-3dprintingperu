@@ -21,7 +21,7 @@ export default function CustomPrototype() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
+    title: "Sin limites de formas y colores",
     message: null,
     heroImage: heroImgPrototype,
   }
