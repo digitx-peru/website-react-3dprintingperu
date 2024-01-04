@@ -13,14 +13,27 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 import { getPrintersFromDB } from "../../utils/dataHandler";
 import { volumeFiltering, technologyFiltering, technologyLabelValueSwap } from "../../utils/filters";
 
-import titanPellet1070 from "../../assets/printerImages/printer_image_1070_titan_pellet.jpg";
-import titan1270 from "../../assets/printerImages/printer_image_1270_titan.jpg";
+import cjp660Pro from "../../assets/printerImages/printer_image_cjp_660Pro.png"
+import dmpFlex100 from "../../assets/printerImages/printer_image_dmp_flex_100.png"
+import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.png"
+import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png"
+import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png"
+import extTitan1070 from "../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
+import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.jpg";
 import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
 import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
 import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
-import figure4Standalon from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
-import projetMjp2500 from "../../assets/printerImages/printer_image_projet_mjp_2500.jpg";
-import projetMjp2500W from "../../assets/printerImages/printer_image_projet_mjp_2500W_plus.jpg";
+import figure4Standalone from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
+import projetMjp300W from "../../assets/printerImages/printer_image_mjp_300W.png";
+import projetMjp2500 from "../../assets/printerImages/printer_image_mjp_2500.jpg";
+import projetMjp2500IC from "../../assets/printerImages/printer_image_mjp_2500IC.png";
+import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
+import projetMjp6000 from "../../assets/printerImages/printer_image_mjp_6000.png";
+import projetMjp7000 from "../../assets/printerImages/printer_image_mjp_7000.png";
+import sla750 from "../../assets/printerImages/printer_image_sla_750.png"
+import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png"
+import sls300 from "../../assets/printerImages/printer_image_sls_300.png"
+import sls380 from "../../assets/printerImages/printer_image_sls_380.png"
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 
 export default function Impresoras() {
@@ -44,26 +57,49 @@ export default function Impresoras() {
   //Printer imagelist
   function getPrinterImageUsingName(printerName) {
     switch (printerName) {
+      case "Projet CJP 660 Pro":
+        return cjp660Pro;
+      case "DMP Flex 100":
+        return dmpFlex100
+      case "DMP Flex 200":
+        return dmpFlex200
+      case "DMP Flex 350":
+        return dmpFlex350
+      case "DMP Factory 500":
+        return dmpFactory500
+      case "EXT 1070 Titan Pellet":
+        return extTitan1070;
+      case "EXT 1270 Titan":
+        return extTitan1270;
       case "Figure 4 Joyeria":
         return figure4Jewelry;
-      case "Projet MJP 2500W Plus":
-        return projetMjp2500W;
-      // case "Projet CJP 660 Pro":
-      //   return 
-      // case "DMP Flex 200":
-      //   return
       case "Figure 4 Modular":
         return figure4Modular;
+      case "Figure 4 Produccion":
+        return figure4Production;
       case "Figure 4 Standalone":
-        return figure4Standalon;
-      // case "Projet MJP 2500 Plus":
-      //   return
-      // case "SLA 750":
-      //   return
-      case "EXT 1070 Titan Pellet":
-        return titanPellet1070;
-      // case "SLS 300":
-      //   return
+        return figure4Standalone;
+      case "Projet MJP 300W":
+        return projetMjp300W;
+      case "Projet MJP 2500 Plus":
+        return projetMjp2500;
+      case "Projet MJP 2500IC":
+        return projetMjp2500IC;
+      case "Projet MJP 2500W Plus":
+        return projetMjp2500W;
+      case "Projet MJP 6000":
+        return projetMjp6000;
+      case "Projet MJP 7000":
+        return projetMjp7000;
+      case "SLA 750":
+        return sla750
+      case "SLA 750 Dual":
+        return sla750Dual
+      case "SLS 300":
+        return sls300
+      case "SLS 380":
+        return sls380
+
       default:
         return notAvailable;
     }
