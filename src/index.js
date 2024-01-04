@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import "./style/global.css";
+import "./style/globalStyles.css";
 
 import App from "./App";
 
