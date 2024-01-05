@@ -11,7 +11,6 @@ export default function Header() {
   //Check windows size
   const isMobile = useMediaQuery(480);
   const isTablet = useMediaQuery(768);
-  const isLaptop = useMediaQuery(1024);
 
   //Styles
   const styles = {
