@@ -5,13 +5,13 @@ import { Button, Form, Input, Modal } from "antd";
 import emailHandler from "../utils/emailHandler";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-import { mediumScreenSize } from "../style/screenSizes";
+// import { mediumScreenSize } from "../style/screenSizes";
 
 export default function ContactUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //Screenwidth breakpoints
-  const isMediumScreenSize = useMediaQuery(mediumScreenSize);
+  const isMediumScreenSize = useMediaQuery(768);
 
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024);

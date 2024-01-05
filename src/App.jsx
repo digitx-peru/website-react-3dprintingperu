@@ -14,7 +14,7 @@ import CustomNewsTwo from "./Pages/Noticias/CustomNewsTwo";
 import CustomNewsThree from "./Pages/Noticias/CustomNewsThree";
 import CustomPrototype from "./Pages/Industrias/CustomPrototype";
 
-
+import "./globalStyles.css"
 
 export default function App() {
   return (

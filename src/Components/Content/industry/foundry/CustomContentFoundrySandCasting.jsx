@@ -1,8 +1,6 @@
 import useMediaQuery from "../../../../hooks/useMediaQuery";
 
 import foundryBenefits from "../../../../assets/industryImages/foundry/industry_foundry_benefits.jpg";
-import foundryLostWax from "../../../../assets/industryImages/foundry/industry_foundry_lost_wax.jpg";
-import foundryQuickCast from "../../../../assets/industryImages/foundry/industry_foundry_quickcast.jpg";
 
 import EndOfContent from "../../EndOfContent";
 
