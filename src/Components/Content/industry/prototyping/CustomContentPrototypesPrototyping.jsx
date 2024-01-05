@@ -1,7 +1,6 @@
 import useMediaQuery from "../../../../hooks/useMediaQuery";
 
 import prototypeDesign from "../../../../assets/industryImages/prototype/industry_prototype_design.jpg";
-import prototypeArt from "../../../../assets/industryImages/prototype/industry_prototype_art.jpg";
 
 import EndOfContent from "../../EndOfContent";
 
