@@ -1,4 +1,8 @@
+import useMediaQuery from "../hooks/useMediaQuery";
+
 export default function Hero({ title, message, imageSrc }) {
+
+  const is1440 = useMediaQuery(1440);
 
   const styles = {
     container: {
@@ -26,13 +30,12 @@ export default function Hero({ title, message, imageSrc }) {
       position: "absolute",
       top: "0",
       left: "0",
-      width: "100%",
       height: "100%",
       color: "white",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "0 0 0 50px",
+      padding: "0 50px 0 50px",
       gap: "10px 0",
     },
     heroTitle: {
