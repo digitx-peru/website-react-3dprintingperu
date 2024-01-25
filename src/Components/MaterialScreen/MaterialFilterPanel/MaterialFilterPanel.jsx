@@ -25,6 +25,8 @@ export default function MaterialFilterPanel({
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  console.log(printersNameListData)
+
   const styles = {
     container: {
       display: "flex",
@@ -49,7 +51,7 @@ export default function MaterialFilterPanel({
           options={
             printersNameListData.isLoading
               ? defaultPrinterOptions
-              : printersNameListData.data.names
+              : printersNameListData.data.sort()
           }
           style={styles.checkboxGroup}
           onChange={printerFilterCheckBoxChangeHandler}
@@ -61,7 +63,7 @@ export default function MaterialFilterPanel({
           options={
             techNameListData.isLoading
               ? defaultTechOptions
-              : techNameListData.data.tec
+              : techNameListData.data.sort()
           }
           style={styles.checkboxGroup}
           onChange={technologyFilterCheckBoxChangeHandler}

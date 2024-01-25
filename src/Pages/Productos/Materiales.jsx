@@ -61,7 +61,7 @@ export default function Materiales() {
   const materialData = useQuery(["materialDataFetching"], getMaterialsFromDB, {
     select: (materialData) => {
       return (
-        materialData.materials
+        materialData
           //Search filter
           .filter((material) =>
             printerFiltering(material, printerFilterCriteria)
