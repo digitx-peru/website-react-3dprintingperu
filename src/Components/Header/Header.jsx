@@ -25,7 +25,7 @@ export default function Header() {
       padding: isMobile || isTablet ? "10px 30px" : "10px 50px"
     },
     icon: {
-      height: isMobile || isTablet ? 60 : 80,
+      height: isMobile || isTablet ? 40 : 60,
       objectFit: "contain",
     },
   };

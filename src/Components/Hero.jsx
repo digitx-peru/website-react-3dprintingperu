@@ -1,7 +1,7 @@
 import useMediaQuery from "../hooks/useMediaQuery";
 
 export default function Hero({ title, message, imageSrc }) {
-
+  const isMobile = useMediaQuery(480);
   const is1440 = useMediaQuery(1440);
 
   const styles = {
@@ -40,7 +40,7 @@ export default function Hero({ title, message, imageSrc }) {
     },
     heroTitle: {
       color: "white",
-      fontSize: 64,
+      fontSize: isMobile ? 48 : 64,
     },
   };
 
