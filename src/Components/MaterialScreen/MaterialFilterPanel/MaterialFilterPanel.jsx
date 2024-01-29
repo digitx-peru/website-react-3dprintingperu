@@ -25,8 +25,6 @@ export default function MaterialFilterPanel({
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  console.log(printersNameListData)
-
   const styles = {
     container: {
       display: "flex",

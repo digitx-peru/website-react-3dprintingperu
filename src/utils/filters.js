@@ -75,7 +75,7 @@ function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
 
 export function technologyFiltering(unit, technologyFilterCriteria) {
   return technologyFilterCriteria.length !== 0
-    ? technologyFilterCriteria.includes(unit.technology.value)
+    ? technologyFilterCriteria.includes(unit.technology)
     : unit;
 }
 

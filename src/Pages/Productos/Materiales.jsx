@@ -54,7 +54,7 @@ export default function Materiales() {
     },
     table: {
       flexGrow: 1,
-    }
+    },
   };
 
   //Data material fetching
