@@ -23,28 +23,24 @@ export default function NavbarCollapse({onClickLink}) {
         size="large"
         style={{ display: "flex", flexDirection: "column", gap: 5}}
       >
-        <Collapse.Panel header={<span style={{ fontSize: '20px' }}>Impresoras</span>} key="1">
+        <Collapse.Panel header={<span style={{ fontSize: '20px' }}>Industrias</span>} key="1">
           <div style={styles.collapsePanel}>
-            <Link to="/industrias/automotriz" onClick={onClickLink}>Automotriz</Link>
             <Link to="/industrias/fundicion" onClick={onClickLink}>Fundicion</Link>
             <Link to="/industrias/joyeria" onClick={onClickLink}>Joyeria</Link>
-            <Link to="/industrias/replicas" onClick={onClickLink}>Replicas</Link>
+            <Link to="/industrias/prototipos-y-arte" onClick={onClickLink}>Arte y prototipos</Link>
           </div>
         </Collapse.Panel>
         <Collapse.Panel header={<span style={{ fontSize: '20px' }}>Salud</span>} key="2">
           <div style={styles.collapsePanel}>
-            <Link to="/salud/medicina" onClick={onClickLink}>Medicina</Link>
-            <Link to="/salud/odontologia" onClick={onClickLink}>Odontologia</Link>
+            <Link to="/salud/medicina" onClick={onClickLink}>Dispositivos Médicos</Link>
           </div>
         </Collapse.Panel>
         <Collapse.Panel header={<span style={{ fontSize: '20px' }}>Productos</span>} key="3">
           <div style={styles.collapsePanel}>
-            <Link to="/productos/auxiliares" onClick={onClickLink}>Auxiliares</Link>
             <Link to="/productos/impresoras" onClick={onClickLink}>Impresoras</Link>
             <Link to="/productos/materiales" onClick={onClickLink}>Materiales</Link>
           </div>
         </Collapse.Panel>
-        <Collapse.Panel header={<span style={{ fontSize: '20px' }}>Servicios</span>} collapsible="disabled" key="4"></Collapse.Panel>
       </Collapse>
     </nav>
   );

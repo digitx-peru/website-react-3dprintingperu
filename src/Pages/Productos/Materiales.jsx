@@ -54,14 +54,14 @@ export default function Materiales() {
     },
     table: {
       flexGrow: 1,
-    }
+    },
   };
 
   //Data material fetching
   const materialData = useQuery(["materialDataFetching"], getMaterialsFromDB, {
     select: (materialData) => {
       return (
-        materialData.materials
+        materialData
           //Search filter
           .filter((material) =>
             printerFiltering(material, printerFilterCriteria)

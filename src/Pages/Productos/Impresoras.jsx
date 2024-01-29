@@ -111,7 +111,7 @@ export default function Impresoras() {
   const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
     select: (printerData) => {
       return (
-        printerData.printers
+        printerData
           //Search filter
           .filter((printer) =>
             technologyFiltering(printer, technologyFilterCriteria)

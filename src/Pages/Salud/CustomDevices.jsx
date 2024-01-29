@@ -18,6 +18,7 @@ export default function CustomDevices() {
   const routerParams = useParams();
 
   const isDevice = useMediaQuery(768);
+  const is1440 = useMediaQuery(1440);
 
   const heroContent = {
     title: "Cada paciente un caso diferente",
@@ -50,7 +51,8 @@ export default function CustomDevices() {
       flexDirection: "column",
       justifyContent: "center",
       gap: 50,
-      padding: isDevice ? "0 15px" : "0 400px",
+      // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
+      padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
     },
     column: {
       paddingLeft: 100,

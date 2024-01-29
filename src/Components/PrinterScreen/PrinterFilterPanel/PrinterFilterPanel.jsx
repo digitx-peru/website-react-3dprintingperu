@@ -40,7 +40,7 @@ export default function PrinterFilterPanel({
             options={
               techNameListData.isLoading
                 ? techOptions
-                : techNameListData.data.tec.map((tech) => {
+                : techNameListData.data.map((tech) => {
                     return tech.label;
                   }).sort()
             }

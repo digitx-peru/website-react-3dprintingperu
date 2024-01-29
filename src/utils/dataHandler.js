@@ -22,7 +22,7 @@ export async function getMaterialsFromDB() {
 }
 
 export async function getPrintersNamesListFromAPI() {
-  console.log("Fetching technology names");
+  console.log("Fetching printer names");
   const response = await fetch(printerNameListDataURL);
   const printersNamesListJsonData = await response.json();
 
