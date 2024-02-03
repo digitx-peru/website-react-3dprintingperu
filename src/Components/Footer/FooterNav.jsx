@@ -33,10 +33,10 @@ export default function FooterNav() {
           Industrias
         </h4>
         <Link style={styles.footerNavLink} to="/industrias/fundicion">
-          Fundicion
+          Fundición
         </Link>
         <Link style={styles.footerNavLink} to="/industrias/joyeria">
-          Joyeria
+          Joyería
         </Link>
         <Link style={styles.footerNavLink} to="/industrias/prototipos-y-arte">
           Arte y Prototipos
