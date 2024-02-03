@@ -48,10 +48,14 @@ export default function Impresoras() {
 
   //Screenwidth breakpoints
   //Esto marca el punto en el que pasa de tener un layout columna a fila
-  const isColumnLayoutWidth = useMediaQuery(1024);
+  // const isColumnLayoutWidth = useMediaQuery(1024);
 
   //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
+  const is480 = useMediaQuery(480);
+  const is768 = useMediaQuery(768);
+  const is1080  = useMediaQuery(1080);
   const is1280 = useMediaQuery(1280);
+  const is1440 = useMediaQuery(1440);
   const is1580 = useMediaQuery(1580);
 
   //Printer imagelist
@@ -135,11 +139,11 @@ export default function Impresoras() {
   const styles = {
     mainContainer: {
       display: "flex",
-      flexDirection: isColumnLayoutWidth ? "column" : "row",
-      gap: is1280 ? "20px" : "200px",
-      padding: is1280 ? "15px" : "50px 50px",
-      minHeight: isColumnLayoutWidth ? "auto" : "890px",
-      alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
+      flexDirection: is1080 ? "column" : "row",
+      gap: is1080 ? "20px" : "150px",
+      padding: "50px 50px",
+      minHeight: is1080 ? "auto" : "890px",
+      alignItems: is1080 ? "stretch" : "flex-start",
     },
     itemListContainer: {
       display: "flex",
@@ -148,21 +152,17 @@ export default function Impresoras() {
     },
     itemListColumn: {
       display: "flex",
-      flexDirection: "column",
-      flexWrap: isColumnLayoutWidth ? "nowrap" : "wrap",
+      flexDirection: "row",
+      flexWrap: "wrap",
       padding: "0 15px",
       gap: 20,
     },
     itemListGrid: {
-      display: "grid",
-      gridTemplateColumns: isColumnLayoutWidth
-        ? "1fr 1fr"
-        : is1280
-        ? "1fr 1fr"
-        : is1580
-        ? "1fr 1fr 1fr"
-        : "1fr 1fr 1fr 1fr",
-      gridGap: "10px",
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      padding: "0 15px",
+      gap: 20,
     },
     paginationContainer: {
       display: "flex",
@@ -202,7 +202,7 @@ export default function Impresoras() {
           <div
             className="itemList"
             style={
-              isColumnLayoutWidth ? styles.itemListColumn : styles.itemListGrid
+              is1080 ? styles.itemListColumn : styles.itemListGrid
             }
           >
             {isLoading ? (
