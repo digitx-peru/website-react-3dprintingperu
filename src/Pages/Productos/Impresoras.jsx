@@ -11,13 +11,17 @@ import PrinterFilterPanel from "../../Components/PrinterScreen/PrinterFilterPane
 import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 
 import { getPrintersFromDB } from "../../utils/dataHandler";
-import { volumeFiltering, technologyFiltering, technologyLabelValueSwap } from "../../utils/filters";
+import {
+  volumeFiltering,
+  technologyFiltering,
+  technologyLabelValueSwap,
+} from "../../utils/filters";
 
-import cjp660Pro from "../../assets/printerImages/printer_image_cjp_660Pro.png"
-import dmpFlex100 from "../../assets/printerImages/printer_image_dmp_flex_100.png"
-import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.png"
-import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png"
-import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png"
+import cjp660Pro from "../../assets/printerImages/printer_image_cjp_660Pro.png";
+import dmpFlex100 from "../../assets/printerImages/printer_image_dmp_flex_100.png";
+import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.png";
+import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png";
+import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png";
 import extTitan1070 from "../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
 import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.jpg";
 import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
@@ -30,10 +34,10 @@ import projetMjp2500IC from "../../assets/printerImages/printer_image_mjp_2500IC
 import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
 import projetMjp6000 from "../../assets/printerImages/printer_image_mjp_6000.png";
 import projetMjp7000 from "../../assets/printerImages/printer_image_mjp_7000.png";
-import sla750 from "../../assets/printerImages/printer_image_sla_750.png"
-import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png"
-import sls300 from "../../assets/printerImages/printer_image_sls_300.png"
-import sls380 from "../../assets/printerImages/printer_image_sls_380.png"
+import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
+import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png";
+import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
+import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 
 export default function Impresoras() {
@@ -53,7 +57,7 @@ export default function Impresoras() {
   //Puntos de quiebre para mostrar 3 y 4 impresoras en el grid
   const is480 = useMediaQuery(480);
   const is768 = useMediaQuery(768);
-  const is1080  = useMediaQuery(1080);
+  const is1080 = useMediaQuery(1080);
   const is1280 = useMediaQuery(1280);
   const is1440 = useMediaQuery(1440);
   const is1580 = useMediaQuery(1580);
@@ -64,13 +68,13 @@ export default function Impresoras() {
       case "Projet CJP 660 Pro":
         return cjp660Pro;
       case "DMP Flex 100":
-        return dmpFlex100
+        return dmpFlex100;
       case "DMP Flex 200":
-        return dmpFlex200
+        return dmpFlex200;
       case "DMP Flex 350":
-        return dmpFlex350
+        return dmpFlex350;
       case "DMP Factory 500":
-        return dmpFactory500
+        return dmpFactory500;
       case "EXT 1070 Titan Pellet":
         return extTitan1070;
       case "EXT 1270 Titan":
@@ -96,20 +100,18 @@ export default function Impresoras() {
       case "Projet MJP 7000":
         return projetMjp7000;
       case "SLA 750":
-        return sla750
+        return sla750;
       case "SLA 750 Dual":
-        return sla750Dual
+        return sla750Dual;
       case "SLS 300":
-        return sls300
+        return sls300;
       case "SLS 380":
-        return sls380
+        return sls380;
 
       default:
         return notAvailable;
     }
-    
   }
-
 
   //Data fetching
   const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
@@ -123,7 +125,7 @@ export default function Impresoras() {
           .filter((printer) => volumeFiltering(printer, volumeFilterCriteria))
           //Temporary
           .map((printer) => {
-            printer.imageUrl = getPrinterImageUsingName(printer.name)
+            printer.imageUrl = getPrinterImageUsingName(printer.name);
             return printer;
           })
       );
@@ -172,7 +174,6 @@ export default function Impresoras() {
 
   //Event Handlers
   function technologyCheckBoxChangeHandler(checkboxValue) {
-    console.log(technologyFilterCriteria);
     const technologyValue = technologyLabelValueSwap(checkboxValue);
     setTechnologyFilterCriteria(technologyValue);
   }
@@ -201,9 +202,7 @@ export default function Impresoras() {
         <div className="itemListContainer" style={styles.itemListContainer}>
           <div
             className="itemList"
-            style={
-              is1080 ? styles.itemListColumn : styles.itemListGrid
-            }
+            style={is1080 ? styles.itemListColumn : styles.itemListGrid}
           >
             {isLoading ? (
               <div>Loading...</div>
