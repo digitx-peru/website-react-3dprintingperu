@@ -28,7 +28,8 @@ export default function ExpansionTable({ record }) {
       value:
         record && record.impactStrength && record.impactStrength["Notched Izod"]
           ? `${
-              record.impactStrength["Notched Izod"].min -
+              record.impactStrength["Notched Izod"].min +
+              " - " +
               record.impactStrength["Notched Izod"].max
             }`
           : undefined,
@@ -41,7 +42,8 @@ export default function ExpansionTable({ record }) {
         record.impactStrength &&
         record.impactStrength["Unnotched Izod"]
           ? `${
-              record.impactStrength["Unnotched Izod"].min -
+              record.impactStrength["Unnotched Izod"].min +
+              " - " +
               record.impactStrength["Unnotched Izod"].max
             }`
           : undefined,
@@ -54,7 +56,8 @@ export default function ExpansionTable({ record }) {
         record.coefThermalExpansion &&
         record.coefThermalExpansion["-20to50C"]
           ? `${
-              record.coefThermalExpansion["-20to50C"].min -
+              record.coefThermalExpansion["-20to50C"].min +
+              " - " +
               record.coefThermalExpansion["-20to50C"].max
             }`
           : undefined,
@@ -67,7 +70,8 @@ export default function ExpansionTable({ record }) {
         record.coefThermalExpansion &&
         record.coefThermalExpansion["75to180C"]
           ? `${
-              record.coefThermalExpansion["75to180C"].min -
+              record.coefThermalExpansion["75to180C"].min +
+              " - " +
               record.coefThermalExpansion["75to180C"].max
             }`
           : undefined,
@@ -80,7 +84,8 @@ export default function ExpansionTable({ record }) {
         record.heatDistortionTemp &&
         record.heatDistortionTemp["0.45Mpa"]
           ? `${
-              record.heatDistortionTemp["0.45Mpa"].min -
+              record.heatDistortionTemp["0.45Mpa"].min +
+              " - " +
               record.heatDistortionTemp["0.45Mpa"].max
             }`
           : undefined,
@@ -93,7 +98,8 @@ export default function ExpansionTable({ record }) {
         record.heatDistortionTemp &&
         record.heatDistortionTemp["1.82Mpa"]
           ? `${
-              record.heatDistortionTemp["1.82Mpa"].min -
+              record.heatDistortionTemp["1.82Mpa"].min +
+              " - " +
               record.heatDistortionTemp["1.82Mpa"].max
             }`
           : undefined,
@@ -101,78 +107,131 @@ export default function ExpansionTable({ record }) {
 
     tensileStrength: {
       name: `Tensile Strength (mpa)`,
-      value: `${record.tensileStrength?.min - record.tensileStrength?.max}`,
+      value:
+        record && record.tensileStrength
+          ? `${
+              record.tensileStrength?.min + " - " + record.tensileStrength?.max
+            }`
+          : undefined,
     },
 
     yieldStrength: {
       name: `Yield Strength (mpa)`,
-      value: `${record.yieldStrength?.min - record.yieldStrength?.max}`,
+      value:
+        record && record.yieldStrength
+          ? `${record.yieldStrength?.min + " - " + record.yieldStrength?.max}`
+          : undefined,
     },
 
     tensileModulus: {
       name: `Tensile Moudlus (mpa)`,
-      value: `${record.tensileModulus?.min - record.tensileModulus?.max}`,
+      value:
+        record && record.tensileModulus
+          ? `${record.tensileModulus?.min + " - " + record.tensileModulus?.max}`
+          : undefined,
     },
 
     waterAbsorption: {
       name: `Water Absorption (%)`,
-      value: record.waterAbsorption?.value,
+      value:
+        record && record.waterAbsorption
+          ? record.waterAbsorption?.value
+          : undefined,
     },
 
     flexuralStrength: {
       name: `Flexural Strength (mpa)`,
-      value: `${record.flexuralStrength?.min - record.flexuralStrength?.max}`,
+      value: record.flexuralStrength
+        ? `${
+            record.flexuralStrength?.min + " - " + record.flexuralStrength?.max
+          }`
+        : undefined,
     },
 
     flexuralModulus: {
       name: `Flexural Modulus (mpa)`,
-      value: `${record.flexuralModulus?.min - record.flexuralModulus?.max}`,
+      value: record.flexuralModulus
+        ? `${record.flexuralModulus?.min + " - " + record.flexuralModulus?.max}`
+        : undefined,
     },
 
     dielectricStrength: {
       name: `Dielectric Strength@3.0mm thickness (kV/mm)`,
-      value: `${
-        record.dielectricStrength?.min - record.dielectricStrength?.max
-      }`,
+      value: record.dielectricStrength
+        ? `${
+            record.dielectricStrength?.min +
+            " - " +
+            record.dielectricStrength?.max
+          }`
+        : undefined,
     },
 
     dielectricConstant: {
       name: `Dielectric Constant@ 1 MHz`,
-      value: `${
-        record.dielectricConstant?.min - record.dielectricConstant?.max
-      }`,
+      value: record.dielectricConstant
+        ? `${
+            record.dielectricConstant?.min +
+            " - " +
+            record.dielectricConstant?.max
+          }`
+        : undefined,
     },
 
     dissipationFactor: {
       name: `Dissipation Factor@ 1 MHz`,
-      value: `${record.dissipationFactor?.min - record.dissipationFactor?.max}`,
+      value: record.dissipationFactor
+        ? `${
+            record.dissipationFactor?.min +
+            " - " +
+            record.dissipationFactor?.max
+          }`
+        : undefined,
     },
 
     glassTransitionTemp_Tg: {
       name: `Glass Transition Temp (Celsius)`,
-      value: `${
-        record.glassTransitionTemp_Tg?.min - record.glassTransitionTemp_Tg?.max
-      }`,
+      value: record.glassTransitionTemp_Tg
+        ? `${
+            record.glassTransitionTemp_Tg?.min +
+            " - " +
+            record.glassTransitionTemp_Tg?.max
+          }`
+        : undefined,
     },
 
     elongationAtBreak: {
       name: `Elongation at Break (%)`,
-      value: `${record.elongationAtBreak?.min - record.elongationAtBreak?.max}`,
+      value: record.elongationAtBreak
+        ? `${
+            record.elongationAtBreak?.min +
+            " - " +
+            record.elongationAtBreak?.max
+          }`
+        : undefined,
     },
 
     elongationAtYield: {
       name: `Elongation at Yield (Celsius)`,
-      value: `${record.elongationAtYield?.min - record.elongationAtYield?.max}`,
+      value: record.elongationAtYield
+        ? `${
+            record.elongationAtYield?.min +
+            " - " +
+            record.elongationAtYield?.max
+          }`
+        : undefined,
     },
 
     hardness: {
       name: `Hardness Shore D`,
-      value: `${record.hardness?.min - record.hardness?.max}`,
+      // value: `${record.hardness?.min + " - " + record.hardness?.max}`,
+      value: undefined,
     },
 
     ulFlammability: {
       name: `Flammability`,
-      value: `${record.ulFlammability?.min - record.ulFlammability?.max}`,
+      value: record.ulFlammability
+        ? `${record.ulFlammability?.value}`
+        : undefined,
     },
   };
 

@@ -58,7 +58,7 @@ export default function Materiales() {
   };
 
   //Data material fetching
-  const materialData = useQuery(["materialDataFetching"], getMaterialsFromDB, {
+  const materialData = useQuery("materialDataFetching", getMaterialsFromDB, {
     select: (materialData) => {
       return (
         materialData
