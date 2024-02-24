@@ -2,9 +2,9 @@
 
 export function printerFiltering(material, printerFilterCriteria) {
   if (printerFilterCriteria.length !== 0) {
-    const result = material.printers.some((materialPrinter) => {
-      printerFilterCriteria.includes(materialPrinter);
-    });
+    const result = material.printers.some((materialPrinter) =>
+      printerFilterCriteria.includes(materialPrinter)
+    );
     return result;
   }
   return material;
@@ -75,7 +75,7 @@ function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
 
 export function technologyFiltering(unit, technologyFilterCriteria) {
   return technologyFilterCriteria.length !== 0
-    ? technologyFilterCriteria.includes(unit.technology)
+    ? technologyFilterCriteria.includes(unit.technology.value)
     : unit;
 }
 

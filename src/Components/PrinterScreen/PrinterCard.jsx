@@ -13,7 +13,7 @@ export default function PrinterCard({
     printerCardContent: {
       border: "1px solid silver",
       borderRadius: "8px",
-      width: isColumn ? "100%" : "300px",
+      width: "300px",
     },
     printerCardImage: {
       borderTopLeftRadius: 8,
