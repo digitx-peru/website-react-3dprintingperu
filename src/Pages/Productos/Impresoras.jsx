@@ -28,7 +28,7 @@ import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_je
 import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
 import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
 import figure4Standalone from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
-import projetMjp300W from "../../assets/printerImages/printer_image_mjp_300W.png";
+import mjp300W from "../../assets/printerImages/printer_image_mjp_300W.png";
 import projetMjp2500 from "../../assets/printerImages/printer_image_mjp_2500.jpg";
 import projetMjp2500IC from "../../assets/printerImages/printer_image_mjp_2500IC.png";
 import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
@@ -77,9 +77,9 @@ export default function Impresoras() {
         return dmpFactory500;
       case "EXT 1070 Titan Pellet":
         return extTitan1070;
-      case "EXT 1270 Titan":
+      case "EXT 1270 Titan Pellet":
         return extTitan1270;
-      case "Figure 4 Joyeria":
+      case "Figure 4 Jewelry":
         return figure4Jewelry;
       case "Figure 4 Modular":
         return figure4Modular;
@@ -87,8 +87,8 @@ export default function Impresoras() {
         return figure4Production;
       case "Figure 4 Standalone":
         return figure4Standalone;
-      case "Projet MJP 300W":
-        return projetMjp300W;
+      case "MJP 300W":
+        return mjp300W;
       case "Projet MJP 2500 Plus":
         return projetMjp2500;
       case "Projet MJP 2500IC":
