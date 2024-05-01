@@ -1,5 +1,5 @@
 # Redirect with a 301
 [[redirects]]
-from = "/industrias/joyeria"
-to = "/industrias/joyeria"
-status = 301
+from = "/*"
+to = "/index.html"
+status = 200
