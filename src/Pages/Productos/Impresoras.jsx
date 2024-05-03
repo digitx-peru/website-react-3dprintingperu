@@ -91,7 +91,7 @@ export default function Impresoras() {
         return figure4Standalone;
       case "Funmat Pro 310":
         return funmatpro310;
-      case "Funmat Pro 340":
+      case "Funmat Pro 410":
         return funmatpro410;
       case "MJP 300W":
         return mjp300W;
