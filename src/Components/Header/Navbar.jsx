@@ -119,6 +119,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     columnGap: 50,
+    color: "rgb(62,255,180)",
   },
   dropDownText: {
     fontSize: 18

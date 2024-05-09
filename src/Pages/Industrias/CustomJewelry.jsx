@@ -11,7 +11,7 @@ import ContactUs from "../../Components/ContactUs";
 import CustomContentJewelryOverview from "../../Components/Content/industry/jewelry/CustomContentJewelryOverview";
 import CustomContentJewelryLostWax from "../../Components/Content/industry/jewelry/CustomContentJewelryLostWax";
 import CustomContentJewelryRubberMold from "../../Components/Content/industry/jewelry/CustomContentJewelryRubberMold";
-
+import FloatButton from "../../Components/FloatButton";
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
 
 import heroImgJewelry from "../../assets/heroImages/hero_img_jewelry.jpg";
@@ -49,15 +49,18 @@ export default function CustomJewelry() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 50,
       alignItems: "center",
+      position:"absolute",
+      zIndex:2,
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      gap: 50,
-      padding: isDevice ? "0 15px" : "0 400px",
+      backgroundColor: "rgb(239,251,246)",
+      padding: "50px 0px 0px 0px" ,
+      marginBottom:"50px",
+      backgroundColor:"rgb(239,251,246)"
     },
     column: {
       paddingLeft: 100,
@@ -78,12 +81,13 @@ export default function CustomJewelry() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} />
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}}/>
           {/* <UsedTechnologyList /> */}
         </section>
-        <ContactUs />
+        <FloatButton/>
+        <ContactUs/>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

@@ -9,11 +9,13 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: white;
+  /*background-color:rgb(239,251,246);*/
 }
 
 body a {
   text-decoration: none;
-  color: black;
+  /*color: black;*/
   cursor: pointer;
 }
 
@@ -65,7 +67,6 @@ footer a {
 .materialDetailTable tbody tr:nth-child(odd) {
   background-color: #eeeeee;
 }
-
 .ant-checkbox-wrapper + .ant-checkbox-wrapper {
   margin-inline-start: 0px !important;
 }
@@ -84,4 +85,172 @@ footer a {
 
 .materialDetailTable .leftPaddingCell {
   padding-left: 2rem;
+}
+
+.ant-tabs > .ant-tabs-nav { /* So that there is no gap between the content and tabs */
+  margin-bottom: 0;
+  color: rgb(99,218,178);
+}
+
+.ant-tabs-tab:hover { /* So that there is no gap between the content and tabs */
+  margin-bottom: 0;
+  color: rgb(71,167,153) !important;
+}
+
+.ant-tabs-tab-btn:hover { /* So that there is no gap between the content and tabs */
+  margin-bottom: 0;
+  color: rgb(71,167,153) !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: rgb(71,167,153) !important;
+  font-weight: 600 !important;
+}
+
+.ant-tabs .ant-tabs-ink-bar {
+  position: absolute;
+  background: rgb(99,218,178) !important;
+  pointer-events: none;
+}
+
+.floatBtnBox{
+  position: fixed;
+  right: 0%;
+  top: 60%;
+  width: 80px;
+  z-index: 10;
+}
+
+.floatBtn1,.floatBtn2{
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  cursor: pointer;
+  transition: transform 0.5s ease; /* Transición suave */
+  transform-origin: left;
+  color: rgba(255, 255, 255, 0);
+  border-radius:5px 0px 0px 5px;
+}
+
+.floatBtn1:hover{
+  transform: translateX(-40%);
+  width: 250px;
+  color: white;
+}
+
+.floatBtn2:hover{
+  transform: translateX(-40%);
+  width: 250px;
+  color: white;
+}
+
+.imgStyleWhite{
+  display: flex;            
+  justify-content: center;
+  background-color:white;
+}
+
+/************TABLE MATERIALES*****************/
+
+.ant-table-content{
+  background-color: rgb(239,251,246);
+}
+
+.ant-table-row > td:nth-child(3),
+.ant-table-row > td:nth-child(4) {
+  color: rgb(71,167,153);
+}
+
+.materialDetailTable tbody{
+  color: white;
+  background-color: rgb(99,218,178);
+}
+.materialDetailTable tbody tr:first-child {
+  background-color: rgb(71,167,153) !important;
+  color: white !important;
+}
+
+.materialDetailTable tbody tr:nth-child(odd) {
+  background-color: rgb(239,251,246);
+  color: black;
+}
+.ant-table-content table tbody tr > td button{
+  color: rgb(71,167,153);
+  background-color: rgb(71,167,153);
+}
+.ant-table-wrapper .ant-table-row-expand-icon:hover{
+  color: rgb(71,167,153);
+}
+
+.ant-table-wrapper .ant-table-row-expand-icon::after {
+  color: rgb(71,167,153);
+}
+
+.ant-table-wrapper .ant-table-row-expand-icon::before {
+  color: rgb(71,167,153);
+}
+
+.ant-table-thead >tr > th,
+.ant-table-thead >tr > td{
+  border-bottom: 2px solid rgb(99,218,178) !important;
+  
+}
+
+.ant-table-thead{
+  background-color: white !important;
+}
+
+.ant-pagination >li >button{
+  color: rgb(99,218,178) !important;
+}
+
+.ant-pagination >li >a{
+  color: rgb(71,167,153) !important;
+}
+
+.ant-pagination .ant-pagination-item-active{
+  font-weight: 600;
+  background-color: #ffffff;
+  border-color: rgb(71,167,153);
+}
+
+.ant-pagination .ant-pagination-item-active:hover{
+  border-color: rgb(71,167,153);
+}
+
+.ant-collapse-item {
+  border-bottom: 2px solid rgb(71,167,153) !important;
+  font-weight: 900;
+}
+
+.ant-checkbox-group > label{
+  color: rgb(71,167,153) !important;
+}
+
+.ant-checkbox-group > label >span{
+  color: rgb(71,167,153) !important;
+}
+
+.ant-collapse>.ant-collapse-item:last-child, :where(.css-dev-only-do-not-override-1e3x2xa).ant-collapse>.ant-collapse-item:last-child>.ant-collapse-header {
+  border-radius: 0;
+}
+
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+  background-color: rgb(71,167,153);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner{
+  background-color: rgb(71,167,153);
+  
+}
+
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled):after{
+  border-color: rgb(71,167,153);
+}
+
+
+.ant-collapse .ant-collapse-content {
+  border-top: 0px;
 }

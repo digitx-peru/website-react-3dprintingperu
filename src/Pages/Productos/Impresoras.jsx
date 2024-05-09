@@ -39,8 +39,14 @@ import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.pn
 import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
+import Hero from "../../Components/Hero";
+import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
 
 export default function Impresoras() {
+  const heroContent = {
+    title: "Impresoras",
+    heroImage: heroImgFoundry,
+  }
   //State
   const [technologyFilterCriteria, setTechnologyFilterCriteria] = useState([]);
   const [volumeFilterCriteria, setVolumeFilterCriteria] = useState({
@@ -141,22 +147,27 @@ export default function Impresoras() {
   const styles = {
     mainContainer: {
       display: "flex",
-      flexDirection: is1080 ? "column" : "row",
-      gap: is1080 ? "20px" : "150px",
-      padding: "50px 50px",
+      flexDirection:"column",
+      //gap: is1080 ? "20px" : "150px",
+      //padding: "50px 50px",
       minHeight: is1080 ? "auto" : "890px",
       alignItems: is1080 ? "stretch" : "flex-start",
+      position:"absolute",
+      zIndex:2,
+      width:"100vw"
     },
     itemListContainer: {
       display: "flex",
       flexDirection: "column",
       gap: 40,
+      marginTop:"50px"
     },
     itemListColumn: {
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
       padding: "0 15px",
+      justifyContent:"center",
       gap: 20,
     },
     itemListGrid: {
@@ -193,48 +204,57 @@ export default function Impresoras() {
     <>
       <Header />
       <main style={styles.mainContainer}>
-        <div className="filters">
-          <PrinterFilterPanel
-            technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
-            dimensionChangeHandler={dimensionChangeHandler}
+        <Hero
+            title={heroContent.title}
+            message={heroContent.message}
+            imageSrc={heroContent.heroImage}
           />
-        </div>
-        <div className="itemListContainer" style={styles.itemListContainer}>
-          <div
-            className="itemList"
-            style={is1080 ? styles.itemListColumn : styles.itemListGrid}
-          >
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              data.slice(startIndex, endIndex).map((printer) => {
-                return (
-                  <PrinterCard
-                    key={printer.name}
-                    printerImageUrl={printer.imageUrl}
-                    name={printer.name}
-                    description={printer.description}
-                    builVolume={printer.builVolume}
-                    technology={printer.technology.value}
-                  />
-                );
-              })
-            )}
-          </div>
-          <div
-            className="paginationContainer"
-            style={styles.paginationContainer}
-          >
-            <Pagination
-              current={currentPage}
-              pageSize={itemsPerPage}
-              total={isLoading ? 1 : data.length}
-              onChange={pageChangeHandler}
+        <div style={{display:"flex", flexDirection:is1080 ? "column" : "row", }}>
+          <div className="filters" style={{padding:"50px 50px", marginRight:is1080 ? "20px" : "150px", color:"rgb(10,79,79)"}}>
+            <PrinterFilterPanel 
+              technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
+              dimensionChangeHandler={dimensionChangeHandler}
             />
           </div>
+          <div className="itemListContainer" style={styles.itemListContainer}>
+            <div
+              className="itemList"
+              style={is1080 ? styles.itemListColumn : styles.itemListGrid}
+            >
+              {isLoading ? (
+                <div>Loading...</div>
+              ) : (
+                data.slice(startIndex, endIndex).map((printer) => {
+                  return (
+                    <PrinterCard
+                      key={printer.name}
+                      printerImageUrl={printer.imageUrl}
+                      name={printer.name}
+                      description={printer.description}
+                      builVolume={printer.builVolume}
+                      technology={printer.technology.value}
+                    />
+                  );
+                })
+              )}
+            </div>
+            <div
+              className="paginationContainer"
+              style={styles.paginationContainer}
+            >
+              <Pagination
+                current={currentPage}
+                pageSize={itemsPerPage}
+                total={isLoading ? 1 : data.length}
+                onChange={pageChangeHandler}
+              />
+            </div>
+          </div>
         </div>
+        
+        <Footer />
       </main>
-      <Footer />
+     
     </>
   );
 }

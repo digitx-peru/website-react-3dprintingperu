@@ -8,11 +8,13 @@ export default function Footer() {
   const styles = {
     footer: {
       display: "flex",
-      backgroundColor: "#000000",
+      backgroundColor: "rgb(10,79,79)",
+      borderTop:"7px solid rgb(99,218,178)",
       alignItems: "center",
-      border: "1px solid black",
       padding: isDevice ? "50px 15px" : "50px 100px",
       marginTop: 25,
+      boxSizing:"border-box",
+      width:"100%"
     },
     footerContent: {
       display: "flex",

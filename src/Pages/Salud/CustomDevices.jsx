@@ -43,16 +43,18 @@ export default function CustomDevices() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 50,
       alignItems: "center",
+      position:"absolute",
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      gap: 50,
+      padding: "50px 0px",
+      width:"100vw",
+      backgroundColor:"rgb(239,251,246)"
       // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
-      padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
+      //padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
     },
     column: {
       paddingLeft: 100,
@@ -73,12 +75,12 @@ export default function CustomDevices() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} />
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}} />
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

@@ -24,6 +24,7 @@ export default function PrinterCard({
     },
     printerCardInfoContent: {
       padding: "10px",
+      borderTop: "4px solid rgb(99,218,178)",
     },
     printerName: {
       fontSize: "24px",
@@ -32,6 +33,7 @@ export default function PrinterCard({
     printCardDescription: {
       fontSize: isColumn ? "14px" : "16px",
       minHeight: isColumn ? "75px" : "100px",
+      color: "rgb(71,167,153)"
     },
     printerVolumeAndTechnologyWrapper: {
       display: "flex",
@@ -41,6 +43,7 @@ export default function PrinterCard({
     },
     printCardBodyText: {
       fontSize: isColumn ? "14px" : "16px",
+      color: "rgb(71,167,153)"
     },
   };
   return (
@@ -56,13 +59,13 @@ export default function PrinterCard({
         <div style={{ display: "flex", flexDirection: "row", gap: 50 }}>
           <div style={styles.printerVolumeAndTechnologyWrapper}>
             <div>
-              <h4>Volumen XYZ ({builVolume.unit})</h4>
+              <h4 style={{color: "rgb(71,167,153)"}}>Volumen XYZ ({builVolume.unit})</h4>
               <p style={styles.printCardBodyText}>
                 {builVolume.x} x {builVolume.y} x {builVolume.z}
               </p>
             </div>
             <div>
-              <h4>Tecnología</h4>
+              <h4 style={{color: "rgb(71,167,153)"}}>Tecnología</h4>
               <p style={styles.printCardBodyText}>{technology}</p>
             </div>
           </div>

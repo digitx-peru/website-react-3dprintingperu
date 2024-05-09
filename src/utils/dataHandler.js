@@ -34,5 +34,4 @@ export async function getTechnologiesNamesListFromAPI() {
   const response = await fetch(technologyNameListDataURL);
   const technologiesNamesListJsonData = await response.json();
 
-  return technologiesNamesListJsonData;
-}
+  return technologiesNamesListJsonData;}

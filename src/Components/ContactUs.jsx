@@ -34,7 +34,7 @@ export default function ContactUs() {
       width: isMediumScreenSize ? "auto" : is1280 ? "600px" : "900px",
       backgroundColor: "#323232",
       margin: isColumnLayoutWidth ? "0 15px" : "0",
-      padding: "15px",
+      padding: "25px 50px",
       color: "white",
     },
     formItemGroup: {
@@ -50,12 +50,16 @@ export default function ContactUs() {
       display: "flex",
       justifyContent: "center",
     },
+    formItemLabelTitle: {
+      color: "rgb(62,255,180)",
+    },
     formItemLabel: {
       color: "white",
     },
     formItemSubmitButton: {
       height: isColumnLayoutWidth ? "60px" : "auto",
       width: "200px",
+      backgroundColor:"rgb(99,218,178)"
     },
     modalMessage: {
       fontSize: "14px",
@@ -93,7 +97,7 @@ export default function ContactUs() {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <h2 style={styles.formItemLabel}>Haz tu consulta</h2>
+        <h2 style={styles.formItemLabelTitle}>Haz tu consulta</h2>
         <div style={styles.formItemGroup}>
           <Form.Item
             label={<label style={styles.formItemLabel}>Nombre completo</label>}

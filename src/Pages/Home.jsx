@@ -11,6 +11,8 @@ import newsOneThumbnail from "../assets/newsImages/newsOne/news_image_thumbail_3
 import newsTwoThumbnail from "../assets/newsImages/newsTwo/news_image_thumbnail_new_sls_300.png"
 import newsThreeThumbnail from "../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png"
 
+import FloatButton from "../Components/FloatButton";
+
 export default function Home() {
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024);
@@ -27,6 +29,9 @@ export default function Home() {
       flexDirection: "column",
       gap: 50,
       alignItems: "center",
+      position:"absolute",
+      zIndex:2,
+      width:"100%"
     },
     newsCardContainer: {
       display: "flex",
@@ -66,9 +71,10 @@ export default function Home() {
             // message="Lorem ipsum"
           />
         </div>
+        <FloatButton />
         <ContactUs />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

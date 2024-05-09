@@ -18,11 +18,12 @@ export default function Header() {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      justifyContent: isMobile || isTablet ? "space-between" : "initial",
-      borderBottom: "3px solid grey",
+      justifyContent: isMobile || isTablet ? "space-between" : "space-between",
+      borderBottom: "1px solid rgb(239,251,246)",
       columnGap: 50,
-
-      padding: isMobile || isTablet ? "10px 30px" : "10px 50px"
+      background: 'none',
+      zIndex: 3,
+      padding: isMobile || isTablet ? "10px 30px" : "10px 100px"
     },
     icon: {
       height: isMobile || isTablet ? 40 : 60,
@@ -33,7 +34,7 @@ export default function Header() {
   return (
     <header
       style={styles.header}
-    >
+    > 
       <Link to="/">
         <img
           src={require("../../assets/icons/3dp_logo.png")}

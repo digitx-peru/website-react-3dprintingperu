@@ -5,16 +5,21 @@ import foundryQuickCast from "../../../../assets/industryImages/foundry/industry
 import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentFoundryOverview({ width }) {
-  const isDevice = useMediaQuery(768);
+  const isDevice = useMediaQuery(824);
 
   const styles = {
+    rowText:{
+      display:"flex",
+      flexDirection:isDevice ? "column" :"row",
+      alignItems: "center",
+    },
     container: {
       display: "flex",
       flexDirection: "column",
       textAlign: "justify",
       rowGap: 15,
       width: width,
-      fontSize: isDevice ? "16px" : "20px",
+      fontSize: isDevice ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -29,32 +34,35 @@ export default function CustomContentFoundryOverview({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
-      <h2>Fundición</h2>
-      <p>
-        La aplicación de la impresión 3D o manufactura aditiva en la fundición
-        tiene el potencial de revolucionar los procesos tradicionales de esta
-        industria. Apalancándoselo en los beneficios de la impresión 3D, las
-        fundiciones pueden mejorar su eficiencia, reducir costos, y alcanzar una
-        mayor flexibilidad en el diseño.
-      </p>
-      <p>Los casos de uso conocidos de la impresión 3D en la fundición son:</p>
-      <ul>
-        <li>Patrones maestros para moldes de arena (Sand casting)</li>
-        <li>
-          Patrones de sacrificio para el proceso de cera perdida (Investment
-          Casting)
-        </li>
-      </ul>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: "40px 0 40px 0",
-        }}
-      >
-        <img style={{ height: "400px" }} src={foundryQuickCast} alt="" />
-      </div>
-      <EndOfContent />
+      <div style={styles.rowText}>
+        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+          <h3>Fundición</h3>
+          <p>
+            La aplicación de la impresión 3D o manufactura aditiva en la fundición
+            tiene el potencial de revolucionar los procesos tradicionales de esta
+            industria. Apalancándoselo en los beneficios de la impresión 3D, las
+            fundiciones pueden mejorar su eficiencia, reducir costos, y alcanzar una
+            mayor flexibilidad en el diseño.
+          </p>
+          <p>Los casos de uso conocidos de la impresión 3D en la fundición son:</p>
+          <ul>
+            <li>Patrones maestros para moldes de arena (Sand casting)</li>
+            <li>
+              Patrones de sacrificio para el proceso de cera perdida (Investment
+              Casting)
+            </li>
+          </ul>
+        </div>
+        <div
+          style={{            
+            width:isDevice ?  "100%":"50%",
+            padding:isDevice ?"0px":"10px",
+          }}
+          className="imgStyleWhite"
+        >
+          <img style={{ height: "400px", width:isDevice?"100%":"" }} src={foundryQuickCast} alt="" />
+        </div>
+      </div>      
     </div>
   );
 }

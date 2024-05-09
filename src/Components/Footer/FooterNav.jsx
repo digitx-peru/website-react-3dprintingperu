@@ -11,7 +11,7 @@ export default function FooterNav() {
       flexDirection: "row",
       gap: isDevice ? "20px" : "60px",
       justifyContent: isDevice ? "space-between" : "initial",
-      borderLeft: "3px solid yellow",
+      borderLeft: "3px solid rgb(62,255,180)",
       paddingLeft: 30,
     },
     footerNavColumn: {
@@ -29,7 +29,7 @@ export default function FooterNav() {
     <div className="footerNav" style={styles.footerNav}>
       {/* Footer Navigation Links */}
       <div style={styles.footerNavColumn}>
-        <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>
+        <h4 style={{ color: "rgb(62,255,180)", margin: 0, fontSize: "20px" }}>
           Industrias
         </h4>
         <Link style={styles.footerNavLink} to="/industrias/fundicion">
@@ -43,7 +43,7 @@ export default function FooterNav() {
         </Link>
       </div>
       <div style={styles.footerNavColumn}>
-        <h4 style={{ color: "yellow", margin: 0, fontSize: "20px" }}>Salud</h4>
+        <h4 style={{ color: "rgb(62,255,180)", margin: 0, fontSize: "20px" }}>Salud</h4>
         <Link style={styles.footerNavLink} to="/salud/medicina">
           Dispositivos Médicos
         </Link>

@@ -15,7 +15,14 @@ import {
   propertyFiltering,
 } from "../../utils/filters";
 
+import Hero from "../../Components/Hero";
+import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+
 export default function Materiales() {
+  const heroContent = {
+    title: "Materiales",
+    heroImage: heroImgFoundry,
+  }
   //States
   const [printerFilterCriteria, setPrinterFilter] = useState([]);
   const [technologyFilterCriteria, setTechnologyFilter] = useState([]);
@@ -45,12 +52,16 @@ export default function Materiales() {
   const styles = {
     mainContainer: {
       display: "flex",
-      flexDirection: isColumnLayoutWidth ? "column" : "row",
-      gap: is1280 ? "20px" : "200px",
-      padding: is1280 ? "15px" : "50px 50px",
+      flexDirection:"column",
+      //gap: is1280 ? "20px" : "200px",
+      //padding: is1280 ? "15px" : "50px 50px",
       minHeight: isColumnLayoutWidth ? "auto" : "890px",
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
       justifyContent: "space-between",
+      position:"absolute",
+      zIndex:2,
+      borderSizing:"border-box",
+      width:"100vw"
     },
     table: {
       flexGrow: 1,
@@ -107,22 +118,30 @@ export default function Materiales() {
     <>
       <Header />
       <main className="mainContainer" style={styles.mainContainer}>
-        <div className="filters">
-          <MaterialFilterPanel
-            printerFilterCheckBoxChangeHandler={
-              printerFilterCheckBoxChangeHandler
-            }
-            technologyFilterCheckBoxChangeHandler={
-              technologyFilterCheckBoxChangeHandler
-            }
-            propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+        <Hero
+            title={heroContent.title}
+            message={heroContent.message}
+            imageSrc={heroContent.heroImage}
           />
+        <div style={{display:"flex", flexDirection:is1280 ? "column" : "row", alignItems:"start", justifyContent:"flex-end",padding:is1280?"0px" : "50px 50px", width:is1280?"100vw" : "80%"}}>
+          <div className="filters" style={{marginRight:is1280 ? "20px" : "200px"}}>
+            <MaterialFilterPanel
+              printerFilterCheckBoxChangeHandler={
+                printerFilterCheckBoxChangeHandler
+              }
+              technologyFilterCheckBoxChangeHandler={
+                technologyFilterCheckBoxChangeHandler
+              }
+              propertyFilterInputChangeHandler={propertyFilterInputChangeHandler}
+            />
+          </div>
+          <div className="table" style={styles.table}>
+            <MaterialListingTable data={materialData.data} />
+          </div>
         </div>
-        <div className="table" style={styles.table}>
-          <MaterialListingTable data={materialData.data} />
-        </div>
+        
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

@@ -12,7 +12,7 @@ import CustomContentFoundryOverview from "../../Components/Content/industry/foun
 import CustomContentFoundrySandCasting from "../../Components/Content/industry/foundry/CustomContentFoundrySandCasting";
 import CustomContentFoundryLostWax from "../../Components/Content/industry/foundry/CustomContentFoundryLostWax";
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
-
+import FloatButton from "../../Components/FloatButton";
 import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
 
 export default function CustomFoundry() {
@@ -48,15 +48,20 @@ export default function CustomFoundry() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 50,
       alignItems: "center",
+      position:"absolute",
+      zIndex:2,
+      maxWidth:"100vw"
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      gap: 50,
-      padding: isDevice ? "0 15px" : "0 400px",
+      padding:"50px 0px 0px 0px",
+      marginBottom:"50px",
+      maxWidth:"100vw",
+      position:"relative !important",
+      backgroundColor:"rgb(239,251,246)"
     },
     column: {
       paddingLeft: 100,
@@ -77,12 +82,15 @@ export default function CustomFoundry() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} />
+          <FloatButton/>
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}} />
+          
+         
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

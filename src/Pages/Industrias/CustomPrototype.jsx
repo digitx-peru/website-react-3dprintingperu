@@ -12,7 +12,7 @@ import CustomContentPrototypesOverview from "../../Components/Content/industry/p
 import CustomContentPrototypesPrototyping from "../../Components/Content/industry/prototyping/CustomContentPrototypesPrototyping";
 import CustomContentPrototypesArt from "../../Components/Content/industry/prototyping/CustomContentPrototypesArt";
 import UsedTechnologyList from "../../Components/Content/usedPrinterCards/UsedTechnologyList";
-
+import FloatButton from "../../Components/FloatButton";
 import heroImgPrototype from "../../assets/heroImages/hero_img_replicates.jpg";
 
 export default function CustomPrototype() {
@@ -50,13 +50,15 @@ export default function CustomPrototype() {
       flexDirection: "column",
       gap: 50,
       alignItems: "center",
+      position:"absolute",
+      maxWidth: "100vw"
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       gap: 50,
-      padding: isDevice ? "0 15px" : "0 400px",
+      padding: isDevice ? "0 15px" : "0 0px",
     },
     column: {
       paddingLeft: 100,
@@ -77,12 +79,13 @@ export default function CustomPrototype() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} />
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)",boxSizing: "border-box"}}/>
           {/* <UsedTechnologyList /> */}
         </section>
+        <FloatButton />
         <ContactUs />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
