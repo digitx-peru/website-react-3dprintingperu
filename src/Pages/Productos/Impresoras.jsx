@@ -38,6 +38,8 @@ import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
 import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png";
 import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
+import funmatpro310 from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
+import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 import Hero from "../../Components/Hero";
 import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
@@ -94,6 +96,10 @@ export default function Impresoras() {
         return figure4Production;
       case "Figure 4 Standalone":
         return figure4Standalone;
+      case "Funmat Pro 310":
+        return funmatpro310;
+      case "Funmat Pro 410":
+        return funmatpro410;
       case "MJP 300W":
         return mjp300W;
       case "Projet MJP 2500 Plus":
