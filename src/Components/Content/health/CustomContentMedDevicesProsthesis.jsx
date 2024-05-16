@@ -6,7 +6,8 @@ import healthProtKneecap from "../../../assets/healthImages/health_prot_kneecap.
 import EndOfContent from "../EndOfContent";
 
 export default function CustomContentMedDevices({ width }) {
-  const isDevice = useMediaQuery(824);
+  const isDevice = useMediaQuery(1000);
+  const  isMedium = useMediaQuery(1320);
 
   const styles = {
     rowText:{
@@ -25,7 +26,7 @@ export default function CustomContentMedDevices({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: width,
-      fontSize: isDevice ? "12px" : "16px",
+      fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -77,7 +78,7 @@ export default function CustomContentMedDevices({ width }) {
           className="imgStyleWhite"
         >
           <img
-            style={{ height: "500px",width:"100%",backgroundColor: "white" }}
+            style={{ height: "500px",width:"auto", maxWidth:"100%",backgroundColor: "white" }}
             src={healthOrtOptions}
             alt=""
           />
@@ -92,7 +93,7 @@ export default function CustomContentMedDevices({ width }) {
             width:isDevice ?"100%":"50%",
           }}
         >
-          <img style={{ height: "500px", width:isDevice?"100%":""}} src={healthProtKneecap} alt="" />
+          <img style={{ height: "500px", width:"auto", maxWidth:"100%"}} src={healthProtKneecap} alt="" />
         </div>
         <div style={{backgroundColor: "rgb(71,167,153)", color: "white", boxSizing: "border-box",height:isDevice?"":"500px", padding: isDevice ? "10px 10px 10px 10px":"20px 200px 20px 20px",width: isDevice ? "" : "50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <p>

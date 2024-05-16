@@ -4,8 +4,8 @@ import healthImplantsPrint from "../../../assets/healthImages/health_implants_pr
 import EndOfContent from "../EndOfContent";
 
 export default function CustomContentMedDevices({ width }) {
-  const isDevice = useMediaQuery(824);
-
+  const isDevice = useMediaQuery(1000);
+  const  isMedium = useMediaQuery(1320);
   const styles = {
     rowText:{
       display:"flex",
@@ -17,7 +17,7 @@ export default function CustomContentMedDevices({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: width,
-      fontSize: isDevice ? "12px" : "18px",
+      fontSize: isMedium ? "12px" : "18px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -53,7 +53,7 @@ export default function CustomContentMedDevices({ width }) {
             justifyContent: "center",
             width:isDevice ?  "100%":"50%",
             padding: isDevice ? "0px":"40px 0 40px 0",}}>
-          <img style={{height: "400px",width:isDevice?"100%":"",}} src={healthImplantsPrint} alt="" />
+          <img style={{height: "400px",width:"auto", maxWidth:"100%"}} src={healthImplantsPrint} alt="" />
         </div>
       </div>
       

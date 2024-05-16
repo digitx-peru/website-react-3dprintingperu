@@ -13,6 +13,7 @@ import CustomContentMedDevicesProsthesis from "../../Components/Content/health/C
 // import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
 import heroImgMedDevices from "../../assets/heroImages/hero_img_med_devices.jpg";
+import FloatButton from "../../Components/FloatButton";
 
 export default function CustomDevices() {
   const routerParams = useParams();
@@ -79,6 +80,7 @@ export default function CustomDevices() {
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
+        <FloatButton />
         <Footer />
       </div>
     </>
