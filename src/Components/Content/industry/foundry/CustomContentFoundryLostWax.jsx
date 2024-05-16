@@ -3,17 +3,21 @@ import useMediaQuery from "../../../../hooks/useMediaQuery";
 import foundryLostWax from "../../../../assets/industryImages/foundry/industry_foundry_lost_wax.jpg";
 import foundryQuickCast from "../../../../assets/industryImages/foundry/industry_foundry_quickcast.jpg";
 import printerImg from "../../../../assets/printerImages/printer_image_mjp_2500.jpg";
+import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
+import bgGreenImg from "../../../../assets/heroImages/bg_green.png";
+
 import { Link } from 'react-router-dom';
 
 import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentFoundry({ width }) {
   const isDevice = useMediaQuery(830);
+  const isMedium = useMediaQuery(1205);
 
   const styles = {
     paragraph:{
       width: isDevice ? "" : "50%",
-      padding: isDevice ?"10px 10px 10px 10px":"80px 80px 80px 200px",
+      padding: isMedium ?"10px 10px 10px 10px":"80px 80px 80px 200px",
       //padding: !is1080 &&  isDevice ?"10px 10px 10px 10px":"20px 20px 20px 100px",
       boxSizing: "border-box",
       height:"400px", 
@@ -23,12 +27,12 @@ export default function CustomContentFoundry({ width }) {
     },
     rowText:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
     },
     rowText2:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
     },
@@ -37,14 +41,16 @@ export default function CustomContentFoundry({ width }) {
       flexDirection:isDevice ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundColor:"rgb(45,45,45)"
+      backgroundImage: "url('"+bgBlackImg+"')",
+      backgroundSize: 'cover'
     },
     rowText4:{
       display:"flex",
       flexDirection:isDevice ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundColor:"rgb(10,79,79)"
+      backgroundImage: "url('"+bgGreenImg+"')",
+      backgroundSize: 'cover'
     },
     btnLink:{
       background:"none", 
@@ -95,7 +101,7 @@ export default function CustomContentFoundry({ width }) {
           }}
           className="imgStyleWhite"
         >
-          <img style={{ height: "400px", width:isDevice ?  "100%":"", maxWidth:"500px"}} src={foundryLostWax} alt="" />
+          <img style={{ height: "400px", width:"auto", maxWidth:"100%"}} src={foundryLostWax} alt="" />
         </div>
       </div>
       <div style={styles.rowText2}>
@@ -105,9 +111,9 @@ export default function CustomContentFoundry({ width }) {
               }}
               className="imgStyleWhite"
           >
-            <img style={{ height: "400px",width:isDevice ?  "100%":"" }} src={foundryQuickCast} alt="" />
+            <img style={{ height: "400px",width:"auto", maxWidth:"100%" }} src={foundryQuickCast} alt="" />
         </div>
-        <div style={{backgroundColor: "rgb(71,167,153)", color: "white", boxSizing: "border-box",height:"400px", padding: isDevice ? "10px 10px 10px 10px":"0px 200px 0px 50px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{backgroundColor: "rgb(71,167,153)", color: "white", boxSizing: "border-box",height:"400px", padding: isDevice ? "10px 10px 10px 10px":"0px 200px 0px 50px", width:isMedium ? "100%":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3>
             La integración de la impresión 3D en el proceso de cera perdida ofrece
             varios beneficios:
@@ -128,7 +134,7 @@ export default function CustomContentFoundry({ width }) {
         </div>
       </div>
       <div style={styles.rowText3}> 
-        <div style={{color: "white", boxSizing: "border-box",height:"400px", padding: isDevice ? "10px 10px 10px 10px":"0px 50px 0px 200px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{color: "white", boxSizing: "border-box",height:isMedium?"":"400px",   padding: isMedium ? "10px 10px 10px 10px":"0px 50px 0px 200px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center",alignItems:isDevice?"center":"start"}}>
           <h3 style={{color: "rgb(62,255,180)"}}>Projet MJP 2500IC</h3>
           <p>
             La tecnología Multijet permite la impresión de piezas
@@ -150,7 +156,7 @@ export default function CustomContentFoundry({ width }) {
               width:isDevice ?  "100%":"50%",
               }}
           >
-            <img style={{ height:isDevice? "250px": "400px",width:"100%",maxWidth:"800px" ,padding:isDevice? "10px":"50px", boxSizing:"border-box" }} src={printerImg} alt="" />
+            <img style={{ height:"400px",width: "auto",padding:isDevice? "10px":"50px", boxSizing:"border-box" }} src={printerImg} alt="" />
         </div>
       </div>
       <div style={styles.rowText4}>
@@ -161,9 +167,9 @@ export default function CustomContentFoundry({ width }) {
               width:isDevice ?  "100%":"50%",
               }}
           >
-            <img style={{ height:isDevice? "250px": "400px",width: "100%",maxWidth:"800px" ,padding:isDevice? "10px":"50px", boxSizing:"border-box" }} src={printerImg} alt="" />
+            <img style={{ height:"400px", width: "auto",padding:isDevice? "10px":"50px", boxSizing:"border-box" }} src={printerImg} alt="" />
         </div> 
-        <div style={{color: "white", boxSizing: "border-box",height:"400px",padding: isDevice ? "10px 10px 10px 10px":"80px 200px 80px 80px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{color: "white", boxSizing: "border-box",height:isMedium?"":"400px",padding: isMedium ? "10px 10px 10px 10px":"80px 200px 80px 80px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3 style={{color: "rgb(62,255,180)"}}>SLA 750, 950</h3>
           <p>
           Las impresoras de Stereolitografia (SLA); cuentan con el

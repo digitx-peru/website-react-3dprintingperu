@@ -40,7 +40,8 @@ import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 import Hero from "../../Components/Hero";
-import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
+import ProductHero from "../../Components/ProductHero";
 
 export default function Impresoras() {
   const heroContent = {
@@ -204,7 +205,7 @@ export default function Impresoras() {
     <>
       <Header />
       <main style={styles.mainContainer}>
-        <Hero
+        <ProductHero
             title={heroContent.title}
             message={heroContent.message}
             imageSrc={heroContent.heroImage}

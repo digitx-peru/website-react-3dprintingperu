@@ -1,7 +1,8 @@
 import useMediaQuery from "../hooks/useMediaQuery";
 
-export default function Hero({ title, message, imageSrc }) {
+export default function ProductHero({ title, message, imageSrc }) {
   const isMobile = useMediaQuery(480);
+  
   const styles = {
     container: {
       position: "relative",
@@ -19,7 +20,6 @@ export default function Hero({ title, message, imageSrc }) {
       left: "0",
       width: "100%",
       height: "100%",
-      backgroundColor: "black",
       opacity: "0.7",
       display: "flex",
       alignItems: "center",

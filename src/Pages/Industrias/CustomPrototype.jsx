@@ -59,6 +59,7 @@ export default function CustomPrototype() {
       justifyContent: "center",
       gap: 50,
       padding: isDevice ? "0 15px" : "0 0px",
+      backgroundColor:"rgb(239,251,246)"
     },
     column: {
       paddingLeft: 100,

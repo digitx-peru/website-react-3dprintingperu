@@ -71,7 +71,6 @@ export default function Home() {
             // message="Lorem ipsum"
           />
         </div>
-        <FloatButton />
         <ContactUs />
         <Footer />
       </div>

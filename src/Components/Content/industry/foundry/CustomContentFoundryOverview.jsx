@@ -6,11 +6,12 @@ import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentFoundryOverview({ width }) {
   const isDevice = useMediaQuery(824);
+  const isMedium = useMediaQuery(1205);
 
   const styles = {
     rowText:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
     },
     container: {
@@ -35,7 +36,7 @@ export default function CustomContentFoundryOverview({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isMedium ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3>Fundición</h3>
           <p>
             La aplicación de la impresión 3D o manufactura aditiva en la fundición

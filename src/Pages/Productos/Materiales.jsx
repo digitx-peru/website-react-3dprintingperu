@@ -16,7 +16,8 @@ import {
 } from "../../utils/filters";
 
 import Hero from "../../Components/Hero";
-import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+import heroImgFoundry from "../../assets/heroImages/hero_img_materials.png";
+import ProductHero from "../../Components/ProductHero";
 
 export default function Materiales() {
   const heroContent = {
@@ -118,7 +119,7 @@ export default function Materiales() {
     <>
       <Header />
       <main className="mainContainer" style={styles.mainContainer}>
-        <Hero
+        <ProductHero
             title={heroContent.title}
             message={heroContent.message}
             imageSrc={heroContent.heroImage}
