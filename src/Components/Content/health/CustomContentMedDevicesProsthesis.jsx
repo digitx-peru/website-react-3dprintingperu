@@ -77,7 +77,7 @@ export default function CustomContentMedDevices({ width }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: isDevice?"center":"end",
             height:"400px",
             width:isDevice ?"100%":"50%",
           }}

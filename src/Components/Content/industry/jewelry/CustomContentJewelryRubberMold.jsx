@@ -2,6 +2,7 @@ import useMediaQuery from "../../../../hooks/useMediaQuery";
 
 import jewelrySmallPiece from "../../../../assets/industryImages/jewelry/industry_jewelry_small_piece.jpg";
 import printerImg from "../../../../assets/printerImages/printer_image_mjp_2500.jpg";
+import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
 
 import EndOfContent from "../../EndOfContent";
 import { Link } from 'react-router-dom';
@@ -97,7 +98,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
           únicas en su clase con diseños complejos. Los equipos que recomendamos
           para esta aplicación son:</p>
       </div>
-      <div style={{ backgroundColor: "rgb(45,45,45)", padding:isDevice ?"10px":"50px 200px", color:"white"}}>
+      <div style={{ backgroundImage: "url('"+bgBlackImg+"')", padding:isDevice ?"10px":"50px 200px", color:"white"}}>
         <div style={{display:"flex", flexDirection:isMedium ?"column":"row"}}>
           <div style={{width:isMedium ?  "100%":"50%", display:"flex",flexDirection:isMedium ?"column":"row", alignItems:"center"}}>
             <div

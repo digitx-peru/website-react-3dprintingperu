@@ -58,7 +58,8 @@ export default function CustomContentFoundry({ width }) {
       borderRadius:"8px", 
       color:"rgb(99,218,178)", 
       marginTop:"15px", 
-      padding:"10px 25px 10px 25px"
+      padding:"10px 25px 10px 25px",
+      cursor:"pointer"
     },
     container: {
       display: "flex",
@@ -98,6 +99,8 @@ export default function CustomContentFoundry({ width }) {
         <div
           style={{            
             width:isDevice ?  "100%":"50%",
+            display:"flex",
+            justifyContent:"start"
           }}
           className="imgStyleWhite"
         >
@@ -108,6 +111,8 @@ export default function CustomContentFoundry({ width }) {
         <div
             style={{
               width:isDevice ?  "100%":"50%",
+              display:"flex",
+              justifyContent:"end"
               }}
               className="imgStyleWhite"
           >

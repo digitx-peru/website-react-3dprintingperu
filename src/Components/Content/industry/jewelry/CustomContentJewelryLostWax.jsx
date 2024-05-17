@@ -5,6 +5,9 @@ import printerImg from "../../../../assets/printerImages/printer_image_mjp_2500.
 
 import EndOfContent from "../../EndOfContent";
 
+import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
+import bgGreenImg from "../../../../assets/heroImages/bg_green.png";
+
 export default function CustomContentJewelryLostWax({ width }) {
   const isDevice = useMediaQuery(824);
   const isMedium = useMediaQuery(1024);
@@ -20,14 +23,14 @@ export default function CustomContentJewelryLostWax({ width }) {
       flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundColor:"rgb(45,45,45)"
+      backgroundImage: "url('"+bgBlackImg+"')",
     },
     rowText4:{
       display:"flex",
       flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundColor:"rgb(10,79,79)"
+      backgroundImage: "url('"+bgGreenImg+"')",
     },
     container: {
       display: "flex",
