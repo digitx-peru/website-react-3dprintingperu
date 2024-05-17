@@ -5,7 +5,8 @@ import prototypeArt from "../../../../assets/industryImages/prototype/industry_p
 import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentJewelry({ width }) {
-  const isDevice = useMediaQuery(824);
+  const isDevice = useMediaQuery(900);
+  const isMedium = useMediaQuery(1080);
 
   const styles = {
     rowText:{
@@ -18,7 +19,7 @@ export default function CustomContentJewelry({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: "100vw",
-      fontSize: isDevice ? "12px" : "16px",
+      fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -34,7 +35,7 @@ export default function CustomContentJewelry({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:isMedium?"350px":"550px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3>Arte</h3>
           <p>
             La impresión 3D ha llevado la personalización de muñecos y miniaturas de
@@ -56,12 +57,12 @@ export default function CustomContentJewelry({ width }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: isDevice?"center":"start",
             width:isDevice ?  "100%":"50%",
             boxSizing:"border-box"
           }}
         >
-          <img style={{ height: "400px", width:isDevice ? "100%":"", maxWidth:"500px", padding:"10px 10px",boxSizing:"border-box"}} src={prototypeArt} alt="" />
+          <img style={{ height: isMedium ? "250px": "400px", width:"auto", maxWidth:"100%", padding:"10px 10px",boxSizing:"border-box"}} src={prototypeArt} alt="" />
         </div>
       </div>
     </div>

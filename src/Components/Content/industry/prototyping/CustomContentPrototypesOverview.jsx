@@ -5,7 +5,8 @@ import prototypeDesign from "../../../../assets/industryImages/prototype/industr
 import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentJewelry({ width }) {
-  const isDevice = useMediaQuery(824);
+  const isDevice = useMediaQuery(900);
+  const isMedium = useMediaQuery(1080);
   const styles = {
     rowText:{
       display:"flex",
@@ -17,7 +18,7 @@ export default function CustomContentJewelry({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: width,
-      fontSize: isDevice ? "12px" : "16px",
+      fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -50,12 +51,12 @@ export default function CustomContentJewelry({ width }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: isDevice?"center":"start",
             width:isDevice ?  "100%":"50%",
             padding: "40px 0 40px 0",
           }}
         >
-          <img style={{ height: isDevice ? "250px": "400px", width:"100%",maxWidth:"500px" }} src={prototypeDesign} alt="" />
+          <img style={{ height: isMedium ? "250px": "400px", width:"auto",maxWidth:"100%" }} src={prototypeDesign} alt="" />
         </div>
       </div>
     </div>

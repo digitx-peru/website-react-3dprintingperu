@@ -7,23 +7,24 @@ import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentJewelryLostWax({ width }) {
   const isDevice = useMediaQuery(824);
+  const isMedium = useMediaQuery(1024);
 
   const styles = {
     rowText:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
     },
     rowText3:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
       backgroundColor:"rgb(45,45,45)"
     },
     rowText4:{
       display:"flex",
-      flexDirection:isDevice ? "column" :"row",
+      flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
       backgroundColor:"rgb(10,79,79)"
@@ -33,7 +34,6 @@ export default function CustomContentJewelryLostWax({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: "100vw",
-      fontSize: isDevice ? "16px" : "20px",
       lineHeight: "1.5",
       fontSize: isDevice ? "12px" : "16px",
     },
@@ -50,7 +50,7 @@ export default function CustomContentJewelryLostWax({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isMedium ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h2>Cera perdida</h2>
           <p>
             Si estas buscando la produccion de piezas con la mejor calidad que se
@@ -65,6 +65,8 @@ export default function CustomContentJewelryLostWax({ width }) {
         <div
           style={{            
             width:isDevice ?  "100%":"50%",
+            display:"flex",
+            justifyContent:"start"
           }}
           className="imgStyleWhite"
         >
@@ -73,29 +75,29 @@ export default function CustomContentJewelryLostWax({ width }) {
       </div>
 
       <div style={styles.rowText3}> 
-        <div style={{color: "white", boxSizing: "border-box",height:"400px", padding: isDevice ? "10px 10px 10px 10px":"0px 50px 0px 200px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
-        <h3 style={{color: "rgb(62,255,180)"}}>MJP Wax 3D Printing</h3>
-        <ul>
-          <li>
-            Cera al 100% para una capacidad de fundición sin compromisos con
-            procesos de fundición estándar.
-          </li>
-          <li>Respuesta rápida y alto rendimiento a escala de fábrica.</li>
-          <li>
-            Resolución superior y soportes disolubles/fundibles que permiten
-            reducir la mano de obra de acabado y el pulido de metales preciosos
-            costosos, así como una libertad de diseño última.
-          </li>
-        </ul>
+        <div style={{color: "white", boxSizing: "border-box",height:isMedium?"400px":"550px",width:isDevice ? "":"50%", padding: isMedium ? "10px 10px 10px 10px":"0px 50px 0px 200px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+          <h3 style={{color: "rgb(62,255,180)"}}>MJP Wax 3D Printing</h3>
+          <ul>
+            <li>
+              Cera al 100% para una capacidad de fundición sin compromisos con
+              procesos de fundición estándar.
+            </li>
+            <li>Respuesta rápida y alto rendimiento a escala de fábrica.</li>
+            <li>
+              Resolución superior y soportes disolubles/fundibles que permiten
+              reducir la mano de obra de acabado y el pulido de metales preciosos
+              costosos, así como una libertad de diseño última.
+            </li>
+          </ul>
         </div>
         <div
             style={{
               display: "flex",
               justifyContent: "center",
-              width:isDevice ?  "100%":"50%",
+              width:isMedium ?  "100%":"50%",
               }}
           >
-            <img style={{ height: isDevice ? "250px":"400px",  width:isDevice ? "85%":"",padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
+            <img style={{ height:isDevice?"250px":"400px", width:"auto", maxWidth:"100%",padding:isMedium? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
         </div>
       </div>
       <div style={styles.rowText4}>
@@ -103,12 +105,12 @@ export default function CustomContentJewelryLostWax({ width }) {
             style={{
               display: "flex",
               justifyContent: "center",
-              width:isDevice ?  "100%":"50%",
+              width:isMedium ?  "100%":"50%",
               }}
           >
-          <img style={{ height: isDevice ? "250px":"400px",  width:isDevice ? "85%":"",padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
+          <img style={{ height:isDevice?"250px":"400px", width:"auto", maxWidth:"100%",padding:isMedium? "10px":"60px",  boxSizing:"border-box" }} src={printerImg} alt="" />
         </div> 
-        <div style={{color: "white", boxSizing: "border-box",height:"400px", padding: isDevice ? "10px 10px 10px 10px":"80px 200px 80px 80px", width:isDevice ? "":"50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{color: "white", boxSizing: "border-box",height:isMedium?"400px":"550px",width:isDevice ? "":"50%", padding: isMedium ? "10px 10px 10px 10px":"0px 200px 0px 0px",display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3 style={{color: "rgb(62,255,180)"}}>Figure 4 Joyería</h3>
           <ul>
             <li>

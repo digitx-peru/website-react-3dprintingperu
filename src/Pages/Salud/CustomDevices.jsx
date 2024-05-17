@@ -10,10 +10,10 @@ import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
 import CustomContentMedDevicesImplants from "../../Components/Content/health/CustomContentMedDevicesImplants";
 import CustomContentMedDevicesProsthesis from "../../Components/Content/health/CustomContentMedDevicesProsthesis"
+import FloatButton from "../../Components/FloatButton"
 // import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
 import heroImgMedDevices from "../../assets/heroImages/hero_img_med_devices.jpg";
-import FloatButton from "../../Components/FloatButton";
 
 export default function CustomDevices() {
   const routerParams = useParams();
@@ -46,6 +46,7 @@ export default function CustomDevices() {
       flexDirection: "column",
       alignItems: "center",
       position:"absolute",
+      rowGap:"0px"
     },
     applicationContent: {
       display: "flex",
@@ -80,7 +81,7 @@ export default function CustomDevices() {
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />
-        <FloatButton />
+        <FloatButton/>
         <Footer />
       </div>
     </>

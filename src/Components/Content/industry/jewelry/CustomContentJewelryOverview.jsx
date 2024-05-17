@@ -5,8 +5,8 @@ import jewelryProcess from "../../../../assets/industryImages/jewelry/industry_j
 import EndOfContent from "../../EndOfContent";
 
 export default function CustomContentJewelryOverview({ width }) {
-  const isDevice = useMediaQuery(824);
-  const isMedium = useMediaQuery(915)
+  const isDevice = useMediaQuery(920);
+  const isMedium = useMediaQuery(824)
 
   const styles = {
     rowText:{
@@ -20,7 +20,7 @@ export default function CustomContentJewelryOverview({ width }) {
       textAlign: "justify",
       rowGap: 15,
       width: "100vw",
-      fontSize: isDevice ? "12px" : "16px",
+      fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -36,7 +36,7 @@ export default function CustomContentJewelryOverview({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"60px 60px 60px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"60px 60px 60px 200px",boxSizing: "border-box",height:isDevice?"250px":"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h2>Joyeria</h2>
           <p>
             La aplicación de la impresión 3D (o manufactura aditiva) en joyería ha
@@ -55,7 +55,7 @@ export default function CustomContentJewelryOverview({ width }) {
           }}
           className="imgStyleWhite"
         >
-          <img style={{ height: isDevice ?  "200px":"400px",width: "90%" }} src={jewelryProcess} alt="" />
+          <img style={{ height: isDevice ?  "200px":"400px",width: "auto%", maxWidth:"100%" }} src={jewelryProcess} alt="" />
         </div>
       </div>
       <div style={{ backgroundColor: "rgb(71,167,153)", padding:isDevice ?"10px":"50px 200px", color:"white"}}>

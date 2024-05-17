@@ -36,7 +36,7 @@ export default function CustomContentFoundry({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isMedium ? "10px 10px 10px 10px":"80px 10px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isMedium ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"500px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h3>Para Moldes de arena</h3>
           <p>
             Una de las aplicaciones clave de la manufactura aditiva es para elaborar

@@ -5,7 +5,7 @@ import EndOfContent from "../EndOfContent";
 
 export default function CustomContentMedDevices({ width }) {
   const isDevice = useMediaQuery(1000);
-  const  isMedium = useMediaQuery(1320);
+  const  isMedium = useMediaQuery(1100);
   const styles = {
     rowText:{
       display:"flex",
@@ -17,7 +17,7 @@ export default function CustomContentMedDevices({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: width,
-      fontSize: isMedium ? "12px" : "18px",
+      fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -33,7 +33,7 @@ export default function CustomContentMedDevices({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"500px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h2>Implantes:</h2>
           <p>
             La impresión 3D ha revolucionado la fabricación de implantes médicos al

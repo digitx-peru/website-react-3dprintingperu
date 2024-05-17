@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 
 export default function CustomContentJewelryRubberMold({ width }) {
   const isDevice = useMediaQuery(824);
+  const isVertical = useMediaQuery(923);
+  const isMedium = useMediaQuery(1100);
 
   const styles = {
     rowText:{
@@ -29,7 +31,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: "100vw",
-      fontSize: isDevice ? "12px" : "16px",
+      fontSize: isVertical ? "12px" : "16px",
       lineHeight: "1.5",
     },
     imageRight: {
@@ -45,7 +47,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height:"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "" : "50%",padding: isDevice ? "10px 10px 10px 10px":"80px 80px 80px 200px",boxSizing: "border-box",height: isVertical?"250px":"400px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h2>Moldes de caucho</h2>
           <p>
             3D Printing a traves del portafolio de 3D Systems ofrece compatibilidad
@@ -58,10 +60,12 @@ export default function CustomContentJewelryRubberMold({ width }) {
         <div
           style={{
             width:isDevice ?  "":"50%",
+            display:"flex",
+            justifyContent:"start"
           }}
           className="imgStyleWhite"
         >
-          <img style={{ height: "400px", width:"100%" }} src={jewelrySmallPiece} alt="" />
+          <img style={{ height: "400px", width:"auto",maxWidth:"100%" }} src={jewelrySmallPiece} alt="" />
         </div>
       </div>
       <div style={{ backgroundColor: "rgb(71,167,153)", padding:isDevice ?"10px":"50px 200px", color:"white"}}>
@@ -94,8 +98,8 @@ export default function CustomContentJewelryRubberMold({ width }) {
           para esta aplicación son:</p>
       </div>
       <div style={{ backgroundColor: "rgb(45,45,45)", padding:isDevice ?"10px":"50px 200px", color:"white"}}>
-        <div style={{display:"flex", flexDirection:isDevice ?"column":"row"}}>
-          <div style={{width:isDevice ?  "100%":"50%", display:"flex",flexDirection:isDevice ?"column":"row", alignItems:"center"}}>
+        <div style={{display:"flex", flexDirection:isMedium ?"column":"row"}}>
+          <div style={{width:isMedium ?  "100%":"50%", display:"flex",flexDirection:isMedium ?"column":"row", alignItems:"center"}}>
             <div
               style={{
                 display: "flex",
@@ -103,7 +107,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
                 width:isDevice ?  "100%":"50%",
                 }}
             >
-                <img style={{ height: isDevice? "250px" :"400px",width:isDevice?"100%":"", padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
+                <img style={{ height: isDevice? "250px" :"400px",width:"auto", padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
             </div>
             <div>
               <h3>Figure 4 Joyería</h3>
@@ -112,7 +116,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
               </Link> 
             </div>
           </div>
-          <div style={{width:isDevice ? "100%":"50%",display:"flex", flexDirection:isDevice ?"column":"row",alignItems:"center",}}>
+          <div style={{width:isMedium ? "100%":"50%",display:"flex", flexDirection:isMedium ?"column":"row",alignItems:"center",}}>
             <div
               style={{
                 display: "flex",
@@ -120,7 +124,7 @@ export default function CustomContentJewelryRubberMold({ width }) {
                 width:isDevice ?  "100%":"50%",
                 }}
             >
-                <img style={{ height: isDevice? "250px":"400px",width:isDevice?"100%":"", padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
+                <img style={{ height: isDevice? "250px":"400px",width:"auto", padding:isDevice? "10px":"60px", boxSizing:"border-box" }} src={printerImg} alt="" />
             </div>
             <div>
               <h3>MJP 2500 Plus</h3>

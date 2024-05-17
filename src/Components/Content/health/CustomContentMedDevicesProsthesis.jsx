@@ -42,7 +42,7 @@ export default function CustomContentMedDevices({ width }) {
   return (
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
-        <div style={{width: isDevice ? "100%" : "50%",padding: isDevice ? "10px 10px 10px 10px":"0px 20px 0px 200px",boxSizing: "border-box",height:"500px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{width: isDevice ? "100%" : "50%",padding: isDevice ? "10px 10px 10px 10px":"0px 80px 0px 200px",boxSizing: "border-box",height:isDevice?"250px":"350px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <h2>Ortesis y Prótesis</h2>
           <p>
             El aumento de incidentes de lesiones deportivas y accidentes
@@ -52,33 +52,21 @@ export default function CustomContentMedDevices({ width }) {
             mundial. Estimado en 7 mil millones de dólares en 2022, se espera que el
             mercado crezca a 9 mil millones de dólares para 2028
           </p>
-          <p>
-            El mayor desafío para las empresas que fabrican dispositivos como
-            miembros artificiales, soportes, férulas y más, es la necesidad de
-            controlar el costo de producción. Mejoras en la eficiencia pueden
-            ayudarles a ampliar la accesibilidad y garantizar una entrega más rápida
-            a las personas que necesitan estos dispositivos. Una forma de optimizar
-            la producción y reducir los costos es mediante la manufactura aditiva
-            (MA). Mientras que la fabricación de prótesis tradicional puede ser
-            costosa y llevar mucho tiempo, la MA puede eliminar la necesidad de
-            herramientas costosas y reducir la cantidad de desperdicio de material.
-          </p>
-          <p>
-            Tamaño del Mercado Global de Prótesis y Ortopedia, Segmentos,
-            Perspectivas y Pronóstico de Ingresos 2022-2028 por Tipo, Tecnología y
-            Regiones. Research and Markets. Noviembre de 2022. Lea el artículo.
-          </p>
         </div>
         <div
           style={{            
             width:isDevice ?  "100%":"50%",
+            height:isDevice?"250px":"400px",
             boxSizing:"border-box",
-            padding:isDevice?"":"0px 80px 0px 0px"
+            padding:isDevice?"":"0px 80px 0px 0px",
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center"
           }}
           className="imgStyleWhite"
         >
           <img
-            style={{ height: "500px",width:"auto", maxWidth:"100%",backgroundColor: "white" }}
+            style={{ height:"200px",width:"auto", maxWidth:"100%",backgroundColor: "white" }}
             src={healthOrtOptions}
             alt=""
           />
@@ -90,13 +78,34 @@ export default function CustomContentMedDevices({ width }) {
           style={{
             display: "flex",
             justifyContent: "center",
+            height:"400px",
             width:isDevice ?"100%":"50%",
           }}
         >
-          <img style={{ height: "500px", width:"auto", maxWidth:"100%"}} src={healthProtKneecap} alt="" />
+          <img style={{ height: "400px", width:"auto", maxWidth:"100%"}} src={healthProtKneecap} alt="" />
         </div>
-        <div style={{backgroundColor: "rgb(71,167,153)", color: "white", boxSizing: "border-box",height:isDevice?"":"500px", padding: isDevice ? "10px 10px 10px 10px":"20px 200px 20px 20px",width: isDevice ? "" : "50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
+        <div style={{backgroundColor: "rgb(71,167,153)", color: "white", boxSizing: "border-box",height:isDevice?"":"400px", padding: isDevice ? "10px 10px 10px 10px":"0px 200px 0px 50px",width: isDevice ? "" : "50%", display:"flex", flexDirection:"column",justifyContent:"center"}}>
           <p>
+              El mayor desafío para las empresas que fabrican dispositivos como
+              miembros artificiales, soportes, férulas y más, es la necesidad de
+              controlar el costo de producción. Mejoras en la eficiencia pueden
+              ayudarles a ampliar la accesibilidad y garantizar una entrega más rápida
+              a las personas que necesitan estos dispositivos. Una forma de optimizar
+              la producción y reducir los costos es mediante la manufactura aditiva
+              (MA). Mientras que la fabricación de prótesis tradicional puede ser
+              costosa y llevar mucho tiempo, la MA puede eliminar la necesidad de
+              herramientas costosas y reducir la cantidad de desperdicio de material.
+            </p>
+            <p>
+              Tamaño del Mercado Global de Prótesis y Ortopedia, Segmentos,
+              Perspectivas y Pronóstico de Ingresos 2022-2028 por Tipo, Tecnología y
+              Regiones. Research and Markets. Noviembre de 2022. Lea el artículo.
+            </p>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: "rgb(45,45,45)", padding:isDevice?"10px":"50px 200px", color:"white"}}>
+         <p>
             Las ventajas de la impresión 3D para dispositivos ortopédicos y
             protésicos:
           </p>
@@ -138,10 +147,9 @@ export default function CustomContentMedDevices({ width }) {
               desgaste que conlleva el uso diario.
             </li>
           </ul>
-        </div>
       </div>
 
-      <div style={{ backgroundColor: "rgb(45,45,45)", padding:isDevice?"10px":"50px 200px", color:"white"}}>
+      <div style={{ backgroundColor: "rgb(71,167,153)", padding:isDevice?"10px":"50px 200px", color:"white"}}>
         <p>
           El portafolio de 3D Printing Peru con el respaldo de 3D Systems y Oqton
           brinda las soluciones necesarias para lograr una produccion con todas
@@ -161,7 +169,7 @@ export default function CustomContentMedDevices({ width }) {
           impresoras son:
         </p>
         
-        <h3 style={{color: "rgb(62,255,180)"}}>SLS 300:</h3>
+        <h3>SLS 300:</h3>
         <ul>
           <li>
             Aurora PA12: Polyamid 12 (PA12) es un material muy adecuado para la
@@ -174,7 +182,7 @@ export default function CustomContentMedDevices({ width }) {
             amortiguación del ruido y las vibraciones.
           </li>
         </ul>
-        <h3 style={{color: "rgb(62,255,180)"}}>SLS 380:</h3>
+        <h3 >SLS 380:</h3>
         <ul>
           <li>
             DuraForm® PAx: La línea de materiales PAx ofrece excelentes
