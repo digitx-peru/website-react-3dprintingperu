@@ -271,3 +271,8 @@ footer a {
 .ant-input-group .ant-input{
   border:2px solid rgb(71,167,153);
 }
+
+.link-sin-estilo {
+  text-decoration: none;
+  color: inherit;
+}
