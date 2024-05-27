@@ -223,7 +223,7 @@ footer a {
 
 /*OPTIONA PRODUCTS STYLES*/
 .ant-collapse-item {
-  border-bottom: 2px solid rgb(71,167,153) !important;
+  border-bottom: 2px solid rgb(99, 218, 178) !important;
   font-weight: 900;
 }
 
@@ -258,18 +258,20 @@ footer a {
 }
 
 .ant-input-group .ant-input-group-addon {
-  color: rgb(186, 188, 189);
-  border: 2px solid rgb(71,167,153);
+  color: rgb(145,147,150);
+  border: 1px solid rgb(128,128,131);
   font-weight: 600;
+  background-color: rgb(239,251,246);
 }
 
 .ant-form-item .ant-form-item-label >label {
-  color: rgb(71,167,153);
+  color: rgb(128,128,131);
   font-weight: 500;
 }
 
 .ant-input-group .ant-input{
-  border:2px solid rgb(71,167,153);
+  border:1px solid rgb(128,128,131);
+  color: rgb(128,128,131);
 }
 
 .link-sin-estilo {
