@@ -228,11 +228,12 @@ footer a {
 }
 
 .ant-checkbox-group > label{
-  color: rgb(71,167,153) !important;
+  color: rgb(145, 147, 150) !important;
 }
 
 .ant-checkbox-group > label >span{
-  color: rgb(71,167,153) !important;
+  color: rgb(145, 147, 150) !important;
+  font-weight: 500;
 }
 
 .ant-collapse>.ant-collapse-item:last-child, :where(.css-dev-only-do-not-override-1e3x2xa).ant-collapse>.ant-collapse-item:last-child>.ant-collapse-header {

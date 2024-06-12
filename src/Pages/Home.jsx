@@ -36,7 +36,7 @@ export default function Home() {
     newsCardContainer: {
       display: "flex",
       flexDirection: isColumnLayoutWidth ? "column" : "row",
-      gap: 15,
+      gap: 40,
       justifyContent: "space-between",
       padding: 15,
     },

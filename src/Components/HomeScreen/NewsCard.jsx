@@ -9,19 +9,33 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
     linkContainer: {
       flexGrow: 1,
       border: "1px solid rgb(200, 200, 200)",
-      borderRadius: 8,
-      width: "100%",
+      borderRadius: "8px 8px 0px 0px",
+      width: "400px",
+      backgroundColor : "rgb(71,167,153)",
     },
-    container: {},
+    container: {
+      display:"flex",
+      flexDirection:"column",
+      height: "100%",
+      borderRadius: 8,
+    },
     image: {
-      width: "100%",
+      width: "400px",
       height: 300,
       objectFit: "cover",
+      backgroundColor : "white",
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
     },
     infoContainer: {
+      display: "flex",
+      alignItems: "center",
+      color : "white",
       padding: 10,
+      borderTop: "4px solid rgb(62,255,180)",
+      backgroundColor : "rgb(71,167,153)",
+      height: "auto",
+      height: 'calc(100% - 300px)'
     },
   };
 
@@ -30,7 +44,7 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       <div style={styles.container}>
         <img src={image} alt="" style={styles.image} />
         <div style={styles.infoContainer}>
-          <h3>{title}</h3>
+          <h3 style={{fontWeight : "100"}}>{title}</h3>
           {/* <p>{message}</p> */}
         </div>
       </div>
