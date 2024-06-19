@@ -23,7 +23,7 @@ import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.pn
 import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png";
 import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png";
 import extTitan1070 from "../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
-import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.jpg";
+import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.png";
 import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
 import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
 import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
@@ -40,6 +40,7 @@ import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
 import funmatpro310 from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
 import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
+import funmatpro610 from "../../assets/printerImages/printer_image_funmatpro_ext_610.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
 import Hero from "../../Components/Hero";
 import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
@@ -100,6 +101,8 @@ export default function Impresoras() {
         return funmatpro310;
       case "Funmat Pro 410":
         return funmatpro410;
+      case "Funmat Pro 610":
+        return funmatpro610;
       case "MJP 300W":
         return mjp300W;
       case "Projet MJP 2500 Plus":
