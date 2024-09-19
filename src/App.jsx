@@ -14,6 +14,8 @@ import CustomNewsTwo from "./Pages/Noticias/CustomNewsTwo";
 import CustomNewsThree from "./Pages/Noticias/CustomNewsThree";
 import CustomPrototype from "./Pages/Industrias/CustomPrototype";
 
+import PrivacyPolitic from "./Pages/Politicas/Privacidad";
+
 import "./globalStyles.css"
 
 export default function App() {
@@ -32,6 +34,8 @@ export default function App() {
       <Route path="/noticias/universidad-salsburgo-realiza-cirugia" element={<CustomNewsOne />} />
       <Route path="/noticias/la-nueva-sls-300" element={<CustomNewsTwo />} />
       <Route path="/noticias/la-nueva-ext-1270" element={<CustomNewsThree />} />
+
+      <Route path="/politica-privacidad" element={<PrivacyPolitic />} />
     </Routes>
   );
 }

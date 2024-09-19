@@ -24,6 +24,12 @@ export default function Footer() {
       flexGrow: 1,
       justifyContent: "space-between",
     },
+    footerGeneral: {
+      display: "block",
+      alignItems: isDevice ? "center" : "innitial",
+      gap: isDevice ? "75px" : 0,
+      justifyContent: "space-between",
+    },
   };
 
   return (
