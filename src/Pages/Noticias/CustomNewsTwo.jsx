@@ -10,11 +10,14 @@ export default function Noticia() {
 
 
   const styles = {
+    //Main container style rules how the hero's image behaves
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 50,
       alignItems: "center",
+      position:"absolute",
+      zIndex:2,
+      maxWidth:"100vw"
     },
     applicationContent: {
       display: "flex",
