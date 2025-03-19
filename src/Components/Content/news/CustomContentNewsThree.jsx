@@ -28,7 +28,7 @@ export default function CustomContentFoundry({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
-      <h2>La nueva EXT 1270</h2>
+      {/* <h2>La nueva EXT 1270</h2> */}
       <p>
         ROCK HILL, Carolina del Sur, 23 de octubre de 2023: 3D Systems
         (NYSE:DDD) anunció que Icon Technologies Limited, una empresa de

@@ -1,13 +1,21 @@
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
+import Hero from "../../Components/Hero";
 import Footer from "../../Components/Footer/Footer";
 
 import CustomContentNewsTwo from "../../Components/Content/news/CustomContentNewsTwo";
 
+import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
 
+  const heroContent = {
+    title: "La nueva SLS 300",
+    message: null,
+    heroImage: heroImgFoundry,
+  }
 
   const styles = {
     //Main container style rules how the hero's image behaves
@@ -32,6 +40,11 @@ export default function Noticia() {
     <>
       <Header />
       <div style={styles.mainContainer}>
+        <Hero
+              title={heroContent.title}
+              message={heroContent.message}
+              imageSrc={heroContent.heroImage}
+            />
         <div className={"applicationContent"} style={styles.applicationContent}>
           <CustomContentNewsTwo />
         </div>

@@ -39,18 +39,50 @@ const itemsProductos = [
 
 ////////////////////////// Main Component //////////////////////////
 
-export default function Navbar({ setOverlayVisible }) {
+export default function Navbar() {
   return (
     <nav style={styles.navbar}>
-      <a onClick={() => setOverlayVisible(true)}>
-        Aplicaciones
-      </a>
-      <a onClick={() => setOverlayVisible(true)}>
-        Productos
-      </a>
-      <a onClick={() => setOverlayVisible(true)}>
-        Servicios
-      </a>
+      <Dropdown
+        arrow={false}
+        menu={{
+          items: itemsIndustrias,
+        }}
+      >
+        <a>
+          <Space style={styles.dropDownText}>Aplicaciones</Space>
+        </a>
+      </Dropdown>
+
+      <Dropdown
+        menu={{
+          items: itemsProductos,
+        }}
+      >
+        <a onClick={(e) => e.preventDefault()}>
+          <Space style={styles.dropDownText}>Productos</Space>
+        </a>
+      </Dropdown>
+
+      <Dropdown
+        menu={{
+          items: itemsProductos,
+        }}
+      >
+        <a onClick={(e) => e.preventDefault()}>
+          <Space style={styles.dropDownText}>Servicios</Space>
+        </a>
+      </Dropdown>
+
+      {/* <Dropdown
+        menu={{
+          items: itemsServicios,
+        }}
+        disabled
+      >
+        <a onClick={(e) => e.preventDefault()}>
+          <Space style={styles.dropDownText}>Servicios</Space>
+        </a>
+      </Dropdown> */}
     </nav>
   );
 }
