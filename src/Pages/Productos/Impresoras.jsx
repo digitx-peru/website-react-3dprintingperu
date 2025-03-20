@@ -162,8 +162,8 @@ export default function Impresoras() {
       //padding: "50px 50px",
       minHeight: is1080 ? "auto" : "890px",
       alignItems: is1080 ? "stretch" : "flex-start",
-      position:"absolute",
-      zIndex:2,
+      // position:"absolute",
+      // zIndex:2,
       width:"100vw"
     },
     itemListContainer: {
@@ -212,13 +212,8 @@ export default function Impresoras() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <main style={styles.mainContainer}>
-        <ProductHero
-            title={heroContent.title}
-            message={heroContent.message}
-            imageSrc={heroContent.heroImage}
-          />
         <div style={{display:"flex", flexDirection:is1080 ? "column" : "row", }}>
           <div className="filters" style={{padding:"50px 50px", marginRight:is1080 ? "20px" : "150px", color:"rgb(10,79,79)"}}>
             <PrinterFilterPanel 

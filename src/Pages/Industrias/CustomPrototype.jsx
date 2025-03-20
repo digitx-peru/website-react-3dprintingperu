@@ -50,7 +50,7 @@ export default function CustomPrototype() {
       flexDirection: "column",
       gap: 50,
       alignItems: "center",
-      position:"absolute",
+      // position:"absolute",
       maxWidth: "100vw"
     },
     applicationContent: {
@@ -69,13 +69,13 @@ export default function CustomPrototype() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
-        <Hero
+        {/* <Hero
           title={heroContent.title}
           message={heroContent.message}
           imageSrc={heroContent.heroImage}
-        />
+        /> */}
         <section
           className={"applicationContent"}
           style={styles.applicationContent}

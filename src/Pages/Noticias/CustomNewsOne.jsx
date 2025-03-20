@@ -39,8 +39,8 @@ export default function Noticia() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      position:"absolute",
-      zIndex:2,
+      // position:"absolute",
+      // zIndex:2,
       maxWidth:"100vw"
     },
     applicationContent: {
@@ -54,13 +54,13 @@ export default function Noticia() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
-        <Hero
+        {/* <Hero
             title={heroContent.title}
             message={heroContent.message}
             imageSrc={heroContent.heroImage}
-          />
+          /> */}
         <div className={"applicationContent"} style={styles.applicationContent}>
           <Tabs defaultActiveKey="1" items={tabItems} />
         </div>

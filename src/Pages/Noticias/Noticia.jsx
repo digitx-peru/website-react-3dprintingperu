@@ -28,11 +28,11 @@ export default function Noticia() {
     <>
       <Header />
       <div style={styles.mainContainer}>
-        <Hero
+        {/* <Hero
           backgroundUrl={"https://picsum.photos/3000/600"}
           title="Hero title"
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
+        /> */}
         <div className={"applicationContent"} style={styles.applicationContent}>
           <ApplicationContent  />
         </div>

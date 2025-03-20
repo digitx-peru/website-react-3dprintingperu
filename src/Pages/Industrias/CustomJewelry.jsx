@@ -49,8 +49,8 @@ export default function CustomJewelry() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      position:"absolute",
+      // alignItems: "center",
+      // position:"absolute",
       zIndex:2,
     },
     applicationContent: {
@@ -70,13 +70,13 @@ export default function CustomJewelry() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
-        <Hero
+        {/* <Hero
           title={heroContent.title}
           message={heroContent.message}
           imageSrc={heroContent.heroImage}
-        />
+        /> */}
         <section
           className={"applicationContent"}
           style={styles.applicationContent}

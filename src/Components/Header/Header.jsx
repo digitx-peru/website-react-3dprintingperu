@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import NavMenu from "./NavMenu";
 import Hero from "../Hero";
 
-export default function Header({ title, message, heroImage }) {
+export default function Header({ heroTitle, heroMessage, heroImage }) {
 
   //Check windows size
   const isMobile = useMediaQuery(480);
@@ -58,10 +58,10 @@ export default function Header({ title, message, heroImage }) {
       left: 0,
       width: "100%",
       height: "calc(100% - 85px)", // Covers the Hero component
-      backgroundColor: "rgba(0, 0, 0, 0.9)", // Dark overlay
+      backgroundColor: "rgba(0, 0, 0, 0.98)", // Dark overlay
       display: isOverlayVisible ? "flex" : "none",
-      justifyContent: "center",
-      alignItems: "center",
+      justifyContent: "end",
+      alignItems: "start",
       color: "white",
       fontSize: "24px",
       zIndex: 2, // Above the background but below navbar
@@ -89,11 +89,22 @@ export default function Header({ title, message, heroImage }) {
 
       {/* Clickable Overlay */}
       <div style={styles.dropdownOverlay} onClick={() => setOverlayVisible(false)}>
-        <p>Overlay Active - Click to Close</p>
+        <div className="dropdownSelector" style={{display: "flex", flexDirection: "column", marginTop: "40px", marginRight: "150px"}}>
+          <p>Industria</p>
+          <ul>
+            <li><a href="">Fundicion</a></li>
+            <li><a href="">Joyeria</a></li>
+            <li><a href="">Arte y prototipos</a></li>
+          </ul>
+          <p>Salud</p>
+          <ul>
+            <li>Dispositivos Medicos</li>
+          </ul>
+        </div>
       </div>
 
       {/* Hero Component */}
-      <Hero title={title} message={message} />
+      <Hero title={heroTitle} message={heroMessage} />
     </header>
   );
 }

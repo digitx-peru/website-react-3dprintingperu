@@ -44,13 +44,8 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div className="mainContainer" style={styles.mainContainer}>
-        {/* <Hero
-          title={heroContent.title}
-          message={heroContent.message}
-          imageSrc={heroContent.heroImage}
-        /> */}
         <div style={styles.newsCardContainer}>
           <NewsCard
             redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"
