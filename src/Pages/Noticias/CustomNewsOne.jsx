@@ -9,7 +9,7 @@ import Footer from "../../Components/Footer/Footer";
 import CustomContentNewsOneSpanish from "../../Components/Content/news/CustomContentNewsOneSpanish";
 import CustomContentNewsOneOriginal from "../../Components/Content/news/CustomContentNewsOneOriginal";
 
-import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
@@ -17,7 +17,7 @@ export default function Noticia() {
   const heroContent = {
     title: "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora usando avanzada tecnologia ortopedica",
     message: null,
-    heroImage: heroImgFoundry,
+    heroImage: heroImgNews,
   }
 
   const tabItems = [

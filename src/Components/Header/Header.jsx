@@ -60,7 +60,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
       height: "calc(100% - 85px)", // Covers the Hero component
       backgroundColor: "rgba(0, 0, 0, 0.98)", // Dark overlay
       display: isOverlayVisible ? "flex" : "none",
-      justifyContent: "end",
+      justifyContent: "center",
       alignItems: "start",
       color: "white",
       fontSize: "24px",
@@ -89,17 +89,37 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
 
       {/* Clickable Overlay */}
       <div style={styles.dropdownOverlay} onClick={() => setOverlayVisible(false)}>
-        <div className="dropdownSelector" style={{display: "flex", flexDirection: "column", marginTop: "40px", marginRight: "150px"}}>
-          <p>Industria</p>
-          <ul>
-            <li><a href="">Fundicion</a></li>
-            <li><a href="">Joyeria</a></li>
-            <li><a href="">Arte y prototipos</a></li>
-          </ul>
-          <p>Salud</p>
-          <ul>
-            <li>Dispositivos Medicos</li>
-          </ul>
+        <div className="dropdownSelector" style={{display: "flex", flexDirection: "row", marginTop: "40px"}}>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            <p>Industria</p>
+            <ul>
+              <li style={{listStyle:'none'}}><a href="">Fundicion</a></li>
+              <li style={{listStyle:'none'}}><a href="">Joyeria</a></li>
+              <li style={{listStyle:'none'}}><a href="">Arte y prototipos</a></li>
+            </ul>
+          </div>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            <p>Salud</p>
+            <ul>
+              <li style={{listStyle:'none'}}>Dispositivos Medicos</li>
+            </ul>
+          </div>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            <p>Industrias</p>
+            <ul>
+              <li style={{listStyle:'none'}}>Fundición</li>
+              <li style={{listStyle:'none'}}>Joyería</li>
+              <li style={{listStyle:'none'}}>Arte y Prototipos</li>
+            </ul>
+          </div>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            <p>Industrias</p>
+            <ul>
+              <li style={{listStyle:'none'}}>Fundición</li>
+              <li style={{listStyle:'none'}}>Joyería</li>
+              <li style={{listStyle:'none'}}>Arte y Prototipos</li>
+            </ul>
+          </div>
         </div>
       </div>
 

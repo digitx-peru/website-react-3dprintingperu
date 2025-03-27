@@ -51,6 +51,9 @@ export default function Navbar({ setOverlayVisible }) {
       <a onClick={() => setOverlayVisible(true)}>
         Servicios
       </a>
+      <a onClick={() => setOverlayVisible(true)}>
+        Recursos
+      </a>
     </nav>
   );
 }

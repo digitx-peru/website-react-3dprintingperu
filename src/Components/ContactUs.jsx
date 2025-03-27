@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, Select } from "antd";
 
 import emailHandler from "../utils/emailHandler";
 import useMediaQuery from "../hooks/useMediaQuery";
@@ -158,12 +158,37 @@ export default function ContactUs() {
           </Form.Item>
         </div>
 
+        <div style={styles.formItemGroup}>
+          <Form.Item
+            label={<label style={styles.formItemLabel}>¿Qué necesita?</label>}
+            name="requirement"
+            style={{...styles.formItem, flexGrow: 0, width:'50%'}}
+            rules={[
+              {
+                required: true,
+                message: "Phone required",
+              },
+            ]}
+          >
+            <Select
+            defaultValue='buy'
+              options={[
+                {value: 'buy', label: <span>Comprar impresora 3D</span>},
+                {value: 'print', label: <span>Fabricar una pieza</span>},
+                {value: 'support', label: <span>Mantenimiento de una impresora 3D</span>},
+              ]}
+            />
+          </Form.Item>
+        </div>
+
         <Form.Item
           label={<label style={styles.formItemLabel}>Mensaje</label>}
           name="message"
           style={styles.formItem}
         >
-          <Input.TextArea rows={4} />
+          <Input.TextArea rows={4} defaultValue="Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi 
+maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. 
+La cantidad estimada de piezas que necesitaré imprimir es 20 por semana."/>
         </Form.Item>
 
         <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>

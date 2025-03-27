@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer/Footer";
 
 import CustomContentNewsThree from "../../Components/Content/news/CustomContentNewsThree";
 
-import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
@@ -14,7 +14,7 @@ export default function Noticia() {
   const heroContent = {
     title: "La nueva EXT 1270",
     message: null,
-    heroImage: heroImgFoundry,
+    heroImage: heroImgNews,
   }
 
   const styles = {
