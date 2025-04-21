@@ -5,9 +5,16 @@ import Footer from "../../Components/Footer/Footer";
 
 import CustomContentNewsTwo from "../../Components/Content/politics/privacy";
 
+import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
 
+  const heroContent = {
+    title: "Política de privacidad",
+    message: "",
+    heroImage: heroImgFoundry,
+  }
 
   const styles = {
     mainContainer: {
@@ -27,7 +34,7 @@ export default function Noticia() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
         <div className={"applicationContent"} style={styles.applicationContent}>
           <CustomContentNewsTwo />

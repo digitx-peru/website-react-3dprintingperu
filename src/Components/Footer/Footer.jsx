@@ -51,7 +51,7 @@ export default function Footer() {
       <div className="footerPolicyContent" style={styles.footerPrivacyContent}>
         <FooterPrivacyNav />
         <p style={{ color: "white", textAlign: "center", flex: 1 }}>
-          © 2024 3D Printing Perú. Todos los derechos reservados.
+          © 2025 3D Printing Perú. Todos los derechos reservados.
         </p>
       </div>
     </footer>

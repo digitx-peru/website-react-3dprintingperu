@@ -27,7 +27,6 @@ export default function CustomContentFoundry({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
-      <h2>Politica de privacidad</h2>
       <p>
       De conformidad con lo establecido en la Ley N° 29733, Ley de Protección de Datos Personales, 
       y su Reglamento detallado en el Decreto Supremo N° 003-2013-JUS, declaro que en forma libre, 

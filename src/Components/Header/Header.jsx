@@ -6,6 +6,11 @@ import Navbar from "./Navbar";
 import NavMenu from "./NavMenu";
 import Hero from "../Hero";
 
+import ApplicationsDropdown from "./NavbarDropDownOptions/ApplicationsDropdown"
+import ProductsDropdown from "./NavbarDropDownOptions/ProductsDropdown";
+import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
+import ResourcesDropdown from "./NavbarDropDownOptions/ResourcesDropdown";
+
 export default function Header({ heroTitle, heroMessage, heroImage }) {
 
   //Check windows size
@@ -13,7 +18,13 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
   const isTablet = useMediaQuery(768);
 
   // State to track overlay visibility
-  const [isOverlayVisible, setOverlayVisible] = useState(true);
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
+
+  function handleClickableOverlay() {
+    //Add link to navbar
+    setOverlayVisible(false)
+  }
 
   //Styles
   const styles = {
@@ -84,42 +95,29 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
             alt=""
           />
         </Link>
-        {isMobile || isTablet ? <NavMenu /> : <Navbar setOverlayVisible={setOverlayVisible} />}
+        {isMobile || isTablet ? <NavMenu /> : <Navbar setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
       </div>
 
       {/* Clickable Overlay */}
-      <div style={styles.dropdownOverlay} onClick={() => setOverlayVisible(false)}>
-        <div className="dropdownSelector" style={{display: "flex", flexDirection: "row", marginTop: "40px"}}>
-          <div style={{display: "flex", flexDirection: "column"}}>
-            <p>Industria</p>
-            <ul>
-              <li style={{listStyle:'none'}}><a href="">Fundicion</a></li>
-              <li style={{listStyle:'none'}}><a href="">Joyeria</a></li>
-              <li style={{listStyle:'none'}}><a href="">Arte y prototipos</a></li>
-            </ul>
-          </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
-            <p>Salud</p>
-            <ul>
-              <li style={{listStyle:'none'}}>Dispositivos Medicos</li>
-            </ul>
-          </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
-            <p>Industrias</p>
-            <ul>
-              <li style={{listStyle:'none'}}>Fundición</li>
-              <li style={{listStyle:'none'}}>Joyería</li>
-              <li style={{listStyle:'none'}}>Arte y Prototipos</li>
-            </ul>
-          </div>
-          <div style={{display: "flex", flexDirection: "column"}}>
-            <p>Industrias</p>
-            <ul>
-              <li style={{listStyle:'none'}}>Fundición</li>
-              <li style={{listStyle:'none'}}>Joyería</li>
-              <li style={{listStyle:'none'}}>Arte y Prototipos</li>
-            </ul>
-          </div>
+      <div style={styles.dropdownOverlay} onClick={handleClickableOverlay}>
+        <div className="dropdownSelector">
+
+          {/* ///////////////////////////////////// */}
+          {activeNavBarCategory === "aplicaciones" && (
+            <ApplicationsDropdown />
+          )}
+
+          {activeNavBarCategory === "producto" && (
+            <ProductsDropdown />
+          )}
+
+          {activeNavBarCategory === "servicios" && (
+            <ServicesDropdown />
+          )}
+
+          {activeNavBarCategory === "recursos" && (
+            <ResourcesDropdown />
+          )}
         </div>
       </div>
 

@@ -6,7 +6,6 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
 import CustomContentMedDevicesImplants from "../../Components/Content/health/CustomContentMedDevicesImplants";
 import CustomContentMedDevicesProsthesis from "../../Components/Content/health/CustomContentMedDevicesProsthesis"
@@ -45,16 +44,15 @@ export default function CustomDevices() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      position:"absolute",
-      rowGap:"0px"
+      rowGap: "0px"
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       padding: "50px 0px",
-      width:"100vw",
-      backgroundColor:"rgb(239,251,246)"
+      width: "100vw",
+      backgroundColor: "rgb(239,251,246)"
       // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
       //padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
     },
@@ -66,22 +64,16 @@ export default function CustomDevices() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
       <div style={styles.mainContainer}>
-        <Hero
-          title={heroContent.title}
-          message={heroContent.message}
-          imageSrc={heroContent.heroImage}
-        />
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}} />
-          {/* <UsedTechnologyList /> */}
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom: "5px solid rgb(99,218,178)" }} />
         </section>
+        <FloatButton />
         <ContactUs />
-        <FloatButton/>
         <Footer />
       </div>
     </>
