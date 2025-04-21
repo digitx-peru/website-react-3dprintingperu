@@ -40,12 +40,9 @@ const itemsProductos = [
 
 ////////////////////////// Main Component //////////////////////////
 
-export default function Navbar({ setOverlayVisible, setActiveNavBarCategory }) {
-
-  const [activeLink, setActiveLink] = useState(null);
+export default function Navbar({ activeNavBarCategory, setOverlayVisible, setActiveNavBarCategory }) {
 
   const handleOnClick = (buttonId) => {
-    setActiveLink(buttonId);
     setOverlayVisible(true)
     setActiveNavBarCategory(buttonId);
   };
@@ -54,25 +51,25 @@ export default function Navbar({ setOverlayVisible, setActiveNavBarCategory }) {
   return (
     <nav style={styles.navbar}>
       <ul style={styles.optionList}>
-        <li style={{...styles.optionListItem, ...(activeLink === 'aplicaciones' ? styles.activeLink : {})}}>
+        <li style={{...styles.optionListItem, ...(activeNavBarCategory === 'aplicaciones' ? styles.activeLink : {})}}>
           <a style={styles.link}
             onClick={() => handleOnClick("aplicaciones")}>
             Aplicaciones
           </a>
         </li >
-        <li style={{...styles.optionListItem, ...(activeLink === 'producto' ? styles.activeLink : {})}}>
+        <li style={{...styles.optionListItem, ...(activeNavBarCategory === 'producto' ? styles.activeLink : {})}}>
           <a style={styles.link}
             onClick={() => handleOnClick("producto")}>
             Productos
           </a>
         </li>
-        <li style={{...styles.optionListItem, ...(activeLink === 'servicios' ? styles.activeLink : {})}}>
+        <li style={{...styles.optionListItem, ...(activeNavBarCategory === 'servicios' ? styles.activeLink : {})}}>
           <a style={styles.link}
             onClick={() => handleOnClick("servicios")}>
             Servicios
           </a>
         </li>
-        <li style={{...styles.optionListItem, ...(activeLink === 'recursos' ? styles.activeLink : {})}}>
+        <li style={{...styles.optionListItem, ...(activeNavBarCategory === 'recursos' ? styles.activeLink : {})}}>
           <a style={styles.link}
             onClick={() => handleOnClick("recursos")}>
             Recursos

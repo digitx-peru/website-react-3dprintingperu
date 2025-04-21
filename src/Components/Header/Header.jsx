@@ -22,7 +22,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
 
   function handleClickableOverlay() {
-    //Add link to navbar
+    setActiveNavBarCategory(null)
     setOverlayVisible(false)
   }
 
@@ -95,7 +95,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
             alt=""
           />
         </Link>
-        {isMobile || isTablet ? <NavMenu /> : <Navbar setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
+        {isMobile || isTablet ? <NavMenu /> : <Navbar activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
       </div>
 
       {/* Clickable Overlay */}
