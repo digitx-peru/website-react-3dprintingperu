@@ -5,6 +5,8 @@ const printerNameListDataURL =
 const technologyNameListDataURL =
   process.env.REACT_APP_DATA_API_URL + "technologies/list";
 
+const applicationNameListDataURL = "/applications.db.json"
+
 export async function getPrintersFromDB() {
   console.log("Fetching printers");
   const response = await fetch(printerDataURL);
@@ -35,3 +37,10 @@ export async function getTechnologiesNamesListFromAPI() {
   const technologiesNamesListJsonData = await response.json();
 
   return technologiesNamesListJsonData;}
+
+  export async function getApplicationsNamesListFromAPI() {
+    console.log("Fetching applications names");
+    const response = await fetch(applicationNameListDataURL);
+    const applicationsNamesListJsonData = await response.json();
+  
+    return applicationsNamesListJsonData;}

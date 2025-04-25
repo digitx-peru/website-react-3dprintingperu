@@ -73,6 +73,16 @@ function dimensionValueFiltering(printer, volumeFilterCriteria, dimensionName) {
 
 ///////////////////////////////////////////////GENERIC
 
+export function applicationFiltering(unit, applicationFilterCriteria) {
+  if (applicationFilterCriteria.length !== 0) {
+    const result = unit.aplications.some((application) =>
+      applicationFilterCriteria.includes(application)
+    );
+    return result;
+  }
+  return unit;
+}
+
 export function technologyFiltering(unit, technologyFilterCriteria) {
   return technologyFilterCriteria.length !== 0
     ? technologyFilterCriteria.includes(unit.technology.value)

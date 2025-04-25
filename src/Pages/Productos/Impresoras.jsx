@@ -13,6 +13,7 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 import { getPrintersFromDB } from "../../utils/dataHandler";
 import {
   volumeFiltering,
+  applicationFiltering,
   technologyFiltering,
   technologyLabelValueSwap,
 } from "../../utils/filters";
@@ -42,9 +43,7 @@ import funmatpro310 from "../../assets/printerImages/printer_image_funmatpro_ext
 import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
 import funmatpro610 from "../../assets/printerImages/printer_image_funmatpro_ext_610.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
-import Hero from "../../Components/Hero";
 import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
-import ProductHero from "../../Components/ProductHero";
 
 export default function Impresoras() {
   const heroContent = {
@@ -52,6 +51,7 @@ export default function Impresoras() {
     heroImage: heroImgFoundry,
   }
   //State
+  const [applicationFilterCriteria, setApplicationFilterCriteria] = useState([]);
   const [technologyFilterCriteria, setTechnologyFilterCriteria] = useState([]);
   const [volumeFilterCriteria, setVolumeFilterCriteria] = useState({
     x: "",
@@ -136,9 +136,13 @@ export default function Impresoras() {
         printerData
           //Search filter
           .filter((printer) =>
+            applicationFiltering(printer, applicationFilterCriteria)
+          )
+          .filter((printer) =>
             technologyFiltering(printer, technologyFilterCriteria)
           )
-          .filter((printer) => volumeFiltering(printer, volumeFilterCriteria))
+          .filter((printer) => 
+            volumeFiltering(printer, volumeFilterCriteria))
           //Temporary
           .map((printer) => {
             printer.imageUrl = getPrinterImageUsingName(printer.name);
@@ -194,6 +198,10 @@ export default function Impresoras() {
   };
 
   //Event Handlers
+  function applicationCheckBoxChangeHandler(checkboxValue) {
+    setApplicationFilterCriteria(checkboxValue);
+  }
+
   function technologyCheckBoxChangeHandler(checkboxValue) {
     const technologyValue = technologyLabelValueSwap(checkboxValue);
     setTechnologyFilterCriteria(technologyValue);
@@ -216,7 +224,8 @@ export default function Impresoras() {
       <main style={styles.mainContainer}>
         <div style={{display:"flex", flexDirection:is1080 ? "column" : "row", }}>
           <div className="filters" style={{padding:"50px 50px", marginRight:is1080 ? "20px" : "150px", color:"rgb(10,79,79)"}}>
-            <PrinterFilterPanel 
+            <PrinterFilterPanel
+              applicationCheckBoxChangeHandler={applicationCheckBoxChangeHandler} 
               technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
               dimensionChangeHandler={dimensionChangeHandler}
             />
