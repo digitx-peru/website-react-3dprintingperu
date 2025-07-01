@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -21,10 +21,17 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
 
-  function handleClickableOverlay() {
-    setActiveNavBarCategory(null)
-    setOverlayVisible(false)
-  }
+    useEffect(() => {
+    function handleClickableOverlay(event) {
+      if (isOverlayVisible) {
+        setOverlayVisible(false);
+        setActiveNavBarCategory(null);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickableOverlay);
+    return () => document.removeEventListener("mousedown", handleClickableOverlay);
+  }, [isOverlayVisible]);
 
   //Styles
   const styles = {
@@ -99,7 +106,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
       </div>
 
       {/* Clickable Overlay */}
-      <div style={styles.dropdownOverlay} onClick={handleClickableOverlay}>
+      <div style={styles.dropdownOverlay}>
         <div className="dropdownSelector">
 
           {/* ///////////////////////////////////// */}
