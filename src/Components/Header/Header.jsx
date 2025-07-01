@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -20,10 +20,13 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
   // State to track overlay visibility
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
+  const overlayRef = useRef(null);
 
     useEffect(() => {
     function handleClickableOverlay(event) {
-      if (isOverlayVisible) {
+      if (isOverlayVisible &&
+        overlayRef.current &&
+        !overlayRef.current.contains(event.target)) {
         setOverlayVisible(false);
         setActiveNavBarCategory(null);
       }
@@ -106,7 +109,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
       </div>
 
       {/* Clickable Overlay */}
-      <div style={styles.dropdownOverlay}>
+      <div ref={overlayRef} style={styles.dropdownOverlay}>
         <div className="dropdownSelector">
 
           {/* ///////////////////////////////////// */}
