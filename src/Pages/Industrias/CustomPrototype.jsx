@@ -83,7 +83,7 @@ export default function CustomPrototype() {
           <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)",boxSizing: "border-box"}}/>
           {/* <UsedTechnologyList /> */}
         </section>
-        <FloatButton />
+        <FloatButton preselectedApplications={["Arte y diseño"]}/>
         <ContactUs />
         <Footer />
       </div>

@@ -72,7 +72,7 @@ export default function CustomDevices() {
         >
           <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom: "5px solid rgb(99,218,178)" }} />
         </section>
-        <FloatButton />
+        <FloatButton preselectedApplications={["Dispositivos medicos"]}/>
         <ContactUs />
         <Footer />
       </div>

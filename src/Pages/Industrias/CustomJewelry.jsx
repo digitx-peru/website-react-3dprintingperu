@@ -47,16 +47,19 @@ export default function CustomJewelry() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      zIndex:2,
+      alignItems: "center",
+      // position:"absolute",
+      // zIndex:2,
+      maxWidth: "100vw"
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       backgroundColor: "rgb(239,251,246)",
-      padding: "50px 0px 0px 0px" ,
-      marginBottom:"50px",
-      backgroundColor:"rgb(239,251,246)"
+      padding: "50px 0px 0px 0px",
+      marginBottom: "50px",
+      backgroundColor: "rgb(239,251,246)"
     },
     column: {
       paddingLeft: 100,
@@ -66,16 +69,16 @@ export default function CustomJewelry() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
       <div style={styles.mainContainer}>
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}}/>
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom: "5px solid rgb(99,218,178)" }} />
         </section>
-        <FloatButton/>
-        <ContactUs/>
+        <FloatButton preselectedApplications={["Joyeria"]}/>
+        <ContactUs />
         <Footer />
       </div>
     </>

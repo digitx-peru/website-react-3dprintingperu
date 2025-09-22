@@ -23,6 +23,9 @@ export default function PrinterCard({
       objectFit: "contain",
     },
     printerCardInfoContent: {
+      display:'flex',
+      flexDirection: 'column',
+      gap: '10px',
       padding: "10px",
       borderTop: "4px solid rgb(99,218,178)",
     },
@@ -55,16 +58,18 @@ export default function PrinterCard({
       />
       <div style={styles.printerCardInfoContent}>
         <h4 style={styles.printerName}>{name}</h4>
-        <p style={styles.printCardDescription}>{description}</p>
+        <div style={{ maxHeight: '200px' }}>
+          <p style={styles.printCardDescription}>{description}</p>
+        </div>
         <div style={{ display: "flex", flexDirection: "row", gap: 50 }}>
-          <div style={styles.printerVolumeAndTechnologyWrapper}>
-            <div>
+          <div className="printercard_volume_tech_wrapper" style={styles.printerVolumeAndTechnologyWrapper}>
+            <div className="printercard_volume">
               <h4 style={{color: "rgb(71,167,153)"}}>Volumen XYZ ({builVolume.unit})</h4>
               <p style={styles.printCardBodyText}>
                 {builVolume.x} x {builVolume.y} x {builVolume.z}
               </p>
             </div>
-            <div>
+            <div className="printercard_tech">
               <h4 style={{color: "rgb(71,167,153)"}}>Tecnología</h4>
               <p style={styles.printCardBodyText}>{technology}</p>
             </div>

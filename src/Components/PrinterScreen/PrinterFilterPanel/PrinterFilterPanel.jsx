@@ -10,6 +10,7 @@ import { getTechnologiesNamesListFromAPI } from "../../../utils/dataHandler";
 import { getApplicationsNamesListFromAPI } from "../../../utils/dataHandler";
 
 export default function PrinterFilterPanel({
+  preselectedApplications,
   applicationCheckBoxChangeHandler,
   technologyCheckBoxChangeHandler,
   dimensionChangeHandler,
@@ -50,6 +51,7 @@ export default function PrinterFilterPanel({
                 ? techOptions
                 : applicationNameListData.data.sort()
             }
+            value={preselectedApplications} //This value is added to enable preselectedApplications. Coming from applications pages
             style={{ display: "flex", flexDirection: "column" }}
             onChange={applicationCheckBoxChangeHandler}
           />
