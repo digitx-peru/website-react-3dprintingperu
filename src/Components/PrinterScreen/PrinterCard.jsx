@@ -1,4 +1,6 @@
+import { useState, useRef, useEffect } from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { Button, Tooltip } from "antd";
 
 export default function PrinterCard({
   printerImageUrl,
@@ -8,6 +10,17 @@ export default function PrinterCard({
   technology,
 }) {
   const isColumn = useMediaQuery(1024);
+
+  const [isTruncated, setIsTruncated] = useState(false);
+  const paragraphRef = useRef(null);
+
+  useEffect(() => {
+    const el = paragraphRef.current;
+    if (el) {
+      // Detect if the element is truncated
+      setIsTruncated(el.scrollHeight > el.clientHeight + 1);
+    }
+  }, [description]);
 
   const styles = {
     printerCardContent: {
@@ -23,7 +36,7 @@ export default function PrinterCard({
       objectFit: "contain",
     },
     printerCardInfoContent: {
-      display:'flex',
+      display: 'flex',
       flexDirection: 'column',
       gap: '10px',
       padding: "10px",
@@ -35,8 +48,17 @@ export default function PrinterCard({
     },
     printCardDescription: {
       fontSize: isColumn ? "14px" : "16px",
-      minHeight: isColumn ? "75px" : "100px",
-      color: "rgb(71,167,153)"
+      // minHeight: isColumn ? "75px" : "100px",
+      // minHeight: "200px",
+      height: "60px",
+      color: "rgb(71,167,153)",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      WebkitLineClamp: 3, // number of visible lines
+      WebkitBoxOrient: "vertical",
+      whiteSpace: "normal",
+      lineHeight: "20px", // controls spacing between lines
     },
     printerVolumeAndTechnologyWrapper: {
       display: "flex",
@@ -51,30 +73,55 @@ export default function PrinterCard({
   };
   return (
     <div style={styles.printerCardContent}>
+      {/*Printer thumbnail*/}
       <img
         src={printerImageUrl}
         alt={name + " 3d printer"}
         style={styles.printerCardImage}
       />
       <div style={styles.printerCardInfoContent}>
+        {/*Printer name*/}
         <h4 style={styles.printerName}>{name}</h4>
-        <div style={{ maxHeight: '200px' }}>
+
+        {/*Description section */}
+        <Tooltip title={description} placement="topLeft">
+          <p
+            style={styles.printCardDescription}
+          >
+            {description}
+          </p>
+        </Tooltip>
+
+        {/* <div>
           <p style={styles.printCardDescription}>{description}</p>
-        </div>
+        </div> */}
+
+        {/*Volume and technology section */}
         <div style={{ display: "flex", flexDirection: "row", gap: 50 }}>
           <div className="printercard_volume_tech_wrapper" style={styles.printerVolumeAndTechnologyWrapper}>
             <div className="printercard_volume">
-              <h4 style={{color: "rgb(71,167,153)"}}>Volumen XYZ ({builVolume.unit})</h4>
+              <h4 style={{ color: "rgb(71,167,153)" }}>Volumen XYZ ({builVolume.unit})</h4>
               <p style={styles.printCardBodyText}>
                 {builVolume.x} x {builVolume.y} x {builVolume.z}
               </p>
             </div>
             <div className="printercard_tech">
-              <h4 style={{color: "rgb(71,167,153)"}}>Tecnología</h4>
+              <h4 style={{ color: "rgb(71,167,153)" }}>Tecnología</h4>
               <p style={styles.printCardBodyText}>{technology}</p>
             </div>
           </div>
         </div>
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <Button style={{
+            backgroundColor: "#0A4F4F",
+            borderColor: "#0A4F4F",
+            width: "120px"
+          }} type="primary">Me interesa</Button>
+
+        </div>
+
+
+
       </div>
     </div>
   );
