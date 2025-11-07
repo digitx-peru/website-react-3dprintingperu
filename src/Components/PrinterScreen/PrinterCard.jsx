@@ -11,17 +11,6 @@ export default function PrinterCard({
 }) {
   const isColumn = useMediaQuery(1024);
 
-  const [isTruncated, setIsTruncated] = useState(false);
-  const paragraphRef = useRef(null);
-
-  useEffect(() => {
-    const el = paragraphRef.current;
-    if (el) {
-      // Detect if the element is truncated
-      setIsTruncated(el.scrollHeight > el.clientHeight + 1);
-    }
-  }, [description]);
-
   const styles = {
     printerCardContent: {
       border: "1px solid silver",
@@ -46,19 +35,15 @@ export default function PrinterCard({
       fontSize: "24px",
       margin: "10px 0px",
     },
-    printCardDescription: {
+     printCardDescription: {
       fontSize: isColumn ? "14px" : "16px",
-      // minHeight: isColumn ? "75px" : "100px",
-      // minHeight: "200px",
-      height: "60px",
-      color: "rgb(71,167,153)",
+
+      // How many lines control
+      minHeight: isColumn ? "75px" : "80px",
+      maxHeight: "80px",
+
       overflow: "hidden",
-      textOverflow: "ellipsis",
-      display: "-webkit-box",
-      WebkitLineClamp: 3, // number of visible lines
-      WebkitBoxOrient: "vertical",
-      whiteSpace: "normal",
-      lineHeight: "20px", // controls spacing between lines
+      color: "rgb(71,167,153)"
     },
     printerVolumeAndTechnologyWrapper: {
       display: "flex",
@@ -83,18 +68,9 @@ export default function PrinterCard({
         {/*Printer name*/}
         <h4 style={styles.printerName}>{name}</h4>
 
-        {/*Description section */}
-        <Tooltip title={description} placement="topLeft">
-          <p
-            style={styles.printCardDescription}
-          >
-            {description}
-          </p>
-        </Tooltip>
-
-        {/* <div>
+        <div>
           <p style={styles.printCardDescription}>{description}</p>
-        </div> */}
+        </div>
 
         {/*Volume and technology section */}
         <div style={{ display: "flex", flexDirection: "row", gap: 50 }}>
