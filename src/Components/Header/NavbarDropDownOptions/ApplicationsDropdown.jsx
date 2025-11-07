@@ -12,11 +12,11 @@ export default function ApplicationsDropdown() {
     dropdownOption: {
       display: "flex",
       flexDirection: "column",
-      maxWidth: "200px"
+      // maxWidth: "200px"
     },
     listTitle: {
       fontWeight: "400",
-      fontSize: "24px"
+      fontSize: "16px"
     },
     optionList: {
       padding: 0,
@@ -24,12 +24,12 @@ export default function ApplicationsDropdown() {
     },
     optionListItem: {
       listStyle: 'none',
-      fontSize: "20px",
+      fontSize: "16px",
       marginTop: "5px"
     },
     navlink: {
       textDecoration: 'none',
-      color: "#70CE9C"
+      color: "#3EFFB4"
     }
 
   };
@@ -37,17 +37,43 @@ export default function ApplicationsDropdown() {
   return (
     <div className="dropdownOptionsContainer" style={styles.dropdownOptionsContainer}>
       <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Industria</h3>
+        <h3 style={styles.listTitle}>Naval y Pesca</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/industrias/fundicion" style={styles.navlink}>Fundición</Link></li>
-          <li style={styles.optionListItem}><Link to="/industrias/joyeria" style={styles.navlink}>Joyería</Link></li>
-          <li style={styles.optionListItem}><Link to="/industrias/prototipos-y-arte" style={styles.navlink}>Arte y prototipos</Link></li>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Mástiles</Link></li>
+        </ul>
+      </div>
+      <div className="dropdownOption" style={styles.dropdownOption}>
+        <h3 style={styles.listTitle}>Fundición</h3>
+        <ul style={styles.optionList}>
+          <li style={styles.optionListItem}><Link to="/industrias/fundicion" style={styles.navlink}>Moldes de arena</Link></li>
+        </ul>
+      </div>
+      <div className="dropdownOption" style={styles.dropdownOption}>
+        <h3 style={styles.listTitle}>Joyeria</h3>
+        <ul style={styles.optionList}>
+          <li style={styles.optionListItem}><Link to="/industrias/joyeria" style={styles.navlink}>Moldes de caucho o silicona</Link></li>
+          <li style={styles.optionListItem}><Link to="/industrias/joyeria" style={styles.navlink}>Vaciado</Link></li>
+        </ul>
+      </div>
+      <div className="dropdownOption" style={styles.dropdownOption}>
+        <h3 style={styles.listTitle}>Investigación</h3>
+        <ul style={styles.optionList}>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Desarrollo de polvos metálicos</Link></li>
         </ul>
       </div>
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Salud</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Dispositivos Médicos</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortesis</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Prótesis</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortopedia</Link></li>
+        </ul>
+      </div>
+      <div className="dropdownOption" style={styles.dropdownOption}>
+        <h3 style={styles.listTitle}>Consumidor final</h3>
+        <ul style={styles.optionList}>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Muebles</Link></li>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Prototipos</Link></li>
         </ul>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function ProductsDropdown() {
       display: "flex",
       flexDirection: "row",
       marginTop: "40px",
-      gap: '100px'
+      gap: '50px'
     },
     dropdownOption: {
       display: "flex",
@@ -16,21 +16,21 @@ export default function ProductsDropdown() {
     },
     listTitle: {
       fontWeight: "400",
-      fontSize: "24px"
+      fontSize: "16px"
     },
     optionList: {
       padding: 0,
       marginTop: "20px",
+      fontSize: "16px"
     },
     optionListItem: {
       listStyle: 'none',
       marginTop: "5px",
-      fontStyle: "italic",
-      color: "#787C7B"
+      fontSize: "16px"
     },
     navlink: {
       textDecoration: 'none',
-      color: "#70CE9C"
+      color: "#3EFFB4"
     }
 
   };
@@ -38,16 +38,17 @@ export default function ProductsDropdown() {
   return (
     <div className="dropdownOptionsContainer" style={styles.dropdownOptionsContainer}>
       <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}><Link to="/productos/impresoras" style={styles.navlink}>Impresoras</Link></h3>
+        <h3 style={styles.listTitle}>Impresion 3D</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}>Nuestra línea de impresoras profesionales</li>
+          <li style={styles.optionListItem}><Link to="/productos/impresoras" style={styles.navlink}>Impresoras</Link></li>
+          <li style={styles.optionListItem}><Link to="/productos/materiales" style={styles.navlink}>Materiales</Link></li>
         </ul>
       </div>
       <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}><Link to="/productos/materiales" style={styles.navlink}>Materiales</Link></h3>
-          <ul style={styles.optionList}>
-            <li style={styles.optionListItem}>Los diversos materiales con propiedades únicas</li>
-          </ul>
+        <h3 style={styles.listTitle}>Software</h3>
+        <ul style={styles.optionList}>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>RhynoArtisan</Link></li>
+        </ul>
       </div>
     </div>
   );
