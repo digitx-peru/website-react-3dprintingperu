@@ -10,13 +10,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 export default function ContactUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  //possible options: buy, print, support
-  const [currentDropDownOption, setCurrentDropDownOption] = useState("buy");
-
-  useEffect(() => {
-    console.log(`Count changed to: ${count}`);
-    // You could also trigger an API call, animation, etc. here
-  }, [currentDropDownOption]);
+  //current text value
+  const [currentTextValue, setCurrentTextValue] = useState("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
 
   //Screenwidth breakpoints
   const isMediumScreenSize = useMediaQuery(768);
@@ -89,23 +84,20 @@ export default function ContactUs() {
 
   //onDropDownOptionChange
   const onDropDownOptionChange = (newValue) => {
-    let newTextMessage;
 
     switch (newValue) {
       case "buy":
-        newTextMessage = "Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre"
+        setCurrentTextValue("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
         break;
 
       case "print":
-        newTextMessage = "Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre"
+        setCurrentTextValue("Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
         break;
 
       case "support":
-        newTextMessage = "Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre"
+        setCurrentTextValue("Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
         break;
     }
-
-    return newTextMessage;
 
   }
 
@@ -207,17 +199,20 @@ export default function ContactUs() {
                 { value: 'print', label: <span>Fabricar una pieza</span> },
                 { value: 'support', label: <span>Mantenimiento de una impresora 3D</span> },
               ]}
-              onChange={(value) => setCurrentDropDownOption(value)}
+              onChange={onDropDownOptionChange}
             />
           </Form.Item>
         </div>
 
         <Form.Item
           label={<label style={styles.formItemLabel}>Mensaje</label>}
-          name="message"
+          //This form doesn't have a name because creates conflict with the value in TextArea.
           style={styles.formItem}
         >
-          <Input.TextArea rows={4} defaultValue=onDropDownOptionChange()/>
+          <Input.TextArea 
+          rows={4} 
+          value={currentTextValue}
+          onChange={(e) => setCurrentTextValue(e.target.value)}/>
         </Form.Item>
 
         <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>
