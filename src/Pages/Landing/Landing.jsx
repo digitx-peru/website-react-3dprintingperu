@@ -3,17 +3,17 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
-import CustomContentNewsTwo from "../../Components/Content/politics/privacy";
+import CustomContentLanding from "../../Components/Content/landing/landing";
 
-import heroImgFoundry from "../../assets/heroImages/hero_img_foundry.jpg";
+import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 
-export default function Noticia() {
+export default function PageLanding() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Política de privacidad",
-    message: "",
-    heroImage: heroImgFoundry,
+    title: "Más allá de la impresión 3D de escritorio: Cuándo dar el salto de la impresión por Filamento Industrial",
+    message: null,
+    heroImage: heroImgNews,
   }
 
   const styles = {
@@ -28,7 +28,7 @@ export default function Noticia() {
       flexDirection: isDevice ? "column" : "row",
       justifyContent: "center",
       gap: 20,
-      padding: isDevice ? "0 15px" : "100px 400px",
+      padding: isDevice ? "0 15px" : "100px 300px",
     },
   };
 
@@ -37,7 +37,7 @@ export default function Noticia() {
       <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
         <div className={"applicationContent"} style={styles.applicationContent}>
-          <CustomContentNewsTwo />
+          <CustomContentLanding />
         </div>
       </div>
       <Footer />

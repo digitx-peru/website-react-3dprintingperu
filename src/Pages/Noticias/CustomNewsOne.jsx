@@ -3,13 +3,22 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { Tabs } from "antd";
 
 import Header from "../../Components/Header/Header";
+import Hero from "../../Components/Hero";
 import Footer from "../../Components/Footer/Footer";
 
 import CustomContentNewsOneSpanish from "../../Components/Content/news/CustomContentNewsOneSpanish";
 import CustomContentNewsOneOriginal from "../../Components/Content/news/CustomContentNewsOneOriginal";
 
+import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
+
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
+
+  const heroContent = {
+    title: "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora usando avanzada tecnologia ortopedica",
+    message: null,
+    heroImage: heroImgNews,
+  }
 
   const tabItems = [
     {
@@ -25,11 +34,14 @@ export default function Noticia() {
   ];
 
   const styles = {
+    //Main container style rules how the hero's image behaves
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 50,
       alignItems: "center",
+      // position:"absolute",
+      // zIndex:2,
+      maxWidth:"100vw"
     },
     applicationContent: {
       display: "flex",
@@ -42,8 +54,13 @@ export default function Noticia() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
+        {/* <Hero
+            title={heroContent.title}
+            message={heroContent.message}
+            imageSrc={heroContent.heroImage}
+          /> */}
         <div className={"applicationContent"} style={styles.applicationContent}>
           <Tabs defaultActiveKey="1" items={tabItems} />
         </div>

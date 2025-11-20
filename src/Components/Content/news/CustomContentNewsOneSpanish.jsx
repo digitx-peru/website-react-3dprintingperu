@@ -28,10 +28,10 @@ export default function CustomContentFoundry({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
-      <h2>
+      {/* <h2>
         El Hospital de la Universidad de Salzburgo realiza una cirugía
         innovadora usando avanzada tecnologia ortopedica
-      </h2>
+      </h2> */}
       <p>
         ROCK HILL, Carolina del Sur, Abril 19, 2023 3D Systems, anuncio que el
         Hospital de la Universidad de Salzburg (Austria) ha aplicado

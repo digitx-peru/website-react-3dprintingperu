@@ -25,11 +25,11 @@ export default function CustomContentFoundry({ width }) {
 
   return (
     <div className="textContainer" style={styles.container}>
-      <h2>55-year-old received occipital prosthesis from 3D printer</h2>
+      {/* <h2>55-year-old received occipital prosthesis from 3D printer</h2>
       <h3>
         Spectacular technical and medical premiere at Salzburg University
         Hospital - Patient Rainer Trummer: "I'm doing great!"
-      </h3>
+      </h3> */}
       <p>
         Computer scientist Rainer Trummer (55) from the city of Salzburg has a
         lifelong history of suffering behind him: he suffers from

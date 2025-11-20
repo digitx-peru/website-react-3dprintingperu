@@ -59,8 +59,8 @@ export default function Materiales() {
       minHeight: isColumnLayoutWidth ? "auto" : "890px",
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
       justifyContent: "space-between",
-      position:"absolute",
-      zIndex:2,
+      // position:"absolute",
+      // zIndex:2,
       borderSizing:"border-box",
       width:"100vw"
     },
@@ -117,13 +117,8 @@ export default function Materiales() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <main className="mainContainer" style={styles.mainContainer}>
-        <ProductHero
-            title={heroContent.title}
-            message={heroContent.message}
-            imageSrc={heroContent.heroImage}
-          />
         <div style={{display:"flex", flexDirection:is1280 ? "column" : "row", alignItems:"start", justifyContent:"flex-end",padding:is1280?"0px" : "50px 50px", width:is1280?"100vw" : "80%"}}>
           <div className="filters" style={{marginRight:is1280 ? "20px" : "200px"}}>
             <MaterialFilterPanel

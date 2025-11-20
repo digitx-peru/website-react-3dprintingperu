@@ -1,127 +1,80 @@
-import { Link } from "react-router-dom";
-
-import { Dropdown, Space } from "antd";
-
-////////////////////////// Dropdown list Items //////////////////////////
-
-const itemsIndustrias = [
-  {
-    key: "1",
-    label: <Link to="/industrias/fundicion">Fundicion</Link>,
-  },
-  {
-    key: "2",
-    label: <Link to="/industrias/joyeria">Joyeria</Link>,
-  },
-  {
-    key: "4",
-    label: <Link to="/industrias/prototipos-y-arte">Arte y prototipos</Link>,
-  },
-];
-
-const itemsSalud = [
-  {
-    key: "1",
-    label: <Link to="/salud/medicina">Dispositivos Médicos</Link>,
-  },
-  // {
-  //   key: "2",
-  //   label: <Link to="/salud/odontologia">Bioprinting</Link>,
-  // },
-];
-
-const itemsProductos = [
-  {
-    key: "1",
-    label: <Link to="/productos/impresoras">Impresoras</Link>,
-  },
-  {
-    key: "2",
-    label: <Link to="/productos/materiales">Materiales</Link>,
-  },
-];
-
-// const itemsServicios = [
-//   {
-//     key: "1",
-//     label: <Link to="/aplicaciones/automotriz">Automotriz</Link>,
-//     disabled: true,
-//   },
-//   {
-//     key: "2",
-//     label: <Link to="/aplicaciones/fundicion">Fundicion</Link>,
-//     disabled: true,
-//   },
-//   {
-//     key: "3",
-//     label: <Link to="/aplicaciones/joyeria">Joyeria</Link>,
-//     disabled: true,
-//   },
-//   {
-//     key: "4",
-//     label: <Link to="/aplicaciones/replicas">Replicas</Link>,
-//     disabled: true,
-//   },
-// ];
 
 ////////////////////////// Main Component //////////////////////////
 
-export default function Navbar() {
+export default function Navbar({ activeNavBarCategory, setOverlayVisible, setActiveNavBarCategory }) {
+
+  const handleOnClick = (buttonId) => {
+    setOverlayVisible(true)
+    setActiveNavBarCategory(buttonId);
+  };
+
+  const styles = {
+    navbar: {
+      display: "flex",
+      color: "rgb(62,255,180)",
+      alignSelf: "stretch",
+      alignItems: "stretch"
+    },
+    dropDownText: {
+      fontSize: 18
+    },
+    optionList: {
+      padding: 0,
+      margin: 0,
+      display: "flex",
+      flexDirection: "row",
+      columnGap: 50,
+    },
+    optionListItem: {
+      listStyle: 'none',
+      fontSize: "20px",
+      display: "flex",
+      alignItems: "end"
+    },
+    link: {
+      textAlign: "center"
+    },
+    activeLink: {
+      borderBottom: '3px solid rgb(62,255,180)',
+    }
+  };
+
+
   return (
     <nav style={styles.navbar}>
-      <Dropdown
-        arrow={false}
-        menu={{
-          items: itemsIndustrias,
-        }}
-      >
-        <a>
-          <Space style={styles.dropDownText}>Industrias</Space>
-        </a>
-      </Dropdown>
 
-      <Dropdown
-        menu={{
-          items: itemsSalud,
-        }}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space style={styles.dropDownText}>Salud</Space>
-        </a>
-      </Dropdown>
-
-      <Dropdown
-        menu={{
-          items: itemsProductos,
-        }}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space style={styles.dropDownText}>Productos</Space>
-        </a>
-      </Dropdown>
-
-      {/* <Dropdown
-        menu={{
-          items: itemsServicios,
-        }}
-        disabled
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space style={styles.dropDownText}>Servicios</Space>
-        </a>
-      </Dropdown> */}
+      <ul style={styles.optionList}>
+        {/*Services menu*/}
+        <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'servicios' ? styles.activeLink : {}) }}>
+          <a style={styles.link}
+            onClick={() => handleOnClick("servicios")}>
+            Servicios
+          </a>
+        </li>
+        {/*Products menu*/}
+        <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'producto' ? styles.activeLink : {}) }}>
+          <a style={styles.link}
+            onClick={() => handleOnClick("producto")}>
+            Productos
+          </a>
+        </li>
+        {/*Resources menu*/}
+        <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'recursos' ? styles.activeLink : {}) }}>
+          <a style={styles.link}
+            onClick={() => handleOnClick("recursos")}>
+            Recursos
+          </a>
+        </li>
+        {/*Applications menu*/}
+        <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'aplicaciones' ? styles.activeLink : {}) }}>
+          <a style={styles.link}
+            onClick={() => handleOnClick("aplicaciones")}>
+            Aplicaciones
+          </a>
+        </li >
+      </ul>
     </nav>
   );
 }
 
-const styles = {
-  navbar: {
-    display: "flex",
-    flexDirection: "row",
-    columnGap: 50,
-    color: "rgb(62,255,180)",
-  },
-  dropDownText: {
-    fontSize: 18
-  }
-};
+

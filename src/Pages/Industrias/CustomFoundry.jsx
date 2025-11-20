@@ -49,19 +49,19 @@ export default function CustomFoundry() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      position:"absolute",
-      zIndex:2,
-      maxWidth:"100vw"
+      // position:"absolute",
+      // zIndex:2,
+      maxWidth: "100vw"
     },
     applicationContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding:"50px 0px 0px 0px",
-      marginBottom:"50px",
-      maxWidth:"100vw",
-      position:"relative !important",
-      backgroundColor:"rgb(239,251,246)"
+      padding: "50px 0px 0px 0px",
+      marginBottom: "50px",
+      maxWidth: "100vw",
+      position: "relative !important",
+      backgroundColor: "rgb(239,251,246)"
     },
     column: {
       paddingLeft: 100,
@@ -71,21 +71,16 @@ export default function CustomFoundry() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
       <div style={styles.mainContainer}>
-        <Hero
-          title={heroContent.title}
-          message={heroContent.message}
-          imageSrc={heroContent.heroImage}
-        />
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <FloatButton/>
-          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)"}} />
-          
-         
+          <FloatButton preselectedApplications={["Fundicion"]}/>
+          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom: "5px solid rgb(99,218,178)" }} />
+
+
           {/* <UsedTechnologyList /> */}
         </section>
         <ContactUs />

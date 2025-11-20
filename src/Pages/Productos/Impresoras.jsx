@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
 
 import { Pagination } from "antd";
 
@@ -13,6 +14,7 @@ import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
 import { getPrintersFromDB } from "../../utils/dataHandler";
 import {
   volumeFiltering,
+  applicationFiltering,
   technologyFiltering,
   technologyLabelValueSwap,
 } from "../../utils/filters";
@@ -42,16 +44,19 @@ import funmatpro310 from "../../assets/printerImages/printer_image_funmatpro_ext
 import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
 import funmatpro610 from "../../assets/printerImages/printer_image_funmatpro_ext_610.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
-import Hero from "../../Components/Hero";
 import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
-import ProductHero from "../../Components/ProductHero";
 
 export default function Impresoras() {
+  //Read information coming from other pages
+  const location = useLocation();
+
   const heroContent = {
     title: "Impresoras",
     heroImage: heroImgFoundry,
   }
+
   //State
+  const [applicationFilterCriteria, setApplicationFilterCriteria] = useState([]);
   const [technologyFilterCriteria, setTechnologyFilterCriteria] = useState([]);
   const [volumeFilterCriteria, setVolumeFilterCriteria] = useState({
     x: "",
@@ -129,6 +134,13 @@ export default function Impresoras() {
     }
   }
 
+  // Initialize from state (only on first render)
+  useEffect(() => {
+    if (location.state?.preselectedApplications) {
+      setApplicationFilterCriteria(location.state.preselectedApplications || []);
+    }
+  }, [location.state]);
+
   //Data fetching
   const { data, isLoading } = useQuery(["printerFetching"], getPrintersFromDB, {
     select: (printerData) => {
@@ -136,9 +148,13 @@ export default function Impresoras() {
         printerData
           //Search filter
           .filter((printer) =>
+            applicationFiltering(printer, applicationFilterCriteria)
+          )
+          .filter((printer) =>
             technologyFiltering(printer, technologyFilterCriteria)
           )
-          .filter((printer) => volumeFiltering(printer, volumeFilterCriteria))
+          .filter((printer) =>
+            volumeFiltering(printer, volumeFilterCriteria))
           //Temporary
           .map((printer) => {
             printer.imageUrl = getPrinterImageUsingName(printer.name);
@@ -157,27 +173,27 @@ export default function Impresoras() {
   const styles = {
     mainContainer: {
       display: "flex",
-      flexDirection:"column",
+      flexDirection: "column",
       //gap: is1080 ? "20px" : "150px",
       //padding: "50px 50px",
       minHeight: is1080 ? "auto" : "890px",
       alignItems: is1080 ? "stretch" : "flex-start",
-      position:"absolute",
-      zIndex:2,
-      width:"100vw"
+      // position:"absolute",
+      // zIndex:2,
+      width: "100vw"
     },
     itemListContainer: {
       display: "flex",
       flexDirection: "column",
       gap: 40,
-      marginTop:"50px"
+      marginTop: "50px"
     },
     itemListColumn: {
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
       padding: "0 15px",
-      justifyContent:"center",
+      justifyContent: "center",
       gap: 20,
     },
     itemListGrid: {
@@ -194,6 +210,10 @@ export default function Impresoras() {
   };
 
   //Event Handlers
+  function applicationCheckBoxChangeHandler(checkboxValue) {
+    setApplicationFilterCriteria(checkboxValue);
+  }
+
   function technologyCheckBoxChangeHandler(checkboxValue) {
     const technologyValue = technologyLabelValueSwap(checkboxValue);
     setTechnologyFilterCriteria(technologyValue);
@@ -212,16 +232,13 @@ export default function Impresoras() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
       <main style={styles.mainContainer}>
-        <ProductHero
-            title={heroContent.title}
-            message={heroContent.message}
-            imageSrc={heroContent.heroImage}
-          />
-        <div style={{display:"flex", flexDirection:is1080 ? "column" : "row", }}>
-          <div className="filters" style={{padding:"50px 50px", marginRight:is1080 ? "20px" : "150px", color:"rgb(10,79,79)"}}>
-            <PrinterFilterPanel 
+        <div style={{ display: "flex", flexDirection: is1080 ? "column" : "row", }}>
+          <div className="filters" style={{ padding: "50px 50px", marginRight: is1080 ? "20px" : "150px", color: "rgb(10,79,79)" }}>
+            <PrinterFilterPanel
+              preselectedApplications={applicationFilterCriteria}
+              applicationCheckBoxChangeHandler={applicationCheckBoxChangeHandler}
               technologyCheckBoxChangeHandler={technologyCheckBoxChangeHandler}
               dimensionChangeHandler={dimensionChangeHandler}
             />
@@ -261,10 +278,10 @@ export default function Impresoras() {
             </div>
           </div>
         </div>
-        
+
         <Footer />
       </main>
-     
+
     </>
   );
 }

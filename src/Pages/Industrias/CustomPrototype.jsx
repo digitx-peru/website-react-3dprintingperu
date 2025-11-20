@@ -50,7 +50,7 @@ export default function CustomPrototype() {
       flexDirection: "column",
       gap: 50,
       alignItems: "center",
-      position:"absolute",
+      // position:"absolute",
       maxWidth: "100vw"
     },
     applicationContent: {
@@ -69,13 +69,13 @@ export default function CustomPrototype() {
 
   return (
     <>
-      <Header />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
-        <Hero
+        {/* <Hero
           title={heroContent.title}
           message={heroContent.message}
           imageSrc={heroContent.heroImage}
-        />
+        /> */}
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
@@ -83,7 +83,7 @@ export default function CustomPrototype() {
           <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom:"5px solid rgb(99,218,178)",boxSizing: "border-box"}}/>
           {/* <UsedTechnologyList /> */}
         </section>
-        <FloatButton />
+        <FloatButton preselectedApplications={["Arte y diseño"]}/>
         <ContactUs />
         <Footer />
       </div>

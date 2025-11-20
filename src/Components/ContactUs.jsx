@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, Select } from "antd";
 
 import emailHandler from "../utils/emailHandler";
 import useMediaQuery from "../hooks/useMediaQuery";
@@ -9,6 +9,9 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 export default function ContactUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  //current text value
+  const [currentTextValue, setCurrentTextValue] = useState("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
 
   //Screenwidth breakpoints
   const isMediumScreenSize = useMediaQuery(768);
@@ -59,7 +62,7 @@ export default function ContactUs() {
     formItemSubmitButton: {
       height: isColumnLayoutWidth ? "60px" : "auto",
       width: "200px",
-      backgroundColor:"rgb(99,218,178)"
+      backgroundColor: "rgb(99,218,178)"
     },
     modalMessage: {
       fontSize: "14px",
@@ -78,6 +81,25 @@ export default function ContactUs() {
   const handleOk = () => {
     setIsModalOpen(false);
   };
+
+  //onDropDownOptionChange
+  const onDropDownOptionChange = (newValue) => {
+
+    switch (newValue) {
+      case "buy":
+        setCurrentTextValue("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
+        break;
+
+      case "print":
+        setCurrentTextValue("Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
+        break;
+
+      case "support":
+        setCurrentTextValue("Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
+        break;
+    }
+
+  }
 
   return (
     <>
@@ -158,12 +180,39 @@ export default function ContactUs() {
           </Form.Item>
         </div>
 
+        <div style={styles.formItemGroup}>
+          <Form.Item
+            label={<label style={styles.formItemLabel}>¿Qué necesita?</label>}
+            name="requirement"
+            style={{ ...styles.formItem, flexGrow: 0, width: '50%' }}
+            rules={[
+              {
+                required: true,
+                message: "Phone required",
+              },
+            ]}
+          >
+            <Select
+              defaultValue='buy'
+              options={[
+                { value: 'buy', label: <span>Comprar impresora 3D</span> },
+                { value: 'print', label: <span>Fabricar una pieza</span> },
+                { value: 'support', label: <span>Mantenimiento de una impresora 3D</span> },
+              ]}
+              onChange={onDropDownOptionChange}
+            />
+          </Form.Item>
+        </div>
+
         <Form.Item
           label={<label style={styles.formItemLabel}>Mensaje</label>}
-          name="message"
+          //This form doesn't have a name because creates conflict with the value in TextArea.
           style={styles.formItem}
         >
-          <Input.TextArea rows={4} />
+          <Input.TextArea 
+          rows={4} 
+          value={currentTextValue}
+          onChange={(e) => setCurrentTextValue(e.target.value)}/>
         </Form.Item>
 
         <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>

@@ -6,12 +6,9 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import Hero from "../../Components/Hero";
 import ContactUs from "../../Components/ContactUs";
 import CustomContentMedDevices from "../../Components/ApplicationScreens/CustomContentMedDevices";
 import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
-
-import { getHeroContentFromDB } from "../../utils/dataHandler";
 
 export default function Salud() {
   const routerParams = useParams();
@@ -40,9 +37,8 @@ export default function Salud() {
 
   return (
     <>
-      <Header />
+      {/* <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
       <div style={styles.mainContainer}>
-        <Hero content={getHeroContentFromDB("salud")} />
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
@@ -70,7 +66,7 @@ export default function Salud() {
         </section>
         <ContactUs />
       </div>
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

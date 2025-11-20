@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import icon1 from "../assets/icons/ícono-material.png";
 import icon2 from "../assets/icons/ícono-print.png";
 
-export default function FloatButton() {
+export default function FloatButton({
+    preselectedApplications
+  }) {
     return (
         <div className="floatBtnBox">
             <div className="floatBtn1" style={{backgroundColor:"rgb(10,79,79)"}}>
                 <img style={{width:"65px",height:"65px"}} src={icon2} alt="" />
-                <Link to="/productos/impresoras" className="link-sin-estilo"> 
+                <Link 
+                to="/productos/impresoras" 
+                state={{ preselectedApplications: ["Arte y Diseño", "Dispositivos medicos"] }}
+                className="link-sin-estilo"> 
                     <p>Ver <br /> impresoras</p>
                 </Link>
             </div>
