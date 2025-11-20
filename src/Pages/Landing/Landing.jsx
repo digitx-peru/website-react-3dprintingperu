@@ -11,7 +11,7 @@ export default function PagePrivacy() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Mas alla de la impresion 3D de escritorio: Cuando dar el salto de la impresion por Filamento Industrial",
+    title: "Más allá de la impresión 3D de escritorio: Cuándo dar el salto de la impresión por Filamento Industrial",
     message: null,
     heroImage: heroImgNews,
   }
@@ -28,7 +28,7 @@ export default function PagePrivacy() {
       flexDirection: isDevice ? "column" : "row",
       justifyContent: "center",
       gap: 20,
-      padding: isDevice ? "0 15px" : "100px 400px",
+      padding: isDevice ? "0 15px" : "100px 300px",
     },
   };
 

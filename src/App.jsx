@@ -37,7 +37,7 @@ export default function App() {
       <Route path="/noticias/la-nueva-ext-1270" element={<CustomNewsThree />} />
 
       <Route path="/politica-privacidad" element={<PrivacyPolitic />} />
-      <Route path="/landing" element={<Landing />} />
+      <Route path="/nextwebinar" element={<Landing />} />
 
     </Routes>
   );
