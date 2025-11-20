@@ -7,7 +7,7 @@ import CustomContentLanding from "../../Components/Content/landing/landing";
 
 import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 
-export default function PagePrivacy() {
+export default function PageLanding() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {

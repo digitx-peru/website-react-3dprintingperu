@@ -17,7 +17,7 @@ export default function Hero({ title = "Title", message = null }) {
       gap: "10px 0",
     },
     heroTitle: {
-      fontSize: isMobile ? 48 : 64,
+      fontSize: isMobile ? 32 : 64,
     },
   };
 
