@@ -48,7 +48,7 @@ export default function CustomContentLanding({ width }) {
           </p>
         </div>
         <div className="column2">
-          <iframe width= {isDevice ? "324px" : "850px"} height="720px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAFKUIcyc0hUOUNUT1o3OTU0UFQyWkROMVlRTDBDN0dHTS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{maxWheight:"100vh" }} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+          <iframe width= {isDevice ? "324px" : "600px"} height="720px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAFKUIcyc0hUOUNUT1o3OTU0UFQyWkROMVlRTDBDN0dHTS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{maxWheight:"100vh" }} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
         </div>
       </div>
     </div>
