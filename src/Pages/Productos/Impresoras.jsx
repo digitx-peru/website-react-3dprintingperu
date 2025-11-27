@@ -24,6 +24,8 @@ import dmpFlex100 from "../../assets/printerImages/printer_image_dmp_flex_100.pn
 import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.png";
 import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png";
 import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png";
+import ext220MED from "../../assets/printerImages/printer_image_ext_220_MED.png";
+import extTitan800 from "../../assets/printerImages/printer_image_ext_800_titan_pellet.jpg";
 import extTitan1070 from "../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
 import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.png";
 import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
@@ -90,6 +92,10 @@ export default function Impresoras() {
         return dmpFlex350;
       case "DMP Factory 500":
         return dmpFactory500;
+      case "EXT 220 MED":
+        return ext220MED;
+      case "EXT 800 Titan Pellet":
+        return extTitan800;
       case "EXT 1070 Titan Pellet":
         return extTitan1070;
       case "EXT 1270 Titan Pellet":
@@ -102,7 +108,7 @@ export default function Impresoras() {
         return figure4Production;
       case "Figure 4 Standalone":
         return figure4Standalone;
-      case "Funmat Pro 310":
+      case "Funmat Pro 310 Neo":
         return funmatpro310;
       case "Funmat Pro 410":
         return funmatpro410;
