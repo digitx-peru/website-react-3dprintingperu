@@ -42,7 +42,8 @@ import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
 import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png";
 import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
-import funmatpro310 from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
+import funmatpro310apollo from "../../assets/printerImages/printer_image_310_apollo.png";
+import funmatpro310neo from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
 import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
 import funmatpro610 from "../../assets/printerImages/printer_image_funmatpro_ext_610.png";
 import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
@@ -109,7 +110,9 @@ export default function Impresoras() {
       case "Figure 4 Standalone":
         return figure4Standalone;
       case "Funmat Pro 310 Neo":
-        return funmatpro310;
+        return funmatpro310neo;
+      case "Funmat Pro 310 Apollo":
+        return funmatpro310apollo;
       case "Funmat Pro 410":
         return funmatpro410;
       case "Funmat Pro 610":
