@@ -32,7 +32,7 @@ import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_je
 import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
 import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
 import figure4Standalone from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
-import mjp300W from "../../assets/printerImages/printer_image_mjp_300W.png";
+import mjp300Wplus from "../../assets/printerImages/printer_image_mjp_300Wplus.png";
 import projetMjp2500 from "../../assets/printerImages/printer_image_mjp_2500.jpg";
 import projetMjp2500IC from "../../assets/printerImages/printer_image_mjp_2500IC.png";
 import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
@@ -117,8 +117,8 @@ export default function Impresoras() {
         return funmatpro410;
       case "Funmat Pro 610":
         return funmatpro610;
-      case "MJP 300W":
-        return mjp300W;
+      case "MJP 300W Plus":
+        return mjp300Wplus;
       case "Projet MJP 2500 Plus":
         return projetMjp2500;
       case "Projet MJP 2500IC":
