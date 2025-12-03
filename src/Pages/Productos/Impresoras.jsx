@@ -39,7 +39,7 @@ import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_p
 import projetMjp6000 from "../../assets/printerImages/printer_image_mjp_6000.png";
 import projetMjp7000 from "../../assets/printerImages/printer_image_mjp_7000.png";
 import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
-import sla750Dual from "../../assets/printerImages/printer_image_sla_750_dual.png";
+import sla825Dual from "../../assets/printerImages/printer_image_sla_825_dual.png";
 import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
 import funmatHT from "../../assets/printerImages/printer_image_HT.png";
@@ -136,8 +136,8 @@ export default function Impresoras() {
         return projetMjp7000;
       case "SLA 750":
         return sla750;
-      case "SLA 750 Dual":
-        return sla750Dual;
+      case "SLA 825 Dual":
+        return sla825Dual;
       case "SLS 300":
         return sls300;
       case "SLS 380":
