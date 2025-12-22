@@ -43,7 +43,6 @@ export default function CustomContentMedDevices({ width }) {
     <div className="textContainer" style={styles.container}>
       <div style={styles.rowText}>
         <div style={{width: isDevice ? "100%" : "50%",padding: isDevice ? "10px 10px 10px 10px":"0px 80px 0px 200px",boxSizing: "border-box",height:isDevice?"250px":"350px", display:"flex", flexDirection:"column",justifyContent:"center"}}>
-          <h2>Ortesis y Prótesis</h2>
           <p>
             El aumento de incidentes de lesiones deportivas y accidentes
             automovilísticos, combinado con un número creciente de amputaciones

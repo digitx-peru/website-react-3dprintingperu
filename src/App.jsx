@@ -5,6 +5,7 @@ import CustomFoundry from "./Pages/Industrias/CustomFoundry";
 import CustomJewelry from "./Pages/Industrias/CustomJewelry";
 
 import CustomDevices from "./Pages/Salud/CustomDevices";
+import CustomSoftware from "./Pages/Software/CustomSoftware";
 
 import Impresoras from "./Pages/Productos/Impresoras";
 import Materiales from "./Pages/Productos/Materiales";
@@ -28,6 +29,7 @@ export default function App() {
       <Route path="/industrias/prototipos-y-arte" element={<CustomPrototype />} />
 
       <Route path="/salud/:healthType" element={<CustomDevices />} />
+      <Route path="/software" element={<CustomSoftware />} />
 
       <Route path="/productos/impresoras" element={<Impresoras />} />
       <Route path="/productos/materiales" element={<Materiales />} />

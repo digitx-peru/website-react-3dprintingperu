@@ -50,7 +50,6 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
     headerNavigationContainer: {
       display: "flex",
       flexDirection: "row",
-      alignItems: "center",
       justifyContent: isMobile || isTablet ? "space-between" : "space-between",
       borderBottom: "1px solid rgb(239,251,246)",
       columnGap: 50,
@@ -105,7 +104,8 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
             alt=""
           />
         </Link>
-        {isMobile || isTablet ? <NavMenu /> : <Navbar activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
+        {isMobile || isTablet ? <NavMenu /> : <Navbar style={{alignSelf: "center"}} activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
+        {isMobile || isTablet ? null : <div style={{width:"137.6px"}}></div>}
       </div>
 
       {/* Clickable Overlay */}

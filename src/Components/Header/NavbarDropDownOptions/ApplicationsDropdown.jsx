@@ -21,11 +21,12 @@ export default function ApplicationsDropdown() {
     optionList: {
       padding: 0,
       marginTop: "20px",
+
     },
     optionListItem: {
       listStyle: 'none',
       fontSize: "16px",
-      marginTop: "5px"
+      marginTop: "15px"
     },
     navlink: {
       textDecoration: 'none',
@@ -36,12 +37,12 @@ export default function ApplicationsDropdown() {
 
   return (
     <div className="dropdownOptionsContainer" style={styles.dropdownOptionsContainer}>
-      <div className="dropdownOption" style={styles.dropdownOption}>
+      {/* <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Naval y Pesca</h3>
         <ul style={styles.optionList}>
           <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Mástiles</Link></li>
         </ul>
-      </div>
+      </div> */}
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Fundición</h3>
         <ul style={styles.optionList}>
@@ -55,27 +56,27 @@ export default function ApplicationsDropdown() {
           <li style={styles.optionListItem}><Link to="/industrias/joyeria" style={styles.navlink}>Vaciado</Link></li>
         </ul>
       </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
+      {/* <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Investigación</h3>
         <ul style={styles.optionList}>
           <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Desarrollo de polvos metálicos</Link></li>
         </ul>
-      </div>
+      </div> */}
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Salud</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortesis</Link></li>
-          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Prótesis</Link></li>
-          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortopedia</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortesis y Prótesis</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Implantes</Link></li>
+          {/* <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortopedia</Link></li> */}
         </ul>
       </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
+      {/* <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Consumidor final</h3>
         <ul style={styles.optionList}>
           <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Muebles</Link></li>
           <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Prototipos</Link></li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }

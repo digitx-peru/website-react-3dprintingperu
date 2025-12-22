@@ -33,7 +33,7 @@ export default function NavMenu() {
       <Modal
         title="Ir a"
         open={isModalOpen}
-        style={{ padding: 20 }}
+        style={{ padding: 20}}
         centered
         onCancel={handleCancel}
         closeIcon={<CloseOutlined style={{ fontSize: '24px' }}/>}
