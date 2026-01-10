@@ -26,18 +26,18 @@ export default function CustomSoftware() {
     heroImage: heroImgMedDevices,
   };
 
-  const tabItems = [
-    {
-      key: '1',
-      label: 'Prótesis',
-      children: <CustomContentSoftware />
-    },
-    {
-      key: '2',
-      label: 'Implantes',
-      children: <CustomContentSoftware />
-    },
-  ];
+  // const tabItems = [
+  //   {
+  //     key: '1',
+  //     label: 'Prótesis',
+  //     children: <CustomContentSoftware />
+  //   },
+  //   {
+  //     key: '2',
+  //     label: 'Implantes',
+  //     children: <CustomContentSoftware />
+  //   },
+  // ];
 
   const styles = {
     mainContainer: {
@@ -50,9 +50,9 @@ export default function CustomSoftware() {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "50px 0px",
+      padding: "25px 0px",
       width: "100vw",
-      backgroundColor: "rgb(239,251,246)"
+      // backgroundColor: "rgb(239,251,246)"
       // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
       //padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
     },
@@ -70,7 +70,7 @@ export default function CustomSoftware() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <Tabs defaultActiveKey="1" items={tabItems} tabBarStyle={{ margin: isDevice ? "0 15px" : "0px 200px", borderBottom: "5px solid rgb(99,218,178)" }} />
+          <CustomContentSoftware />
         </section>
         <FloatButton preselectedApplications={["Dispositivos medicos"]}/>
         <ContactUs />
