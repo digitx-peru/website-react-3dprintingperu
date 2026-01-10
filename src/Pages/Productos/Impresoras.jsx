@@ -42,6 +42,7 @@ import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
 import sla825Dual from "../../assets/printerImages/printer_image_sla_825_dual.png";
 import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
 import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
+import psla270 from "../../assets/printerImages/printer_image_psla_270.png";
 import funmatHT from "../../assets/printerImages/printer_image_HT.png";
 import funmatpro310apollo from "../../assets/printerImages/printer_image_310_apollo.png";
 import funmatpro310neo from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
@@ -142,6 +143,8 @@ export default function Impresoras() {
         return sls300;
       case "SLS 380":
         return sls380;
+      case "PSLA 270":
+        return psla270;
 
       default:
         return notAvailable;
