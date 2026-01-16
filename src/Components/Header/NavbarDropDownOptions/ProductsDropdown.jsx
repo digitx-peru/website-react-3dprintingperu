@@ -47,7 +47,7 @@ export default function ProductsDropdown() {
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Software</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>RhynoArtisan</Link></li>
+          <li style={styles.optionListItem}><Link to="/productos/software/rhino-artisan" style={styles.navlink}>RhynoArtisan</Link></li>
         </ul>
       </div>
     </div>

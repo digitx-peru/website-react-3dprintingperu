@@ -29,10 +29,10 @@ export default function App() {
       <Route path="/industrias/prototipos-y-arte" element={<CustomPrototype />} />
 
       <Route path="/salud/:healthType" element={<CustomDevices />} />
-      <Route path="/software" element={<CustomSoftware />} />
 
       <Route path="/productos/impresoras" element={<Impresoras />} />
       <Route path="/productos/materiales" element={<Materiales />} />
+      <Route path="/productos/software/rhino-artisan" element={<CustomSoftware />} />
 
       <Route path="/noticias/universidad-salsburgo-realiza-cirugia" element={<CustomNewsOne />} />
       <Route path="/noticias/la-nueva-sls-300" element={<CustomNewsTwo />} />
