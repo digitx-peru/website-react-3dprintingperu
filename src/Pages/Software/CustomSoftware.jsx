@@ -50,7 +50,7 @@ export default function CustomSoftware() {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "25px 0px",
+      // padding: "25px 0px",
       width: "100vw",
       // backgroundColor: "rgb(239,251,246)"
       // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
@@ -70,9 +70,21 @@ export default function CustomSoftware() {
           className={"applicationContent"}
           style={styles.applicationContent}
         >
+          <div style={{ backgroundColor: "#E3BF7B", position: "sticky", top: 0, padding: "0px 200px"}}>
+            <ul style={{
+              display: "flex",
+              flexDirection: "row",
+              columnGap: 50,
+              padding: "0px 0px"
+            }}>
+              <li style={{listStyle: 'none'}}>Diseñadores</li>
+              <li style={{listStyle: 'none'}}>Manufactura</li>
+              <li style={{listStyle: 'none'}}>Tiendas</li>
+            </ul>
+          </div>
           <CustomContentSoftware />
         </section>
-        <FloatButton preselectedApplications={["Dispositivos medicos"]}/>
+        <FloatButton preselectedApplications={["Dispositivos medicos"]} />
         <ContactUs />
         <Footer />
       </div>

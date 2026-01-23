@@ -18,6 +18,8 @@ import CustomPrototype from "./Pages/Industrias/CustomPrototype";
 import PrivacyPolitic from "./Pages/Politicas/Privacidad";
 import Landing from "./Pages/Landing/Landing";
 
+import NotFound from "./Pages/NotFound/NotFound"
+
 import "./globalStyles.css"
 
 export default function App() {
@@ -40,6 +42,8 @@ export default function App() {
 
       <Route path="/politica-privacidad" element={<PrivacyPolitic />} />
       <Route path="/nextwebinar" element={<Landing />} />
+
+      <Route path="*" element={<NotFound />} />
 
     </Routes>
   );

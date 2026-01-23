@@ -11,7 +11,7 @@ import ProductsDropdown from "./NavbarDropDownOptions/ProductsDropdown";
 import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
 import ResourcesDropdown from "./NavbarDropDownOptions/ResourcesDropdown";
 
-export default function Header({ heroTitle, heroMessage, heroImage }) {
+export default function Header({ heroEnabled = true, heroTitle, heroMessage, heroImage }) {
 
   //Check windows size
   const isMobile = useMediaQuery(480);
@@ -132,7 +132,7 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
       </div>
 
       {/* Hero Component */}
-      <Hero title={heroTitle} message={heroMessage} />
+      {heroEnabled === true && <Hero title={heroTitle} message={heroMessage} />}
     </header>
   );
 }
