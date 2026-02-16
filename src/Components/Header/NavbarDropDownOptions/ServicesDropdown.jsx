@@ -46,18 +46,19 @@ export default function ServicesDropdown() {
         <h3 style={styles.listTitle}>Impresion 3D</h3>
         <ul style={{ ...styles.optionList, marginTop: "50px" }}>
           <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Fotopolímeros avanzados</Link></li>
+          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Patrones para joyería</Link></li>
         </ul>
       </div>
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Producción de piezas de plástico</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Vaciado con silicona y uretano</Link></li>
+          <li style={styles.optionListItem}><Link to="/servicios/silicona-y-poliuretano" style={styles.navlink}>Silicona y poliuretano</Link></li>
         </ul>
       </div>
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Otros</h3>
         <ul style={{ ...styles.optionList, marginTop: "50px" }}>
-          <li style={styles.optionListItem}><Link to="" style={styles.navlink}>Diseño 3D</Link></li>
+          <li style={styles.optionListItem}><Link to="/servicios/3d-design" style={styles.navlink}>Diseño 3D</Link></li>
         </ul>
       </div>
       <div className="dropdownOption" style={styles.dropdownOption}>

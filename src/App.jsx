@@ -6,6 +6,7 @@ import CustomJewelry from "./Pages/Industrias/CustomJewelry";
 
 import CustomDevices from "./Pages/Salud/CustomDevices";
 import CustomSoftware from "./Pages/Software/CustomSoftware";
+import CustomPolyurethane from "./Pages/Applications/CustomPolyurethane";
 
 import Impresoras from "./Pages/Productos/Impresoras";
 import Materiales from "./Pages/Productos/Materiales";
@@ -21,6 +22,7 @@ import Landing from "./Pages/Landing/Landing";
 import NotFound from "./Pages/NotFound/NotFound"
 
 import "./globalStyles.css"
+import Custom3Ddesign from "./Pages/Applications/Custom3Ddesign";
 
 export default function App() {
   return (
@@ -31,6 +33,9 @@ export default function App() {
       <Route path="/industrias/prototipos-y-arte" element={<CustomPrototype />} />
 
       <Route path="/salud/:healthType" element={<CustomDevices />} />
+
+      <Route path="/servicios/silicona-y-poliuretano" element={<CustomPolyurethane />} />
+      <Route path="/servicios/3d-design" element={<Custom3Ddesign />} />
 
       <Route path="/productos/impresoras" element={<Impresoras />} />
       <Route path="/productos/materiales" element={<Materiales />} />

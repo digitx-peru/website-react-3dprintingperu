@@ -8,7 +8,6 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import ContactUs from "../../Components/ContactUs";
 import CustomContentSoftware from "../../Components/Content/software/CustomContentSoftware";
-import CustomContentMedDevicesProsthesis from "../../Components/Content/health/CustomContentMedDevicesProsthesis"
 import FloatButton from "../../Components/FloatButton"
 // import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
@@ -23,21 +22,8 @@ export default function CustomSoftware() {
   const heroContent = {
     title: "RhinoArtisan",
     message: "Herramientas avanzadas para diseño de joyeria en 3D, por los creadores de RhinoGold",
-    heroImage: heroImgMedDevices,
+    heroImage: "/images/background_artisan.jpeg",
   };
-
-  // const tabItems = [
-  //   {
-  //     key: '1',
-  //     label: 'Prótesis',
-  //     children: <CustomContentSoftware />
-  //   },
-  //   {
-  //     key: '2',
-  //     label: 'Implantes',
-  //     children: <CustomContentSoftware />
-  //   },
-  // ];
 
   const styles = {
     mainContainer: {
@@ -50,11 +36,7 @@ export default function CustomSoftware() {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      // padding: "25px 0px",
       width: "100vw",
-      // backgroundColor: "rgb(239,251,246)"
-      // padding: is1440 ? "0 50px" : isDevice ? "0 15px" : "0 400px",
-      //padding: isDevice ? "0 15px" : is1440 ? "0 100px" : "0 300px",
     },
     column: {
       paddingLeft: 100,
@@ -64,7 +46,7 @@ export default function CustomSoftware() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} heroImgTitleEnabled={true} heroImgTitle={"/images/logo_artisan.jpeg"}/>
       <div style={styles.mainContainer}>
         <section
           className={"applicationContent"}

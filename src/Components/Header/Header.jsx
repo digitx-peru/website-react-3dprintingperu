@@ -11,7 +11,7 @@ import ProductsDropdown from "./NavbarDropDownOptions/ProductsDropdown";
 import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
 import ResourcesDropdown from "./NavbarDropDownOptions/ResourcesDropdown";
 
-export default function Header({ heroEnabled = true, heroTitle, heroMessage, heroImage }) {
+export default function Header({ heroEnabled = true, heroTitle, heroMessage, heroImage, heroImgTitleEnabled = false, heroImgTitle = null }) {
 
   //Check windows size
   const isMobile = useMediaQuery(480);
@@ -22,7 +22,7 @@ export default function Header({ heroEnabled = true, heroTitle, heroMessage, her
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
   const overlayRef = useRef(null);
 
-    useEffect(() => {
+  useEffect(() => {
     function handleClickableOverlay(event) {
       if (isOverlayVisible &&
         overlayRef.current &&
@@ -104,8 +104,8 @@ export default function Header({ heroEnabled = true, heroTitle, heroMessage, her
             alt=""
           />
         </Link>
-        {isMobile || isTablet ? <NavMenu /> : <Navbar style={{alignSelf: "center"}} activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
-        {isMobile || isTablet ? null : <div style={{width:"137.6px"}}></div>}
+        {isMobile || isTablet ? <NavMenu /> : <Navbar style={{ alignSelf: "center" }} activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
+        {isMobile || isTablet ? null : <div style={{ width: "137.6px" }}></div>}
       </div>
 
       {/* Clickable Overlay */}
@@ -132,7 +132,7 @@ export default function Header({ heroEnabled = true, heroTitle, heroMessage, her
       </div>
 
       {/* Hero Component */}
-      {heroEnabled === true && <Hero title={heroTitle} message={heroMessage} />}
+      {heroEnabled === true && <Hero title={heroTitle} message={heroMessage} imgTitleEnabled={heroImgTitleEnabled} imgTitle={heroImgTitle} />}
     </header>
   );
 }

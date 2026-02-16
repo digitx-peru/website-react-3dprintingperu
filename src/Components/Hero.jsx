@@ -1,6 +1,6 @@
 import useMediaQuery from "../hooks/useMediaQuery";
 
-export default function Hero({ title = "Title", message = null }) {
+export default function Hero({ title = "Title", message = null, imgTitleEnabled = false, imgTitle = "/images/logo_artisan.jpeg" }) {
   const isMobile = useMediaQuery(480);
   const styles = {
     container: {
@@ -24,7 +24,7 @@ export default function Hero({ title = "Title", message = null }) {
   return (
     <section style={styles.container}>
       <div style={styles.textContainer}>
-        <h1 style={styles.heroTitle}>{title}</h1>
+        {imgTitleEnabled == true ? <img style={{width:"600px"}} src={imgTitle} alt="App Logo" /> : <h1 style={styles.heroTitle}>{title}</h1>}        
         {message !== null && <p style={{ fontSize: 24 }}>{message}</p>}
       </div>
     </section>
