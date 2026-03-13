@@ -47,24 +47,12 @@ export default function CustomPolyurethane() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
+      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage} />
       <div style={styles.mainContainer}>
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <div style={{ backgroundColor: "#E3BF7B", position: "sticky", top: 0, padding: "0px 200px"}}>
-            <ul style={{
-              display: "flex",
-              flexDirection: "row",
-              columnGap: 50,
-              padding: "0px 0px"
-            }}>
-              <li style={{listStyle: 'none'}}>Diseñadores</li>
-              <li style={{listStyle: 'none'}}>Manufactura</li>
-              <li style={{listStyle: 'none'}}>Tiendas</li>
-            </ul>
-          </div>
           <CustomContentPolyurethane />
         </section>
         <FloatButton preselectedApplications={["Dispositivos medicos"]} />
