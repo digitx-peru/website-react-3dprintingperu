@@ -65,7 +65,7 @@ export default function ApplicationsDropdown() {
       <div className="dropdownOption" style={styles.dropdownOption}>
         <h3 style={styles.listTitle}>Salud</h3>
         <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortesis y Prótesis</Link></li>
+          <li style={styles.optionListItem}><Link to="/salud/protesis" style={styles.navlink}>Ortesis y Prótesis</Link></li>
           <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Implantes</Link></li>
           {/* <li style={styles.optionListItem}><Link to="/salud/medicina" style={styles.navlink}>Ortopedia</Link></li> */}
         </ul>

@@ -3,7 +3,7 @@ import useMediaQuery from "../../../../hooks/useMediaQuery";
 import foundryLostWax from "../../../../assets/industryImages/foundry/industry_foundry_lost_wax.jpg";
 import foundryQuickCast from "../../../../assets/industryImages/foundry/industry_foundry_quickcast.jpg";
 import printerImg from "../../../../assets/printerImages/printer_image_mjp_2500.jpg";
-import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
+// import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
 import bgGreenImg from "../../../../assets/heroImages/bg_green.png";
 
 import { Link } from 'react-router-dom';
@@ -41,7 +41,7 @@ export default function CustomContentFoundry({ width }) {
       flexDirection:isDevice ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundImage: "url('"+bgBlackImg+"')",
+      backgroundImage: "url('"+'/images/hero/bg_black.png'+"')",
       backgroundSize: 'cover'
     },
     rowText4:{

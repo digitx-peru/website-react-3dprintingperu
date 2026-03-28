@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 
 import { Col, Row } from "antd";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
-import ContactUs from "../../Components/ContactUs";
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
+import ContactUs from "../../../Components/ContactUs";
 import CustomContentMedDevices from "../../Components/ApplicationScreens/CustomContentMedDevices";
 import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 

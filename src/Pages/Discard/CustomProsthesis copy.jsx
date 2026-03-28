@@ -7,14 +7,14 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import ContactUs from "../../Components/ContactUs";
-import CustomContentMedDevicesImplants from "../../Components/Content/health/CustomContentMedDevicesImplants";
-import CustomContentMedDevicesProsthesis from "../../Components/Content/health/CustomContentMedDevicesProsthesis";
+import CustomContentMedDevicesImplants from "../../Components/Content/discard/CustomContentMedDevicesImplants";
+import CustomContentMedDevicesProsthesis from "../../Components/Content/discard/CustomContentMedDevicesProsthesis";
 import FloatButton from "../../Components/FloatButton";
 // import UsedTechnologyList from "../../Components/ApplicationScreens/UsedTechnologyList";
 
 import heroImgMedDevices from "../../assets/heroImages/hero_img_med_devices.jpg";
 
-export default function CustomDevices() {
+export default function  CustomProsthesis() {
   const routerParams = useParams();
 
   const isDevice = useMediaQuery(768);

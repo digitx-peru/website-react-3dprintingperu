@@ -1,16 +1,15 @@
-export default function TextImageRow({ children, sectionName, imageRight = false, imageName }) {
+export default function TextImageRow({ children, sectionName, imageRight = false, imageName, backgroundColor }) {
 
     const styles = {
         container: {
             display: "flex",
             flexDirection: imageRight ? 'row-reverse' : 'row',
-            alignItems: 'stretch',
             //   textAlign: "justify",
             //   width: 'auto',
             //   fontSize: isMedium ? "12px" : "16px",
             fontSize: '16px',
-            lineHeight: "1.5",
             margin: '0px 0px 5px 0px',
+            backgroundColor: backgroundColor
         },
         textSection: {
             display: "flex",

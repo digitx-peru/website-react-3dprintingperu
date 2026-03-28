@@ -5,7 +5,6 @@ import printerImg from "../../../../assets/printerImages/printer_image_mjp_2500.
 
 import EndOfContent from "../../EndOfContent";
 
-import bgBlackImg from "../../../../assets/heroImages/bg_black.png";
 import bgGreenImg from "../../../../assets/heroImages/bg_green.png";
 
 export default function CustomContentJewelryLostWax({ width }) {
@@ -23,7 +22,7 @@ export default function CustomContentJewelryLostWax({ width }) {
       flexDirection:isMedium ? "column" :"row",
       alignItems: "center",
       boxSizing: "border-box",
-      backgroundImage: "url('"+bgBlackImg+"')",
+      backgroundImage: "url('"+'/images/hero/bg_black.png'+"')",
     },
     rowText4:{
       display:"flex",

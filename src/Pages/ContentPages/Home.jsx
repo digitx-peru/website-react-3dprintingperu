@@ -1,9 +1,9 @@
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
-import NewsCard from "../Components/HomeScreen/NewsCard";
-import Hero from "../Components/Hero";
-import ContactUs from "../Components/ContactUs";
-import useMediaQuery from "../hooks/useMediaQuery";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import NewsCard from "../../Components/HomeScreen/NewsCard";
+import Hero from "../../Components/Hero";
+import ContactUs from "../../Components/ContactUs";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 import HeroImageHome from "../assets/heroImages/hero_img_home.jpg"
 
@@ -11,7 +11,7 @@ import newsOneThumbnail from "../assets/newsImages/newsOne/news_image_thumbail_3
 import newsTwoThumbnail from "../assets/newsImages/newsTwo/news_image_thumbnail_new_sls_300.png"
 import newsThreeThumbnail from "../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png"
 
-import FloatButton from "../Components/FloatButton";
+import FloatButton from "../../Components/FloatButton";
 
 export default function Home() {
   //Esto marca el punto en el que pasa de tener un layout columna a fila
