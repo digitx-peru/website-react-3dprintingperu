@@ -1,6 +1,5 @@
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import EndOfContent from "../EndOfContent";
-import newsTwoImageFirst from "../../../assets/newsImages/newsTwo/news_image_user_washing.jpg";
 
 export default function CustomContentFoundry({ width }) {
   const isDevice = useMediaQuery(768);
@@ -51,7 +50,7 @@ export default function CustomContentFoundry({ width }) {
           padding: "40px 0 40px 0",
         }}
       >
-        <img style={{ width: "500px" }} src={newsTwoImageFirst} alt="" />
+        <img style={{ width: "500px" }} src={"/images/news/newsTwo/news_image_user_washing.jpg"} alt="" />
       </div>
       <p>
         El Wematter Gravity fue diseñado para hacer que la fabricación aditiva

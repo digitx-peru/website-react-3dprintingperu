@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
-import MaterialListingTable from "../../Components/MaterialScreen/MaterialListingTable";
-import MaterialFilterPanel from "../../Components/MaterialScreen/MaterialFilterPanel/MaterialFilterPanel";
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
+import MaterialListingTable from "../../../Components/MaterialScreen/MaterialListingTable";
+import MaterialFilterPanel from "../../../Components/MaterialScreen/MaterialFilterPanel/MaterialFilterPanel";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
-import { getMaterialsFromDB } from "../../utils/dataHandler";
+import { getMaterialsFromDB } from "../../../utils/dataHandler";
 import {
   printerFiltering,
   technologyFiltering,
   propertyFiltering,
-} from "../../utils/filters";
+} from "../../../utils/filters";
 
-import Hero from "../../Components/Hero";
-import heroImgFoundry from "../../assets/heroImages/hero_img_materials.png";
-import ProductHero from "../../Components/ProductHero";
+import Hero from "../../../Components/Hero";
+import heroImgFoundry from "../../../assets/heroImages/hero_img_materials.png";
+import ProductHero from "../../../Components/ProductHero";
 
 export default function Materials() {
   const heroContent = {

@@ -1,10 +1,10 @@
-import useMediaQuery from "../../../../hooks/useMediaQuery";
+// import useMediaQuery from "../../../../hooks/useMediaQuery";
 
 import TextImageRow from "../../../TextImageRow";
 
 export default function CustomContentSoftware({ width }) {
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
+  // const isDevice = useMediaQuery(1000);
+  // const isMedium = useMediaQuery(1320);
 
   const styles = {
     //// Generic

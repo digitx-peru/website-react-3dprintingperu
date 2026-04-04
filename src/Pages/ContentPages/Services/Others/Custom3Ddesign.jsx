@@ -1,8 +1,8 @@
 // import useMediaQuery from "../../hooks/useMediaQuery";
 
-import PageContent from "../../../Components/PageContent";
+import PageContent from "../../../../Components/PageContent";
 
-import CustomContent3Ddesign from "../../../Components/Content/services/CustomContent3Ddesign";
+import CustomContent3Ddesign from "../../../../Components/Content/services/CustomContent3Ddesign";
 
 export default function Custom3Ddesign() {
   // const routerParams = useParams();

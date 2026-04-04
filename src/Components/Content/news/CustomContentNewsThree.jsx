@@ -1,7 +1,7 @@
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
 import EndOfContent from "../EndOfContent";
-import newsThreeImageFirst from "../../../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png";
+// import newsThreeImageFirst from "../../../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png";
 
 export default function CustomContentFoundry({ width }) {
   const isDevice = useMediaQuery(768);
@@ -49,7 +49,7 @@ export default function CustomContentFoundry({ width }) {
           padding: "40px 0 40px 0",
         }}
       >
-        <img style={{ width: "500px" }} src={newsThreeImageFirst} alt="" />
+        <img style={{ width: "500px" }} src={"/images/news/newsThree/news_image_new_ext_1270_titan_pellet.png"} alt="" />
       </div>
       <p>
         El sistema EXT 1270 Titan Pellet de 3D Systems es una solución de

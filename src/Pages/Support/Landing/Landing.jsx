@@ -1,11 +1,11 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
 
-import CustomContentLanding from "../../Components/Content/landing/landing";
+import CustomContentLanding from "../../../Components/Content/landing/landing";
 
-import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
+import heroImgNews from "../../../assets/heroImages/hero_img_news.jpg";
 
 export default function PageLanding() {
   const isDevice = useMediaQuery(768);

@@ -4,51 +4,51 @@ import { useLocation } from "react-router-dom";
 
 import { Pagination } from "antd";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
-import PrinterFilterPanel from "../../Components/PrinterScreen/PrinterFilterPanel/PrinterFilterPanel";
-import PrinterCard from "../../Components/PrinterScreen/PrinterCard";
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
+import PrinterFilterPanel from "../../../Components/PrinterScreen/PrinterFilterPanel/PrinterFilterPanel";
+import PrinterCard from "../../../Components/PrinterScreen/PrinterCard";
 
-import { getPrintersFromDB } from "../../utils/dataHandler";
+import { getPrintersFromDB } from "../../../utils/dataHandler";
 import {
   volumeFiltering,
   applicationFiltering,
   technologyFiltering,
   technologyLabelValueSwap,
-} from "../../utils/filters";
+} from "../../../utils/filters";
 
-import cjp660Pro from "../../assets/printerImages/printer_image_cjp_660Pro.png";
-import dmpFlex100 from "../../assets/printerImages/printer_image_dmp_flex_100.png";
-import dmpFlex200 from "../../assets/printerImages/printer_image_dmp_flex_200.png";
-import dmpFlex350 from "../../assets/printerImages/printer_image_dmp_flex_350.png";
-import dmpFactory500 from "../../assets/printerImages/printer_image_dmp_factory_500.png";
-import ext220MED from "../../assets/printerImages/printer_image_ext_220_MED.png";
-import extTitan800 from "../../assets/printerImages/printer_image_ext_800_titan_pellet.jpg";
-import extTitan1070 from "../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
-import extTitan1270 from "../../assets/printerImages/printer_image_ext_1270_titan.png";
-import figure4Jewelry from "../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
-import figure4Modular from "../../assets/printerImages/printer_image_figure_4_modular.jpg";
-import figure4Production from "../../assets/printerImages/printer_image_figure_4_production.jpg";
-import figure4Standalone from "../../assets/printerImages/printer_image_figure_4_standalone.jpg";
-import mjp300Wplus from "../../assets/printerImages/printer_image_mjp_300Wplus.png";
-import projetMjp2500 from "../../assets/printerImages/printer_image_mjp_2500.jpg";
-import projetMjp2500IC from "../../assets/printerImages/printer_image_mjp_2500IC.png";
-import projetMjp2500W from "../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
-import projetMjp6000 from "../../assets/printerImages/printer_image_mjp_6000.png";
-import projetMjp7000 from "../../assets/printerImages/printer_image_mjp_7000.png";
-import sla750 from "../../assets/printerImages/printer_image_sla_750.png";
-import sla825Dual from "../../assets/printerImages/printer_image_sla_825_dual.png";
-import sls300 from "../../assets/printerImages/printer_image_sls_300.png";
-import sls380 from "../../assets/printerImages/printer_image_sls_380.png";
-import funmatHT from "../../assets/printerImages/printer_image_HT.png";
-import funmatpro310apollo from "../../assets/printerImages/printer_image_310_apollo.png";
-import funmatpro310neo from "../../assets/printerImages/printer_image_funmatpro_ext_310.png";
-import funmatpro410 from "../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
-import funmatpro610 from "../../assets/printerImages/printer_image_funmatpro_ext_610.png";
-import notAvailable from "../../assets/printerImages/printer_image_not_available.jpg";
-import heroImgFoundry from "../../assets/heroImages/hero_img_printings.png";
+import cjp660Pro from "../../../assets/printerImages/printer_image_cjp_660Pro.png";
+import dmpFlex100 from "../../../assets/printerImages/printer_image_dmp_flex_100.png";
+import dmpFlex200 from "../../../assets/printerImages/printer_image_dmp_flex_200.png";
+import dmpFlex350 from "../../../assets/printerImages/printer_image_dmp_flex_350.png";
+import dmpFactory500 from "../../../assets/printerImages/printer_image_dmp_factory_500.png";
+import ext220MED from "../../../assets/printerImages/printer_image_ext_220_MED.png";
+import extTitan800 from "../../../assets/printerImages/printer_image_ext_800_titan_pellet.jpg";
+import extTitan1070 from "../../../assets/printerImages/printer_image_ext_1070_titan_pellet.jpg";
+import extTitan1270 from "../../../assets/printerImages/printer_image_ext_1270_titan.png";
+import figure4Jewelry from "../../../assets/printerImages/printer_image_figure_4_jewelry.jpg";
+import figure4Modular from "../../../assets/printerImages/printer_image_figure_4_modular.jpg";
+import figure4Production from "../../../assets/printerImages/printer_image_figure_4_production.jpg";
+import figure4Standalone from "../../../assets/printerImages/printer_image_figure_4_standalone.jpg";
+import mjp300Wplus from "../../../assets/printerImages/printer_image_mjp_300Wplus.png";
+import projetMjp2500 from "../../../assets/printerImages/printer_image_mjp_2500.jpg";
+import projetMjp2500IC from "../../../assets/printerImages/printer_image_mjp_2500IC.png";
+import projetMjp2500W from "../../../assets/printerImages/printer_image_mjp_2500W_plus.jpg";
+import projetMjp6000 from "../../../assets/printerImages/printer_image_mjp_6000.png";
+import projetMjp7000 from "../../../assets/printerImages/printer_image_mjp_7000.png";
+import sla750 from "../../../assets/printerImages/printer_image_sla_750.png";
+import sla825Dual from "../../../assets/printerImages/printer_image_sla_825_dual.png";
+import sls300 from "../../../assets/printerImages/printer_image_sls_300.png";
+import sls380 from "../../../assets/printerImages/printer_image_sls_380.png";
+import funmatHT from "../../../assets/printerImages/printer_image_HT.png";
+import funmatpro310apollo from "../../../assets/printerImages/printer_image_310_apollo.png";
+import funmatpro310neo from "../../../assets/printerImages/printer_image_funmatpro_ext_310.png";
+import funmatpro410 from "../../../assets/printerImages/printer_image_funmatpro_ext_410.jpg";
+import funmatpro610 from "../../../assets/printerImages/printer_image_funmatpro_ext_610.png";
+import notAvailable from "../../../assets/printerImages/printer_image_not_available.jpg";
+import heroImgFoundry from "../../../assets/heroImages/hero_img_printings.png";
 
 export default function Printers() {
   //Read information coming from other pages

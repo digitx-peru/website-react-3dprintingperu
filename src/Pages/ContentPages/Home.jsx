@@ -1,38 +1,13 @@
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
+import PageContent from "../../Components/PageContent";
+
 import NewsCard from "../../Components/HomeScreen/NewsCard";
-import Hero from "../../Components/Hero";
-import ContactUs from "../../Components/ContactUs";
 import useMediaQuery from "../../hooks/useMediaQuery";
-
-import HeroImageHome from "../assets/heroImages/hero_img_home.jpg"
-
-import newsOneThumbnail from "../assets/newsImages/newsOne/news_image_thumbail_3dprint_organs.jpeg"
-import newsTwoThumbnail from "../assets/newsImages/newsTwo/news_image_thumbnail_new_sls_300.png"
-import newsThreeThumbnail from "../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png"
-
-import FloatButton from "../../Components/FloatButton";
 
 export default function Home() {
   //Esto marca el punto en el que pasa de tener un layout columna a fila
   const isColumnLayoutWidth = useMediaQuery(1024);
 
-  const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
-    message: null,
-    heroImage: HeroImageHome,
-  };
-
   const styles = {
-    mainContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 50,
-      alignItems: "center",
-      // position:"absolute",
-      // zIndex:2,
-      width:"100%"
-    },
     newsCardContainer: {
       display: "flex",
       flexDirection: isColumnLayoutWidth ? "column" : "row",
@@ -44,31 +19,36 @@ export default function Home() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
-      <div className="mainContainer" style={styles.mainContainer}>
-        <div style={styles.newsCardContainer}>
+      <PageContent
+        heroTitle={"Desafia los limites con la Impresion 3D Industrial"}
+        heroMessage={null}
+        heroImage={"hero/hero_img_home.jpg"}
+      >
+        <div className="newsCardContainer" style={styles.newsCardContainer}>
           <NewsCard
             redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"
             title="La universidad de Salsburgo realiza sorprendente cirugía"
             // message="Lorem ipsum"
-            image={newsOneThumbnail}
+            image={
+              "/images/news/newsOne/news_image_thumbail_3dprint_organs.jpeg"
+            }
           />
           <NewsCard
             redirectUrl="/noticias/la-nueva-sls-300"
             title="La nueva SLS 300"
-            image={newsTwoThumbnail}
+            image={"/images/news/newsTwo/news_image_thumbnail_new_sls_300.png"}
             // message="Lorem ipsum"
           />
           <NewsCard
             redirectUrl="/noticias/la-nueva-ext-1270"
             title="La nueva EXT 1270"
-            image={newsThreeThumbnail}
+            image={
+              "/images/news/newsThree/news_image_new_ext_1270_titan_pellet.png"
+            }
             // message="Lorem ipsum"
           />
         </div>
-        <ContactUs />
-        <Footer />
-      </div>
+      </PageContent>
     </>
   );
 }
