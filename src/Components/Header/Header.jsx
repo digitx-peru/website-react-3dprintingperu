@@ -125,9 +125,9 @@ export default function Header({ heroTitle, heroMessage, heroImage }) {
             <ServicesDropdown />
           )}
 
-          {activeNavBarCategory === "recursos" && (
+          {/* {activeNavBarCategory === "recursos" && (
             <ResourcesDropdown />
-          )}
+          )} */}
         </div>
       </div>
 
