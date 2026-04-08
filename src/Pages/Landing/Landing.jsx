@@ -11,7 +11,7 @@ export default function PageLanding() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Webinar: Cuándo dar el salto a la impresión Industrial de filamento",
+    title: "Webinar: Joyería digital. Del diseño a la impresión lista para fundir",
     message: null,
     heroImage: heroImgNews,
   }
