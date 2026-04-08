@@ -37,14 +37,11 @@ export default function CustomContentLanding({ width }) {
         <div className="column1">
           <p style={styles.information}>
             Diseña más rápido, imprime con precisión y funde sin sorpresas.
-            En 45 minutos te mostramos el flujo completo con las impresoras de joyería del portafolio de 3D Printing Perú y RhinoArtisan, el nuevo software de diseño que distribuimos en Perú.
-          </p>
-          <p style={styles.information}>
-            Verás en vivo:
-            
+            En 45 minutos te mostramos el flujo completo con las impresoras de joyería del portafolio de 3D Printing Perú y RhinoArtisan, el nuevo software de diseño que distribuimos en Perú. Verás en vivo:
+
             <ul>
-            <li>RhinoArtisan: modelado paramétrico de anillos y engastes, bibliotecas de gemas, tallas automáticas y exportación directa a STL</li>
-            <li>Impresión para joyería: qué resina calcinable usar, cómo lograr detalle fino y superficies limpias para microfusión Ideal para:</li>
+              <li>RhinoArtisan: modelado paramétrico de anillos y engastes, bibliotecas de gemas, tallas automáticas y exportación directa a STL</li>
+              <li>Impresión para joyería: qué resina calcinable usar, cómo lograr detalle fino y superficies limpias para microfusión Ideal para:</li>
             </ul>
           
             Ideal para:

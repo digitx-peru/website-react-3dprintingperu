@@ -59,12 +59,12 @@ export default function Navbar({ activeNavBarCategory, setOverlayVisible, setAct
           </a>
         </li>
         {/*Resources menu*/}
-        <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'recursos' ? styles.activeLink : {}) }}>
+        {/* <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'recursos' ? styles.activeLink : {}) }}>
           <a style={styles.link}
             onClick={() => handleOnClick("recursos")}>
             Recursos
           </a>
-        </li>
+        </li> */}
         {/*Applications menu*/}
         <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'aplicaciones' ? styles.activeLink : {}) }}>
           <a style={styles.link}
