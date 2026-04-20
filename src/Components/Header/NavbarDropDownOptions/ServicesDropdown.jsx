@@ -1,93 +1,33 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Button, Modal } from "antd";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-
-import NavbarCollapse from "../NavbarCollapse";
+import NavDropDownContainer from "./NavDropDownComponents/NavDropDownContainer";
+import NavDropDown from "./NavDropDownComponents/NavDropDownOption";
+import NavOptionListItem from "./NavDropDownComponents/NavOptionListItem";
 
 export default function ServicesDropdown() {
-  const styles = {
-    dropdownOptionsContainer: {
-      display: "flex",
-      flexDirection: "row",
-      marginTop: "40px",
-      gap: "50px",
-    },
-    dropdownOption: {
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "200px",
-    },
-    listTitle: {
-      fontWeight: "400",
-      fontSize: "16px",
-    },
-    optionList: {
-      padding: 0,
-      marginTop: "20px",
-      fontSize: "16px",
-    },
-    optionListItem: {
-      listStyle: "none",
-      marginTop: "15px",
-      fontSize: "16px",
-    },
-    navlink: {
-      textDecoration: "none",
-      color: "#3EFFB4",
-    },
-  };
-
   return (
-    <div
-      className="dropdownOptionsContainer"
-      style={styles.dropdownOptionsContainer}
-    >
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Impresion 3D</h3>
-        <ul style={{ ...styles.optionList, marginTop: "50px" }}>
-          <li style={styles.optionListItem}>
-            <Link to="/servicios/fotopolimeros" style={styles.navlink}>
-              Fotopolímeros avanzados
-            </Link>
-          </li>
-          <li style={styles.optionListItem}>
-            <Link to="/servicios/patrones-de-joyeria" style={styles.navlink}>
-              Patrones para joyería
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Producción de piezas de plástico</h3>
-        <ul style={styles.optionList}>
-          <li style={styles.optionListItem}>
-            <Link to="/servicios/silicona-y-poliuretano" style={styles.navlink}>
-              Silicona y poliuretano
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Otros</h3>
-        <ul style={{ ...styles.optionList, marginTop: "50px" }}>
-          <li style={styles.optionListItem}>
-            <Link to="/servicios/diseño-3d" style={styles.navlink}>
-              Diseño 3D
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Mantenimiento</h3>
-        <ul style={{ ...styles.optionList, marginTop: "50px" }}>
-          <li style={styles.optionListItem}>
-            <Link to="" style={styles.navlink}>
-              Impresoras 3D
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <NavDropDownContainer>
+      <NavDropDown title={"Impresion 3D"}>
+        <NavOptionListItem linkpath={"/servicios/fotopolimeros"}>
+          Fotopolímeros avanzados
+        </NavOptionListItem>
+        <NavOptionListItem linkpath={"/servicios/patrones-de-joyeria"}>
+          Patrones para joyería
+        </NavOptionListItem>
+      </NavDropDown>
+      <NavDropDown title={"Producción"}>
+        <NavOptionListItem linkpath={"/servicios/silicona-y-poliuretano"}>
+          Silicona y poliuretano
+        </NavOptionListItem>
+      </NavDropDown>
+      <NavDropDown title={"Otros"}>
+        <NavOptionListItem linkpath={"/servicios/diseño-3d"}>
+          Diseño 3D
+        </NavOptionListItem>
+      </NavDropDown>
+      <NavDropDown title={"Mantenimiento"}>
+        <NavOptionListItem linkpath={"/servicios/mantenimiento"}>
+          Impresoras 3D
+        </NavOptionListItem>
+      </NavDropDown>
+    </NavDropDownContainer>
   );
 }

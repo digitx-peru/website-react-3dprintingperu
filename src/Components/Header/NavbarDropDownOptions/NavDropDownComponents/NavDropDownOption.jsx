@@ -10,14 +10,9 @@ export default function NavDropDown({ title, children }) {
       marginBottom: "20px",
     },
     optionList: {
-      display: "flex",
-      flexDirection: 'column',
-      gap: "15px",
       padding: 0,
-      listStyle: "none",
-      fontSize: "16px",
-      textDecoration: "none",
-      color: "#3EFFB4",
+      margin: 0,
+      // marginTop: "20px",
     },
   };
 

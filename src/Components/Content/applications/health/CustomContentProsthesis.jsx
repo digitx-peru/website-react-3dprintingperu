@@ -13,7 +13,8 @@ export default function CustomContentSoftware({ width }) {
       flexDirection: "column",
       textAlign: "justify",
       width: width,
-      fontSize: isMedium ? "12px" : "16px",
+      // fontSize: isMedium ? "12px" : "16px",
+      fontSize: "12px",
       lineHeight: "1.5",
     },
 

@@ -33,15 +33,29 @@ export default function NavMenu() {
       <Modal
         title="Ir a"
         open={isModalOpen}
-        style={{ padding: 20}}
+        style={{ padding: 20 }}
         centered
         onCancel={handleCancel}
-        closeIcon={<CloseOutlined style={{ fontSize: '24px' }}/>}
+        closeIcon={<CloseOutlined style={{ fontSize: "24px" }} />}
         footer={
-            <div style={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', padding: '10px 20px' }}>
-              <Button key="ok" type="primary" style={{height: 40}} onClick={handleOk}>OK</Button>
-            </div>
-          }
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignSelf: "center",
+              padding: "10px 20px",
+            }}
+          >
+            <Button
+              key="ok"
+              type="primary"
+              style={{ height: 40 }}
+              onClick={handleOk}
+            >
+              OK
+            </Button>
+          </div>
+        }
       >
         <NavbarCollapse onClickLink={handleOk} />
       </Modal>

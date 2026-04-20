@@ -1,55 +1,23 @@
-import { Link } from "react-router-dom";
+import NavDropDownContainer from "./NavDropDownComponents/NavDropDownContainer";
+import NavDropDown from "./NavDropDownComponents/NavDropDownOption";
+import NavOptionListItem from "./NavDropDownComponents/NavOptionListItem";
 
 export default function ProductsDropdown() {
-
-  const styles = {
-    dropdownOptionsContainer: {
-      display: "flex",
-      flexDirection: "row",
-      marginTop: "40px",
-      gap: '50px'
-    },
-    dropdownOption: {
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "200px"
-    },
-    listTitle: {
-      fontWeight: "400",
-      fontSize: "16px"
-    },
-    optionList: {
-      padding: 0,
-      marginTop: "20px",
-      fontSize: "16px"
-    },
-    optionListItem: {
-      listStyle: 'none',
-      marginTop: "15px",
-      fontSize: "16px"
-    },
-    navlink: {
-      textDecoration: 'none',
-      color: "#3EFFB4"
-    }
-
-  };
-
   return (
-    <div className="dropdownOptionsContainer" style={styles.dropdownOptionsContainer}>
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Impresion 3D</h3>
-        <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/productos/impresoras" style={styles.navlink}>Impresoras</Link></li>
-          <li style={styles.optionListItem}><Link to="/productos/materiales" style={styles.navlink}>Materiales</Link></li>
-        </ul>
-      </div>
-      <div className="dropdownOption" style={styles.dropdownOption}>
-        <h3 style={styles.listTitle}>Software</h3>
-        <ul style={styles.optionList}>
-          <li style={styles.optionListItem}><Link to="/productos/software/rhino-artisan" style={styles.navlink}>RhynoArtisan</Link></li>
-        </ul>
-      </div>
-    </div>
+    <NavDropDownContainer>
+      <NavDropDown title={"Impresion 3D"}>
+        <NavOptionListItem linkpath={"/productos/impresoras"}>
+          Impresoras
+        </NavOptionListItem>
+        <NavOptionListItem linkpath={"/productos/materiales"}>
+          Materiales
+        </NavOptionListItem>
+      </NavDropDown>
+      <NavDropDown title={"Software"}>
+        <NavOptionListItem linkpath={"/productos/software/rhino-artisan"}>
+          RhynoArtisan
+        </NavOptionListItem>
+      </NavDropDown>
+    </NavDropDownContainer>
   );
 }
