@@ -21,7 +21,7 @@ export default function CustomContentLanding({ width }) {
       textAlign: "justify",
       columnGap: 100,
       width: width,
-      fontSize: isDevice ? "16px" : "20px",
+      fontSize: isDevice ? "16px" : "18px",
       lineHeight: "1.5",
     },
     information: {
