@@ -1,7 +1,8 @@
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
 import TextImageRow from "../../TextImageRow";
-import TitleMessageInfocard from "../../TitleMessageInfocard";
+
+import TitleMessageContainer from "../../TitleMessageContainer";
 import IconInfoCard from "../../IconInfoCard";
 
 export default function CustomContentPhotopolymers({ width }) {
@@ -43,8 +44,9 @@ export default function CustomContentPhotopolymers({ width }) {
           <li>Piezas para drones</li>
         </ul>
       </TextImageRow>
+
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      <TitleMessageInfocard
+      <TitleMessageContainer
         title={"Figure 4 dentro de los procesos de producción aditiva"}
         message={
           "La tecnología Figure 4 tiene la versatilidad de poder lograr varios tipos de piezas, usando sus 21 tipos de resinas disponibles, puede producir prototipos funcionales o modelos de concepto, y además piezas de producción (para usuario final)."
@@ -55,20 +57,68 @@ export default function CustomContentPhotopolymers({ width }) {
           message={
             "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
           }
+          iconImagePath="\images\infocard\info_card_icon_concept.png"
         />
         <IconInfoCard
           title={"Modelos de Concepto"}
           message={
-            "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
+            "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rigidos"
           }
-        />{" "}
+          iconImagePath="\images\infocard\info_card_icon_piece.png"
+        />
         <IconInfoCard
           title={"Modelos de Concepto"}
           message={
-            "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
+            "La alta precision y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyeccion de plastico."
           }
+          iconImagePath="\images\infocard\info_card_icon_printer.png"
         />
-      </TitleMessageInfocard>
+      </TitleMessageContainer>
+
+      {/* //////////////////////////////////////////////////////////////////////////////////// */}
+      <TitleMessageContainer
+        title={"Figure 4 dentro de los procesos de producción aditiva"}
+        message={
+          "La tecnología Figure 4 tiene la versatilidad de poder lograr varios tipos de piezas, usando sus 21 tipos de resinas disponibles, puede producir prototipos funcionales o modelos de concepto, y además piezas de producción (para usuario final)."
+        }
+      >
+        <table className="Figure 4 capacity" style={{ width: "60%" }}>
+          <colgroup>
+            <col style={{ width: "25%" }} />
+            <col style={{ width: "25%" }} />
+            <col style={{ width: "auto" }} />
+          </colgroup>
+          <tr style={{ height: "60px" }}>
+            <th>Descripción</th>
+            <th>Valor</th>
+            <th>Consideraciones</th>
+          </tr>
+          <tr style={{ height: "60px" }}>
+            <td>Máximo tamaño de pieza</td>
+            <td>XYZ: 124 x 70 x 195 mm</td>
+            <td>Piezas más grandes pueden ensamblarse</td>
+          </tr>
+          <tr style={{ height: "60px" }}>
+            <td>Resolución en Z</td>
+            <td>20u a 50u</td>
+            <td>Depende del material</td>
+          </tr>
+          <tr style={{ height: "60px" }}>
+            <td>Resistencia a la flexión</td>
+            <td>22 - 130 mpa</td>
+            <td rowspan="2">
+              Si necesitas piezas que puedan resistir esfuerzos mecánicos
+              (torque) te invitamos a ver los metodos como impresión en
+              filamento (FDM) o vaciado con silicona y uretano
+            </td>
+          </tr>
+          <tr style={{ height: "60px" }}>
+            <td>Modulo de flexión</td>
+            <td>680 - 4300 mpa</td>
+          </tr>
+        </table>
+      </TitleMessageContainer>
+
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}

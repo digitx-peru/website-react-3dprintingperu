@@ -6,10 +6,10 @@ import PageContent from "../../../../Components/PageContent";
 import CustomContentPolyurethane from "../../../../Components/Content/services/CustomContentPolyurethane"
 
 export default function CustomPolyurethane() {
-  const routerParams = useParams();
+  // const routerParams = useParams();
 
-  const isDevice = useMediaQuery(768);
-  const is1440 = useMediaQuery(1440);
+  // const isDevice = useMediaQuery(768);
+  // const is1440 = useMediaQuery(1440);
 
   return (
     <>
