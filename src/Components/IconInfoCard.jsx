@@ -1,4 +1,8 @@
-export default function PageContent({ iconImage, title, message }) {
+export default function PageContent({
+  iconImagePath = "/images/infocard/info_card_icon_concept.png",
+  title,
+  message,
+}) {
   const styles = {
     container: {
       display: "flex",
@@ -21,7 +25,7 @@ export default function PageContent({ iconImage, title, message }) {
   return (
     <div className="cardContainer" style={styles.container}>
       <img
-        src="\images\infocard\info_card_icon_concept.png"
+        src={iconImagePath}
         alt=""
         className="icon"
         style={styles.image}

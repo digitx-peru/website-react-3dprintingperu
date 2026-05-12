@@ -12,7 +12,7 @@ export default function TitleMessageInfocard({
         flexDirection: "column",
         alignItems: "stretch",
         padding: "0px 200px",
-        margin: "40px 0",
+        margin: "80px 0",
       }}
     >
       <h2 className="title" style={{ marginBottom: "20px" }}>
