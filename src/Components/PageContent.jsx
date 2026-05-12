@@ -28,7 +28,6 @@ export default function PageContent({ children, heroTitle, heroMessage, heroImag
             justifyContent: "center",
             padding: "50px 0px",
             width: "100vw",
-            backgroundColor: "rgb(239,251,246)",
         },
         column: {
             paddingLeft: 100,
