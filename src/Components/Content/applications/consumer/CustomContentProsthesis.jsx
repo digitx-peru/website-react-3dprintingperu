@@ -1,8 +1,51 @@
+// import useMediaQuery from "../../../../hooks/useMediaQuery";
+
 import TextImageRow from "../../../TextImageRow";
 
-export default function CustomContentSoftware() {
+export default function CustomContentSoftware({ width }) {
+  // const isDevice = useMediaQuery(1000);
+  // const isMedium = useMediaQuery(1320);
+
+  const styles = {
+    //// Generic
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      textAlign: "justify",
+      width: width,
+      // fontSize: isMedium ? "12px" : "16px",
+      fontSize: "12px",
+      lineHeight: "1.5",
+    },
+
+    //// Content styles
+    rowTextTitle: {
+      marginBottom: "20px",
+    },
+
+    //// Nav styles
+    sectionJumpContainer: {
+      backgroundColor: "#E3BF7B",
+      position: "sticky",
+      top: 0,
+      padding: "0px 200px",
+      marginBottom: "20px",
+    },
+    sectionJumpNavList: {
+      display: "flex",
+      flexDirection: "row",
+      columnGap: 50,
+      padding: "0px 0px",
+    },
+    listItem: {
+      listStyle: "none",
+      cursor: "pointer",
+    },
+  };
+
   return (
-    <>
+    <div className="contentContainer" style={styles.container}>
+      {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
         imageName={"health/prot_kneecap.jpg"}
@@ -30,7 +73,7 @@ export default function CustomContentSoftware() {
         imageRight={true}
         imageName={"health/prot_plant.jpg"}
       >
-        <h2>Prótesis plantares</h2>
+        <h2 style={styles.rowTextTitle}>Prótesis plantares</h2>
         <p>
           La línea de materiales PAx de la impresora SLS 380 de 3D Systems
           ofrece propiedades mecánicas superiores y un acabado superficial
@@ -54,7 +97,9 @@ export default function CustomContentSoftware() {
         sectionName={"rowThree"}
         imageName={"health/prot_casing.png"}
       >
-        <h2>Férulas</h2>
+        <h2 style={styles.rowTextTitle}>
+          Férulas
+        </h2>
         <p>
           La impresión 3D es ideal para crear férulas personalizadas, utilizando
           la tecnología SLS o FDM con Nylon (PA) para obtener piezas rígidas,
@@ -75,7 +120,7 @@ export default function CustomContentSoftware() {
         imageRight={true}
         imageName={"health/prot_legs.png"}
       >
-        <h2>Encaje protésico</h2>
+        <h2 style={styles.rowTextTitle}>Encaje protésico</h2>
         <p>
           Las tecnologías SLS y FDM, al usar TPU, transforman el encaje
           protésico de una "carcasa" rígida a una interfaz dinámica y adaptable.
@@ -100,7 +145,7 @@ export default function CustomContentSoftware() {
         imageName={"health/prot_skull.png"}
         backgroundColor={"#C9C6CA"}
       >
-        <h2>Placa craneal y otros implantes</h2>
+        <h2 style={styles.rowTextTitle}>Placa craneal y otros implantes</h2>
         <p>
           La impresión 3D ha revolucionado la fabricación de implantes médicos
           al permitir la creación de dispositivos altamente personalizados y
@@ -120,6 +165,6 @@ export default function CustomContentSoftware() {
           todo el mundo.
         </p>
       </TextImageRow>
-    </>
+    </div>
   );
 }

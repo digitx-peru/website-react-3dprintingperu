@@ -108,8 +108,8 @@ export default function CustomContentPhotopolymers({ width }) {
             <td>22 - 130 mpa</td>
             <td rowspan="2">
               Si necesitas piezas que puedan resistir esfuerzos mecánicos
-              (torque) te invitamos a ver los metodos como impresión en
-              filamento (FDM) o vaciado con silicona y uretano
+              (torque) te invitamos a ver los metodos como <b>impresión en
+              filamento (FDM) o vaciado con silicona y uretano</b>
             </td>
           </tr>
           <tr style={{ height: "60px" }}>

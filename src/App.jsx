@@ -63,6 +63,9 @@ export default function App() {
 
       {/* APPLICATIONS */}
       <Route path="/salud/protesis" element={<CustomProsthesis />} />
+      <Route path="/consumidor-final/muebles" element={<CustomProsthesis />} />
+      <Route path="/consumidor-final/carcasas-cubiertas" element={<CustomProsthesis />} />
+      <Route path="/consumidor-final/sellos-juntas" element={<CustomProsthesis />} />
 
       {/* NEWS */}
       <Route

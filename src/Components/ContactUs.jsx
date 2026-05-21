@@ -37,7 +37,7 @@ export default function ContactUs() {
       width: isMediumScreenSize ? "auto" : is1280 ? "600px" : "900px",
       backgroundColor: "#323232",
       margin: isColumnLayoutWidth ? "0 15px" : "0",
-      marginTop: "30px",
+      // marginTop: "30px",
       padding: "25px 50px",
       color: "white",
     },

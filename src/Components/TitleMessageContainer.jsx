@@ -1,3 +1,5 @@
+import RowComponent from "./RowComponent";
+
 export default function TitleMessageContainer({
   children,
   title,
@@ -5,12 +7,11 @@ export default function TitleMessageContainer({
   sectionName,
 }) {
   const styles = {
-    sectionContainer: {
+    layout: {
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
       padding: "0px 200px",
-      margin: "50px 0",
     },
     title: {
       marginBottom: "20px",
@@ -27,18 +28,20 @@ export default function TitleMessageContainer({
   };
 
   return (
-    <section className={sectionName} style={styles.sectionContainer}>
-      <h2 className="title" style={styles.title}>
-        {title}
-      </h2>
-      {message !== null && (
-        <p className="message" style={styles.message}>
-          {message}
-        </p>
-      )}
-      <div className="childrenContainer" style={styles.childrenContainer}>
-        {children}
+    <RowComponent>
+      <div className={sectionName} style={styles.layout}>
+        <h2 className="title" style={styles.title}>
+          {title}
+        </h2>
+        {message !== null && (
+          <p className="message" style={styles.message}>
+            {message}
+          </p>
+        )}
+        <div className="childrenContainer" style={styles.childrenContainer}>
+          {children}
+        </div>
       </div>
-    </section>
+    </RowComponent>
   );
 }

@@ -22,7 +22,7 @@ export default function Hero({ title = "Title", message = null, imgTitleEnabled 
   };
 
   return (
-    <section style={styles.container}>
+    <section className="hero" style={styles.container}>
       <div style={styles.textContainer}>
         {imgTitleEnabled == true ? <img style={{width:"600px"}} src={imgTitle} alt="App Logo" /> : <h1 style={styles.heroTitle}>{title}</h1>}        
         {message !== null && <p style={{ fontSize: 24 }}>{message}</p>}

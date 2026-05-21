@@ -1,28 +1,26 @@
-export default function TextImageRow({ children, sectionName, imageRight = false, imageName, backgroundColor }) {
+import RowComponent from "./RowComponent";
+
+export default function TextImageRow({ children, imageRight = false, imageName, backgroundColor }) {
 
     const styles = {
-        container: {
+        layout: {
             display: "flex",
             flexDirection: imageRight ? 'row-reverse' : 'row',
-            //   textAlign: "justify",
-            //   width: 'auto',
-            //   fontSize: isMedium ? "12px" : "16px",
             fontSize: '16px',
-            margin: '0px 0px 5px 0px',
-            backgroundColor: backgroundColor
         },
         textSection: {
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "start",
             flex: 0.6,
-            padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px"
+            padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
+            rowGap: "20px" 
         },
         imageSection: {
             display: "flex",
             flex: 0.4,
             justifyContent: imageRight ? "end" : 'start',
-            alignItems: "center",
+            alignItems: "start",
             padding: imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
         },
         image: {
@@ -33,7 +31,8 @@ export default function TextImageRow({ children, sectionName, imageRight = false
     };
 
     return (
-        <section className={`${sectionName} componentContainer`} style={styles.container}>
+    <RowComponent>
+        <div style={styles.layout}>
             <div className={"imageHolder"} style={styles.imageSection}>
                 <img
                     style={styles.image}
@@ -44,6 +43,7 @@ export default function TextImageRow({ children, sectionName, imageRight = false
             <div className={"textHolder"} style={styles.textSection}>
                 {children}
             </div>
-        </section>
+        </div>
+    </RowComponent>
     )
 }

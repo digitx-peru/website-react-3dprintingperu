@@ -12,7 +12,7 @@ export default function Footer() {
       flexDirection: "column",
       backgroundColor: "rgb(10,79,79)",
       borderTop:"7px solid rgb(99,218,178)",
-      marginTop: 25,
+      // marginTop: 25,
       boxSizing:"border-box",
       width:"100%"
     },

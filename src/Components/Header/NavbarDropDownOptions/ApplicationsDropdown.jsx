@@ -26,6 +26,17 @@ export default function ApplicationsDropdown() {
           Implantes
         </NavOptionListItem>
       </NavDropDown>
+      <NavDropDown title={"Consumidor final"}>
+        <NavOptionListItem linkpath={"/industrias/fundicion"}>
+          Muebles
+        </NavOptionListItem>
+        <NavOptionListItem linkpath={"/industrias/fundicion"}>
+          Carcasas y cubiertas
+        </NavOptionListItem>
+        <NavOptionListItem linkpath={"/industrias/fundicion"}>
+          Sellos y juntas
+        </NavOptionListItem>
+      </NavDropDown>
     </NavDropDownContainer>
   );
 }
