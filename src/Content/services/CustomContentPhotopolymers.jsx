@@ -108,8 +108,10 @@ export default function CustomContentPhotopolymers({ width }) {
             <td>22 - 130 mpa</td>
             <td rowspan="2">
               Si necesitas piezas que puedan resistir esfuerzos mecánicos
-              (torque) te invitamos a ver los metodos como <b>impresión en
-              filamento (FDM) o vaciado con silicona y uretano</b>
+              (torque) te invitamos a ver los metodos como{" "}
+              <b>
+                impresión en filamento (FDM) o vaciado con silicona y uretano
+              </b>
             </td>
           </tr>
           <tr style={{ height: "60px" }}>
@@ -122,7 +124,7 @@ export default function CustomContentPhotopolymers({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
-        imageName={"services/3dprint/photopolymers/photopolymers_finishing.png"}
+        imageName={"services/3dprint/photopolymers/photopolymers_surface_finishing.png"}
       >
         <h2 style={styles.rowTextTitle}>Acabado superficial</h2>
         <p>

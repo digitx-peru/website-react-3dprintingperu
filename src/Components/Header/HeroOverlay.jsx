@@ -22,7 +22,7 @@ export default function HeroOverlay({
       alignItems: "start",
       color: "white",
       fontSize: "24px",
-      zIndex: 2, // Above the background but below navbar
+      zIndex: 3, // Above the background but below navbar
     },
   };
 

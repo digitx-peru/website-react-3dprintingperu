@@ -29,7 +29,7 @@ export default function Hero({
       color: "white",
       padding: "0 50px",
       gap: "10px 0",
-      zIndex: 3,
+      zIndex: 2,
     },
     imageTitle: {
       width: "600px",
