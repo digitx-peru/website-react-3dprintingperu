@@ -2,35 +2,28 @@
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import ContactUs from "./ContactUs";
-import FloatButton from "./FloatButton";
-import MainContainer from "./MainContainer";
+import ContactUs from "./ContactUs/ContactUs";
+import FloatButton from "./FloatButton/FloatButton";
+import MainContainer from "./Content/MainContainer";
 
 export default function PageContent({
   children,
   heroTitle,
   heroMessage,
-  heroImage,
+  backgroundImage,
   floatButton = true,
   floatContent,
 }) {
   // const isDevice = useMediaQuery(768);
   // const is1440 = useMediaQuery(1440);
 
-  const heroContent = {
-    title: heroTitle,
-    message: heroMessage,
-    heroImage: `/images/${heroImage}`,
-  };
-
   return (
     <>
-      <Header
-        heroTitle={heroContent.title}
-        heroMessage={heroContent.message}
-        heroImage={heroContent.heroImage}
-      />
+      <Header backgroundImage={backgroundImage} />
       <MainContainer
+        heroTitle={heroTitle}
+        heroMessage={heroMessage}
+        backgroundImage={backgroundImage}
         children={children}
         floatButton={floatButton}
         floatContent={floatContent}

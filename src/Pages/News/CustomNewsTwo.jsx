@@ -1,10 +1,10 @@
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Header from "../../Components/Header/Header";
-import Hero from "../../Components/Hero";
+import Hero from "../../Components/Hero/Hero";
 import Footer from "../../Components/Footer/Footer";
 
-import CustomContentNewsTwo from "../../Components/Content/news/CustomContentNewsTwo";
+import CustomContentNewsTwo from "../../Content/news/CustomContentNewsTwo";
 
 import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 

@@ -1,23 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/ContentPages/Home";
-// import CustomFoundry from "./Pages/ContentPages/Industrias/CustomFoundry";
-// import CustomJewelry from "./Pages/ContentPages/Industrias/CustomJewelry";
+import Home from "./Pages/Home";
 
 /////////////////////SERVICES
-import CustomPolyurethane from "./Pages/ContentPages/Services/Production/CustomPolyurethane";
-import Custom3Ddesign from "./Pages/ContentPages/Services/Others/Custom3Ddesign";
-import CustomJewelryPatterns from "./Pages/ContentPages/Services/3DPrint/CustomJewelryPatterns";
-import CustomPhotopolymers from "./Pages/ContentPages/Services/3DPrint/CustomPhotopolymers";
+import CustomPolyurethane from "./Pages/Services/Production/CustomPolyurethane";
+import Custom3Ddesign from "./Pages/Services/Others/Custom3Ddesign";
+import CustomJewelryPatterns from "./Pages/Services/3DPrint/CustomJewelryPatterns";
+import CustomPhotopolymers from "./Pages/Services/3DPrint/CustomPhotopolymers";
 
 /////////////////////PRODUCTS
-import Printers from "./Pages/ContentPages/Products/Printers";
-import Materials from "./Pages/ContentPages/Products/Materials";
-import CustomSoftware from "./Pages/ContentPages/Products/Software/CustomSoftware";
+import Printers from "./Pages/Products/Printers";
+import Materials from "./Pages/Products/Materials";
+import CustomSoftware from "./Pages/Products/Software/CustomSoftware";
 
 /////////////////////APPLICATIONS
-import CustomProsthesis from "./Pages/ContentPages/Applications/CustomProsthesis";
-// import CustomPrototype from "./Pages/ContentPages/Industrias/CustomPrototype";
+import CustomProsthesis from "./Pages/Applications/CustomProsthesis";
 
 /////////////////////NEWS
 import CustomNewsOne from "./Pages/News/CustomNewsOne";
@@ -25,10 +22,10 @@ import CustomNewsTwo from "./Pages/News/CustomNewsTwo";
 import CustomNewsThree from "./Pages/News/CustomNewsThree";
 
 /////////////////////LANDING
-import Landing from "./Pages/Support/Landing/Landing";
+import Landing from "./Pages/Support/Landing/PageLanding";
 
 /////////////////////SUPPORT
-import PrivacyPolicy from "./Pages/Support/Policies/Privacy";
+import PrivacyPolicy from "./Pages/Support/Policies/PagePrivacy";
 import NotFound from "./Pages/Support/NotFound/NotFound";
 
 import "./globalStyles.css";
@@ -37,12 +34,6 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
-      {/* <Route path="/industrias/fundicion" element={<CustomFoundry />} />
-      <Route path="/industrias/joyeria" element={<CustomJewelry />} />
-      <Route
-        path="/industrias/prototipos-y-arte"
-        element={<CustomPrototype />}
-      /> */}
 
       {/* SERVICES */}
       <Route
@@ -50,8 +41,14 @@ export default function App() {
         element={<CustomPolyurethane />}
       />
       <Route path="/servicios/diseño-3d" element={<Custom3Ddesign />} />
-      <Route path="/servicios/patrones-de-joyeria" element={<CustomJewelryPatterns />} />
-      <Route path="/servicios/fotopolimeros" element={<CustomPhotopolymers />} />
+      <Route
+        path="/servicios/patrones-de-joyeria"
+        element={<CustomJewelryPatterns />}
+      />
+      <Route
+        path="/servicios/fotopolimeros"
+        element={<CustomPhotopolymers />}
+      />
 
       {/* PRODUCTS */}
       <Route path="/productos/impresoras" element={<Printers />} />
@@ -64,8 +61,14 @@ export default function App() {
       {/* APPLICATIONS */}
       <Route path="/salud/protesis" element={<CustomProsthesis />} />
       <Route path="/consumidor-final/muebles" element={<CustomProsthesis />} />
-      <Route path="/consumidor-final/carcasas-cubiertas" element={<CustomProsthesis />} />
-      <Route path="/consumidor-final/sellos-juntas" element={<CustomProsthesis />} />
+      <Route
+        path="/consumidor-final/carcasas-cubiertas"
+        element={<CustomProsthesis />}
+      />
+      <Route
+        path="/consumidor-final/sellos-juntas"
+        element={<CustomProsthesis />}
+      />
 
       {/* NEWS */}
       <Route
