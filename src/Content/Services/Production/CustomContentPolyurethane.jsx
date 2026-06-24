@@ -1,32 +1,10 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import TextImageRow from "../../../Components/Content/TextImageRow";
 
-import TextImageRow from "../../Components/Content/TextImageRow";
-
-export default function CustomContentPolyurethane({ width }) {
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
-
-  const styles = {
-    //// Generic
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "justify",
-      width: width,
-      fontSize: isMedium ? "12px" : "16px",
-      lineHeight: "1.5",
-    },
-
-    //// Content
-    rowTextTitle: {
-      marginBottom: "20px",
-    },
-  };
-
+export default function CustomContentPolyurethane() {
   return (
-    <div className="contentContainer" style={styles.container}>
+    <>
       <TextImageRow sectionName={"rowOne"} imageName={"urethane.jpg"}>
-        <h2 style={styles.rowTextTitle}>Vaciado de uretano</h2>
+        <h2>Vaciado de uretano</h2>
         <p>
           La fundición de uretano permite producir piezas finales de plástico
           rígido, caucho y silicona con calidad industrial, ideal para series
@@ -44,12 +22,13 @@ export default function CustomContentPolyurethane({ width }) {
           opciones de acabado personalizado, pintura e integración de insertos.
         </p>
       </TextImageRow>
+      {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
         imageName={"silicone.jpg"}
       >
-        <h2 style={styles.rowTextTitle}>Vaciado de silicona</h2>
+        <h2>Vaciado de silicona</h2>
         <p>
           La silicona es un material excelente para la producción de piezas
           finales, es duradera, flexible, resistente al desgarro, químicamente
@@ -83,7 +62,11 @@ export default function CustomContentPolyurethane({ width }) {
           }}
         >
           <img
-            style={styles.image}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "30px",
+            }}
             src="/images/silicone_urethane_cycle.png"
             alt=""
           />
@@ -98,7 +81,6 @@ export default function CustomContentPolyurethane({ width }) {
         >
           <h2
             style={{
-              ...styles.rowTextTitle,
               width: "800px",
               textAlign: "center",
             }}
@@ -107,6 +89,6 @@ export default function CustomContentPolyurethane({ width }) {
           </h2>
         </div>
       </div>
-    </div>
+    </>
   );
 }

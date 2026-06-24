@@ -1,32 +1,13 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import TextImageRow from "../../../Components/Content/TextImageRow";
 
-import TextImageRow from "../../Components/Content/TextImageRow";
-
-export default function CustomContentJewelryPatterns({ width }) {
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
-
-  const styles = {
-    //// Generic
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "justify",
-      width: width,
-      fontSize: isMedium ? "12px" : "16px",
-      lineHeight: "1.5",
-    },
-
-    //// Content
-    rowTextTitle: {
-      marginBottom: "20px",
-    },
-  };
-
+export default function CustomContentJewelryPatterns() {
   return (
-    <div className="textContainer" style={styles.container}>
-      <TextImageRow sectionName={"rowOne"} imageName={"jewelry/jewelry_pattern_green_shape.png"}>
-        <h2 style={styles.rowTextTitle}>Patrones para vaciado</h2>
+    <>
+      <TextImageRow
+        sectionName={"rowOne"}
+        imageName={"jewelry/jewelry_pattern_green_shape.png"}
+      >
+        <h2>Patrones para vaciado</h2>
         <p>
           Diseñado para el moldeado de joyería profesional, Figure 4® JCAST-GRN
           20 produce patrones maestros precisos, reproducibles y muy detallados
@@ -39,8 +20,12 @@ export default function CustomContentJewelryPatterns({ width }) {
         </p>
       </TextImageRow>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      <TextImageRow sectionName={"rowTwo"} imageRight={true} imageName={"jewelry/jewelry_pattern_rubber_mold.png"}>
-        <h2 style={styles.rowTextTitle}>Patrones para moldes de caucho</h2>
+      <TextImageRow
+        sectionName={"rowTwo"}
+        imageRight={true}
+        imageName={"jewelry/jewelry_pattern_rubber_mold.png"}
+      >
+        <h2>Patrones para moldes de caucho</h2>
         <p>
           Fabricamos patrones maestros para joyería con un rendimiento de
           material excepcional, centrado en plásticos de alta rigidez que
@@ -55,6 +40,6 @@ export default function CustomContentJewelryPatterns({ width }) {
         </p>
       </TextImageRow>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-    </div>
+    </>
   );
 }

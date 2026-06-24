@@ -1,5 +1,5 @@
 import PageContent from "../../../Components/PageContent";
-import CustomContentSoftware from "../../../Content/products/software/CustomContentSoftware";
+import CustomContentSoftware from "../../../Content/Products/Software/CustomContentSoftware";
 
 export default function CustomSoftware() {
   return (

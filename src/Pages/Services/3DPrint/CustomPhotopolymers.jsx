@@ -1,7 +1,7 @@
 // import useMediaQuery from "../../hooks/useMediaQuery";
 
 import PageContent from "../../../Components/PageContent";
-import CustomContentPhotopolymers from "../../../Content/services/CustomContentPhotopolymers";
+import CustomContentPhotopolymers from "../../../Content/Services/3DPrint/CustomContentPhotopolymers";
 
 export default function CustomPhotopolymers() {
   // const routerParams = useParams();

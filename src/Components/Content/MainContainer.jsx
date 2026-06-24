@@ -1,3 +1,5 @@
+import useMediaQuery from "../../hooks/useMediaQuery";
+
 import ContactSection from "../ContactUs/ContactSection";
 import FloatButton from "../FloatButton/FloatButton";
 import Hero from "../Hero/Hero";
@@ -13,6 +15,9 @@ export default function MainContainer({
   floatButton = true,
   floatContent,
 }) {
+  const isDevice = useMediaQuery(1000);
+  const isMedium = useMediaQuery(1320);
+
   const styles = {
     mainContainer: {
       display: "flex",
@@ -29,6 +34,10 @@ export default function MainContainer({
       justifyContent: "center",
       marginBottom: "50px",
       width: "100vw",
+      // width: width,
+      textAlign: "justify",
+      fontSize: isMedium ? "12px" : "16px",
+      lineHeight: "1.5",
     },
   };
 

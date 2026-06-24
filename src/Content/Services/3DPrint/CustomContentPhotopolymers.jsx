@@ -1,38 +1,16 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import TextImageRow from "../../../Components/Content/TextImageRow";
 
-import TextImageRow from "../../Components/Content/TextImageRow";
+import TitleMessageContainer from "../../../Components/Content/TitleMessageContainer";
+import IconInfoCard from "../../../Components/Content/IconInfoCard";
 
-import TitleMessageContainer from "../../Components/Content/TitleMessageContainer";
-import IconInfoCard from "../../Components/Content/IconInfoCard";
-
-export default function CustomContentPhotopolymers({ width }) {
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
-
-  const styles = {
-    //// Generic
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "justify",
-      width: width,
-      fontSize: isMedium ? "12px" : "16px",
-      lineHeight: "1.5",
-    },
-
-    //// Content
-    rowTextTitle: {
-      marginBottom: "20px",
-    },
-  };
-
+export default function CustomContentPhotopolymers() {
   return (
-    <div className="textContainer" style={styles.container}>
+    <>
       <TextImageRow
         sectionName={"rowOne"}
         imageName={"services/3dprint/photopolymers/photopolymers_figure_4.png"}
       >
-        <h2 style={styles.rowTextTitle}>Figure 4</h2>
+        <h2>Figure 4</h2>
         <p>
           Tecnología ultra-rapida para conseguir prototipos y partes de uso
           final en un solo dia. Ideal para producciones de bajo volumen
@@ -124,9 +102,11 @@ export default function CustomContentPhotopolymers({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
-        imageName={"services/3dprint/photopolymers/photopolymers_surface_finishing.png"}
+        imageName={
+          "services/3dprint/photopolymers/photopolymers_surface_finishing.png"
+        }
       >
-        <h2 style={styles.rowTextTitle}>Acabado superficial</h2>
+        <h2>Acabado superficial</h2>
         <p>
           Una de las caracteristicas mas importantes de esta tecnología es su
           resolución superficial (1920 x 1080 pixels), con la cual logra piezas
@@ -134,6 +114,6 @@ export default function CustomContentPhotopolymers({ width }) {
         </p>
       </TextImageRow>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-    </div>
+    </>
   );
 }

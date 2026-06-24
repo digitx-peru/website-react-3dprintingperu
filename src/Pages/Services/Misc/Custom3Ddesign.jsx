@@ -2,20 +2,15 @@
 
 import PageContent from "../../../Components/PageContent";
 
-import CustomContent3Ddesign from "../../../Content/services/CustomContent3Ddesign";
+import CustomContent3Ddesign from "../../../Content/Services/Misc/CustomContent3Ddesign";
 
 export default function Custom3Ddesign() {
-  // const routerParams = useParams();
-
-  // const isDevice = useMediaQuery(768);
-  // const is1440 = useMediaQuery(1440);
-
   return (
     <>
       <PageContent
         heroTitle={"El primer paso para la fabricación digital"}
         heroMessage={""}
-        heroImage={'hero/background_artisan.jpeg'}
+        heroImage={"hero/background_artisan.jpeg"}
       >
         <CustomContent3Ddesign />
       </PageContent>

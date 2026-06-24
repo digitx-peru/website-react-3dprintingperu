@@ -4,9 +4,10 @@ import Home from "./Pages/Home";
 
 /////////////////////SERVICES
 import CustomPolyurethane from "./Pages/Services/Production/CustomPolyurethane";
-import Custom3Ddesign from "./Pages/Services/Others/Custom3Ddesign";
+import Custom3Ddesign from "./Pages/Services/Misc/Custom3Ddesign";
 import CustomJewelryPatterns from "./Pages/Services/3DPrint/CustomJewelryPatterns";
 import CustomPhotopolymers from "./Pages/Services/3DPrint/CustomPhotopolymers";
+import CustomMachineSupport from "./Pages/Services/Maintenance/CustomMachineSupport";
 
 /////////////////////PRODUCTS
 import Printers from "./Pages/Products/Printers";
@@ -48,6 +49,10 @@ export default function App() {
       <Route
         path="/servicios/fotopolimeros"
         element={<CustomPhotopolymers />}
+      />
+      <Route
+        path="/servicios/mantenimiento"
+        element={<CustomMachineSupport />}
       />
 
       {/* PRODUCTS */}

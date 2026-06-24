@@ -1,6 +1,4 @@
 import { useRef } from "react";
-import useMediaQuery from "../../../hooks/useMediaQuery";
-
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function CustomContentSoftware({ width }) {
@@ -21,25 +19,7 @@ export default function CustomContentSoftware({ width }) {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
-
   const styles = {
-    //// Generic
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "justify",
-      width: width,
-      fontSize: isMedium ? "12px" : "16px",
-      lineHeight: "1.5",
-    },
-
-    //// Content styles
-    rowTextTitle: {
-      marginBottom: "20px",
-    },
-
     //// Nav styles
     sectionJumpContainer: {
       backgroundColor: "#E3BF7B",
@@ -61,7 +41,7 @@ export default function CustomContentSoftware({ width }) {
   };
 
   return (
-    <div className="contentContainer" style={styles.container}>
+    <>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <nav className="sectionJumpContainer" style={styles.sectionJumpContainer}>
         <ul className="sectionJumpNavList" style={styles.sectionJumpNavList}>
@@ -83,7 +63,7 @@ export default function CustomContentSoftware({ width }) {
         imageRight={true}
         imageName={"softwareImages/software_teddy.jpg"}
       >
-        <h2 style={styles.rowTextTitle} ref={designersRef}>
+        <h2 ref={designersRef}>
           El arte del pavé y el dominio de las piedras preciosas
         </h2>
         <p>
@@ -103,9 +83,7 @@ export default function CustomContentSoftware({ width }) {
         sectionName={"rowTwo"}
         imageName={"softwareImages/software_lion.jpg"}
       >
-        <h2 style={styles.rowTextTitle}>
-          Utilice bocetos e imágenes: Simplifique el modelado complejo
-        </h2>
+        <h2>Utilice bocetos e imágenes: Simplifique el modelado complejo</h2>
         <p>
           Lleve su creatividad al siguiente nivel utilizando bocetos e imágenes
           de referencia directamente en su espacio de trabajo. Esta potente
@@ -128,9 +106,7 @@ export default function CustomContentSoftware({ width }) {
         imageRight={true}
         imageName={"softwareImages/software_ring.jpg"}
       >
-        <h2 style={styles.rowTextTitle} ref={manufacturesRef}>
-          Sistema avanzado de diseño de bebederos
-        </h2>
+        <h2 ref={manufacturesRef}>Sistema avanzado de diseño de bebederos</h2>
         <p>
           Prepare sus modelos para la fundición con confianza gracias a la
           reparación STL automatizada de RhinoArtisan y al avanzado sistema de
@@ -165,9 +141,7 @@ export default function CustomContentSoftware({ width }) {
         sectionName={"rowFour"}
         imageName={"softwareImages/software_ring_model.jpg"}
       >
-        <h2 style={styles.rowTextTitle}>
-          Reparación automática de STL: Como por arte de magia
-        </h2>
+        <h2>Reparación automática de STL: Como por arte de magia</h2>
         <p>
           Prepare sus modelos para la fundición con confianza gracias a la
           reparación STL automatizada de RhinoArtisany al avanzado sistema de
@@ -196,6 +170,6 @@ export default function CustomContentSoftware({ width }) {
           <b>creando una experiencia de compra única y atractiva.</b>
         </p>
       </TextImageRow>
-    </div>
+    </>
   );
 }

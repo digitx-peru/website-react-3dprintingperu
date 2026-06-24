@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 // import useMediaQuery from "../../hooks/useMediaQuery";
 
 import PageContent from "../../../Components/PageContent";
-import CustomContentPolyurethane from "../../../Content/services/CustomContentPolyurethane"
+import CustomContentPolyurethane from "../../../Content/Services/Production/CustomContentPolyurethane"
 
 export default function CustomPolyurethane() {
   // const routerParams = useParams();

@@ -3,7 +3,7 @@
 // import useMediaQuery from "../../hooks/useMediaQuery";
 import PageContent from "../../Components/PageContent";
 
-import CustomContentProsthesis from "../../Content/applications/health/CustomContentProsthesis";
+import CustomContentProsthesis from "../../Content/Applications/Health/CustomContentProsthesis";
 
 export default function CustomProsthesis() {
   // const routerParams = useParams();

@@ -6,8 +6,8 @@ import Header from "../../Components/Header/Header";
 import Hero from "../../Components/Hero/Hero";
 import Footer from "../../Components/Footer/Footer";
 
-import CustomContentNewsOneSpanish from "../../Content/news/CustomContentNewsOneSpanish";
-import CustomContentNewsOneOriginal from "../../Content/news/CustomContentNewsOneOriginal";
+import CustomContentNewsOneSpanish from "../../Content/News/CustomContentNewsOneSpanish";
+import CustomContentNewsOneOriginal from "../../Content/News/CustomContentNewsOneOriginal";
 
 import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
 
