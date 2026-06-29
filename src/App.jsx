@@ -20,6 +20,8 @@ import CustomFurniture from "./Pages/Applications/Consumer/CustomFurniture";
 import CustomSeals from "./Pages/Applications/Consumer/CustomSeals";
 import CustomJewelryCasting from "./Pages/Applications/Jewelry/CustomJewelryCasting";
 import CustomJewelryMoulds from "./Pages/Applications/Jewelry/CustomJewelryMoulds";
+import CustomFoundryCasting from "./Pages/Applications/Foundry/CustomFoundryCasting";
+import CustomFoundryMoulds from "./Pages/Applications/Foundry/CustomFoundryMoulds";
 
 /////////////////////NEWS
 import CustomNewsOne from "./Pages/News/CustomNewsOne";
@@ -76,6 +78,8 @@ export default function App() {
       <Route path="/consumidor-final/sellos-juntas" element={<CustomSeals />} />
       <Route path="/joyeria/vaciado" element={<CustomJewelryCasting />} />
       <Route path="/joyeria/moldes" element={<CustomJewelryMoulds />} />
+      <Route path="/fundicion/vaciado" element={<CustomFoundryCasting />} />
+      <Route path="/fundicion/moldes" element={<CustomFoundryMoulds />} />
 
       {/* NEWS */}
       <Route
