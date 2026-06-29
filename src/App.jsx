@@ -17,6 +17,7 @@ import CustomSoftware from "./Pages/Products/Software/CustomSoftware";
 /////////////////////APPLICATIONS
 import CustomCasing from "./Pages/Applications/Consumer/CustomCasing";
 import CustomFurniture from "./Pages/Applications/Consumer/CustomFurniture";
+import CustomSeals from "./Pages/Applications/Consumer/CustomSeals";
 
 /////////////////////NEWS
 import CustomNewsOne from "./Pages/News/CustomNewsOne";
@@ -65,12 +66,12 @@ export default function App() {
       />
 
       {/* APPLICATIONS */}
-      {/* <Route path="/salud/protesis" element={<CustomProsthesis />} /> */}
       <Route path="/consumidor-final/muebles" element={<CustomFurniture />} />
       <Route
         path="/consumidor-final/carcasas-cubiertas"
         element={<CustomCasing />}
       />
+      <Route path="/consumidor-final/sellos-juntas" element={<CustomSeals />} />
 
       {/* NEWS */}
       <Route
