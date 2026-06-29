@@ -1,5 +1,5 @@
-import PageContent from "../../Components/PageContent";
-import CustomContentFurniture from "../../Content/Applications/Consumer/CustomContentFurniture";
+import PageContent from "../../../Components/PageContent";
+import CustomContentFurniture from "../../../Content/Applications/Consumer/CustomContentFurniture";
 
 export default function CustomFurniture() {
   return (

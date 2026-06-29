@@ -11,6 +11,7 @@ export default function TextImageRow({
       display: "flex",
       flexDirection: imageRight ? "row-reverse" : "row",
       fontSize: "16px",
+      backgroundColor: backgroundColor
     },
     textSection: {
       display: "flex",
