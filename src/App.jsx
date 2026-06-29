@@ -19,6 +19,7 @@ import CustomCasing from "./Pages/Applications/Consumer/CustomCasing";
 import CustomFurniture from "./Pages/Applications/Consumer/CustomFurniture";
 import CustomSeals from "./Pages/Applications/Consumer/CustomSeals";
 import CustomJewelryCasting from "./Pages/Applications/Jewelry/CustomJewelryCasting";
+import CustomJewelryMoulds from "./Pages/Applications/Jewelry/CustomJewelryMoulds";
 
 /////////////////////NEWS
 import CustomNewsOne from "./Pages/News/CustomNewsOne";
@@ -74,6 +75,7 @@ export default function App() {
       />
       <Route path="/consumidor-final/sellos-juntas" element={<CustomSeals />} />
       <Route path="/joyeria/vaciado" element={<CustomJewelryCasting />} />
+      <Route path="/joyeria/moldes" element={<CustomJewelryMoulds />} />
 
       {/* NEWS */}
       <Route
