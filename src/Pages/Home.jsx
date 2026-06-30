@@ -24,6 +24,9 @@ export default function Home() {
         heroMessage={null}
         backgroundImage={"/images/hero/hero_img_home.jpg"}
       >
+        <div>
+          
+        </div>
         <div className="newsCardContainer" style={styles.newsCardContainer}>
           <NewsCard
             redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"

@@ -5,7 +5,7 @@ export default function CustomContentJewelryPatterns() {
     <>
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"jewelry/jewelry_pattern_green_shape.png"}
+        imageName={"services/3dprint/jewelry_patterns/jewelry_pattern_green_shape.png"}
       >
         <h2>Patrones para vaciado</h2>
         <p>
@@ -23,7 +23,7 @@ export default function CustomContentJewelryPatterns() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"jewelry/jewelry_pattern_rubber_mold.png"}
+        imageName={"services/3dprint/jewelry_patterns/jewelry_pattern_rubber_mold.png"}
       >
         <h2>Patrones para moldes de caucho</h2>
         <p>

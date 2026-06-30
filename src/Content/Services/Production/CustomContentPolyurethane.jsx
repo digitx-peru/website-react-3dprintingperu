@@ -3,7 +3,10 @@ import TextImageRow from "../../../Components/Content/TextImageRow";
 export default function CustomContentPolyurethane() {
   return (
     <>
-      <TextImageRow sectionName={"rowOne"} imageName={"urethane.jpg"}>
+      <TextImageRow
+        sectionName={"rowOne"}
+        imageName={"services/production/silicone_urethane/urethane.jpg"}
+      >
         <h2>Vaciado de uretano</h2>
         <p>
           La fundición de uretano permite producir piezas finales de plástico
@@ -26,7 +29,7 @@ export default function CustomContentPolyurethane() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"silicone.jpg"}
+        imageName={"services/production/silicone_urethane/silicone.jpg"}
       >
         <h2>Vaciado de silicona</h2>
         <p>
@@ -67,7 +70,7 @@ export default function CustomContentPolyurethane() {
               justifyContent: "center",
               fontSize: "30px",
             }}
-            src="/images/silicone_urethane_cycle.png"
+            src="/images/services/production/silicone_urethane/silicone_urethane_cycle.png"
             alt=""
           />
         </div>

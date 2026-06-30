@@ -9,7 +9,7 @@ export default function CustomJewelryPatterns() {
       <PageContent
         heroTitle={"Patrones de joyeria para vaciado y moldes"}
         heroMessage={""}
-        heroImage={"hero/background_artisan.jpeg"}
+        heroImage={""}
       >
         <CustomContentJewelryPatterns />
       </PageContent>

@@ -16,7 +16,7 @@ export default function CustomPolyurethane() {
       <PageContent
         heroTitle={"Producción de piezas basados en poliuretano"}
         heroMessage={"Plásticos de uso final pasdara la industria"}
-        heroImage={"/logo_artisan.jpeg"}
+        heroImage={""}
       >
         <CustomContentPolyurethane />
       </PageContent>

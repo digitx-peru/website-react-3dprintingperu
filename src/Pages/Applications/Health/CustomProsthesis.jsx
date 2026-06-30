@@ -9,6 +9,7 @@ export default function CustomProsthesis() {
         heroMessage={
           "La Impresion 3D es la forma de atender las necesidades especificas de cada uno"
         }
+        backgroundImage={"/images/applications/health/hero_med_background.jpg"}
       >
         <CustomContentProsthesis />
       </PageContent>
