@@ -5,7 +5,7 @@ export default function CustomContentSoftware() {
     <>
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"health/prot_kneecap.jpg"}
+        imageName={"applications/health/prot_kneecap.jpg"}
       >
         <p>
           El mayor desafío para las empresas que fabrican dispositivos como
@@ -28,7 +28,7 @@ export default function CustomContentSoftware() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"health/prot_plant.jpg"}
+        imageName={"applications/health/prot_plant.jpg"}
       >
         <h2>Prótesis plantares</h2>
         <p>
@@ -52,7 +52,7 @@ export default function CustomContentSoftware() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"health/prot_casing.png"}
+        imageName={"applications/health/prot_casing.png"}
       >
         <h2>Férulas</h2>
         <p>
@@ -73,7 +73,7 @@ export default function CustomContentSoftware() {
       <TextImageRow
         sectionName={"rowFour"}
         imageRight={true}
-        imageName={"health/prot_legs.png"}
+        imageName={"applications/health/prot_legs.png"}
       >
         <h2>Encaje protésico</h2>
         <p>
@@ -97,7 +97,7 @@ export default function CustomContentSoftware() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowFive"}
-        imageName={"health/prot_skull.png"}
+        imageName={"applications/health/prot_skull.png"}
         backgroundColor={"#C9C6CA"}
       >
         <h2>Placa craneal y otros implantes</h2>

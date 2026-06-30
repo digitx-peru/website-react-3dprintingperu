@@ -22,6 +22,7 @@ import CustomJewelryCasting from "./Pages/Applications/Jewelry/CustomJewelryCast
 import CustomJewelryMoulds from "./Pages/Applications/Jewelry/CustomJewelryMoulds";
 import CustomFoundryCasting from "./Pages/Applications/Foundry/CustomFoundryCasting";
 import CustomFoundryMoulds from "./Pages/Applications/Foundry/CustomFoundryMoulds";
+import CustomProsthesis from "./Pages/Applications/Health/CustomProsthesis";
 
 /////////////////////NEWS
 import CustomNewsOne from "./Pages/News/CustomNewsOne";
@@ -44,20 +45,20 @@ export default function App() {
 
       {/* SERVICES */}
       <Route
-        path="/servicios/silicona-y-poliuretano"
+        path="/servicios/produccion/silicona-y-poliuretano"
         element={<CustomPolyurethane />}
       />
-      <Route path="/servicios/diseño-3d" element={<Custom3Ddesign />} />
+      <Route path="/servicios/otros/diseño-3d" element={<Custom3Ddesign />} />
       <Route
-        path="/servicios/patrones-de-joyeria"
+        path="/servicios/impresion-3D/patrones-de-joyeria"
         element={<CustomJewelryPatterns />}
       />
       <Route
-        path="/servicios/fotopolimeros"
+        path="/servicios/impresion-3D/fotopolimeros"
         element={<CustomPhotopolymers />}
       />
       <Route
-        path="/servicios/mantenimiento"
+        path="/servicios/mantenimiento/impresoras-3D"
         element={<CustomMachineSupport />}
       />
 
@@ -70,16 +71,38 @@ export default function App() {
       />
 
       {/* APPLICATIONS */}
-      <Route path="/consumidor-final/muebles" element={<CustomFurniture />} />
       <Route
-        path="/consumidor-final/carcasas-cubiertas"
+        path="aplicaciones/consumidor-final/muebles"
+        element={<CustomFurniture />}
+      />
+      <Route
+        path="aplicaciones/consumidor-final/carcasas-cubiertas"
         element={<CustomCasing />}
       />
-      <Route path="/consumidor-final/sellos-juntas" element={<CustomSeals />} />
-      <Route path="/joyeria/vaciado" element={<CustomJewelryCasting />} />
-      <Route path="/joyeria/moldes" element={<CustomJewelryMoulds />} />
-      <Route path="/fundicion/vaciado" element={<CustomFoundryCasting />} />
-      <Route path="/fundicion/moldes" element={<CustomFoundryMoulds />} />
+      <Route
+        path="aplicaciones/consumidor-final/sellos-juntas"
+        element={<CustomSeals />}
+      />
+      <Route
+        path="aplicaciones/joyeria/vaciado"
+        element={<CustomJewelryCasting />}
+      />
+      <Route
+        path="aplicaciones/joyeria/moldes"
+        element={<CustomJewelryMoulds />}
+      />
+      <Route
+        path="aplicaciones/fundicion/vaciado"
+        element={<CustomFoundryCasting />}
+      />
+      <Route
+        path="aplicaciones/fundicion/moldes"
+        element={<CustomFoundryMoulds />}
+      />
+      <Route
+        path="aplicaciones/salud/protesis"
+        element={<CustomProsthesis />}
+      />
 
       {/* NEWS */}
       <Route
