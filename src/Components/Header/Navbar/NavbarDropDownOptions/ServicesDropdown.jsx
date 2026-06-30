@@ -5,28 +5,37 @@ import NavOptionListItem from "./NavDropDownComponents/NavOptionListItem";
 export default function ServicesDropdown() {
   return (
     <NavDropDownContainer>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Impresion 3D"}>
-        <NavOptionListItem linkpath={"/servicios/fotopolimeros"}>
-          Fotopolímeros avanzados
-        </NavOptionListItem>
-        <NavOptionListItem linkpath={"/servicios/patrones-de-joyeria"}>
-          Patrones para joyería
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Fotopolímeros avanzados"}
+          linkpath={"/servicios/impresion-3D/fotopolimeros"}
+        />
+        <NavOptionListItem
+          linkTitle={"Patrones para joyería"}
+          linkpath={"/servicios/impresion-3D/patrones-de-joyeria"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Producción"}>
-        <NavOptionListItem linkpath={"/servicios/silicona-y-poliuretano"}>
-          Silicona y poliuretano
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Silicona y poliuretano"}
+          linkpath={"/servicios/produccion/silicona-y-poliuretano"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Otros"}>
-        <NavOptionListItem linkpath={"/servicios/diseño-3d"}>
-          Diseño 3D
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Diseño 3D"}
+          linkpath={"/servicios/otros/diseño-3d"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Mantenimiento"}>
-        <NavOptionListItem linkpath={"/servicios/mantenimiento"}>
-          Impresoras 3D
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Impresoras 3D"}
+          linkpath={"/servicios/mantenimiento/soporte-tecnico"}
+        />
       </NavDropDown>
     </NavDropDownContainer>
   );

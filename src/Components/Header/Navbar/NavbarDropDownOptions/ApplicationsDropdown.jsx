@@ -5,38 +5,51 @@ import NavOptionListItem from "./NavDropDownComponents/NavOptionListItem";
 export default function ApplicationsDropdown() {
   return (
     <NavDropDownContainer>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Fundición"}>
-        <NavOptionListItem linkpath={"/industrias/fundicion"}>
-          Moldes de arena
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Vaciado"}
+          linkpath={"/aplicaciones/fundicion/vaciado"}
+        />
+        <NavOptionListItem
+          linkTitle={"Moldes"}
+          linkpath={"/aplicaciones/fundicion/moldes"}
+        />
       </NavDropDown>
-      <NavDropDown title={"Joyeria"}>
-        <NavOptionListItem linkpath={"/industrias/joyeria"}>
-          Moldes de caucho o silicona
-        </NavOptionListItem>
-        <NavOptionListItem linkpath={"/industrias/joyeria"}>
-          Vaciado
-        </NavOptionListItem>
+      {/* /////////////////////////////////////////////////////////// */}
+      <NavDropDown title={"Joyería"}>
+        <NavOptionListItem
+          linkTitle={"Vaciado"}
+          linkpath={"/aplicaciones/joyeria/vaciado"}
+        />
+        <NavOptionListItem
+          linkTitle={"Moldes"}
+          linkpath={"/aplicaciones/joyeria/moldes"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Salud"}>
-        <NavOptionListItem linkpath={"/salud/protesis"}>
-          Ortesis y Prótesis
-        </NavOptionListItem>
-        <NavOptionListItem linkpath={"/salud/medicina"}>
-          Implantes
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Prótesis"}
+          linkpath={"/aplicaciones/salud/protesis"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
       <NavDropDown title={"Consumidor final"}>
-        <NavOptionListItem linkpath={"/industrias/fundicion"}>
-          Muebles
-        </NavOptionListItem>
-        <NavOptionListItem linkpath={"/industrias/fundicion"}>
-          Carcasas y cubiertas
-        </NavOptionListItem>
-        <NavOptionListItem linkpath={"/industrias/fundicion"}>
-          Sellos y juntas
-        </NavOptionListItem>
+        <NavOptionListItem
+          linkTitle={"Muebles"}
+          linkpath={"/aplicaciones/consumidor-final/muebles"}
+        />
+        <NavOptionListItem
+          linkTitle={"Carcasas y cubiertas"}
+          linkpath={"/aplicaciones/consumidor-final/carcasas-cubiertas"}
+        />
+        <NavOptionListItem
+          linkTitle={"Sellos y juntas"}
+          linkpath={"/aplicaciones/consumidor-final/sellos-juntas"}
+        />
       </NavDropDown>
+      {/* /////////////////////////////////////////////////////////// */}
     </NavDropDownContainer>
   );
 }

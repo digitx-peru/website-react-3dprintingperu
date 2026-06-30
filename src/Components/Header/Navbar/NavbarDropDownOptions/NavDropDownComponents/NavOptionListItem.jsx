@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NavOptionListItem({ linkpath, children }) {
+export default function NavOptionListItem({ linkTitle, linkpath, children }) {
   const styles = {
     optionListItem: {
       listStyle: "none",
@@ -16,7 +16,7 @@ export default function NavOptionListItem({ linkpath, children }) {
   return (
     <li style={styles.optionListItem}>
       <Link to={linkpath} style={styles.navlink}>
-        {children}
+        {linkTitle}
       </Link>
     </li>
   );

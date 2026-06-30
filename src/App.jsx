@@ -58,7 +58,7 @@ export default function App() {
         element={<CustomPhotopolymers />}
       />
       <Route
-        path="/servicios/mantenimiento/impresoras-3D"
+        path="/servicios/mantenimiento/soporte-tecnico"
         element={<CustomMachineSupport />}
       />
 
