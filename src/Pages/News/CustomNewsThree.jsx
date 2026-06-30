@@ -6,16 +6,14 @@ import Footer from "../../Components/Footer/Footer";
 
 import CustomContentNewsThree from "../../Content/News/CustomContentNewsThree";
 
-import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
-
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
     title: "La nueva EXT 1270",
     message: null,
-    heroImage: heroImgNews,
-  }
+    heroImage: "/images/hero/hero_img_news.jpg",
+  };
 
   const styles = {
     //Main container style rules how the hero's image behaves
@@ -25,7 +23,7 @@ export default function Noticia() {
       alignItems: "center",
       // position: "absolute",
       // zIndex: 2,
-      maxWidth: "100vw"
+      maxWidth: "100vw",
     },
     applicationContent: {
       display: "flex",
@@ -38,7 +36,11 @@ export default function Noticia() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
+      <Header
+        heroTitle={heroContent.title}
+        heroMessage={heroContent.message}
+        heroImage={heroContent.heroImage}
+      />
       <div style={styles.mainContainer}>
         {/* <Hero
           title={heroContent.title}

@@ -30,7 +30,7 @@ import CustomNewsTwo from "./Pages/News/CustomNewsTwo";
 import CustomNewsThree from "./Pages/News/CustomNewsThree";
 
 /////////////////////LANDING
-import Landing from "./Pages/Support/Landing/PageLanding";
+import Landing from "./Pages/Landing/PageLanding";
 
 /////////////////////SUPPORT
 import PrivacyPolicy from "./Pages/Support/Policies/PagePrivacy";
@@ -113,8 +113,10 @@ export default function App() {
       <Route path="/noticias/la-nueva-ext-1270" element={<CustomNewsThree />} />
 
       {/* LANDING */}
-      <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
       <Route path="/nextwebinar" element={<Landing />} />
+
+      {/* PRIVACY */}
+      <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
 
       {/* NOT FOUND */}
       <Route path="*" element={<NotFound />} />

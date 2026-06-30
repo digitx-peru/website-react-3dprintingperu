@@ -9,8 +9,6 @@ import Footer from "../../Components/Footer/Footer";
 import CustomContentNewsOneSpanish from "../../Content/News/CustomContentNewsOneSpanish";
 import CustomContentNewsOneOriginal from "../../Content/News/CustomContentNewsOneOriginal";
 
-import heroImgNews from "../../assets/heroImages/hero_img_news.jpg";
-
 export default function Noticia() {
   const isDevice = useMediaQuery(768);
 
@@ -18,7 +16,7 @@ export default function Noticia() {
     title:
       "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora usando avanzada tecnologia ortopedica",
     message: null,
-    heroImage: heroImgNews,
+    heroImage: "/images/hero/hero_img_news.jpg",
   };
 
   const tabItems = [
@@ -61,11 +59,6 @@ export default function Noticia() {
         heroImage={heroContent.heroImage}
       />
       <div style={styles.mainContainer}>
-        {/* <Hero
-            title={heroContent.title}
-            message={heroContent.message}
-            imageSrc={heroContent.heroImage}
-          /> */}
         <div className={"applicationContent"} style={styles.applicationContent}>
           <Tabs defaultActiveKey="1" items={tabItems} />
         </div>

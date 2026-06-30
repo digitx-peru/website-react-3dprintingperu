@@ -11,15 +11,12 @@ export default function NotFound() {
   const isDevice = useMediaQuery(768);
   const is1440 = useMediaQuery(1440);
 
-
-
-
   const styles = {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      rowGap: "0px"
+      rowGap: "0px",
     },
     applicationContent: {
       display: "flex",
@@ -35,14 +32,42 @@ export default function NotFound() {
 
   return (
     <>
-      <Header heroTitle={"Ooops!"}/>
+      <Header heroTitle={"Ooops!"} />
       <div style={styles.mainContainer}>
         <section
           className={"applicationContent"}
           style={styles.applicationContent}
         >
-          <div style={{display: "flex", flexDirection:"row", alignItems: "center", justifyContent:"center", fontSize: "48px", height: "500px"}}>PAGINA NO ENCONTRADA</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "48px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "250px",
+                  fontWeight: "bold",
+                  color: "#0A4F4F",
+                }}
+              >
+                404
+              </p>
+              <p style={{ color: "#0A4F4F" }}>Página no encontrada</p>
+            </div>
 
+            <img src="/images/support/notfound/notfound_printer.png" alt="" />
+          </div>
         </section>
         <Footer />
       </div>

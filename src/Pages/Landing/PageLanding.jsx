@@ -1,20 +1,19 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
-import Header from "../../../Components/Header/Header";
-import Footer from "../../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
-import CustomContentLanding from "../../../Content/Landing/ContentLanding"
-
-import heroImgNews from "../../../assets/heroImages/hero_img_news.jpg";
+import CustomContentLanding from "../../Content/Landing/ContentLanding";
 
 export default function PageLanding() {
   const isDevice = useMediaQuery(768);
 
   const heroContent = {
-    title: "Webinar: Cuándo dar el salto a la impresión Industrial de filamento",
+    title:
+      "Webinar: Cuándo dar el salto a la impresión Industrial de filamento",
     message: null,
-    heroImage: heroImgNews,
-  }
+    heroImage: "/images/hero/hero_img_news.jpg",
+  };
 
   const styles = {
     mainContainer: {
@@ -34,7 +33,11 @@ export default function PageLanding() {
 
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
+      <Header
+        heroTitle={heroContent.title}
+        heroMessage={heroContent.message}
+        heroImage={heroContent.heroImage}
+      />
       <div style={styles.mainContainer}>
         <div className={"applicationContent"} style={styles.applicationContent}>
           <CustomContentLanding />
