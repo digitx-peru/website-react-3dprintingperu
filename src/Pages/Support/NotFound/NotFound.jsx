@@ -1,15 +1,13 @@
-import { useParams } from "react-router-dom";
-
-import useMediaQuery from "../../../hooks/useMediaQuery";
+// import useMediaQuery from "../../../hooks/useMediaQuery";
 
 import Header from "../../../Components/Header/Header";
 import Footer from "../../../Components/Footer/Footer";
 
-export default function NotFound() {
-  const routerParams = useParams();
+import NotFoundImage from "../../../assets/support/notfound/notfound_printer.png";
 
-  const isDevice = useMediaQuery(768);
-  const is1440 = useMediaQuery(1440);
+export default function NotFound() {
+  // const isDevice = useMediaQuery(768);
+  // const is1440 = useMediaQuery(1440);
 
   const styles = {
     mainContainer: {
@@ -66,7 +64,7 @@ export default function NotFound() {
               <p style={{ color: "#0A4F4F" }}>Página no encontrada</p>
             </div>
 
-            <img src="/images/support/notfound/notfound_printer.png" alt="" />
+            <img src={NotFoundImage} alt="broken printer" />
           </div>
         </section>
         <Footer />

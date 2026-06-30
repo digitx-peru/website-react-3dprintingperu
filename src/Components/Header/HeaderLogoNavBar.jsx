@@ -5,6 +5,8 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import Navbar from "./Navbar/Navbar";
 import NavMenu from "./Navbar/NavMenu";
 
+import LogoIcon from "../../assets/components/logo/3dp_logo.png"
+
 export default function HeaderLogoNavBar({
   activeNavBarCategory,
   setActiveNavBarCategory,
@@ -36,7 +38,7 @@ export default function HeaderLogoNavBar({
       style={styles.headerNavigationContainer}
     >
       <Link to="/">
-        <img src={"/images/logo/3dp_logo.png"} style={styles.icon} alt="" />
+        <img src={LogoIcon} style={styles.icon} alt="company logo icon" />
       </Link>
       {isMobile || isTablet ? (
         <NavMenu />

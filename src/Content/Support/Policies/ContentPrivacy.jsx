@@ -1,4 +1,3 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
 import EndOfContent from "../../../Components/Content/EndOfContent";
 
 export default function ContentPrivacy() {
