@@ -6,7 +6,7 @@ export default function CustomContentCasing() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/casing/casing_housing.png"}
+        imageName={"applications/consumer/casing/casing_housing.png"}
         backgroundColor={"#7BEFB1"}
       >
         <h2>Soluciones para prototipado y producción pre-serie</h2>
@@ -29,7 +29,7 @@ export default function CustomContentCasing() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/casing/casing_controller.png"}
+        imageName={"applications/consumer/casing/casing_controller.png"}
       >
         <h2>Rendimiento de uso final</h2>
         <p>
@@ -49,7 +49,7 @@ export default function CustomContentCasing() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"applications/casing/casing_finishing.png"}
+        imageName={"applications/consumer/casing/casing_finishing.png"}
       >
         <h2>Acabado estético</h2>
         <p>

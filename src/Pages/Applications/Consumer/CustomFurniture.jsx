@@ -9,7 +9,7 @@ export default function CustomFurniture() {
         heroMessage={
           "La manufactura aditiva ha llevado el diseño de muebles a otra dimensión"
         }
-        backgroundImage={"/images/applications/furniture/furniture_background.png"}
+        backgroundImage={"/images/applications/consumer/furniture/furniture_background.png"}
       >
         <CustomContentFurniture />
       </PageContent>
