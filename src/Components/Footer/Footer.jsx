@@ -1,5 +1,5 @@
 import useMediaQuery from "../../hooks/useMediaQuery";
-import FooterNav from "./FooterNav";
+import FooterNav from "./FooterNav/FooterNav.jsx";
 import FooterPrivacyNav from "./FooterPrivacyNav.jsx";
 import FooterSocial from "./FooterSocial";
 
@@ -11,10 +11,10 @@ export default function Footer() {
       display: "flex",
       flexDirection: "column",
       backgroundColor: "rgb(10,79,79)",
-      borderTop:"7px solid rgb(99,218,178)",
+      borderTop: "7px solid rgb(99,218,178)",
       // marginTop: 25,
-      boxSizing:"border-box",
-      width:"100%"
+      boxSizing: "border-box",
+      width: "100%",
     },
     footerContent: {
       display: "flex",

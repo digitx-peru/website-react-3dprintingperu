@@ -41,6 +41,7 @@ import "./globalStyles.css";
 export default function App() {
   return (
     <Routes>
+      {/* HOME */}
       <Route path="/" exact element={<Home />} />
 
       {/* SERVICES */}
@@ -72,35 +73,35 @@ export default function App() {
 
       {/* APPLICATIONS */}
       <Route
-        path="aplicaciones/consumidor-final/muebles"
+        path="/aplicaciones/consumidor-final/muebles"
         element={<CustomFurniture />}
       />
       <Route
-        path="aplicaciones/consumidor-final/carcasas-cubiertas"
+        path="/aplicaciones/consumidor-final/carcasas-cubiertas"
         element={<CustomCasing />}
       />
       <Route
-        path="aplicaciones/consumidor-final/sellos-juntas"
+        path="/aplicaciones/consumidor-final/sellos-juntas"
         element={<CustomSeals />}
       />
       <Route
-        path="aplicaciones/joyeria/vaciado"
+        path="/aplicaciones/joyeria/vaciado"
         element={<CustomJewelryCasting />}
       />
       <Route
-        path="aplicaciones/joyeria/moldes"
+        path="/aplicaciones/joyeria/moldes"
         element={<CustomJewelryMoulds />}
       />
       <Route
-        path="aplicaciones/fundicion/vaciado"
+        path="/aplicaciones/fundicion/vaciado"
         element={<CustomFoundryCasting />}
       />
       <Route
-        path="aplicaciones/fundicion/moldes"
+        path="/aplicaciones/fundicion/moldes"
         element={<CustomFoundryMoulds />}
       />
       <Route
-        path="aplicaciones/salud/protesis"
+        path="/aplicaciones/salud/protesis"
         element={<CustomProsthesis />}
       />
 
