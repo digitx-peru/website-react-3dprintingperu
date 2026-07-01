@@ -28,7 +28,7 @@ export default function Header({ backgroundImage }) {
         isOverlayVisible &&
         overlayRef.current &&
         !overlayRef.current.contains(event.target) &&
-        !navRef.current.contains(event.target)  // ignore nav clicks
+        !navRef.current.contains(event.target) // ignore nav clicks
       ) {
         setOverlayVisible(false);
         setActiveNavBarCategory(null);

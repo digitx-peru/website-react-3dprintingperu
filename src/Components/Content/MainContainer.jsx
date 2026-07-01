@@ -15,6 +15,7 @@ export default function MainContainer({
   floatButton = true,
   floatContent,
 }) {
+  const isMobile = useMediaQuery(480);
   const isDevice = useMediaQuery(1000);
   const isMedium = useMediaQuery(1320);
 
@@ -33,8 +34,6 @@ export default function MainContainer({
       flexDirection: "column",
       justifyContent: "center",
       marginBottom: "50px",
-      width: "100vw",
-      // width: width,
       textAlign: "justify",
       fontSize: isMedium ? "12px" : "16px",
       lineHeight: "1.5",
@@ -53,7 +52,7 @@ export default function MainContainer({
           backgroundImage={backgroundImage}
         />
       )}
-      {/* Content sectio*/}
+      {/* Content section*/}
       <section className={"pageContent"} style={styles.pageContent}>
         {children}
       </section>

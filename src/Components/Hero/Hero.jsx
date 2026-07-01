@@ -10,6 +10,7 @@ export default function Hero({
   backgroundImage,
 }) {
   const isMobile = useMediaQuery(480);
+
   const styles = {
     container: {
       position: "relative",
