@@ -15,9 +15,6 @@ import {
   propertyFiltering,
 } from "../../utils/filters";
 
-// import heroImgFoundry from "../../../assets/heroImages/hero_img_materials.png";
-// import ProductHero from "../../Components/ProductHero";
-
 export default function Materials() {
   const heroContent = {
     title: "Materiales",
@@ -53,13 +50,9 @@ export default function Materials() {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
-      //gap: is1280 ? "20px" : "200px",
-      //padding: is1280 ? "15px" : "50px 50px",
       minHeight: isColumnLayoutWidth ? "auto" : "890px",
       alignItems: isColumnLayoutWidth ? "stretch" : "flex-start",
       justifyContent: "space-between",
-      // position:"absolute",
-      // zIndex:2,
       borderSizing: "border-box",
       width: "100vw",
     },
