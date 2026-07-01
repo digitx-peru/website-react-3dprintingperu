@@ -16,6 +16,7 @@ export default function MainContainer({
   floatContent,
 }) {
   const isMobile = useMediaQuery(480);
+  const isTablet = useMediaQuery(768);
   const isDevice = useMediaQuery(1000);
   const isMedium = useMediaQuery(1320);
 
@@ -57,7 +58,7 @@ export default function MainContainer({
         {children}
       </section>
       {/* Float Button */}
-      {floatButton && <FloatButton preselectedApplications={floatContent} />}
+      {floatButton && !isTablet && <FloatButton preselectedApplications={floatContent} />}
       {/* Contact Us section */}
       <ContactSection />
     </main>

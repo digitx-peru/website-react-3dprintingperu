@@ -1,15 +1,21 @@
+import useMediaQuery from "../../../../../hooks/useMediaQuery";
+
 import { Link } from "react-router-dom";
 
-export default function NavOptionListItem({ linkTitle, linkpath, children }) {
+export default function NavOptionListItem({ linkTitle, linkpath }) {
+  //Check windows size
+  const isTablet = useMediaQuery(768);
+
   const styles = {
     optionListItem: {
       listStyle: "none",
-      fontSize: "16px",
-      marginBottom: "15px",
+      fontSize: isTablet ? "18px" : "16px",
+      fontWeight: "normal",
+      marginBottom: isTablet ? 0 : "15px",
     },
     navlink: {
       textDecoration: "none",
-      color: "#3EFFB4",
+      color: isTablet ? "#007FFF" : "#3EFFB4",
     },
   };
 

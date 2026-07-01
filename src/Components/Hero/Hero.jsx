@@ -10,6 +10,7 @@ export default function Hero({
   backgroundImage,
 }) {
   const isMobile = useMediaQuery(480);
+  const isTablet = useMediaQuery(768);
 
   const styles = {
     container: {
@@ -29,7 +30,7 @@ export default function Hero({
       justifyContent: "center",
       color: "white",
       padding: "0 50px",
-      gap: "10px 0",
+      gap: isTablet ? "30px" : "10px 0",
       zIndex: 2,
     },
     imageTitle: {
@@ -37,9 +38,10 @@ export default function Hero({
     },
     title: {
       fontSize: isMobile ? 32 : 64,
+      fontWeight: isMobile ? "bold" : "normal"
     },
     message: {
-      fontSize: 24,
+      fontSize: isMobile ? "20px" : "24px",
     },
   };
 

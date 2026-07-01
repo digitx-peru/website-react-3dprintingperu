@@ -1,40 +1,41 @@
-export default function PageContent({
-  iconImagePath = "/images/infocard/info_card_icon_concept.png",
+import useMediaQuery from "../../../hooks/useMediaQuery";
+
+export default function IconInfoCard({
+  iconImagePath = "/images/components/homePage/infocard/info_card_icon_1.png",
   title,
   message,
   backgroundColor,
 }) {
+  //Check windows size
+  const isTablet = useMediaQuery(768);
+
   const styles = {
     container: {
       display: "flex",
       flexDirection: "column",
-      width: "300px",
-      height: "400px",
+      width: isTablet ? "auto" : "300px",
+      height: isTablet ? "auto" : "400px",
       backgroundColor: backgroundColor,
       padding: "15px",
       boxSizing: "border-box",
       borderRadius: "10px",
-      gap: "30px"
+      gap: isTablet ? 0 : "30px",
     },
     image: {
       alignSelf: "flex-end",
     },
-    // title: {
-    //   textAlign: "center",
-    //   marginBottom: "20px",
-    // },
   };
 
   return (
     <div className="cardContainer" style={styles.container}>
-      <img src={iconImagePath} alt="" className="icon" style={styles.image} />
+      {!isTablet && <img src={iconImagePath} alt="" className="icon" style={styles.image} />}
       <div
         style={{
           display: "flex",
           flex: 1,
           flexDirection: "column",
           justifyContent: "flex-start",
-          gap: "20px"
+          gap: "20px",
         }}
       >
         <h2 className="cardTitle" style={styles.title}>

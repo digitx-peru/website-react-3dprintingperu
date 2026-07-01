@@ -1,3 +1,5 @@
+import useMediaQuery from "../../../hooks/useMediaQuery";
+
 import RowComponent from "../RowComponent";
 
 export default function TitleMessageContainer({
@@ -6,24 +8,29 @@ export default function TitleMessageContainer({
   message,
   sectionName,
 }) {
+  //Check windows size
+  const isTablet = useMediaQuery(768);
+
   const styles = {
     layout: {
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
+      padding: isTablet ? "20px" : "0 200px",
     },
     title: {
-      textAlign: "center",
+      textAlign: isTablet ? "left" : "center",
       marginBottom: "20px",
+      fontSize: isTablet ? "24px" : "24px",
     },
     message: {
       marginBottom: "20px",
     },
     childrenContainer: {
       display: "flex",
-      flexDirection: "row",
+      flexDirection: isTablet ? "column" : "row",
       justifyContent: "center",
-      gap: "40px",
+      gap: isTablet ? "20px" : "40px",
     },
   };
 

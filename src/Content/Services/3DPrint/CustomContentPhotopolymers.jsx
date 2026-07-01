@@ -1,9 +1,21 @@
+import useMediaQuery from "../../../hooks/useMediaQuery";
+
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 import TitleMessageContainer from "../../../Components/Content/TitleMessageComponent/TitleMessageContainer";
 import IconInfoCard from "../../../Components/Content/TitleMessageComponent/IconInfoCard";
 
 export default function CustomContentPhotopolymers() {
+  //Check windows size
+  const isTablet = useMediaQuery(768);
+
+  const styles = {
+    table: {
+      width: isTablet ? "100%" : "60%",
+      fontSize: isTablet ? "10px" : "12px"
+    }
+  }
+
   return (
     <>
       <TextImageRow
@@ -35,21 +47,24 @@ export default function CustomContentPhotopolymers() {
           message={
             "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
           }
-          iconImagePath="\images\infocard\info_card_icon_concept.png"
+          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_concept.png"
+          backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
           title={"Modelos de Concepto"}
           message={
             "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rigidos"
           }
-          iconImagePath="\images\infocard\info_card_icon_piece.png"
+          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_piece.png"
+          backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
           title={"Modelos de Concepto"}
           message={
             "La alta precision y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyeccion de plastico."
           }
-          iconImagePath="\images\infocard\info_card_icon_printer.png"
+          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_printer.png"
+          backgroundColor={"#D9D9D8"}
         />
       </TitleMessageContainer>
 
@@ -60,7 +75,7 @@ export default function CustomContentPhotopolymers() {
           "La tecnología Figure 4 tiene la versatilidad de poder lograr varios tipos de piezas, usando sus 21 tipos de resinas disponibles, puede producir prototipos funcionales o modelos de concepto, y además piezas de producción (para usuario final)."
         }
       >
-        <table className="Figure 4 capacity" style={{ width: "60%" }}>
+        <table className="Figure 4 capacity" style={styles.table}>
           <colgroup>
             <col style={{ width: "25%" }} />
             <col style={{ width: "25%" }} />

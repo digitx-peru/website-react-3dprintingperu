@@ -1,6 +1,12 @@
+import useMediaQuery from "../../../hooks/useMediaQuery";
+
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function CustomContentPolyurethane() {
+
+    const isMobile = useMediaQuery(480);
+    const isTablet = useMediaQuery(768);
+
   return (
     <>
       <TextImageRow
@@ -54,6 +60,7 @@ export default function CustomContentPolyurethane() {
           flexDirection: "column",
           alignContent: "center",
           backgroundColor: "#3EFFB4",
+          padding: isTablet ? "0 20px" : 0
         }}
       >
         <div
@@ -69,6 +76,7 @@ export default function CustomContentPolyurethane() {
               display: "flex",
               justifyContent: "center",
               fontSize: "30px",
+              // width: "100%"
             }}
             src="/images/services/production/silicone_urethane/silicone_urethane_cycle.png"
             alt=""

@@ -27,7 +27,7 @@ export default function Home() {
       <PageContent
         heroTitle={"Desafia los limites con la Impresion 3D Industrial"}
         heroMessage={null}
-        backgroundImage={"/images/hero/hero_img_home.jpg"}
+        backgroundImage={"/images/home/hero_img_home.jpg"}
       >
         {/* //////////////////////////////////////////////////////////////////////////////////// */}
         <HomePageBrandsBanner />

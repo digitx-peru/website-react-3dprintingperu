@@ -1,18 +1,27 @@
+import useMediaQuery from "../../../../../hooks/useMediaQuery";
+
 export default function NavDropDown({ title, children }) {
+  //Check windows size
+  const isTablet = useMediaQuery(768);
+
   const styles = {
     dropdownOption: {
       display: "flex",
       flexDirection: "column",
+      marginBottom: isTablet ? "20px" : 0,
+      gap: isTablet ? "10px" : 0,
     },
     listTitle: {
-      fontWeight: "400",
-      fontSize: "16px",
-      marginBottom: "20px",
+      fontWeight: isTablet ? "bold" : "400",
+      fontSize: isTablet ? "20px" : "16px",
+      marginBottom: isTablet ? 0 : "20px",
     },
     optionList: {
       padding: 0,
-      margin: 0,
-      // marginTop: "20px",
+      margin: isTablet ? "0 20px" : 0,
+      display: isTablet ? "flex" : "block",
+      flexDirection: isTablet ? "column" : "row",
+      gap: isTablet ? "10px" : 0,
     },
   };
 

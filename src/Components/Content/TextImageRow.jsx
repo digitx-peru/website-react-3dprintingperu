@@ -15,17 +15,18 @@ export default function TextImageRow({
   const styles = {
     layoutContainer: {
       display: "flex",
-      flexDirection: isMobile ? "column" : imageRight ? "row-reverse" : "row",
+      flexDirection: isTablet ? "column" : imageRight ? "row-reverse" : "row",
       padding: "20px 0",
       fontSize: "16px",
       backgroundColor: backgroundColor,
+      gap: isTablet ? "15px" : 0
     },
     textSection: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "start",
       flex: 0.6,
-      padding: isMobile ? "0px 20px" : imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
+      padding: isTablet ? "0px 20px" : imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
       rowGap: "20px",
     },
     imageSection: {
@@ -33,7 +34,7 @@ export default function TextImageRow({
       flex: 0.4,
       justifyContent: imageRight ? "end" : "start",
       alignItems: "start",
-      padding: isMobile ? "0px 20px" : imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
+      padding: isTablet ? "0px 20px" : imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
     },
     image: {
       maxHeight: "400px",
