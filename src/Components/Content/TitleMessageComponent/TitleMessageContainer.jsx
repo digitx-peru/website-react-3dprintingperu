@@ -1,4 +1,4 @@
-import RowComponent from "./RowComponent";
+import RowComponent from "../RowComponent";
 
 export default function TitleMessageContainer({
   children,
@@ -11,9 +11,9 @@ export default function TitleMessageContainer({
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
-      padding: "0px 200px",
     },
     title: {
+      textAlign: "center",
       marginBottom: "20px",
     },
     message: {

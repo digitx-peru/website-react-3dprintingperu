@@ -1,7 +1,7 @@
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
-import TitleMessageContainer from "../../../Components/Content/TitleMessageContainer";
-import IconInfoCard from "../../../Components/Content/IconInfoCard";
+import TitleMessageContainer from "../../../Components/Content/TitleMessageComponent/TitleMessageContainer";
+import IconInfoCard from "../../../Components/Content/TitleMessageComponent/IconInfoCard";
 
 export default function CustomContentPhotopolymers() {
   return (
