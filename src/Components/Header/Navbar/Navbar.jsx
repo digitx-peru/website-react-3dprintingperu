@@ -4,6 +4,7 @@ export default function Navbar({
   activeNavBarCategory,
   setOverlayVisible,
   setActiveNavBarCategory,
+  navReference
 }) {
   const handleOnClick = (buttonId) => {
     setOverlayVisible(true);
@@ -42,7 +43,7 @@ export default function Navbar({
   };
 
   return (
-    <nav style={styles.navbar}>
+    <nav ref={navReference} style={styles.navbar}>
       <ul style={styles.optionList}>
         {/*Services menu*/}
         <li

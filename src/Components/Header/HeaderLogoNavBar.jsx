@@ -11,6 +11,7 @@ export default function HeaderLogoNavBar({
   activeNavBarCategory,
   setActiveNavBarCategory,
   setOverlayVisible,
+  navReference
 }) {
   //Check windows size
   const isMobile = useMediaQuery(480);
@@ -48,6 +49,7 @@ export default function HeaderLogoNavBar({
           activeNavBarCategory={activeNavBarCategory}
           setOverlayVisible={setOverlayVisible}
           setActiveNavBarCategory={setActiveNavBarCategory}
+          navReference={navReference}
         />
       )}
       {isMobile || isTablet ? null : <div style={{ width: "137.6px" }}></div>}

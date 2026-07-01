@@ -10,11 +10,11 @@ export default function HeroOverlay({
 }) {
   const styles = {
     dropdownOverlay: {
-      position: "fixed",
+      position: "absolute",
       top: "85px", // Adjust based on navbar height
       left: 0,
       width: "100%",
-    //   height: "calc(100% - 85px)", // Covers the Hero component
+      //   height: "calc(100% - 85px)", // Covers the Hero component
       height: "500px", // Covers the Hero component
       backgroundColor: "rgba(0, 0, 0, 0.98)", // Dark overlay
       display: isOverlayVisible ? "flex" : "none",

@@ -20,13 +20,15 @@ export default function Header({ backgroundImage }) {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
   const overlayRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     function handleClickableOverlay(event) {
       if (
         isOverlayVisible &&
         overlayRef.current &&
-        !overlayRef.current.contains(event.target)
+        !overlayRef.current.contains(event.target) &&
+        !navRef.current.contains(event.target)  // ignore nav clicks
       ) {
         setOverlayVisible(false);
         setActiveNavBarCategory(null);
@@ -44,6 +46,7 @@ export default function Header({ backgroundImage }) {
       position: "relative",
       display: "flex",
       flexDirection: "column",
+      width: "100%",
       backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
       backgroundColor: backgroundImage ? "none" : "white",
       backgroundSize: "cover",
@@ -61,6 +64,7 @@ export default function Header({ backgroundImage }) {
         activeNavBarCategory={activeNavBarCategory}
         setActiveNavBarCategory={setActiveNavBarCategory}
         setOverlayVisible={setOverlayVisible}
+        navReference={navRef}
       />
 
       {/* Clickable Overlay */}
