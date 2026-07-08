@@ -21,13 +21,16 @@ export default function HomePageBrandsBanner() {
         justifyContent: "space-evenly",
       }),
     },
+    image: {
+      width: "100%",
+    },
   };
 
   return (
     <article className="brands" style={styles.container}>
-      <img src={DDDSysLogo} alt="3D Systems Logo" />
-      <img src={IntamsysLogo} alt="Intamsys Logo" />
-      <img src={RhinoLogo} alt="RhinoArtisan Logo" />
+      <img src={DDDSysLogo} alt="3D Systems Logo" style={styles.image} />
+      <img src={IntamsysLogo} alt="Intamsys Logo" style={styles.image} />
+      <img src={RhinoLogo} alt="RhinoArtisan Logo" style={styles.image} />
     </article>
   );
 }

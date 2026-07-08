@@ -1,4 +1,4 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
+import useBreakpoints from "../../../hooks/useBreakpoints";
 
 export default function IconInfoCard({
   iconImagePath = "/images/components/homePage/infocard/info_card_icon_1.png",
@@ -7,37 +7,44 @@ export default function IconInfoCard({
   backgroundColor,
 }) {
   //Check windows size
-  const isTablet = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
-    container: {
+    componentContainer: {
       display: "flex",
       flexDirection: "column",
-      width: isTablet ? "auto" : "300px",
-      height: isTablet ? "auto" : "400px",
       backgroundColor: backgroundColor,
       padding: "15px",
       boxSizing: "border-box",
-      borderRadius: "10px",
-      gap: isTablet ? 0 : "30px",
+      borderRadius: "8px",
+      fontSize: "16px",
+      ...(isMd && {
+        width: "300px",
+        height: "400px",
+        gap: "30px",
+      }),
+    },
+    infoContainer: {
+      display: "flex",
+      flex: 1,
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      gap: "20px",
     },
     image: {
       alignSelf: "flex-end",
     },
+    title: {
+      fontSize: "clamp(18px, 4vw, 24px)",
+    },
   };
 
   return (
-    <div className="cardContainer" style={styles.container}>
-      {!isTablet && <img src={iconImagePath} alt="" className="icon" style={styles.image} />}
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          gap: "20px",
-        }}
-      >
+    <div className="cardContainer" style={styles.componentContainer}>
+      {isMd && (
+        <img src={iconImagePath} alt="" className="icon" style={styles.image} />
+      )}
+      <div style={styles.infoContainer}>
         <h2 className="cardTitle" style={styles.title}>
           {title}
         </h2>

@@ -47,24 +47,35 @@ export default function ContactUs() {
     formItem: {
       marginBottom: 0,
       flexGrow: 1,
+      fontSize: "16px",
+    },
+    formItemInput: {
+      fontSize: "16px",
     },
     formItemButton: {
       display: "flex",
       justifyContent: "center",
     },
-    formItemLabelTitle: {
-      color: "rgb(62,255,180)",
-    },
     formItemLabel: {
       color: "white",
+      fontSize: "18px",
+    },
+    formItemLabelTitle: {
+      color: "rgb(62,255,180)",
+      fontSize: "24px",
     },
     formItemSubmitButton: {
       height: "60px",
       width: "200px",
       backgroundColor: "rgb(99,218,178)",
+      fontSize: "16px",
       ...(isMd && {
         height: "auto",
+        fontSize: "24px",
       }),
+    },
+    formTextArea: {
+      fontSize: "16px",
     },
     modalMessage: {
       fontSize: "14px",
@@ -132,6 +143,7 @@ export default function ContactUs() {
         autoComplete="off"
       >
         <h2 style={styles.formItemLabelTitle}>Haz tu consulta</h2>
+        {/* ////////////////////////////////////////////////////////// */}
         <div style={styles.formItemGroup}>
           <Form.Item
             label={<label style={styles.formItemLabel}>Nombre completo</label>}
@@ -144,9 +156,9 @@ export default function ContactUs() {
               },
             ]}
           >
-            <Input />
+            <Input style={styles.formItemInput} />
           </Form.Item>
-
+          {/* ////////////////////////////////////////////////////////// */}
           <Form.Item
             label={<label style={styles.formItemLabel}>Email</label>}
             name="email"
@@ -158,10 +170,10 @@ export default function ContactUs() {
               },
             ]}
           >
-            <Input />
+            <Input style={styles.formItemInput} />
           </Form.Item>
         </div>
-
+        {/* ////////////////////////////////////////////////////////// */}
         <div style={styles.formItemGroup}>
           <Form.Item
             label={<label style={styles.formItemLabel}>Teléfono</label>}
@@ -174,9 +186,9 @@ export default function ContactUs() {
               },
             ]}
           >
-            <Input />
+            <Input style={styles.formItemInput} />
           </Form.Item>
-
+          {/* ////////////////////////////////////////////////////////// */}
           <Form.Item
             label={<label style={styles.formItemLabel}>Empresa</label>}
             name="companyName"
@@ -188,15 +200,15 @@ export default function ContactUs() {
               },
             ]}
           >
-            <Input />
+            <Input style={styles.formItemInput} />
           </Form.Item>
         </div>
-
+        {/* ////////////////////////////////////////////////////////// */}
         <div style={styles.formItemGroup}>
           <Form.Item
             label={<label style={styles.formItemLabel}>¿Qué necesita?</label>}
             name="requirement"
-            // style={{ ...styles.formItem, flexGrow: 0, width: "50%" }}
+            style={styles.formItem}
             rules={[
               {
                 required: true,
@@ -206,6 +218,9 @@ export default function ContactUs() {
           >
             <Select
               defaultValue="buy"
+              styles={{
+                input: { fontSize: "16px" },
+              }}
               options={[
                 { value: "buy", label: <span>Comprar impresora 3D</span> },
                 { value: "print", label: <span>Fabricar una pieza</span> },
@@ -219,7 +234,7 @@ export default function ContactUs() {
             />
           </Form.Item>
         </div>
-
+        {/* ////////////////////////////////////////////////////////// */}
         <Form.Item
           label={
             <label style={styles.formItemLabel}>
@@ -234,9 +249,10 @@ export default function ContactUs() {
             rows={4}
             value={currentTextValue}
             onChange={(e) => setCurrentTextValue(e.target.value)}
+            style={styles.formTextArea}
           />
         </Form.Item>
-
+        {/* ////////////////////////////////////////////////////////// */}
         <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>
           <Button
             style={styles.formItemSubmitButton}
@@ -247,6 +263,7 @@ export default function ContactUs() {
           </Button>
         </Form.Item>
       </Form>
+      {/* ////////////////////////////////////////////////////////// */}
       <Modal
         open={isModalOpen}
         // style={{ padding: 20 }}
@@ -264,7 +281,7 @@ export default function ContactUs() {
             <Button
               key="ok"
               type="primary"
-              // style={{ height: 40 }}
+              // style={{ fontSize: "16px" }}
               onClick={handleOk}
             >
               OK

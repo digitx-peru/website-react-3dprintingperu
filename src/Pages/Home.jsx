@@ -16,7 +16,9 @@ export default function Home() {
         {/* //////////////////////////////////////////////////////////////////////////////////// */}
         <HomePageBrandsBanner />
         {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        <TitleMessageContainer>
+        <TitleMessageContainer
+          title={"Noticias"}
+        >
           <NewsCard
             redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"
             title="La universidad de Salsburgo realiza sorprendente cirugía"
