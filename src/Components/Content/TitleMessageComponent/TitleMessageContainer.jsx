@@ -18,7 +18,7 @@ export default function TitleMessageContainer({
       alignItems: "stretch",
       padding: "20px",
       ...(isMd && {
-        padding: "0 200px",
+        padding: "20 200px",
       }),
     },
     title: {
@@ -49,12 +49,12 @@ export default function TitleMessageContainer({
   return (
     <RowComponent>
       <div className={sectionName} style={styles.layout}>
-        {title !== null && (
+        {title !== undefined && (
           <h2 className="title" style={styles.title}>
             {title}
           </h2>
         )}
-        {message !== null && (
+        {message !== undefined && (
           <p className="message" style={styles.message}>
             {message}
           </p>

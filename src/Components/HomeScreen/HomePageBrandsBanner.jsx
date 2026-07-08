@@ -12,13 +12,13 @@ export default function HomePageBrandsBanner() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "space-evenly",
-
       padding: " 20px",
       backgroundColor: "#D9D9D8",
+      gap: "20px",
       ...(isMd && {
         flexDirection: "row",
         height: "200px",
+        justifyContent: "space-evenly",
       }),
     },
   };

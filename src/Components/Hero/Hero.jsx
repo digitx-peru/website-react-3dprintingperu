@@ -1,4 +1,4 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 import HeaderHeroOverlay from "../Overlays/HeaderHeroOverlay";
 
@@ -9,19 +9,21 @@ export default function Hero({
   imgTitle = "/images/logo_artisan.jpeg",
   backgroundImage,
 }) {
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
     container: {
       position: "relative",
       display: "flex",
-      height: "500px",
+      height: "300px",
       backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
       backgroundColor: backgroundImage ? "none" : "white",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundAttachment: "fixed",
+      ...(isMd && {
+        height: "500px",
+      }),
     },
     textContainer: {
       display: "flex",
@@ -30,18 +32,29 @@ export default function Hero({
       justifyContent: "center",
       color: "white",
       padding: "0 50px",
-      gap: isTablet ? "30px" : "10px 0",
+      gap: "10px 0",
       zIndex: 2,
+      ...(isMd && {
+        gap: "30px",
+      }),
     },
     imageTitle: {
       width: "600px",
+      ...(isMd && {}),
     },
     title: {
-      fontSize: isMobile ? 32 : 64,
-      fontWeight: isMobile ? "bold" : "normal"
+      fontSize: "32px",
+      fontWeight: "bold",
+      ...(isMd && {
+        height: "64px",
+        fontWeight: "normal",
+      }),
     },
     message: {
-      fontSize: isMobile ? "20px" : "24px",
+      fontSize: "20px",
+      ...(isMd && {
+        fontSize: "24px",
+      }),
     },
   };
 

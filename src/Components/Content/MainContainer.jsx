@@ -1,4 +1,4 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 import ContactSection from "../ContactUs/ContactSection";
 import FloatButton from "../FloatButton/FloatButton";
@@ -15,29 +15,31 @@ export default function MainContainer({
   floatButton = true,
   floatContent,
 }) {
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
-  const isDevice = useMediaQuery(1000);
-  const isMedium = useMediaQuery(1320);
-
+  const { isMd, isLg } = useBreakpoints();
   const styles = {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
       textAlign: "justify",
-      paddingBottom: "50px",
       fontSize: "12px",
       lineHeight: "1.5",
+      // paddingBottom: "20px",
+      ...(isMd && {
+        paddingBottom: "50px",
+      }),
     },
     pageContent: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      marginBottom: "50px",
       textAlign: "justify",
-      fontSize: isMedium ? "12px" : "16px",
+      fontSize: "12px",
       lineHeight: "1.5",
+      ...(isMd && {
+        fontSize: "16px",
+        marginBottom: "50px",
+      }),
     },
   };
 
@@ -58,7 +60,9 @@ export default function MainContainer({
         {children}
       </section>
       {/* Float Button */}
-      {floatButton && !isTablet && <FloatButton preselectedApplications={floatContent} />}
+      {floatButton && isMd && (
+        <FloatButton preselectedApplications={floatContent} />
+      )}
       {/* Contact Us section */}
       <ContactSection />
     </main>

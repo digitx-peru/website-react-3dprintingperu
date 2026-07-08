@@ -19,7 +19,6 @@ export default function ContactUs() {
 
   const styles = {
     form: {
-      borderRadius: 8,
       display: "flex",
       flexDirection: "column",
       gap: 30,
@@ -27,13 +26,14 @@ export default function ContactUs() {
       alignSelf: "stretch",
       width: "auto",
       backgroundColor: "#323232",
-      margin: "0 15px",
+      // margin: "0 15px",
       padding: "20px",
       color: "white",
       ...(isMd && {
         alignSelf: "initial",
         width: "600px",
         margin: "0",
+        borderRadius: 8,
       }),
     },
     formItemGroup: {

@@ -1,16 +1,19 @@
+import useBreakpoints from "../../hooks/useBreakpoints";
+
 import ContactUs from "./ContactUs";
 
-const styles = {
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    marginBottom: "20px",
-  },
-};
-
 export default function ContactSection() {
+  const { isMd, isLg } = useBreakpoints();
+
+  const styles = {
+    container: {
+      display: "flex",
+      justifyContent: "center",
+      ...(isMd && {
+        marginBottom: "20px",
+      }),
+    },
+  };
   return (
     <section className="contactUs" style={styles.container}>
       <ContactUs />
