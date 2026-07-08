@@ -7,25 +7,24 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
 
   const styles = {
     linkContainer: {
-      flexGrow: 1,
-      border: "1px solid rgb(200, 200, 200)",
-      borderRadius: "8px 8px 0px 0px",
-      width: "400px",
+      // flexGrow: 1,
+      // border: "1px solid rgb(200, 200, 200)",
+      // borderRadius: "8px 8px 0px 0px",
+      // width: "400px",
       backgroundColor : "rgb(71,167,153)",
     },
     container: {
       display:"flex",
       flexDirection:"column",
-      height: "100%",
+      // height: "100%",
       borderRadius: 8,
     },
     image: {
-      width: "400px",
-      height: 300,
+      // height: 300,
       objectFit: "cover",
-      backgroundColor : "white",
-      borderTopLeftRadius: 8,
-      borderTopRightRadius: 8,
+      // backgroundColor : "white",
+      // borderTopLeftRadius: 8,
+      // borderTopRightRadius: 8,
     },
     infoContainer: {
       display: "flex",

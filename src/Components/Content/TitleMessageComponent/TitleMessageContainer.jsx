@@ -1,4 +1,4 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
+import useBreakpoints from "../../../hooks/useBreakpoints";
 
 import RowComponent from "../RowComponent";
 
@@ -9,37 +9,51 @@ export default function TitleMessageContainer({
   sectionName,
 }) {
   //Check windows size
-  const isTablet = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
     layout: {
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
-      padding: isTablet ? "20px" : "0 200px",
+      padding: "20px",
+      ...(isMd && {
+        padding: "0 200px",
+      }),
     },
     title: {
-      textAlign: isTablet ? "left" : "center",
+      textAlign: "left",
       marginBottom: "20px",
-      fontSize: isTablet ? "24px" : "24px",
+      fontSize: "24px",
+      ...(isMd && {
+        textAlign: "center",
+        fontSize: "24px",
+      }),
     },
     message: {
       marginBottom: "20px",
     },
     childrenContainer: {
       display: "flex",
-      flexDirection: isTablet ? "column" : "row",
+      flexDirection: "column",
       justifyContent: "center",
-      gap: isTablet ? "20px" : "40px",
+      // padding: "20px",
+      gap: "20px",
+      ...(isMd && {
+        flexDirection: "row",
+        gap: "40px",
+      }),
     },
   };
 
   return (
     <RowComponent>
       <div className={sectionName} style={styles.layout}>
-        <h2 className="title" style={styles.title}>
-          {title}
-        </h2>
+        {title !== null && (
+          <h2 className="title" style={styles.title}>
+            {title}
+          </h2>
+        )}
         {message !== null && (
           <p className="message" style={styles.message}>
             {message}

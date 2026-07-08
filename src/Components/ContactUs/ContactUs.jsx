@@ -1,26 +1,18 @@
 import { useState } from "react";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 import { Button, Form, Input, Modal, Select } from "antd";
 
 import emailHandler from "../../utils/emailHandler";
-import useMediaQuery from "../../hooks/useMediaQuery";
-
-// import { mediumScreenSize } from "../style/screenSizes";
 
 export default function ContactUs() {
+  const { isMd, isLg } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //current text value
-  const [currentTextValue, setCurrentTextValue] = useState("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
-
-  //Screenwidth breakpoints
-  const isMediumScreenSize = useMediaQuery(768);
-
-  //Esto marca el punto en el que pasa de tener un layout columna a fila
-  const isColumnLayoutWidth = useMediaQuery(1024);
-
-  //Puntos de quiebre para cambiar el tamaño
-  const is1280 = useMediaQuery(1280);
+  const [currentTextValue, setCurrentTextValue] = useState(
+    "Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre",
+  );
 
   //Form reference
   const [form] = Form.useForm();
@@ -32,18 +24,25 @@ export default function ContactUs() {
       flexDirection: "column",
       gap: 30,
       alignItems: "stretch",
-      alignSelf: isMediumScreenSize ? "stretch" : "initial",
-      width: isMediumScreenSize ? "auto" : is1280 ? "600px" : "900px",
+      alignSelf: "stretch",
+      width: "auto",
       backgroundColor: "#323232",
-      margin: isColumnLayoutWidth ? "0 15px" : "0",
-      // marginTop: "30px",
-      padding: "25px 50px",
+      margin: "0 15px",
+      padding: "20px",
       color: "white",
+      ...(isMd && {
+        alignSelf: "initial",
+        width: "600px",
+        margin: "0",
+      }),
     },
     formItemGroup: {
       display: "flex",
-      flexDirection: isColumnLayoutWidth ? "column" : "row",
+      flexDirection: "column",
       gap: "30px",
+      ...(isMd && {
+        flexDirection: "row",
+      }),
     },
     formItem: {
       marginBottom: 0,
@@ -60,13 +59,17 @@ export default function ContactUs() {
       color: "white",
     },
     formItemSubmitButton: {
-      height: isColumnLayoutWidth ? "60px" : "auto",
+      height: "60px",
       width: "200px",
-      backgroundColor: "rgb(99,218,178)"
+      backgroundColor: "rgb(99,218,178)",
+      ...(isMd && {
+        height: "auto",
+      }),
     },
     modalMessage: {
       fontSize: "14px",
     },
+    userNeed: {},
   };
 
   //OnFinish eventHandler
@@ -84,25 +87,31 @@ export default function ContactUs() {
 
   //onDropDownOptionChange
   const onDropDownOptionChange = (newValue) => {
-
     switch (newValue) {
       case "buy":
-        setCurrentTextValue("Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre")
+        setCurrentTextValue(
+          "Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre",
+        );
         break;
 
       case "print":
-        setCurrentTextValue("Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
+        setCurrentTextValue(
+          "Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre",
+        );
         break;
 
       case "support":
-        setCurrentTextValue("Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre")
+        setCurrentTextValue(
+          "Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre",
+        );
         break;
       case "rhino":
-        setCurrentTextValue("Hola 3DP, Quisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am> Muchas gracias, <Mi nombre>")
+        setCurrentTextValue(
+          "Hola 3DP, Quisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am> Muchas gracias, <Mi nombre>",
+        );
         break;
     }
-
-  }
+  };
 
   return (
     <>
@@ -187,7 +196,7 @@ export default function ContactUs() {
           <Form.Item
             label={<label style={styles.formItemLabel}>¿Qué necesita?</label>}
             name="requirement"
-            style={{ ...styles.formItem, flexGrow: 0, width: '50%' }}
+            // style={{ ...styles.formItem, flexGrow: 0, width: "50%" }}
             rules={[
               {
                 required: true,
@@ -196,12 +205,15 @@ export default function ContactUs() {
             ]}
           >
             <Select
-              defaultValue='buy'
+              defaultValue="buy"
               options={[
-                { value: 'buy', label: <span>Comprar impresora 3D</span> },
-                { value: 'print', label: <span>Fabricar una pieza</span> },
-                { value: 'support', label: <span>Mantenimiento de una impresora 3D</span> },
-                { value: 'rhino', label: <span>RhynoArtisan</span> },
+                { value: "buy", label: <span>Comprar impresora 3D</span> },
+                { value: "print", label: <span>Fabricar una pieza</span> },
+                {
+                  value: "support",
+                  label: <span>Mantenimiento de una impresora 3D</span>,
+                },
+                { value: "rhino", label: <span>RhynoArtisan</span> },
               ]}
               onChange={onDropDownOptionChange}
             />
@@ -209,14 +221,20 @@ export default function ContactUs() {
         </div>
 
         <Form.Item
-          label={<label style={styles.formItemLabel}>Por favor detalle más su requerimiento. Modifique el texto ejemplo como desee</label>}
+          label={
+            <label style={styles.formItemLabel}>
+              Por favor detalle más su requerimiento. Modifique el texto ejemplo
+              como desee
+            </label>
+          }
           //This form doesn't have a name because creates conflict with the value in TextArea.
           style={styles.formItem}
         >
-          <Input.TextArea 
-          rows={4} 
-          value={currentTextValue}
-          onChange={(e) => setCurrentTextValue(e.target.value)}/>
+          <Input.TextArea
+            rows={4}
+            value={currentTextValue}
+            onChange={(e) => setCurrentTextValue(e.target.value)}
+          />
         </Form.Item>
 
         <Form.Item style={{ ...styles.formItem, ...styles.formItemButton }}>
@@ -231,7 +249,7 @@ export default function ContactUs() {
       </Form>
       <Modal
         open={isModalOpen}
-        style={{ padding: 20 }}
+        // style={{ padding: 20 }}
         centered
         closable={false}
         footer={
@@ -246,7 +264,7 @@ export default function ContactUs() {
             <Button
               key="ok"
               type="primary"
-              style={{ height: 40 }}
+              // style={{ height: 40 }}
               onClick={handleOk}
             >
               OK

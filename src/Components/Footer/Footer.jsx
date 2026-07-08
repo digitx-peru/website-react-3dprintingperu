@@ -1,4 +1,4 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery.js";
 import FooterNav from "./FooterNav/FooterNav.jsx";
 import FooterPrivacyNav from "./FooterPrivacyNav.jsx";
 import FooterSocial from "./FooterSocial";
