@@ -1,12 +1,7 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
-
 import TextImageRow from "../../../Components/Content/TextImageRow";
+import PolyurethaneImageTitle from "../../../Components/PolyurethanePage/PolyurethaneImageTitle";
 
 export default function CustomContentPolyurethane() {
-
-    const isMobile = useMediaQuery(480);
-    const isTablet = useMediaQuery(768);
-
   return (
     <>
       <TextImageRow
@@ -53,53 +48,7 @@ export default function CustomContentPolyurethane() {
         </p>
       </TextImageRow>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      <div
-        className={"rowThree"}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
-          backgroundColor: "#3EFFB4",
-          padding: isTablet ? "0 20px" : 0
-        }}
-      >
-        <div
-          className="rowThreeSectionRight"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "20px 0px 20px 0px",
-          }}
-        >
-          <img
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontSize: "30px",
-              // width: "100%"
-            }}
-            src="/images/services/production/silicone_urethane/silicone_urethane_cycle.png"
-            alt=""
-          />
-        </div>
-        <div
-          className={"rowThreeSectionLeft"}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontSize: "30px",
-          }}
-        >
-          <h2
-            style={{
-              width: "800px",
-              textAlign: "center",
-            }}
-          >
-            Amplio rango de aplicaciones industriales
-          </h2>
-        </div>
-      </div>
+      <PolyurethaneImageTitle />
     </>
   );
 }

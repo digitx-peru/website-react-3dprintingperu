@@ -9,6 +9,7 @@ export default function ContactSection() {
     container: {
       display: "flex",
       justifyContent: "center",
+      marginBottom: "20px",
       ...(isMd && {
         marginBottom: "20px",
       }),

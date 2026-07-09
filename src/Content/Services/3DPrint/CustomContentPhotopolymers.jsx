@@ -1,21 +1,11 @@
-import useMediaQuery from "../../../hooks/useMediaQuery";
+import useBreakpoints from "../../../hooks/useBreakpoints";
 
 import TextImageRow from "../../../Components/Content/TextImageRow";
-
 import TitleMessageContainer from "../../../Components/Content/TitleMessageComponent/TitleMessageContainer";
 import IconInfoCard from "../../../Components/Content/TitleMessageComponent/IconInfoCard";
+import PhotopolymerScreenTable from "../../../Components/PhotopolymerScreen/PhotopolymerScreenTable";
 
 export default function CustomContentPhotopolymers() {
-  //Check windows size
-  const isTablet = useMediaQuery(768);
-
-  const styles = {
-    table: {
-      width: isTablet ? "100%" : "60%",
-      fontSize: isTablet ? "10px" : "12px"
-    }
-  }
-
   return (
     <>
       <TextImageRow
@@ -51,7 +41,7 @@ export default function CustomContentPhotopolymers() {
           backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
-          title={"Modelos de Concepto"}
+          title={"Prototipado rápido"}
           message={
             "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rigidos"
           }
@@ -59,7 +49,7 @@ export default function CustomContentPhotopolymers() {
           backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
-          title={"Modelos de Concepto"}
+          title={"Manufactura Directa"}
           message={
             "La alta precision y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyeccion de plastico."
           }
@@ -69,49 +59,8 @@ export default function CustomContentPhotopolymers() {
       </TitleMessageContainer>
 
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      <TitleMessageContainer
-        title={"Figure 4 dentro de los procesos de producción aditiva"}
-        message={
-          "La tecnología Figure 4 tiene la versatilidad de poder lograr varios tipos de piezas, usando sus 21 tipos de resinas disponibles, puede producir prototipos funcionales o modelos de concepto, y además piezas de producción (para usuario final)."
-        }
-      >
-        <table className="Figure 4 capacity" style={styles.table}>
-          <colgroup>
-            <col style={{ width: "25%" }} />
-            <col style={{ width: "25%" }} />
-            <col style={{ width: "auto" }} />
-          </colgroup>
-          <tr style={{ height: "60px" }}>
-            <th>Descripción</th>
-            <th>Valor</th>
-            <th>Consideraciones</th>
-          </tr>
-          <tr style={{ height: "60px" }}>
-            <td>Máximo tamaño de pieza</td>
-            <td>XYZ: 124 x 70 x 195 mm</td>
-            <td>Piezas más grandes pueden ensamblarse</td>
-          </tr>
-          <tr style={{ height: "60px" }}>
-            <td>Resolución en Z</td>
-            <td>20u a 50u</td>
-            <td>Depende del material</td>
-          </tr>
-          <tr style={{ height: "60px" }}>
-            <td>Resistencia a la flexión</td>
-            <td>22 - 130 mpa</td>
-            <td rowspan="2">
-              Si necesitas piezas que puedan resistir esfuerzos mecánicos
-              (torque) te invitamos a ver los metodos como{" "}
-              <b>
-                impresión en filamento (FDM) o vaciado con silicona y uretano
-              </b>
-            </td>
-          </tr>
-          <tr style={{ height: "60px" }}>
-            <td>Modulo de flexión</td>
-            <td>680 - 4300 mpa</td>
-          </tr>
-        </table>
+      <TitleMessageContainer title={"Figure 4 - Capacidades y Consideraciones"}>
+        <PhotopolymerScreenTable />
       </TitleMessageContainer>
 
       {/* //////////////////////////////////////////////////////////////////////////////////// */}

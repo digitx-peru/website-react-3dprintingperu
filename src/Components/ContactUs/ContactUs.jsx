@@ -67,8 +67,9 @@ export default function ContactUs() {
     formItemSubmitButton: {
       height: "60px",
       width: "200px",
+      color: "black",
       backgroundColor: "rgb(99,218,178)",
-      fontSize: "16px",
+      fontSize: "18px",
       ...(isMd && {
         height: "auto",
         fontSize: "24px",
@@ -80,7 +81,6 @@ export default function ContactUs() {
     modalMessage: {
       fontSize: "14px",
     },
-    userNeed: {},
   };
 
   //OnFinish eventHandler

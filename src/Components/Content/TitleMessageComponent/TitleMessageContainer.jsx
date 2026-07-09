@@ -17,13 +17,13 @@ export default function TitleMessageContainer({
       flexDirection: "column",
       alignItems: "stretch",
       padding: "20px",
+      gap: "20px",
       ...(isMd && {
         padding: "20 200px",
       }),
     },
     title: {
       textAlign: "left",
-      marginBottom: "20px",
       fontSize: "24px",
       ...(isMd && {
         textAlign: "center",
@@ -31,7 +31,7 @@ export default function TitleMessageContainer({
       }),
     },
     message: {
-      marginBottom: "20px",
+      fontSize: "16px",
     },
     childrenContainer: {
       display: "flex",

@@ -1,4 +1,4 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 import RowComponent from "./RowComponent";
 
@@ -9,32 +9,40 @@ export default function TextImageRow({
   backgroundColor,
   altTextImage,
 }) {
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
     layoutContainer: {
       display: "flex",
-      flexDirection: isTablet ? "column" : imageRight ? "row-reverse" : "row",
-      padding: "20px 0",
+      flexDirection: "column",
+      padding: "20px",
       fontSize: "16px",
       backgroundColor: backgroundColor,
-      gap: isTablet ? "15px" : 0
+      gap: "15px",
+      ...(isMd && {
+        flexDirection: imageRight ? "row-reverse" : "row",
+        gap: 0,
+        padding: "20px 0",
+      }),
     },
     textSection: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "start",
       flex: 0.6,
-      padding: isTablet ? "0px 20px" : imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
       rowGap: "20px",
+      ...(isMd && {
+        padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
+      }),
     },
     imageSection: {
       display: "flex",
       flex: 0.4,
       justifyContent: imageRight ? "end" : "start",
       alignItems: "start",
-      padding: isTablet ? "0px 20px" : imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
+      ...(isMd && {
+        padding: imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
+      }),
     },
     image: {
       maxHeight: "400px",

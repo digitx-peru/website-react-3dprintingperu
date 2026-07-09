@@ -32,10 +32,10 @@ export default function Hero({
       justifyContent: "center",
       color: "white",
       padding: "0 50px",
-      gap: "10px 0",
+      gap: "30px",
       zIndex: 2,
       ...(isMd && {
-        gap: "30px",
+        gap: "40px",
       }),
     },
     imageTitle: {
