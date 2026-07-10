@@ -6,7 +6,7 @@ export default function CustomContentSeals() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/seals/seals_prototype.png"}
+        imageName={"applications/consumer/seals/seals_prototype.png"}
       >
         <h2>Soluciones para prototipado y producción pre-serie</h2>
         <p>
@@ -28,7 +28,7 @@ export default function CustomContentSeals() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/seals/seals_production_level.png"}
+        imageName={"applications/consumer/seals/seals_production_level.png"}
       >
         <h2>Rendimiento de uso final</h2>
         <p>
@@ -49,7 +49,7 @@ export default function CustomContentSeals() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"applications/seals/seals_materials.png"}
+        imageName={"applications/consumer/seals/seals_materials.png"}
       >
         <h2>Materiales de primer nivel</h2>
         <p>

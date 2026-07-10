@@ -1,7 +1,11 @@
 import { useRef } from "react";
+import useBreakpoints from "../../../hooks/useBreakpoints";
+
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function CustomContentSoftware({ width }) {
+  const { isMd, isLg } = useBreakpoints();
+
   // 1. Create Refs for your sections
   const designersRef = useRef(null);
   const manufacturesRef = useRef(null);
@@ -26,7 +30,9 @@ export default function CustomContentSoftware({ width }) {
       position: "sticky",
       top: 0,
       padding: "0px 200px",
-      marginBottom: "20px",
+      ...(isMd && {
+        marginBottom: "20px",
+      }),
     },
     sectionJumpNavList: {
       display: "flex",
@@ -43,25 +49,34 @@ export default function CustomContentSoftware({ width }) {
   return (
     <>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      <nav className="sectionJumpContainer" style={styles.sectionJumpContainer}>
-        <ul className="sectionJumpNavList" style={styles.sectionJumpNavList}>
-          {navItems.map((item, index) => (
-            <li
-              key={index}
-              onClick={() => handleScroll(item.ref)}
-              style={styles.listItem}
+      {isMd ||
+        (isLg && (
+          <nav
+            className="sectionJumpContainer"
+            style={styles.sectionJumpContainer}
+          >
+            <ul
+              className="sectionJumpNavList"
+              style={styles.sectionJumpNavList}
             >
-              {item.label}
-            </li>
-          ))}
-        </ul>
-      </nav>
+              {navItems.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleScroll(item.ref)}
+                  style={styles.listItem}
+                >
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
 
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
         imageRight={true}
-        imageName={"softwareImages/software_teddy.jpg"}
+        imageName={"products/software/software_teddy.jpg"}
       >
         <h2 ref={designersRef}>
           El arte del pavé y el dominio de las piedras preciosas
@@ -81,7 +96,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
-        imageName={"softwareImages/software_lion.jpg"}
+        imageName={"products/software/software_lion.jpg"}
       >
         <h2>Utilice bocetos e imágenes: Simplifique el modelado complejo</h2>
         <p>
@@ -104,7 +119,7 @@ export default function CustomContentSoftware({ width }) {
       <TextImageRow
         sectionName={"rowThree"}
         imageRight={true}
-        imageName={"softwareImages/software_ring.jpg"}
+        imageName={"products/software/software_ring.jpg"}
       >
         <h2 ref={manufacturesRef}>Sistema avanzado de diseño de bebederos</h2>
         <p>
@@ -139,7 +154,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowFour"}
-        imageName={"softwareImages/software_ring_model.jpg"}
+        imageName={"products/software/software_ring_model.jpg"}
       >
         <h2>Reparación automática de STL: Como por arte de magia</h2>
         <p>
@@ -160,7 +175,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowFive"}
-        imageName={"softwareImages/software_showcase.jpg"}
+        imageName={"products/software/software_showcase.jpg"}
       >
         <p ref={storesRef}>
           Dentro del módulo Boutique, puede elegir un diseño, presentárselo al
