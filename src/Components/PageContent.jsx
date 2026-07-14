@@ -1,5 +1,3 @@
-// import useMediaQuery from "../../hooks/useMediaQuery";
-
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import ContactUs from "./ContactUs/ContactUs";
@@ -11,12 +9,11 @@ export default function PageContent({
   heroTitle,
   heroMessage,
   backgroundImage,
-  floatButton = true,
+  heroEnabled = true,
+  floatButtonEnabled = true,
   floatContent,
+  contactFormEnabled = true,
 }) {
-  // const isDevice = useMediaQuery(768);
-  // const is1440 = useMediaQuery(1440);
-
   return (
     <>
       <Header backgroundImage={backgroundImage} />
@@ -25,8 +22,10 @@ export default function PageContent({
         heroMessage={heroMessage}
         backgroundImage={backgroundImage}
         children={children}
-        floatButton={floatButton}
+        heroEnabled={heroEnabled}
+        floatButtonEnabled={floatButtonEnabled}
         floatContent={floatContent}
+        contactFormEnabled={contactFormEnabled}
       />
       <Footer />
     </>

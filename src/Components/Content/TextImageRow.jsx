@@ -4,6 +4,7 @@ import RowComponent from "./RowComponent";
 
 export default function TextImageRow({
   children,
+  imageEnabled = true,
   imageRight = false,
   imageName,
   backgroundColor,
@@ -54,9 +55,12 @@ export default function TextImageRow({
   return (
     <RowComponent>
       <div style={styles.layoutContainer}>
-        <div className={"imageHolder"} style={styles.imageSection}>
-          <img style={styles.image} src={`/images/${imageName}`} alt="" />
-        </div>
+        {imageEnabled && (
+          <div className={"imageHolder"} style={styles.imageSection}>
+            <img style={styles.image} src={`/images/${imageName}`} alt="" />
+          </div>
+        )}
+
         <div className={"textHolder"} style={styles.textSection}>
           {children}
         </div>

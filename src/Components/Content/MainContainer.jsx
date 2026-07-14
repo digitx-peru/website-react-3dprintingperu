@@ -12,8 +12,9 @@ export default function MainContainer({
   backgroundImage,
   heroImgTitleEnabled = false,
   heroImgTitle = null,
-  floatButton = true,
+  floatButtonEnabled = true,
   floatContent,
+  contactFormEnabled = true,
 }) {
   const { isMd, isLg } = useBreakpoints();
   const styles = {
@@ -46,7 +47,7 @@ export default function MainContainer({
   return (
     <main style={styles.mainContainer}>
       {/* Hero section*/}
-      {heroEnabled === true && (
+      {heroEnabled && (
         <Hero
           title={heroTitle}
           message={heroMessage}
@@ -60,11 +61,11 @@ export default function MainContainer({
         {children}
       </section>
       {/* Float Button */}
-      {floatButton && isMd && (
+      {floatButtonEnabled && isMd && (
         <FloatButton preselectedApplications={floatContent} />
       )}
       {/* Contact Us section */}
-      <ContactSection />
+      {contactFormEnabled && <ContactSection />}
     </main>
   );
 }
