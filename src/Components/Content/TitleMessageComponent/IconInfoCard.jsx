@@ -1,5 +1,7 @@
 import useBreakpoints from "../../../hooks/useBreakpoints";
 
+import typography from "../../../Style/typography";
+
 export default function IconInfoCard({
   iconImagePath = "/images/components/homePage/infocard/info_card_icon_1.png",
   title,
@@ -17,8 +19,7 @@ export default function IconInfoCard({
       padding: "15px",
       boxSizing: "border-box",
       borderRadius: "8px",
-      fontSize: "16px",
-      ...(isMd && {
+      ...(isLg && {
         width: "300px",
         height: "400px",
         gap: "30px",
@@ -35,20 +36,25 @@ export default function IconInfoCard({
       alignSelf: "flex-end",
     },
     title: {
-      fontSize: "clamp(18px, 4vw, 24px)",
+      fontSize: typography.fluid.h3,
+    },
+    message: {
+      fontSize: typography.fluid.body,
     },
   };
 
   return (
     <div className="cardContainer" style={styles.componentContainer}>
-      {isMd && (
+      {isLg && (
         <img src={iconImagePath} alt="" className="icon" style={styles.image} />
       )}
       <div style={styles.infoContainer}>
-        <h2 className="cardTitle" style={styles.title}>
+        <h3 className="cardTitle" style={styles.title}>
           {title}
-        </h2>
-        <p className="cardInfo">{message}</p>
+        </h3>
+        <p style={styles.message} className="cardInfo">
+          {message}
+        </p>
       </div>
     </div>
   );

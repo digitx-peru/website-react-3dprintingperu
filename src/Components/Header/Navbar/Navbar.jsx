@@ -4,7 +4,7 @@ export default function Navbar({
   activeNavBarCategory,
   setOverlayVisible,
   setActiveNavBarCategory,
-  navReference
+  navReference,
 }) {
   const handleOnClick = (buttonId) => {
     setOverlayVisible(true);
@@ -68,12 +68,6 @@ export default function Navbar({
           </a>
         </li>
         {/*Resources menu*/}
-        {/* <li style={{ ...styles.optionListItem, ...(activeNavBarCategory === 'recursos' ? styles.activeLink : {}) }}>
-          <a style={styles.link}
-            onClick={() => handleOnClick("recursos")}>
-            Recursos
-          </a>
-        </li> */}
         {/*Applications menu*/}
         <li
           style={{

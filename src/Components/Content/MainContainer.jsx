@@ -32,6 +32,7 @@ export default function MainContainer({
     },
     pageContent: {
       display: "flex",
+      flex: 1,
       flexDirection: "column",
       justifyContent: "center",
       textAlign: "justify",

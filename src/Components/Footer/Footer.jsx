@@ -1,10 +1,11 @@
-import useMediaQuery from "../../hooks/useMediaQuery.js";
+import useBreakpoints from "../../hooks/useBreakpoints.js";
+
 import FooterNav from "./FooterNav/FooterNav.jsx";
 import FooterPrivacyNav from "./FooterPrivacyNav.jsx";
 import FooterSocial from "./FooterSocial";
 
 export default function Footer() {
-  const isDevice = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
     footer: {
@@ -12,31 +13,44 @@ export default function Footer() {
       flexDirection: "column",
       backgroundColor: "rgb(10,79,79)",
       borderTop: "7px solid rgb(99,218,178)",
-      // marginTop: 25,
       boxSizing: "border-box",
       width: "100%",
     },
     footerContent: {
       display: "flex",
-      flexDirection: isDevice ? "column" : "row",
-      alignItems: isDevice ? "center" : "innitial",
-      gap: isDevice ? "75px" : 0,
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "75px",
       flexGrow: 1,
-      padding: isDevice ? "50px 15px" : "50px 100px",
+      padding: "50px 15px",
       justifyContent: "space-between",
+      ...(isLg && {
+        flexDirection: "row",
+        alignItems: "innitial",
+        gap: 0,
+        padding: "50px 100px",
+      }),
     },
     footerPrivacyContent: {
       backgroundColor: "rgb(0,0,0)",
       display: "flex",
-      flexDirection: isDevice ? "column" : "row",
-      gap: isDevice ? "20px" : 0,
+      flexDirection: "column",
+      gap: "20px",
       padding: "20px 10px",
+      ...(isLg && {
+        flexDirection: "row",
+        gap: 0,
+      }),
     },
     footerGeneral: {
       display: "block",
-      alignItems: isDevice ? "center" : "innitial",
-      gap: isDevice ? "75px" : 0,
+      alignItems: "center",
+      gap: "75px",
       justifyContent: "space-between",
+      ...(isLg && {
+        alignItems: "innitial",
+        gap: 0,
+      }),
     },
   };
 
@@ -44,7 +58,7 @@ export default function Footer() {
     <footer style={styles.footer}>
       <div className="footerContent" style={styles.footerContent}>
         {/* Footer Navigation Links */}
-        {!isDevice && <FooterNav />}
+        {isLg && <FooterNav />}
         {/* Footer Social Media Links */}
         <FooterSocial />
       </div>

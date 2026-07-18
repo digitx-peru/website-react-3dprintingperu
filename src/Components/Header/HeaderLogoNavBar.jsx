@@ -1,35 +1,43 @@
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 import Navbar from "./Navbar/Navbar";
 import NavMenu from "./Navbar/NavMenu";
 
-import LogoIcon from "../../assets/components/logo/3dp_logo.png"
+import LogoIcon from "../../assets/components/logo/3dp_logo.png";
 
 export default function HeaderLogoNavBar({
   activeNavBarCategory,
   setActiveNavBarCategory,
   setOverlayVisible,
-  navReference
+  navReference,
 }) {
   //Check windows size
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
+  const { isMd, isLg } = useBreakpoints();
 
   const styles = {
     icon: {
-      height: isMobile || isTablet ? 40 : 60,
+      height: 40,
       objectFit: "contain",
+      ...(isMd && {
+        height: "60px",
+      }),
+      ...(isLg && {
+        height: "60px",
+      }),
     },
     headerNavigationContainer: {
       display: "flex",
       flexDirection: "row",
-      justifyContent: isMobile || isTablet ? "space-between" : "space-between",
+      justifyContent: "space-between",
       borderBottom: "1px solid rgb(239,251,246)",
       columnGap: 50,
       zIndex: 3,
-      padding: isMobile || isTablet ? "10px 30px" : "10px 100px",
+      padding: "10px 30px",
+      ...(isLg && {
+        padding: "10px 100px",
+      }),
     },
   };
 
@@ -41,9 +49,7 @@ export default function HeaderLogoNavBar({
       <Link to="/">
         <img src={LogoIcon} style={styles.icon} alt="company logo icon" />
       </Link>
-      {isMobile || isTablet ? (
-        <NavMenu />
-      ) : (
+      {isLg ? (
         <Navbar
           style={{ alignSelf: "center" }}
           activeNavBarCategory={activeNavBarCategory}
@@ -51,8 +57,10 @@ export default function HeaderLogoNavBar({
           setActiveNavBarCategory={setActiveNavBarCategory}
           navReference={navReference}
         />
+      ) : (
+        <NavMenu />
       )}
-      {isMobile || isTablet ? null : <div style={{ width: "137.6px" }}></div>}
+      {isLg ? <div style={{ width: "137.6px" }}></div> : null}
     </div>
   );
 }

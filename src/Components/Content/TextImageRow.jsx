@@ -7,6 +7,7 @@ export default function TextImageRow({
   imageEnabled = true,
   imageRight = false,
   imageName,
+  invertedColumn = false,
   backgroundColor,
   altTextImage,
 }) {
@@ -15,7 +16,8 @@ export default function TextImageRow({
   const styles = {
     layoutContainer: {
       display: "flex",
-      flexDirection: "column",
+      flexDirection: invertedColumn ? "column-reverse" : "column",
+      flex: 1,
       padding: "20px",
       fontSize: "16px",
       backgroundColor: backgroundColor,
@@ -57,7 +59,11 @@ export default function TextImageRow({
       <div style={styles.layoutContainer}>
         {imageEnabled && (
           <div className={"imageHolder"} style={styles.imageSection}>
-            <img style={styles.image} src={`/images/${imageName}`} alt="" />
+            <img
+              style={styles.image}
+              src={`/images/${imageName}`}
+              alt={altTextImage}
+            />
           </div>
         )}
 

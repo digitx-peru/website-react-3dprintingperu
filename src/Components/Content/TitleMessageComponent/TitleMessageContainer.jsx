@@ -1,5 +1,7 @@
 import useBreakpoints from "../../../hooks/useBreakpoints";
 
+import typography from "../../../Style/typography";
+
 import RowComponent from "../RowComponent";
 
 export default function TitleMessageContainer({
@@ -24,23 +26,26 @@ export default function TitleMessageContainer({
     },
     title: {
       textAlign: "left",
-      fontSize: "24px",
+      fontSize: typography.fluid.h2,
       ...(isMd && {
         textAlign: "center",
-        fontSize: "24px",
       }),
     },
     message: {
-      fontSize: "16px",
+      fontSize: typography.fluid.body,
+      ...(isMd && {}),
     },
     childrenContainer: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      // padding: "20px",
+      alignItems: "center",
       gap: "20px",
       ...(isMd && {
-        flexDirection: "row",
+        padding: "0 30px",
+        gap: "20px",
+      }),
+      ...(isLg && {
         gap: "40px",
       }),
     },

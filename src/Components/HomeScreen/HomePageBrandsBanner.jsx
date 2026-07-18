@@ -16,6 +16,8 @@ export default function HomePageBrandsBanner() {
       backgroundColor: "#D9D9D8",
       gap: "20px",
       ...(isMd && {
+      }),
+      ...(isLg && {
         flexDirection: "row",
         height: "200px",
         justifyContent: "space-evenly",
@@ -23,6 +25,9 @@ export default function HomePageBrandsBanner() {
     },
     image: {
       width: "100%",
+      ...(isMd && {
+        maxWidth: "60%",
+      }),
     },
   };
 

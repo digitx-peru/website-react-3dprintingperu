@@ -1,23 +1,17 @@
 import PageContent from "../../../Components/PageContent";
-import RowComponent from "../../../Components/Content/RowComponent";
+import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function NotFound() {
   const styles = {
-    mainContainer: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      rowGap: "0px",
+    title: {
+      color: "#0A4F4F",
+      fontSize: "96px",
+      textAlign: "center",
     },
-    applicationContent: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      width: "100vw",
-    },
-    column: {
-      paddingLeft: 100,
-      paddingRight: 100,
+    message: {
+      color: "#0A4F4F",
+      fontSize: "24px",
+      textAlign: "center",
     },
   };
 
@@ -28,13 +22,14 @@ export default function NotFound() {
         floatButtonEnabled={false}
         contactFormEnabled={false}
       >
-        <RowComponent>
-          <p style={{ color: "#0A4F4F" }}>Página no encontrada</p>
-          <img
-            src={"/images/support/notfound/notfound_printer.png"}
-            alt="broken printer"
-          />
-        </RowComponent>
+        <TextImageRow
+          imageName={"/support/notfound/notfound_printer.png"}
+          altTextImage="broken printer"
+          invertedColumn={true}
+        >
+          <h3 style={styles.title}>404</h3>
+          <p style={styles.message}>Página no encontrada</p>
+        </TextImageRow>
       </PageContent>
     </>
   );
