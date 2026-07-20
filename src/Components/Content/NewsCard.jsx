@@ -73,63 +73,69 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
 
   const styles = {
     linkContainer: {
-      backgroundColor: "rgb(71,167,153)",
+      display: "flex",
+      // backgroundColor: "rgb(71,167,153)",
       borderRadius: `${cardBorderRadius}px`,
-      // display: "block",
-      textDecoration: "none",
+      // textDecoration: "none",
+      // backgroundImage: `url(${image})`,
       width: "100%", //need
+      height: "150px",
+      boxShadow:
+        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 1)",
       ...(isMd && {
         // border: "1px solid rgb(200, 200, 200)",
         height: "150px",
+        // backgroundImage: `url(${image})`,
       }),
     },
     container: {
       display: "flex",
       flexDirection: "row",
       height: "100%", //need
-      width: "100%", //need
+      flexGrow: "1",
       borderRadius: `${cardBorderRadius}px`,
+      // backgroundImage: `url(${image})`,
       overflow: "hidden",
     },
     image: {
       // width: "40%",
       // height: "100%",
-      flex: "4 0 0",
+      flex: "4.5 0 0",
       objectFit: "cover",
       objectPosition: "center",
       // Creates a fading mask from fully visible to fully transparent
       WebkitMaskImage:
-        "linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
+        "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
       maskImage:
-        "linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
+        "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
     },
     infoContainer: {
       display: "flex",
       alignItems: "center",
-      flex: "6 0 0",
+      flex: "5.5 0 0",
       color: "white",
-      // padding: "0 15px",
+      padding: "0 15px",
       backgroundColor: "rgb(71,167,153)",
       height: "100%",
       // Pulls the text box slightly left so text can sit nicely over the faded area if needed
+      ...(isMd &&
+        {
+          // backgroundImage: `url(${image})`,
+        }),
     },
     title: {
       fontWeight: "100",
-      fontSize: "16px",
+      fontSize: typography.fluid.h3,
       margin: 0,
-      ...(isMd && {
-        fontSize: "14px",
-      }),
+      flex: "1 0 0",
+      ...(isMd && {}),
     },
   };
 
   return (
     <Link to={redirectUrl} style={styles.linkContainer}>
       <div style={styles.container}>
-        <img src={image} alt="" style={styles.image} />
-        {/* <div
-          style={{ height: "200px", backgroundImage: `url(${image})` }}
-        ></div> */}
+        {isMd && <img src={image} alt="" style={styles.image} />}
         <div style={styles.infoContainer}>
           <h3 style={styles.title}>{title}</h3>
         </div>
