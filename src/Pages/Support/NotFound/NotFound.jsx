@@ -1,12 +1,19 @@
+import useBreakpoints from "../../../hooks/useBreakpoints";
+
 import PageContent from "../../../Components/PageContent";
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function NotFound() {
+  const {isMd, isLg} = useBreakpoints();
+
   const styles = {
     title: {
       color: "#0A4F4F",
       fontSize: "96px",
       textAlign: "center",
+      ...(isMd && {
+        
+      })
     },
     message: {
       color: "#0A4F4F",

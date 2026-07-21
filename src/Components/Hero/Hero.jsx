@@ -1,5 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
+import typography from "../../Style/typography";
+
 import HeaderHeroOverlay from "../Overlays/HeaderHeroOverlay";
 
 export default function Hero({
@@ -22,6 +24,9 @@ export default function Hero({
       backgroundPosition: "center",
       backgroundAttachment: "fixed",
       ...(isMd && {
+        height: "400px",
+      }),
+      ...(isLg && {
         height: "500px",
       }),
     },
@@ -43,18 +48,18 @@ export default function Hero({
       ...(isMd && {}),
     },
     title: {
-      fontSize: "32px",
+      fontSize: "clamp(2rem, 5vw, 4rem)",
+      lineHeight: typography.lineHeights.headingLoose,
       fontWeight: "bold",
       ...(isMd && {
-        height: "64px",
+        // fontSize: "48px",
         fontWeight: "normal",
       }),
     },
     message: {
-      fontSize: "20px",
-      ...(isMd && {
-        fontSize: "24px",
-      }),
+      fontSize: typography.fluid.h1,
+      lineHeight: typography.lineHeights.headingLoose,
+      ...(isMd && {}),
     },
   };
 

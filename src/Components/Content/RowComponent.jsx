@@ -7,7 +7,7 @@ export default function RowComponent({ children, backgroundColor }) {
     container: {
       backgroundColor: backgroundColor,
       ...(isMd && {
-        marginBottom: "20px",
+        marginBottom: "30px",
       }),
     },
   };

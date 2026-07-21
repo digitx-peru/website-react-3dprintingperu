@@ -3,6 +3,7 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import DDDSysLogo from "../../assets/pages/home/home_brands_banner_3dsys.png";
 import IntamsysLogo from "../../assets/pages/home/home_brands_banner_intamsys.png";
 import RhinoLogo from "../../assets/pages/home/home_brands_banner_rhino.png";
+import RowComponent from "../Content/RowComponent";
 
 export default function HomePageBrandsBanner() {
   const { isMd, isLg } = useBreakpoints();
@@ -15,8 +16,7 @@ export default function HomePageBrandsBanner() {
       padding: " 20px",
       backgroundColor: "#D9D9D8",
       gap: "20px",
-      ...(isMd && {
-      }),
+      ...(isMd && {}),
       ...(isLg && {
         flexDirection: "row",
         height: "200px",
@@ -32,10 +32,12 @@ export default function HomePageBrandsBanner() {
   };
 
   return (
-    <article className="brands" style={styles.container}>
-      <img src={DDDSysLogo} alt="3D Systems Logo" style={styles.image} />
-      <img src={IntamsysLogo} alt="Intamsys Logo" style={styles.image} />
-      <img src={RhinoLogo} alt="RhinoArtisan Logo" style={styles.image} />
-    </article>
+    <RowComponent>
+      <div className="brands" style={styles.container}>
+        <img src={DDDSysLogo} alt="3D Systems Logo" style={styles.image} />
+        <img src={IntamsysLogo} alt="Intamsys Logo" style={styles.image} />
+        <img src={RhinoLogo} alt="RhinoArtisan Logo" style={styles.image} />
+      </div>
+    </RowComponent>
   );
 }

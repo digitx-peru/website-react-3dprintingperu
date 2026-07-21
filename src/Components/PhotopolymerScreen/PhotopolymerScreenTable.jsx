@@ -9,7 +9,7 @@ export default function PhotopolymerScreenTable() {
       fontSize: "10px",
       borderCollapse: "collapse",
       ...(isMd && {
-        width: "60%",
+        width: "100%",
         fontSize: "12px",
       }),
     },

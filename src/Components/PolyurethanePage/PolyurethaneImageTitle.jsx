@@ -14,7 +14,7 @@ export default function PolyurethaneImageTitle() {
       padding: "20px",
       gap: "20px",
       ...(isMd && {
-        padding: 0,
+        padding: "30px",
       }),
     },
     image: {
@@ -25,13 +25,13 @@ export default function PolyurethaneImageTitle() {
     },
     title: {
       textAlign: "center",
-      fontSize: "clamp(24px, 4vw, 32px)"
+      fontSize: "clamp(24px, 4vw, 32px)",
     },
   };
 
   return (
     <RowComponent>
-      <div className={"rowThree"} style={styles.layout}>
+      <div style={styles.layout}>
         <img
           style={styles.image}
           src="/images/services/production/silicone_urethane/silicone_urethane_cycle.png"

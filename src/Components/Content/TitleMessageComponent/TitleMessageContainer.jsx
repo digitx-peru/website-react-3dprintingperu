@@ -18,7 +18,6 @@ export default function TitleMessageContainer({
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
-      padding: "20px",
       gap: "20px",
       ...(isMd && {
         padding: "20 200px",
@@ -26,14 +25,17 @@ export default function TitleMessageContainer({
     },
     title: {
       textAlign: "left",
-      fontSize: typography.fluid.h2,
+      fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+      lineHeight: typography.lineHeights.headingTight,
       ...(isMd && {
-        textAlign: "center",
+        padding: "0 30px",
       }),
     },
     message: {
       fontSize: typography.fluid.body,
-      ...(isMd && {}),
+      ...(isMd && {
+        padding: "0 30px",
+      }),
     },
     childrenContainer: {
       display: "flex",

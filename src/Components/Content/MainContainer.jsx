@@ -1,5 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
+import typography from "../../Style/typography";
+
 import ContactSection from "../ContactUs/ContactSection";
 import FloatButton from "../FloatButton/FloatButton";
 import Hero from "../Hero/Hero";
@@ -23,23 +25,16 @@ export default function MainContainer({
       flexDirection: "column",
       alignItems: "stretch",
       textAlign: "justify",
-      fontSize: "12px",
-      lineHeight: "1.5",
-      // paddingBottom: "20px",
-      ...(isMd && {
-        paddingBottom: "50px",
-      }),
+      ...(isMd && {}),
     },
     pageContent: {
       display: "flex",
-      flex: 1,
+      flex: "1 0 0",
       flexDirection: "column",
       justifyContent: "center",
       textAlign: "justify",
-      fontSize: "12px",
-      lineHeight: "1.5",
-      ...(isMd && {
-        fontSize: "16px",
+      ...(isMd && {}),
+      ...(isLg && {
         marginBottom: "50px",
       }),
     },

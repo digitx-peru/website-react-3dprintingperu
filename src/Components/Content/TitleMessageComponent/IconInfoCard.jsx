@@ -19,33 +19,48 @@ export default function IconInfoCard({
       padding: "15px",
       boxSizing: "border-box",
       borderRadius: "8px",
+      ...(isMd && {
+        flexDirection: "row",
+      }),
       ...(isLg && {
         width: "300px",
         height: "400px",
         gap: "30px",
+        flexDirection: "column",
       }),
     },
     infoContainer: {
       display: "flex",
-      flex: 1,
+      flex: "1 0 0",
       flexDirection: "column",
       justifyContent: "flex-start",
       gap: "20px",
+      ...(isMd && {
+        alignSelf: "center",
+      }),
     },
     image: {
-      alignSelf: "flex-end",
+      ...(isMd && {
+        alignSelf: "center",
+        padding: "15px",
+      }),
+      ...(isMd && {
+        alignSelf: "flex-end",
+      }),
     },
     title: {
       fontSize: typography.fluid.h3,
+      lineHeight: typography.lineHeights.headingLoose,
     },
     message: {
       fontSize: typography.fluid.body,
+      lineHeight: typography.lineHeights.body,
     },
   };
 
   return (
     <div className="cardContainer" style={styles.componentContainer}>
-      {isLg && (
+      {isMd && (
         <img src={iconImagePath} alt="" className="icon" style={styles.image} />
       )}
       <div style={styles.infoContainer}>
