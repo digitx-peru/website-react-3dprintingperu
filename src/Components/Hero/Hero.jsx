@@ -1,6 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 import typography from "../../Style/typography";
+import globalStyle from "../../Style/globalStyle";
 
 import HeaderHeroOverlay from "../Overlays/HeaderHeroOverlay";
 
@@ -11,7 +12,7 @@ export default function Hero({
   imgTitle = "/images/logo_artisan.jpeg",
   backgroundImage,
 }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     container: {
@@ -23,10 +24,10 @@ export default function Hero({
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundAttachment: "fixed",
-      ...(isMd && {
+      ...(isTablet && {
         height: "400px",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         height: "500px",
       }),
     },
@@ -36,22 +37,27 @@ export default function Hero({
       flexDirection: "column",
       justifyContent: "center",
       color: "white",
-      padding: "0 50px",
+      padding: `0 ${globalStyle.lateralPadding.mobile}`,
       gap: "30px",
       zIndex: 2,
-      ...(isMd && {
+      ...(isTablet && {
+        padding: `0 ${globalStyle.lateralPadding.tablet}`,
+        gap: "40px",
+      }),
+      ...(isDesktop && {
+        padding: `0 ${globalStyle.lateralPadding.desktop}`,
         gap: "40px",
       }),
     },
     imageTitle: {
       width: "600px",
-      ...(isMd && {}),
+      ...(isTablet && {}),
     },
     title: {
       fontSize: "clamp(2rem, 5vw, 4rem)",
       lineHeight: typography.lineHeights.headingLoose,
       fontWeight: "bold",
-      ...(isMd && {
+      ...(isTablet && {
         // fontSize: "48px",
         fontWeight: "normal",
       }),
@@ -59,7 +65,7 @@ export default function Hero({
     message: {
       fontSize: typography.fluid.h1,
       lineHeight: typography.lineHeights.headingLoose,
-      ...(isMd && {}),
+      ...(isTablet && {}),
     },
   };
 

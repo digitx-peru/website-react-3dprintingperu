@@ -12,7 +12,7 @@ export default function TitleMessageContainer({
   sectionName,
 }) {
   //Check windows size
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop, isLargeTablet, isWideScreen } = useBreakpoints();
 
   const paddingSize = "20px";
 
@@ -20,10 +20,17 @@ export default function TitleMessageContainer({
     layout: {
       display: "flex",
       flexDirection: "column",
-      alignItems: "stretch",
+      alignItems: "center",
       gap: "20px",
-      ...(isMd && {
+      ...(isTablet && {
         padding: "20 200px",
+      }),
+    },
+    infoContainer: {
+      display: "flex",
+      flexDirection: "column",
+      ...(isWideScreen && {
+        width: "1440px",
       }),
     },
     title: {
@@ -31,21 +38,30 @@ export default function TitleMessageContainer({
       fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
       lineHeight: typography.lineHeights.headingTight,
       padding: `0 ${globalStyle.lateralPadding.mobile}`,
-      ...(isMd && {
+      ...(isTablet && {
         padding: `0 ${globalStyle.lateralPadding.tablet}`,
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         padding: `0 ${globalStyle.lateralPadding.desktop}`,
+      }),
+      ...(isDesktop && {
+        padding: `0 ${globalStyle.lateralPadding.desktop}`,
+      }),
+      ...(isWideScreen && {
+        padding: "0",
       }),
     },
     message: {
       fontSize: typography.fluid.body,
       padding: `0 ${globalStyle.lateralPadding.mobile}`,
-      ...(isMd && {
+      ...(isTablet && {
         padding: `0 ${globalStyle.lateralPadding.tablet}`,
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         padding: `0 ${globalStyle.lateralPadding.desktop}`,
+      }),
+      ...(isWideScreen && {
+        padding: "0",
       }),
     },
     childrenContainer: {
@@ -55,13 +71,17 @@ export default function TitleMessageContainer({
       alignItems: "center",
       gap: "20px",
       padding: "0 20px",
-      ...(isMd && {
+      ...(isTablet && {
         padding: "0 30px",
         gap: "20px",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         flexDirection: "row",
         gap: "40px",
+      }),
+      ...(isWideScreen && {
+        padding: "0",
+        width: "1440px",
       }),
     },
   };
@@ -69,16 +89,18 @@ export default function TitleMessageContainer({
   return (
     <RowComponent>
       <div className={sectionName} style={styles.layout}>
-        {title !== undefined && (
-          <h2 className="title" style={styles.title}>
-            {title}
-          </h2>
-        )}
-        {message !== undefined && (
-          <p className="message" style={styles.message}>
-            {message}
-          </p>
-        )}
+        <div className="infoContainer" style={styles.infoContainer}>
+          {title !== undefined && (
+            <h2 className="title" style={styles.title}>
+              {title}
+            </h2>
+          )}
+          {message !== undefined && (
+            <p className="message" style={styles.message}>
+              {message}
+            </p>
+          )}
+        </div>
         <div className="childrenContainer" style={styles.childrenContainer}>
           {children}
         </div>

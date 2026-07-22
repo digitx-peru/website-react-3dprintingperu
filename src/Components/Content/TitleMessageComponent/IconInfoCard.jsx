@@ -9,7 +9,7 @@ export default function IconInfoCard({
   backgroundColor,
 }) {
   //Check windows size
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     componentContainer: {
@@ -19,10 +19,10 @@ export default function IconInfoCard({
       padding: "15px",
       boxSizing: "border-box",
       borderRadius: "8px",
-      ...(isMd && {
+      ...(isTablet && {
         flexDirection: "row",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         flexDirection: "column",
         flex: "1 1 33.333%",
         maxWidth: "300px",
@@ -37,16 +37,16 @@ export default function IconInfoCard({
       flexDirection: "column",
       justifyContent: "flex-start",
       gap: "20px",
-      ...(isMd && {
+      ...(isTablet && {
         alignSelf: "center",
       }),
     },
     image: {
-      ...(isMd && {
+      ...(isTablet && {
         alignSelf: "center",
         padding: "15px",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         alignSelf: "end",
         maxWidth: "100%", // Constrains the image to the container
         height: "auto", // Protects the aspect ratio from stretching
@@ -64,7 +64,7 @@ export default function IconInfoCard({
 
   return (
     <div className="cardContainer" style={styles.componentContainer}>
-      {isMd && (
+      {isTablet && (
         <img src={iconImagePath} alt="" className="icon" style={styles.image} />
       )}
       <div style={styles.infoContainer}>

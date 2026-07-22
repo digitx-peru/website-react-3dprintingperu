@@ -15,7 +15,7 @@ export default function TextImageRow({
   altTextImage,
   special = true,
 }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     layoutContainer: {
@@ -25,7 +25,7 @@ export default function TextImageRow({
       padding: globalStyle.lateralPadding.mobile,
       backgroundColor: backgroundColor,
       gap: "15px",
-      ...(isMd && {
+      ...(isTablet && {
         flexDirection: imageRight ? "row-reverse" : "row",
         gap: "20px",
         padding: `${globalStyle.verticalPadding.tablet} 0`,
@@ -37,19 +37,19 @@ export default function TextImageRow({
       justifyContent: "start",
       flex: "6 0 0",
       rowGap: "20px",
-      ...(isMd && {
+      ...(isTablet && {
         padding: special
           ? `0px ${globalStyle.lateralPadding.tablet}`
           : imageRight
             ? `0px 0px 0px ${globalStyle.lateralPadding.tablet}`
             : `0px ${globalStyle.lateralPadding.tablet} 0px 0px`,
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         padding: imageRight
           ? `0px 0px 0px ${globalStyle.lateralPadding.desktop}`
           : `0px ${globalStyle.lateralPadding.desktop} 0px 0px`,
       }),
-      // ...(isLg && {
+      // ...(isDesktop && {
       //   padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
       // }),
     },
@@ -58,12 +58,12 @@ export default function TextImageRow({
       flex: "4 0 0",
       justifyContent: imageRight ? "end" : "start",
       alignItems: "start",
-      ...(isMd && {
+      ...(isTablet && {
         padding: imageRight
           ? `0px ${globalStyle.lateralPadding.tablet} 0px 0px`
           : `0px 0px 0px ${globalStyle.lateralPadding.tablet}`,
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         padding: imageRight
           ? `0px ${globalStyle.lateralPadding.desktop} 0px 0px`
           : `0px 0px 0px ${globalStyle.lateralPadding.desktop}`,

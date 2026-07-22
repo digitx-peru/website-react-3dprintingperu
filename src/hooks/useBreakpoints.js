@@ -3,9 +3,10 @@ import { BREAKPOINTS } from "./breakpoints";
 
 function getMatches() {
   return {
-    isMd: window.innerWidth >= BREAKPOINTS.md,
-    isLg: window.innerWidth >= BREAKPOINTS.lg,
-    isXl: window.innerWidth >= BREAKPOINTS.xl,
+    isTablet: window.innerWidth >= BREAKPOINTS.md,
+    isDesktop: window.innerWidth >= BREAKPOINTS.lg,
+    isLargeTablet: window.innerWidth >= BREAKPOINTS.xl,
+    isWideScreen: window.innerWidth >= BREAKPOINTS.xxl,
   };
 }
 

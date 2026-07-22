@@ -6,7 +6,7 @@ import RhinoLogo from "../../assets/pages/home/home_brands_banner_rhino.png";
 import RowComponent from "../Content/RowComponent";
 
 export default function HomePageBrandsBanner() {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     container: {
@@ -17,21 +17,23 @@ export default function HomePageBrandsBanner() {
       backgroundColor: "#D9D9D8",
       boxSizing: "border-box",
       gap: "20px",
-      ...(isMd && {}),
-      ...(isLg && {
+      ...(isTablet && {}),
+      ...(isDesktop && {
         flexDirection: "row",
         height: "200px",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
       }),
     },
     image: {
       width: "100%",
-      ...(isMd && {
-        maxWidth: "60%",
+      ...(isTablet && {
+        flex: "0 0 60%",
+        maxWidth: "60%", // The rigid structural ceiling
       }),
-      ...(isLg && {
-        flex: "1 1 33.333%",
-        maxWidth: "33.333%", // The rigid structural ceiling
+      ...(isDesktop && {
+        flex: "0 0 20%",
+        maxWidth: "20%", // The rigid structural ceiling
+        objectFit: "cover",
       }),
     },
   };

@@ -6,7 +6,7 @@ import { CaretRightOutlined } from "@ant-design/icons";
 import typography from "../../Style/typography";
 
 export default function NewsCard({ redirectUrl, title, message, image }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const cardBorderRadius = 8;
 
@@ -19,10 +19,10 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       height: "150px",
       boxShadow:
         "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.8)",
-      ...(isMd && {
+      ...(isTablet && {
         height: "150px",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         height: "400px",
         flex: "1 1 33.333%",
         maxWidth: "33.333%", // The rigid structural ceiling
@@ -35,7 +35,7 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       flexGrow: "1",
       borderRadius: `${cardBorderRadius}px`,
       overflow: "hidden",
-      ...(isLg && {
+      ...(isDesktop && {
         flexDirection: "column",
       }),
     },
@@ -48,7 +48,7 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
         "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
       maskImage:
         "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
-      ...(isLg && {
+      ...(isDesktop && {
         flexDirection: "column",
         flex: "7.5 0 0",
         WebkitMaskImage: "none",
@@ -66,11 +66,11 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       padding: "0 15px",
       backgroundColor: "rgb(71,167,153)",
       height: "100%",
-      ...(isMd && {
+      ...(isTablet && {
         // backgroundImage: `url(${image})`,
         flex: "4 0 0",
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         flexDirection: "column",
         flex: "2.5 0 0",
         borderTop: "4px solid #7BEFB1",
@@ -83,8 +83,8 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       fontSize: typography.fluid.h3,
       margin: 0,
       flex: "1 0 0",
-      ...(isMd && {}),
-      ...(isLg && {
+      ...(isTablet && {}),
+      ...(isDesktop && {
         flex: "initial",
       }),
     },
@@ -93,7 +93,7 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       flexDirection: "column",
       justifyContent: "center",
       flex: "1.5 0 0",
-      ...(isMd && {
+      ...(isTablet && {
         flex: "1.5 0 0",
       }),
     },
@@ -102,11 +102,11 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
   return (
     <Link to={redirectUrl} style={styles.linkContainer}>
       <div style={styles.container}>
-        {isMd && <img src={image} alt="" style={styles.image} />}
+        {isTablet && <img src={image} alt="" style={styles.image} />}
         <div style={styles.infoContainer}>
           <h3 style={styles.title}>{title}</h3>
         </div>
-        {!isLg && (
+        {!isDesktop && (
           <div style={styles.arrowContainer}>
             <CaretRightOutlined
               style={{

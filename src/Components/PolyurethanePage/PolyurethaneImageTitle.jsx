@@ -5,7 +5,7 @@ import globalStyle from "../../Style/globalStyle";
 import RowComponent from "../Content/RowComponent";
 
 export default function PolyurethaneImageTitle() {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     layout: {
@@ -15,13 +15,13 @@ export default function PolyurethaneImageTitle() {
       backgroundColor: "#3EFFB4",
       padding: "20px",
       gap: "20px",
-      ...(isMd && {
+      ...(isTablet && {
         padding: "30px",
       }),
     },
     image: {
       width: "100%",
-      ...(isLg && {
+      ...(isDesktop && {
         width: "60%",
       }),
     },

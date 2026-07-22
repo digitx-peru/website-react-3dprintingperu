@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
 import Navbar from "./Navbar/Navbar";
 import NavMenu from "./Navbar/NavMenu";
 import Hero from "../Hero/Hero";
@@ -12,10 +11,6 @@ import HeroOverlay from "./HeroOverlay";
 import HeaderHeroOverlay from "../Overlays/HeaderHeroOverlay";
 
 export default function Header({ backgroundImage }) {
-  //Check windows size
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
-
   // State to track overlay visibility
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);

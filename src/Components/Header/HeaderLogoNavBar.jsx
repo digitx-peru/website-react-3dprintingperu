@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import useBreakpoints from "../../hooks/useBreakpoints";
+import globalStyle from "../../Style/globalStyle";
 
 import Navbar from "./Navbar/Navbar";
 import NavMenu from "./Navbar/NavMenu";
@@ -14,16 +15,13 @@ export default function HeaderLogoNavBar({
   navReference,
 }) {
   //Check windows size
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop, isLargeTablet } = useBreakpoints();
 
   const styles = {
     icon: {
       height: 40,
       objectFit: "contain",
-      ...(isMd && {
-        height: "60px",
-      }),
-      ...(isLg && {
+      ...(isTablet && {
         height: "60px",
       }),
     },
@@ -34,9 +32,15 @@ export default function HeaderLogoNavBar({
       borderBottom: "1px solid rgb(239,251,246)",
       columnGap: 50,
       zIndex: 3,
-      padding: "10px 30px",
-      ...(isLg && {
-        padding: "10px 100px",
+      padding: `10px ${globalStyle.lateralPadding.mobile}`,
+      ...(isTablet && {
+        padding: `15px ${globalStyle.lateralPadding.tablet}`,
+      }),
+      ...(isDesktop && {
+        padding: `15px ${globalStyle.lateralPadding.desktop}`,
+      }),
+      ...(isLargeTablet && {
+        padding: `15px ${globalStyle.lateralPadding.desktop}`,
       }),
     },
   };
@@ -49,7 +53,7 @@ export default function HeaderLogoNavBar({
       <Link to="/">
         <img src={LogoIcon} style={styles.icon} alt="company logo icon" />
       </Link>
-      {isLg ? (
+      {isDesktop ? (
         <Navbar
           style={{ alignSelf: "center" }}
           activeNavBarCategory={activeNavBarCategory}
@@ -60,7 +64,7 @@ export default function HeaderLogoNavBar({
       ) : (
         <NavMenu />
       )}
-      {isLg ? <div style={{ width: "137.6px" }}></div> : null}
+      {isDesktop ? <div style={{ width: "137.6px" }}></div> : null}
     </div>
   );
 }

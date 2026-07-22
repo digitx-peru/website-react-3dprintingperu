@@ -1,13 +1,13 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 export default function RowComponent({ children, backgroundColor }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     container: {
       backgroundColor: backgroundColor,
       marginBottom: "20px",
-      ...(isMd && {
+      ...(isTablet && {
         marginBottom: "30px",
       }),
     },

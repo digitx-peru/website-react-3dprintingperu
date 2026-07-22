@@ -19,14 +19,14 @@ export default function MainContainer({
   floatContent,
   contactFormEnabled = true,
 }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
   const styles = {
     mainContainer: {
       display: "flex",
       flexDirection: "column",
       alignItems: "stretch",
       textAlign: "justify",
-      ...(isMd && {}),
+      ...(isTablet && {}),
     },
     pageContent: {
       display: "flex",
@@ -34,8 +34,8 @@ export default function MainContainer({
       flexDirection: "column",
       justifyContent: "center",
       textAlign: "justify",
-      ...(isMd && {}),
-      ...(isLg && {
+      ...(isTablet && {}),
+      ...(isDesktop && {
         marginBottom: globalStyle.verticalPadding.desktop,
       }),
     },
@@ -58,7 +58,7 @@ export default function MainContainer({
         {children}
       </section>
       {/* Float Button */}
-      {floatButtonEnabled && isMd && (
+      {floatButtonEnabled && isTablet && (
         <FloatButton preselectedApplications={floatContent} />
       )}
       {/* Contact Us section */}

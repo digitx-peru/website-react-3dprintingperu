@@ -3,14 +3,14 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import ContactUs from "./ContactUs";
 
 export default function ContactSection() {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     container: {
       display: "flex",
       justifyContent: "center",
       marginBottom: "20px",
-      ...(isMd && {
+      ...(isTablet && {
       }),
     },
   };

@@ -6,7 +6,7 @@ import { Button, Form, Input, Modal, Select } from "antd";
 import emailHandler from "../../utils/emailHandler";
 
 export default function ContactUs() {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //current text value
@@ -29,12 +29,12 @@ export default function ContactUs() {
       // margin: "0 15px",
       padding: "20px",
       color: "white",
-      ...(isMd && {
+      ...(isTablet && {
         alignSelf: "initial",
         margin: "0",
         borderRadius: 8,
       }),
-      ...(isLg && {
+      ...(isDesktop && {
         flex: "0 0 60%",
         margin: "0",
       }),
@@ -43,7 +43,7 @@ export default function ContactUs() {
       display: "flex",
       flexDirection: "column",
       gap: "30px",
-      ...(isMd && {
+      ...(isTablet && {
         flexDirection: "row",
       }),
     },
@@ -73,7 +73,7 @@ export default function ContactUs() {
       color: "black",
       backgroundColor: "rgb(99,218,178)",
       fontSize: "18px",
-      ...(isMd && {
+      ...(isTablet && {
         height: "auto",
         fontSize: "24px",
       }),
