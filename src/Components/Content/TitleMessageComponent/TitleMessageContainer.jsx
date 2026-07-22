@@ -1,6 +1,7 @@
 import useBreakpoints from "../../../hooks/useBreakpoints";
 
 import typography from "../../../Style/typography";
+import globalStyle from "../../../Style/globalStyle";
 
 import RowComponent from "../RowComponent";
 
@@ -12,6 +13,8 @@ export default function TitleMessageContainer({
 }) {
   //Check windows size
   const { isMd, isLg } = useBreakpoints();
+
+  const paddingSize = "20px";
 
   const styles = {
     layout: {
@@ -27,14 +30,22 @@ export default function TitleMessageContainer({
       textAlign: "left",
       fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
       lineHeight: typography.lineHeights.headingTight,
+      padding: `0 ${globalStyle.lateralPadding.mobile}`,
       ...(isMd && {
-        padding: "0 30px",
+        padding: `0 ${globalStyle.lateralPadding.tablet}`,
+      }),
+      ...(isLg && {
+        padding: `0 ${globalStyle.lateralPadding.desktop}`,
       }),
     },
     message: {
       fontSize: typography.fluid.body,
+      padding: `0 ${globalStyle.lateralPadding.mobile}`,
       ...(isMd && {
-        padding: "0 30px",
+        padding: `0 ${globalStyle.lateralPadding.tablet}`,
+      }),
+      ...(isLg && {
+        padding: `0 ${globalStyle.lateralPadding.desktop}`,
       }),
     },
     childrenContainer: {
@@ -43,11 +54,13 @@ export default function TitleMessageContainer({
       justifyContent: "center",
       alignItems: "center",
       gap: "20px",
+      padding: "0 20px",
       ...(isMd && {
         padding: "0 30px",
         gap: "20px",
       }),
       ...(isLg && {
+        flexDirection: "row",
         gap: "40px",
       }),
     },

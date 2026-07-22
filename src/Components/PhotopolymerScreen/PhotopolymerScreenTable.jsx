@@ -12,6 +12,10 @@ export default function PhotopolymerScreenTable() {
         width: "100%",
         fontSize: "12px",
       }),
+      ...(isLg && {
+        width: "60%",
+        fontSize: "12px",
+      }),
     },
     row: {
       fontSize: "16px",

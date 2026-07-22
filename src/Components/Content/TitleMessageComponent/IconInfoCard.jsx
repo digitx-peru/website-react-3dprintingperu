@@ -23,10 +23,12 @@ export default function IconInfoCard({
         flexDirection: "row",
       }),
       ...(isLg && {
-        width: "300px",
+        flexDirection: "column",
+        flex: "1 1 33.333%",
+        maxWidth: "300px",
+        minWidth: 0, // Ensures the container can still shrink below 300px
         height: "400px",
         gap: "30px",
-        flexDirection: "column",
       }),
     },
     infoContainer: {
@@ -44,8 +46,10 @@ export default function IconInfoCard({
         alignSelf: "center",
         padding: "15px",
       }),
-      ...(isMd && {
-        alignSelf: "flex-end",
+      ...(isLg && {
+        alignSelf: "end",
+        maxWidth: "100%", // Constrains the image to the container
+        height: "auto", // Protects the aspect ratio from stretching
       }),
     },
     title: {

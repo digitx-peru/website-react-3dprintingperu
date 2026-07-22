@@ -15,16 +15,17 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       display: "flex",
       backgroundColor: "rgb(71,167,153)",
       borderRadius: `${cardBorderRadius}px`,
-      // textDecoration: "none",
-      // backgroundImage: `url(${image})`,
       width: "100%", //need
       height: "150px",
       boxShadow:
         "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.8)",
       ...(isMd && {
-        // border: "1px solid rgb(200, 200, 200)",
         height: "150px",
-        // backgroundImage: `url(${image})`,
+      }),
+      ...(isLg && {
+        height: "400px",
+        flex: "1 1 33.333%",
+        maxWidth: "33.333%", // The rigid structural ceiling
       }),
     },
     container: {
@@ -33,12 +34,12 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       height: "100%", //need
       flexGrow: "1",
       borderRadius: `${cardBorderRadius}px`,
-      // backgroundImage: `url(${image})`,
       overflow: "hidden",
+      ...(isLg && {
+        flexDirection: "column",
+      }),
     },
     image: {
-      // width: "40%",
-      // height: "100%",
       flex: "4.5 0 0",
       objectFit: "cover",
       objectPosition: "center",
@@ -47,6 +48,15 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
         "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
       maskImage:
         "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
+      ...(isLg && {
+        flexDirection: "column",
+        flex: "7.5 0 0",
+        WebkitMaskImage: "none",
+        maskImage: "none",
+        maxWidth: "100%", // Constrains the image to the container
+        height: "auto", // Protects the aspect ratio from stretching
+        display: "block", // Erases the default inline baseline gap
+      }),
     },
     infoContainer: {
       display: "flex",
@@ -56,10 +66,16 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       padding: "0 15px",
       backgroundColor: "rgb(71,167,153)",
       height: "100%",
-      // Pulls the text box slightly left so text can sit nicely over the faded area if needed
       ...(isMd && {
         // backgroundImage: `url(${image})`,
         flex: "4 0 0",
+      }),
+      ...(isLg && {
+        flexDirection: "column",
+        flex: "2.5 0 0",
+        borderTop: "4px solid #7BEFB1",
+        alignItems: "start",
+        justifyContent: "center",
       }),
     },
     title: {
@@ -68,6 +84,9 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       margin: 0,
       flex: "1 0 0",
       ...(isMd && {}),
+      ...(isLg && {
+        flex: "initial",
+      }),
     },
     arrowContainer: {
       display: "flex",

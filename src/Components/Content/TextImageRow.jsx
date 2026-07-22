@@ -1,6 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 import typography from "../../Style/typography";
+import globalStyle from "../../Style/globalStyle";
 
 import RowComponent from "./RowComponent";
 
@@ -21,13 +22,13 @@ export default function TextImageRow({
       display: "flex",
       flexDirection: invertedColumn ? "column-reverse" : "column",
       flex: 1,
-      padding: "20px",
+      padding: globalStyle.lateralPadding.mobile,
       backgroundColor: backgroundColor,
       gap: "15px",
       ...(isMd && {
         flexDirection: imageRight ? "row-reverse" : "row",
         gap: "20px",
-        padding: "20px 0",
+        padding: `${globalStyle.verticalPadding.tablet} 0`,
       }),
     },
     textSection: {
@@ -38,14 +39,19 @@ export default function TextImageRow({
       rowGap: "20px",
       ...(isMd && {
         padding: special
-          ? "0px 30px"
+          ? `0px ${globalStyle.lateralPadding.tablet}`
           : imageRight
-            ? "0px 0px 0px 30px"
-            : "0px 30px 0px 0px",
+            ? `0px 0px 0px ${globalStyle.lateralPadding.tablet}`
+            : `0px ${globalStyle.lateralPadding.tablet} 0px 0px`,
       }),
       ...(isLg && {
-        padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
+        padding: imageRight
+          ? `0px 0px 0px ${globalStyle.lateralPadding.desktop}`
+          : `0px ${globalStyle.lateralPadding.desktop} 0px 0px`,
       }),
+      // ...(isLg && {
+      //   padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
+      // }),
     },
     imageSection: {
       display: "flex",
@@ -53,10 +59,14 @@ export default function TextImageRow({
       justifyContent: imageRight ? "end" : "start",
       alignItems: "start",
       ...(isMd && {
-        padding: imageRight ? "0px 30px 0px 0px" : "0px 0px 0px 30px",
+        padding: imageRight
+          ? `0px ${globalStyle.lateralPadding.tablet} 0px 0px`
+          : `0px 0px 0px ${globalStyle.lateralPadding.tablet}`,
       }),
       ...(isLg && {
-        padding: imageRight ? "0px 200px 0px 0px" : "0px 0px 0px 200px",
+        padding: imageRight
+          ? `0px ${globalStyle.lateralPadding.desktop} 0px 0px`
+          : `0px 0px 0px ${globalStyle.lateralPadding.desktop}`,
       }),
     },
     image: {

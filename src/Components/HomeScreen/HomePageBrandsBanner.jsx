@@ -15,6 +15,7 @@ export default function HomePageBrandsBanner() {
       alignItems: "center",
       padding: " 20px",
       backgroundColor: "#D9D9D8",
+      boxSizing: "border-box",
       gap: "20px",
       ...(isMd && {}),
       ...(isLg && {
@@ -27,6 +28,10 @@ export default function HomePageBrandsBanner() {
       width: "100%",
       ...(isMd && {
         maxWidth: "60%",
+      }),
+      ...(isLg && {
+        flex: "1 1 33.333%",
+        maxWidth: "33.333%", // The rigid structural ceiling
       }),
     },
   };

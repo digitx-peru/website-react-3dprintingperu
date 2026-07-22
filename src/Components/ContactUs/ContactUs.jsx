@@ -31,9 +31,12 @@ export default function ContactUs() {
       color: "white",
       ...(isMd && {
         alignSelf: "initial",
-        // width: "600px",
         margin: "0",
         borderRadius: 8,
+      }),
+      ...(isLg && {
+        flex: "0 0 60%",
+        margin: "0",
       }),
     },
     formItemGroup: {

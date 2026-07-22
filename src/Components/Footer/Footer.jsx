@@ -5,7 +5,7 @@ import FooterPrivacyNav from "./FooterPrivacyNav.jsx";
 import FooterSocial from "./FooterSocial";
 
 export default function Footer() {
-  const { isMd, isLg } = useBreakpoints();
+  const { isMd, isLg, isXl } = useBreakpoints();
 
   const styles = {
     footer: {
@@ -13,8 +13,6 @@ export default function Footer() {
       flexDirection: "column",
       backgroundColor: "rgb(10,79,79)",
       borderTop: "7px solid rgb(99,218,178)",
-      boxSizing: "border-box",
-      width: "100%",
     },
     footerContent: {
       display: "flex",
@@ -27,8 +25,14 @@ export default function Footer() {
       ...(isLg && {
         flexDirection: "row",
         alignItems: "innitial",
-        gap: 0,
-        padding: "50px 100px",
+        // gap: 0,
+        padding: "50px 50px",
+      }),
+      ...(isXl && {
+        flexDirection: "row",
+        alignItems: "innitial",
+        // gap: 0,
+        padding: "50px 150px",
       }),
     },
     footerPrivacyContent: {

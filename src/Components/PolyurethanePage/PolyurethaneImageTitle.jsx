@@ -1,5 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
+import globalStyle from "../../Style/globalStyle";
+
 import RowComponent from "../Content/RowComponent";
 
 export default function PolyurethaneImageTitle() {
@@ -9,7 +11,7 @@ export default function PolyurethaneImageTitle() {
     layout: {
       display: "flex",
       flexDirection: "column",
-      alignContent: "center",
+      alignItems: "center",
       backgroundColor: "#3EFFB4",
       padding: "20px",
       gap: "20px",
@@ -18,10 +20,10 @@ export default function PolyurethaneImageTitle() {
       }),
     },
     image: {
-      display: "flex",
-      justifyContent: "center",
-      fontSize: "30px",
       width: "100%",
+      ...(isLg && {
+        width: "60%",
+      }),
     },
     title: {
       textAlign: "center",

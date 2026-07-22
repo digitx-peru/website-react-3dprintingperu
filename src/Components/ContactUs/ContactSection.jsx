@@ -11,7 +11,6 @@ export default function ContactSection() {
       justifyContent: "center",
       marginBottom: "20px",
       ...(isMd && {
-        padding: "0 30px",
       }),
     },
   };

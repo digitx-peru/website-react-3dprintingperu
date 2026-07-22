@@ -1,6 +1,7 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 import typography from "../../Style/typography";
+import globalStyle from "../../Style/globalStyle";
 
 import ContactSection from "../ContactUs/ContactSection";
 import FloatButton from "../FloatButton/FloatButton";
@@ -35,7 +36,7 @@ export default function MainContainer({
       textAlign: "justify",
       ...(isMd && {}),
       ...(isLg && {
-        marginBottom: "50px",
+        marginBottom: globalStyle.verticalPadding.desktop,
       }),
     },
   };
