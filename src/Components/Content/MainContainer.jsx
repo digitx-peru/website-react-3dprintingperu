@@ -58,7 +58,7 @@ export default function MainContainer({
         {children}
       </section>
       {/* Float Button */}
-      {floatButtonEnabled && isTablet && (
+      {floatButtonEnabled && isDesktop && (
         <FloatButton preselectedApplications={floatContent} />
       )}
       {/* Contact Us section */}

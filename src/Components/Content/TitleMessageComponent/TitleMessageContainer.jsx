@@ -35,14 +35,11 @@ export default function TitleMessageContainer({
     },
     title: {
       textAlign: "left",
-      fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+      fontSize: typography.fluid.h2,
       lineHeight: typography.lineHeights.headingTight,
       padding: `0 ${globalStyle.lateralPadding.mobile}`,
       ...(isTablet && {
         padding: `0 ${globalStyle.lateralPadding.tablet}`,
-      }),
-      ...(isDesktop && {
-        padding: `0 ${globalStyle.lateralPadding.desktop}`,
       }),
       ...(isDesktop && {
         padding: `0 ${globalStyle.lateralPadding.desktop}`,
@@ -70,12 +67,13 @@ export default function TitleMessageContainer({
       justifyContent: "center",
       alignItems: "center",
       gap: "20px",
-      padding: "0 20px",
+      padding: `0 ${globalStyle.lateralPadding.mobile}`,
       ...(isTablet && {
-        padding: "0 30px",
+        padding: `0 ${globalStyle.lateralPadding.tablet}`,
         gap: "20px",
       }),
       ...(isDesktop && {
+        padding: `0 ${globalStyle.lateralPadding.desktop}`,
         flexDirection: "row",
         gap: "40px",
       }),

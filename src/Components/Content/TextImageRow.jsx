@@ -13,7 +13,7 @@ export default function TextImageRow({
   invertedColumn = false,
   backgroundColor,
   altTextImage,
-  special = true,
+  special = false,
 }) {
   const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
 
@@ -44,7 +44,7 @@ export default function TextImageRow({
         width: "1440px",
       }),
     },
-    textSection: {
+    childrenContainer: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "start",
@@ -83,7 +83,7 @@ export default function TextImageRow({
             </div>
           )}
 
-          <div className={"textHolder"} style={styles.textSection}>
+          <div className={"textHolder"} style={styles.childrenContainer}>
             {children}
           </div>
         </div>

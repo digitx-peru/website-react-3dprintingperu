@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 import materialsIcon from "../../assets/components/floatbutton/floatbutton_icon_material.png";
 import printIcon from "../../assets/components/floatbutton/floatbutton_icon_print.png";
-import useMediaQuery from "../../hooks/useMediaQuery";
 
 export default function FloatButton({ preselectedApplications }) {
+
   return (
     <div className="floatBtnBox">
       <div className="floatBtn1" style={{ backgroundColor: "rgb(10,79,79)" }}>
