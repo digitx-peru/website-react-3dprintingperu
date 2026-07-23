@@ -15,20 +15,33 @@ export default function TextImageRow({
   altTextImage,
   special = true,
 }) {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
 
   const styles = {
     layoutContainer: {
       display: "flex",
+      justifyContent: "center",
+      backgroundColor: backgroundColor,
+    },
+    layout: {
+      display: "flex",
       flexDirection: invertedColumn ? "column-reverse" : "column",
-      flex: 1,
-      padding: globalStyle.lateralPadding.mobile,
+      padding: `${globalStyle.verticalPadding.mobile} ${globalStyle.lateralPadding.mobile}`,
       backgroundColor: backgroundColor,
       gap: "15px",
+      boxSizing: "border-box",
       ...(isTablet && {
         flexDirection: imageRight ? "row-reverse" : "row",
         gap: "20px",
-        padding: `${globalStyle.verticalPadding.tablet} 0`,
+        padding: `${globalStyle.verticalPadding.tablet} ${globalStyle.lateralPadding.tablet}`,
+      }),
+      ...(isDesktop && {
+        flexDirection: imageRight ? "row-reverse" : "row",
+        gap: "20px",
+        padding: `${globalStyle.verticalPadding.desktop} ${globalStyle.lateralPadding.desktop}`,
+      }),
+      ...(isWideScreen && {
+        width: "1440px",
       }),
     },
     textSection: {
@@ -37,60 +50,42 @@ export default function TextImageRow({
       justifyContent: "start",
       flex: "6 0 0",
       rowGap: "20px",
-      ...(isTablet && {
-        padding: special
-          ? `0px ${globalStyle.lateralPadding.tablet}`
-          : imageRight
-            ? `0px 0px 0px ${globalStyle.lateralPadding.tablet}`
-            : `0px ${globalStyle.lateralPadding.tablet} 0px 0px`,
-      }),
-      ...(isDesktop && {
-        padding: imageRight
-          ? `0px 0px 0px ${globalStyle.lateralPadding.desktop}`
-          : `0px ${globalStyle.lateralPadding.desktop} 0px 0px`,
-      }),
-      // ...(isDesktop && {
-      //   padding: imageRight ? "0px 80px 0px 200px" : "0px 200px 0px 80px",
-      // }),
+      ...(isTablet && {}),
+      ...(isDesktop && {}),
     },
     imageSection: {
       display: "flex",
       flex: "4 0 0",
       justifyContent: imageRight ? "end" : "start",
       alignItems: "start",
-      ...(isTablet && {
-        padding: imageRight
-          ? `0px ${globalStyle.lateralPadding.tablet} 0px 0px`
-          : `0px 0px 0px ${globalStyle.lateralPadding.tablet}`,
-      }),
-      ...(isDesktop && {
-        padding: imageRight
-          ? `0px ${globalStyle.lateralPadding.desktop} 0px 0px`
-          : `0px 0px 0px ${globalStyle.lateralPadding.desktop}`,
-      }),
+      ...(isTablet && {}),
+      ...(isDesktop && {}),
+      ...(isWideScreen && {}),
     },
     image: {
-      maxHeight: "400px",
       width: "auto",
       maxWidth: "100%",
+      maxHeight: "300px",
     },
   };
 
   return (
     <RowComponent>
       <div style={styles.layoutContainer}>
-        {imageEnabled && (
-          <div className={"imageHolder"} style={styles.imageSection}>
-            <img
-              style={styles.image}
-              src={`/images/${imageName}`}
-              alt={altTextImage}
-            />
-          </div>
-        )}
+        <div style={styles.layout}>
+          {imageEnabled && (
+            <div className={"imageHolder"} style={styles.imageSection}>
+              <img
+                style={styles.image}
+                src={`/images/${imageName}`}
+                alt={altTextImage}
+              />
+            </div>
+          )}
 
-        <div className={"textHolder"} style={styles.textSection}>
-          {children}
+          <div className={"textHolder"} style={styles.textSection}>
+            {children}
+          </div>
         </div>
       </div>
     </RowComponent>
