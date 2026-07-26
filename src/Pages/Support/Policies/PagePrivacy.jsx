@@ -5,9 +5,9 @@ export default function PagePrivacy() {
   return (
     <>
       <PageContent
-        heroTitle={"Política de privacidad"}
-        heroMessage={""}
-        floatButton={false}
+        heroEnabled={false}
+        floatButtonEnabled={false}
+        contactFormEnabled={false}
       >
         <ContentPrivacy />
       </PageContent>

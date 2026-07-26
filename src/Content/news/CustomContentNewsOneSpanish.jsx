@@ -1,35 +1,37 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
-import EndOfContent from "../../Components/Content/EndOfContent";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
-export default function CustomContentFoundry({ width }) {
-  const isDevice = useMediaQuery(768);
+import typography from "../../Style/typography";
+import globalStyle from "../../Style/globalStyle";
+
+import SpecialContent from "../../Components/Special/SpecialContent";
+
+export default function CustomContentNewsOneSpanish() {
+  const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
 
   const styles = {
     container: {
       display: "flex",
       flexDirection: "column",
-      textAlign: "justify",
-      rowGap: 15,
-      width: width,
-      fontSize: isDevice ? "16px" : "20px",
-      lineHeight: "1.5",
+      alignItems: "center",
     },
-    imageRight: {
-      float: "right",
-      marginLeft: 20,
+    text: {
+      fontSize: typography.fluid.body,
     },
-    imageLeft: {
-      float: "left",
-      marginRight: 20,
+    images: {
+      width: "100%",
+      padding: `${globalStyle.verticalPadding.mobile} 0`,
+      ...(isDesktop && {
+        padding: `${globalStyle.verticalPadding.tablet} 0`,
+      }),
+      ...(isDesktop && {
+        maxWidth: "500px",
+        padding: `${globalStyle.verticalPadding.desktop} 0`,
+      }),
     },
   };
 
   return (
-    <div className="textContainer" style={styles.container}>
-      {/* <h2>
-        El Hospital de la Universidad de Salzburgo realiza una cirugía
-        innovadora usando avanzada tecnologia ortopedica
-      </h2> */}
+    <div style={{ ...styles.container, ...styles.text }}>
       <p>
         ROCK HILL, Carolina del Sur, Abril 19, 2023 3D Systems, anuncio que el
         Hospital de la Universidad de Salzburg (Austria) ha aplicado
@@ -57,15 +59,11 @@ export default function CustomContentFoundry({ width }) {
         Kumovis fue específicamente diseñada para permitir este tipo de
         aplicaciones médicas dentro del hospital.
       </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: "40px 0 40px 0",
-        }}
-      >
-        <img style={{width: "800px"}} src={"/images/news/newsOne/news_image_skull_design_fix.png"} alt="" />
-      </div>
+      <img
+        style={styles.images}
+        src={"/images/news/newsOne/news_image_skull_design_fix.png"}
+        alt=""
+      />
       <p>
         Se espera que La Adopción de implantes craneales impresos en 3D se
         acelere significativamente basado en los avances de la tecnología. De
@@ -107,16 +105,11 @@ export default function CustomContentFoundry({ width }) {
         hospital se muestra abajo. La nota de prensa completa en alemán esta
         disponible aquí.
       </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: "40px 0 40px 0",
-        }}
-      >
-        <img style={{width: "500px"}} src={"news/newsOne/news_image_user_printer.jpg"} alt="" />
-      </div>
-      <EndOfContent />
+      <img
+        style={styles.images}
+        src={"/images/news/newsOne/news_image_user_printer.jpg"}
+        alt=""
+      />
     </div>
   );
 }

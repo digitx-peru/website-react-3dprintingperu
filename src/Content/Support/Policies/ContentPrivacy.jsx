@@ -1,11 +1,25 @@
+import useBreakpoints from "../../../hooks/useBreakpoints";
+
+import typography from "../../../Style/typography";
+import globalStyle from "../../../Style/globalStyle";
+
+import SpecialContent from "../../../Components/Special/SpecialContent";
 import EndOfContent from "../../../Components/Content/EndOfContent";
 
-import TextImageRow from "../../../Components/Content/TextImageRow";
-
 export default function ContentPrivacy() {
+  const styles = {
+    layout: {
+      display: "flex",
+      flexDirection: "column",
+      fontSize: typography.fluid.body,
+      gap: "15px",
+    },
+  };
+
   return (
-    <>
-      <TextImageRow imageEnabled={false}>
+    <SpecialContent>
+      <div style={styles.layout}>
+        <h2>Política de privacidad</h2>
         <p>
           De conformidad con lo establecido en la Ley N° 29733, Ley de
           Protección de Datos Personales, y su Reglamento detallado en el
@@ -28,8 +42,8 @@ export default function ContentPrivacy() {
           sus datos personales, enviando una comunicación al correo electrónico:
           compliance@3dprinting.com.pe
         </p>
-      </TextImageRow>
+      </div>
       <EndOfContent />
-    </>
+    </SpecialContent>
   );
 }
