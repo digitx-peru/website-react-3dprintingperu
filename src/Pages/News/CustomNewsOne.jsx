@@ -7,7 +7,7 @@ export default function CustomNewsOne() {
     <>
       <PageContent
         heroTitle={
-          "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora usando avanzada tecnologia ortopedica"
+          "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora"
         }
       >
         <CustomContentNewsOne />

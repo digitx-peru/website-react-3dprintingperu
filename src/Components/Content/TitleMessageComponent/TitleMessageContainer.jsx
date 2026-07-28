@@ -78,7 +78,6 @@ export default function TitleMessageContainer({
         gap: "40px",
       }),
       ...(isWideScreen && {
-        padding: "0",
         width: "1440px",
       }),
     },

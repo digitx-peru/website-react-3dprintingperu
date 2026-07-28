@@ -57,6 +57,7 @@ export default function Hero({
       fontSize: "clamp(2rem, 5vw, 4rem)",
       lineHeight: typography.lineHeights.headingLoose,
       fontWeight: "bold",
+      textAlign: "left",
       ...(isTablet && {
         // fontSize: "48px",
         fontWeight: "normal",

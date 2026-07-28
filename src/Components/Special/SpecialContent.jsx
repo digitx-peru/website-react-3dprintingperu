@@ -14,7 +14,7 @@ export default function SpecialContent({ children }) {
     layout: {
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
+      width: "100%",
       padding: `${globalStyle.verticalPadding.mobile} ${globalStyle.lateralPadding.mobile}`,
       ...(isTablet && {
         padding: `${globalStyle.verticalPadding.tablet} ${globalStyle.lateralPadding.tablet}`,
@@ -30,7 +30,7 @@ export default function SpecialContent({ children }) {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="SpecialContentContainer" style={styles.container}>
       <div style={styles.layout}>{children}</div>
     </div>
   );

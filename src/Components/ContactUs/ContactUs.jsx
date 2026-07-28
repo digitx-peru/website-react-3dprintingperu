@@ -1,12 +1,14 @@
 import { useState } from "react";
-import useBreakpoints from "../../hooks/useBreakpoints";
 
 import { Button, Form, Input, Modal, Select } from "antd";
+
+import useBreakpoints from "../../hooks/useBreakpoints";
+import typography from "../../Style/typography";
 
 import emailHandler from "../../utils/emailHandler";
 
 export default function ContactUs() {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //current text value
@@ -35,8 +37,11 @@ export default function ContactUs() {
         borderRadius: 8,
       }),
       ...(isDesktop && {
-        flex: "0 0 60%",
+        flex: "0 0 80%",
         margin: "0",
+      }),
+      ...(isWideScreen && {
+        flex: "0 0 60%",
       }),
     },
     formItemGroup: {
@@ -75,7 +80,7 @@ export default function ContactUs() {
       fontSize: "18px",
       ...(isTablet && {
         height: "auto",
-        fontSize: "24px",
+        fontSize: typography.fluid.h3,
       }),
     },
     formTextArea: {
@@ -284,7 +289,7 @@ export default function ContactUs() {
             <Button
               key="ok"
               type="primary"
-              // style={{ fontSize: "16px" }}
+              // style={{ fontSize: typography.fluid.h3 }}
               onClick={handleOk}
             >
               OK

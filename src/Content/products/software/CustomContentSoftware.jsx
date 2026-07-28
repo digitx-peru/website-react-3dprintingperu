@@ -4,7 +4,7 @@ import useBreakpoints from "../../../hooks/useBreakpoints";
 import TextImageRow from "../../../Components/Content/TextImageRow";
 
 export default function CustomContentSoftware({ width }) {
-  const { isMd, isLg } = useBreakpoints();
+  const { isTablet, isDesktop } = useBreakpoints();
 
   // 1. Create Refs for your sections
   const designersRef = useRef(null);
@@ -30,7 +30,7 @@ export default function CustomContentSoftware({ width }) {
       position: "sticky",
       top: 0,
       padding: "0px 200px",
-      ...(isMd && {
+      ...(isTablet && {
         marginBottom: "20px",
       }),
     },
@@ -49,8 +49,8 @@ export default function CustomContentSoftware({ width }) {
   return (
     <>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      {isMd ||
-        (isLg && (
+      {isTablet ||
+        (isDesktop && (
           <nav
             className="sectionJumpContainer"
             style={styles.sectionJumpContainer}

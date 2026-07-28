@@ -41,7 +41,7 @@ export default function TextImageRow({
         padding: `${globalStyle.verticalPadding.desktop} ${globalStyle.lateralPadding.desktop}`,
       }),
       ...(isWideScreen && {
-        width: "1440px",
+        width: "1280px",
       }),
     },
     childrenContainer: {

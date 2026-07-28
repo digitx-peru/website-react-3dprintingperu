@@ -1,10 +1,37 @@
 import useBreakpoints from "../../hooks/useBreakpoints";
 
+import globalStyle from "../../Style/globalStyle";
+import typography from "../../Style/typography";
+
 import SpecialContent from "../../Components/Special/SpecialContent";
 
 export default function CustomContentNewsOneOriginal() {
+  const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
+
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    text: {
+      fontSize: typography.fluid.body,
+    },
+    images: {
+      width: "100%",
+      padding: `${globalStyle.verticalPadding.mobile} 0`,
+      ...(isDesktop && {
+        padding: `${globalStyle.verticalPadding.tablet} 0`,
+      }),
+      ...(isDesktop && {
+        maxWidth: "500px",
+        padding: `${globalStyle.verticalPadding.desktop} 0`,
+      }),
+    },
+  };
+
   return (
-    <>
+    <div style={{ ...styles.container, ...styles.text }}>
       <p>
         Computer scientist Rainer Trummer (55) from the city of Salzburg has a
         lifelong history of suffering behind him: he suffers from
@@ -109,6 +136,6 @@ export default function CustomContentNewsOneOriginal() {
         benefiting. The entire team is extremely proud that our technology has
         now made its way into patient care."
       </p>
-    </>
+    </div>
   );
 }
