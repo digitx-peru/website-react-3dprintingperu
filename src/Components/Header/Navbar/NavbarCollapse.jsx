@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 import { Collapse } from "antd";
 
+import typography from "../../../Style/typography";
+import globalStyle from "../../../Style/globalStyle";
+
 import ApplicationsDropdown from "./NavbarDropDownOptions/ApplicationsDropdown";
 import ProductsDropdown from "./NavbarDropDownOptions/ProductsDropdown";
 import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
@@ -10,22 +13,24 @@ import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
 
 export default function NavbarCollapse({ onClickLink }) {
   const styles = {
-    collapsePanel: {
+    collapseContainer: {
       display: "flex",
       flexDirection: "column",
-      paddingLeft: 20,
-      fontSize: 20,
+      gap: 5,
     },
-    collapsedDropdownOption: {},
-    listTitle: {
-      fontSize: "16px",
+    collapsePanel: {
+      fontSize: typography.fluid.h3,
     },
-    optionList: {
-      listStyle: "none",
+  };
+
+  const collapseStyles = {
+    header: {
+      background: "#3F3F3F",
+      color: "rgb(62,255,180)",
     },
-    navlink: {
-      textDecoration: "none",
-      fontSize: "16px",
+    body: {
+      background: "#3F3F3F",
+      color: "rgb(62,255,180)",
     },
   };
 
@@ -34,23 +39,23 @@ export default function NavbarCollapse({ onClickLink }) {
       <Collapse
         defaultActiveKey={["1"]}
         accordion
-        size="large"
-        style={{ display: "flex", flexDirection: "column", gap: 5 }}
+        style={styles.collapseContainer}
+        styles={collapseStyles}
       >
         <Collapse.Panel
-          header={<span style={{ fontSize: "20px" }}>Servicios</span>}
+          header={<span style={styles.collapsePanel}>Servicios</span>}
           key="3"
         >
           <ServicesDropdown />
         </Collapse.Panel>
         <Collapse.Panel
-          header={<span style={{ fontSize: "20px" }}>Productos</span>}
+          header={<span style={styles.collapsePanel}>Productos</span>}
           key="2"
         >
           <ProductsDropdown />
         </Collapse.Panel>
         <Collapse.Panel
-          header={<span style={{ fontSize: "20px" }}>Aplicaciones</span>}
+          header={<span style={styles.collapsePanel}>Aplicaciones</span>}
           key="1"
         >
           <ApplicationsDropdown />

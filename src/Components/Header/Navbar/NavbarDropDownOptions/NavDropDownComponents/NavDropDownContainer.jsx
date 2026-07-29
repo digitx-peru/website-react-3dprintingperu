@@ -1,15 +1,19 @@
-import useMediaQuery from "../../../../../hooks/useMediaQuery";
+import useBreakpoints from "../../../../../hooks/useBreakpoints";
 
 export default function NavDropDownContainer({ linkpath, children }) {
-  //Check windows size
-  const isTablet = useMediaQuery(768);
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     dropdownOptionsContainer: {
       display: "flex",
-      flexDirection: isTablet ? "column" : "row",
-      marginTop: isTablet ? "0" : "40px",
-      gap: isTablet ? "0" : "100px",
+      flexDirection: "column",
+      marginTop: "0",
+      gap: "0",
+      ...(isDesktop && {
+        flexDirection: "row",
+        marginTop: "40px",
+        gap: "100px",
+      }),
     },
   };
 

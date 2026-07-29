@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+
+import NavbarModal from "./NavbarModal";
 
 import NavbarCollapse from "./NavbarCollapse";
 
@@ -30,35 +32,9 @@ export default function NavMenu() {
   return (
     <>
       <Button icon={<MenuOutlined />} onClick={showModal} style={styles.icon} />
-      <Modal
-        title="Ir a"
-        open={isModalOpen}
-        style={{ padding: 20 }}
-        centered
-        onCancel={handleCancel}
-        closeIcon={<CloseOutlined style={{ fontSize: "24px" }} />}
-        footer={
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignSelf: "center",
-              padding: "10px 20px",
-            }}
-          >
-            <Button
-              key="ok"
-              type="primary"
-              style={{ height: 40 }}
-              onClick={handleOk}
-            >
-              OK
-            </Button>
-          </div>
-        }
-      >
+      <NavbarModal isOpen={isModalOpen} onClose={handleCancel}>
         <NavbarCollapse onClickLink={handleOk} />
-      </Modal>
+      </NavbarModal>
     </>
   );
 }
