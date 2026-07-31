@@ -1,21 +1,27 @@
-import useMediaQuery from "../../../../../hooks/useMediaQuery";
-
 import { Link } from "react-router-dom";
+
+import useBreakpoints from "../../../../../hooks/useBreakpoints";
+
+import typography from "../../../../../Style/typography";
+import globalStyle from "../../../../../Style/globalStyle";
 
 export default function NavOptionListItem({ linkTitle, linkpath }) {
   //Check windows size
-  const isTablet = useMediaQuery(768);
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     optionListItem: {
       listStyle: "none",
-      fontSize: isTablet ? "18px" : "16px",
+      fontSize: typography.fluid.body,
       fontWeight: "normal",
-      marginBottom: isTablet ? 0 : "15px",
+      margin: "0 0 0 15px",
+      ...(isTablet && {
+        margin: "0 0 0 5px",
+      }),
     },
     navlink: {
       textDecoration: "none",
-      color: isTablet ? "#007FFF" : "#3EFFB4",
+      color: "#3EFFB4",
     },
   };
 

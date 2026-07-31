@@ -27,6 +27,7 @@ export default function NavbarCollapse({ onClickLink }) {
     header: {
       background: "#3F3F3F",
       color: "rgb(62,255,180)",
+      fontWeight: "400"
     },
     body: {
       background: "#3F3F3F",
@@ -44,7 +45,7 @@ export default function NavbarCollapse({ onClickLink }) {
       >
         <Collapse.Panel
           header={<span style={styles.collapsePanel}>Servicios</span>}
-          key="3"
+          key="1"
         >
           <ServicesDropdown />
         </Collapse.Panel>
@@ -56,7 +57,7 @@ export default function NavbarCollapse({ onClickLink }) {
         </Collapse.Panel>
         <Collapse.Panel
           header={<span style={styles.collapsePanel}>Aplicaciones</span>}
-          key="1"
+          key="3"
         >
           <ApplicationsDropdown />
         </Collapse.Panel>

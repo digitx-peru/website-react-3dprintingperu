@@ -1,27 +1,44 @@
-import useMediaQuery from "../../../../../hooks/useMediaQuery";
+import useBreakpoints from "../../../../../hooks/useBreakpoints";
+
+import typography from "../../../../../Style/typography";
+import globalStyle from "../../../../../Style/globalStyle";
 
 export default function NavDropDown({ title, children }) {
-  //Check windows size
-  const isTablet = useMediaQuery(768);
+  const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
     dropdownOption: {
       display: "flex",
       flexDirection: "column",
-      marginBottom: isTablet ? "20px" : 0,
-      gap: isTablet ? "10px" : 0,
+      marginBottom: "20px",
+      gap: 0,
+      ...(isTablet && {
+        marginBottom: 0,
+        gap: "10px",
+      }),
     },
     listTitle: {
-      fontWeight: isTablet ? "bold" : "400",
-      fontSize: isTablet ? "20px" : "16px",
-      marginBottom: isTablet ? 0 : "20px",
+      fontWeight: "400",
+      fontSize: typography.fluid.h3,
+      marginBottom: 0,
+      color: "white",
+      ...(isTablet && {
+        fontWeight: "bold",
+        marginBottom: "20px",
+      }),
     },
     optionList: {
       padding: 0,
-      margin: isTablet ? "0 20px" : 0,
-      display: isTablet ? "flex" : "block",
-      flexDirection: isTablet ? "column" : "row",
-      gap: isTablet ? "10px" : 0,
+      margin: 0,
+      display: "block",
+      flexDirection: "row",
+      gap: 0,
+      ...(isTablet && {
+        margin: "0 20px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+      }),
     },
   };
 
