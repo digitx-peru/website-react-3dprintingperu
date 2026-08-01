@@ -1,7 +1,7 @@
 import useBreakpoints from "../../../../../hooks/useBreakpoints";
 
 export default function NavDropDownContainer({ linkpath, children }) {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
 
   const styles = {
     dropdownOptionsContainer: {
@@ -12,6 +12,9 @@ export default function NavDropDownContainer({ linkpath, children }) {
       ...(isDesktop && {
         flexDirection: "row",
         marginTop: "40px",
+        gap: "75px",
+      }),
+      ...(isWideScreen && {
         gap: "100px",
       }),
     },

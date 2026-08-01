@@ -5,8 +5,8 @@ function getMatches() {
   return {
     isTablet: window.innerWidth >= BREAKPOINTS.md,
     isDesktop: window.innerWidth >= BREAKPOINTS.lg,
-    isLargeTablet: window.innerWidth >= BREAKPOINTS.xl,
-    isWideScreen: window.innerWidth >= BREAKPOINTS.xxl,
+    // isLargeTablet: window.innerWidth >= BREAKPOINTS.xl,
+    isWideScreen: window.innerWidth >= BREAKPOINTS.xl,
   };
 }
 

@@ -11,7 +11,7 @@ export default function HeroOverlay({
   const styles = {
     dropdownOverlay: {
       position: "absolute",
-      top: "85px", // Adjust based on navbar height
+      top: "95px", // Adjust based on navbar height
       left: 0,
       width: "100%",
       //   height: "calc(100% - 85px)", // Covers the Hero component

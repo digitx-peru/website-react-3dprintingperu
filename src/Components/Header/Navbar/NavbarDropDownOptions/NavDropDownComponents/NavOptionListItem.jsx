@@ -15,8 +15,8 @@ export default function NavOptionListItem({ linkTitle, linkpath }) {
       fontSize: typography.fluid.body,
       fontWeight: "normal",
       margin: "0 0 0 15px",
-      ...(isTablet && {
-        margin: "0 0 0 5px",
+      ...(isDesktop && {
+        margin: 0
       }),
     },
     navlink: {

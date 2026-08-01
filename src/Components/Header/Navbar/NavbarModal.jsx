@@ -1,7 +1,11 @@
 import { Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 
+import useBreakpoints from "../../../hooks/useBreakpoints";
+
 export default function NavbarModal({ isOpen, onClose, children }) {
+  const { isTablet, isDesktop } = useBreakpoints();
+
   const styles = {
     overlay: {
       position: "fixed",
@@ -15,12 +19,22 @@ export default function NavbarModal({ isOpen, onClose, children }) {
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
-      padding: "20px",
+      padding: "0 20px",
+      ...(isTablet && {
+        alignItems: "center",
+        padding: 0,
+      }),
+    },
+    contentLayout: {
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+      ...(isTablet && {
+        width: "400px",
+        maxWidth: "400px",
+      }),
     },
     closeButton: {
-      // position: "absolute",
-      // top: "10px",
-      // right: "10px",
       alignSelf: "end",
       color: "rgb(62,255,180)",
       backgroundColor: "#3F3F3F",
@@ -29,7 +43,7 @@ export default function NavbarModal({ isOpen, onClose, children }) {
     content: {
       position: "relative",
       backgroundColor: "#3F3F3F",
-      width: "100%",
+      ...(isTablet && {}),
     },
   };
 
@@ -37,12 +51,14 @@ export default function NavbarModal({ isOpen, onClose, children }) {
 
   return (
     <div style={styles.overlay}>
-      <Button
-        icon={<CloseOutlined />}
-        onClick={onClose}
-        style={styles.closeButton}
-      />
-      <div style={styles.content}>{children}</div>
+      <div style={styles.contentLayout}>
+        <Button
+          icon={<CloseOutlined />}
+          onClick={onClose}
+          style={styles.closeButton}
+        />
+        <div style={styles.content}>{children}</div>
+      </div>
     </div>
   );
 }

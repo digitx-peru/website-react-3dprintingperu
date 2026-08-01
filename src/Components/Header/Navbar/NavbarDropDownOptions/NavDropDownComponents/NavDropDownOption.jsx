@@ -10,10 +10,9 @@ export default function NavDropDown({ title, children }) {
     dropdownOption: {
       display: "flex",
       flexDirection: "column",
-      marginBottom: "20px",
+      margin: "0 0 20px 0",
       gap: 0,
       ...(isTablet && {
-        marginBottom: 0,
         gap: "10px",
       }),
     },
@@ -22,19 +21,16 @@ export default function NavDropDown({ title, children }) {
       fontSize: typography.fluid.h3,
       marginBottom: 0,
       color: "white",
-      ...(isTablet && {
-        fontWeight: "bold",
-        marginBottom: "20px",
+      ...(isDesktop && {
       }),
     },
     optionList: {
       padding: 0,
-      margin: 0,
-      display: "block",
-      flexDirection: "row",
-      gap: 0,
-      ...(isTablet && {
-        margin: "0 20px",
+      margin: "10px 0 0 0",
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+      ...(isDesktop && {
         display: "flex",
         flexDirection: "column",
         gap: "10px",

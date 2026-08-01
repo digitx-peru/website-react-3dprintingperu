@@ -16,7 +16,6 @@ export default function NavbarCollapse({ onClickLink }) {
     collapseContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 5,
     },
     collapsePanel: {
       fontSize: typography.fluid.h3,
@@ -25,7 +24,7 @@ export default function NavbarCollapse({ onClickLink }) {
 
   const collapseStyles = {
     header: {
-      background: "#3F3F3F",
+      background: "#1F1F1F",
       color: "rgb(62,255,180)",
       fontWeight: "400"
     },
