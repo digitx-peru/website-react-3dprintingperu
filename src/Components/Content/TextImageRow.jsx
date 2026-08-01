@@ -56,9 +56,11 @@ export default function TextImageRow({
     imageSection: {
       display: "flex",
       flex: "4 0 0",
-      justifyContent: imageRight ? "end" : "start",
+      justifyContent: "center",
       alignItems: "start",
-      ...(isTablet && {}),
+      ...(isTablet && {
+        justifyContent: imageRight ? "end" : "start",
+      }),
       ...(isDesktop && {}),
       ...(isWideScreen && {}),
     },

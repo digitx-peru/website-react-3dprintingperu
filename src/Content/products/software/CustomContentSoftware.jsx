@@ -2,6 +2,7 @@ import { useRef } from "react";
 import useBreakpoints from "../../../hooks/useBreakpoints";
 
 import TextImageRow from "../../../Components/Content/TextImageRow";
+import SectionJumpbar from "../../../Components/Content/SectionJumpbar";
 
 export default function CustomContentSoftware({ width }) {
   const { isTablet, isDesktop } = useBreakpoints();
@@ -18,59 +19,10 @@ export default function CustomContentSoftware({ width }) {
     { label: "Tiendas", ref: storesRef },
   ];
 
-  // 3. Create a single handler function
-  const handleScroll = (ref) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const styles = {
-    //// Nav styles
-    sectionJumpContainer: {
-      backgroundColor: "#E3BF7B",
-      position: "sticky",
-      top: 0,
-      padding: "0px 200px",
-      ...(isTablet && {
-        marginBottom: "20px",
-      }),
-    },
-    sectionJumpNavList: {
-      display: "flex",
-      flexDirection: "row",
-      columnGap: 50,
-      padding: "0px 0px",
-    },
-    listItem: {
-      listStyle: "none",
-      cursor: "pointer",
-    },
-  };
-
   return (
     <>
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
-      {isTablet ||
-        (isDesktop && (
-          <nav
-            className="sectionJumpContainer"
-            style={styles.sectionJumpContainer}
-          >
-            <ul
-              className="sectionJumpNavList"
-              style={styles.sectionJumpNavList}
-            >
-              {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleScroll(item.ref)}
-                  style={styles.listItem}
-                >
-                  {item.label}
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+      {isTablet && <SectionJumpbar navItems={navItems} />}
 
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
