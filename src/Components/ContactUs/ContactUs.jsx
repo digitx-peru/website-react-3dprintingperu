@@ -11,10 +11,20 @@ export default function ContactUs() {
   const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const buyOption =
+    "Hola 3DP,\n\nQuisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo.\n\nMuchas gracias, Mi nombre";
+
+  const printOption =
+    "Hola 3DP,\n\nQuisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza.\n\nMuchas gracias, Mi nombre";
+
+  const supportOption =
+    "Hola 3DP,\n\nQuisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza.\n\nMuchas gracias, Mi nombre";
+
+  const softwareOption =
+    "Hola 3DP,\n\nQuisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am>.\n\nMuchas gracias, <Mi nombre>";
+
   //current text value
-  const [currentTextValue, setCurrentTextValue] = useState(
-    "Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre",
-  );
+  const [currentTextValue, setCurrentTextValue] = useState(buyOption);
 
   //Form reference
   const [form] = Form.useForm();
@@ -77,17 +87,17 @@ export default function ContactUs() {
       width: "200px",
       color: "black",
       backgroundColor: "rgb(99,218,178)",
-      fontSize: "18px",
+      fontSize: typography.fluid.body,
       ...(isTablet && {
-        height: "auto",
-        fontSize: typography.fluid.h3,
+        height: "30px",
       }),
     },
     formTextArea: {
-      fontSize: "16px",
+      fontSize: typography.fluid.body,
+      height: "200px"
     },
     modalMessage: {
-      fontSize: "14px",
+      fontSize: typography.fluid.body,
     },
   };
 
@@ -105,29 +115,22 @@ export default function ContactUs() {
   };
 
   //onDropDownOptionChange
+
   const onDropDownOptionChange = (newValue) => {
     switch (newValue) {
       case "buy":
-        setCurrentTextValue(
-          "Hola 3DP,Quisiera comprar una impresora 3D para fabricar piñones, que serviran como pieza de repuesto para mi maquinaria. Las dimensiones (en cm) de esta pieza estan en el rango de: alto:  10 - 15cm, ancho: 10-15cm y profundidad: 3cm. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de una pieza ejemplo. Muchas gracias, Mi nombre",
-        );
+        setCurrentTextValue(buyOption);
         break;
 
       case "print":
-        setCurrentTextValue(
-          "Hola 3DP, Quisiera solicitar la fabricación de una pieza, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre",
-        );
+        setCurrentTextValue(printOption);
         break;
 
       case "support":
-        setCurrentTextValue(
-          "Hola 3DP, Quisiera solicitar el mantenimiento de una impresora 3D, son piñones, que serviran como pieza de repuesto para mi maquinaria. La pieza estara expuesta a liquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza. Muchas gracias, Mi nombre",
-        );
+        setCurrentTextValue(supportOption);
         break;
       case "rhino":
-        setCurrentTextValue(
-          "Hola 3DP, Quisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am> Muchas gracias, <Mi nombre>",
-        );
+        setCurrentTextValue(softwareOption);
         break;
     }
   };
