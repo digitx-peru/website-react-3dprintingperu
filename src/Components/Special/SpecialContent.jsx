@@ -2,6 +2,7 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 
 import globalStyle from "../../Style/globalStyle";
 import typography from "../../Style/typography";
+import { BREAKPOINTS } from "../../hooks/breakpoints";
 
 export default function SpecialContent({ children }) {
   const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
@@ -24,7 +25,7 @@ export default function SpecialContent({ children }) {
       }),
       ...(isWideScreen && {
         padding: `${globalStyle.verticalPadding.desktop} 0`,
-        width: "1440px",
+        width: BREAKPOINTS.xl,
       }),
     },
   };

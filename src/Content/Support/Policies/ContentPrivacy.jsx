@@ -43,7 +43,6 @@ export default function ContentPrivacy() {
           compliance@3dprinting.com.pe
         </p>
       </div>
-      <EndOfContent />
     </SpecialContent>
   );
 }
