@@ -13,6 +13,7 @@ export default function PageContent({
   floatButtonEnabled = true,
   floatContent,
   contactFormEnabled = true,
+  contactFormDefaultOption,
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function PageContent({
         floatButtonEnabled={floatButtonEnabled}
         floatContent={floatContent}
         contactFormEnabled={contactFormEnabled}
+        contactFormDefaultOption={contactFormDefaultOption}
       />
       <Footer />
     </>

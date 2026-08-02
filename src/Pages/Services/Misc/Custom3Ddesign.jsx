@@ -10,7 +10,10 @@ export default function Custom3Ddesign() {
       <PageContent
         heroTitle={"El primer paso para la fabricación digital"}
         heroMessage={""}
-        backgroundImage={"/images/services/misc/3ddesign/misc_3ddesign_hero.png"}
+        backgroundImage={
+          "/images/services/misc/3ddesign/misc_3ddesign_hero.png"
+        }
+        contactFormDefaultOption={"softwareOption"}
       >
         <CustomContent3Ddesign />
       </PageContent>

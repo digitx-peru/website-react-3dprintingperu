@@ -9,7 +9,10 @@ export default function CustomPhotopolymers() {
       <PageContent
         heroTitle={"Producción de partes de resina con impresión 3D"}
         heroMessage={"Resinas de nivel industrial para usos especiales"}
-        backgroundImage={"/images/services/3dprint/photopolymers/hero_img_photopolymer.png"}
+        backgroundImage={
+          "/images/services/3dprint/photopolymers/hero_img_photopolymer.png"
+        }
+        contactFormDefaultOption={"printOption"}
       >
         <CustomContentPhotopolymers />
       </PageContent>

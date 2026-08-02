@@ -7,7 +7,7 @@ import typography from "../../Style/typography";
 
 import emailHandler from "../../utils/emailHandler";
 
-export default function ContactUs() {
+export default function ContactUs({ defaultOption = "buyOption" }) {
   const { isTablet, isDesktop, isWideScreen } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,8 +23,23 @@ export default function ContactUs() {
   const softwareOption =
     "Hola 3DP,\n\nQuisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am>.\n\nMuchas gracias, <Mi nombre>";
 
+  function defaultOptionValue(value) {
+    switch (value) {
+      case "buyOption":
+        return { res1: buyOption, res2: "buy" };
+      case "printOption":
+        return { res1: printOption, res2: "print" };
+      case "supportOption":
+        return { res1: supportOption, res2: "support" };
+      case "softwareOption":
+        return { res1: softwareOption, res2: "rhino" };
+    }
+  }
+
   //current text value
-  const [currentTextValue, setCurrentTextValue] = useState(buyOption);
+  const [currentTextValue, setCurrentTextValue] = useState(
+    defaultOptionValue(defaultOption).res1,
+  );
 
   //Form reference
   const [form] = Form.useForm();
@@ -94,7 +109,7 @@ export default function ContactUs() {
     },
     formTextArea: {
       fontSize: typography.fluid.body,
-      height: "200px"
+      height: "200px",
     },
     modalMessage: {
       fontSize: typography.fluid.body,
@@ -228,7 +243,7 @@ export default function ContactUs() {
             ]}
           >
             <Select
-              defaultValue="buy"
+              defaultValue={defaultOptionValue(defaultOption).res2}
               styles={{
                 input: { fontSize: "16px" },
               }}

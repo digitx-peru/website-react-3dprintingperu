@@ -2,7 +2,7 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 
 import ContactUs from "./ContactUs";
 
-export default function ContactSection() {
+export default function ContactSection({defaultOption}) {
   const { isTablet, isDesktop } = useBreakpoints();
 
   const styles = {
@@ -16,7 +16,7 @@ export default function ContactSection() {
   };
   return (
     <section className="contactUs" style={styles.container}>
-      <ContactUs />
+      <ContactUs defaultOption={defaultOption}/>
     </section>
   );
 }

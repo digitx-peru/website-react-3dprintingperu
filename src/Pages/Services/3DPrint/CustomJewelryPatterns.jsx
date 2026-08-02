@@ -10,6 +10,7 @@ export default function CustomJewelryPatterns() {
         heroTitle={"Patrones de joyeria para vaciado y moldes"}
         heroMessage={""}
         heroImage={""}
+        contactFormDefaultOption={"printOption"}
       >
         <CustomContentJewelryPatterns />
       </PageContent>

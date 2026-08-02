@@ -9,7 +9,10 @@ export default function CustomSoftware() {
         heroMessage={
           "Herramientas avanzadas para diseño de joyeria en 3D, por los creadores de RhinoGold"
         }
-        backgroundImage={"/images/products/software/software_artisan_background.jpeg"}
+        backgroundImage={
+          "/images/products/software/software_artisan_background.jpeg"
+        }
+        contactFormDefaultOption={"softwareOption"}
       >
         <CustomContentSoftware />
       </PageContent>

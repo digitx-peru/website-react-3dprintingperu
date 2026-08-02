@@ -18,6 +18,7 @@ export default function MainContainer({
   floatButtonEnabled = true,
   floatContent,
   contactFormEnabled = true,
+  contactFormDefaultOption,
 }) {
   const { isTablet, isDesktop } = useBreakpoints();
   const styles = {
@@ -62,7 +63,7 @@ export default function MainContainer({
         <FloatButton preselectedApplications={floatContent} />
       )}
       {/* Contact Us section */}
-      {contactFormEnabled && <ContactSection />}
+      {contactFormEnabled && <ContactSection defaultOption={contactFormDefaultOption}/>}
     </main>
   );
 }
