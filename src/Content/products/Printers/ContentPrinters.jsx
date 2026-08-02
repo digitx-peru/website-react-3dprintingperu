@@ -156,15 +156,28 @@ export default function ContentPrinters() {
       ...(isTablet && {
         gap: "40px",
       }),
+      ...(isDesktop && {
+        flexDirection: "row",
+        alignItems: "start",
+      }),
       ...(isWideScreen && {
         flexDirection: "row",
         alignItems: "start",
       }),
     },
     filtersContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
       color: "rgb(10,79,79)",
     },
-    itemListColumn: {
+    printerListContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 40,
+      marginTop: "50px",
+    },
+    printerList: {
       display: "flex",
       flexDirection: "column",
       flexWrap: "wrap",
@@ -172,8 +185,10 @@ export default function ContentPrinters() {
       gap: 20,
       ...(isTablet && {
         flexDirection: "row",
-        flexWrap: "wrap",
         justifyContent: "space-evenly",
+      }),
+      ...(isDesktop && {
+        justifyContent: "flex-start",
       }),
     },
     paginationContainer: {
@@ -206,6 +221,7 @@ export default function ContentPrinters() {
   return (
     <SpecialContent>
       <div style={styles.layout}>
+        {/* /////////////////////////////////////////////////////////////////////////////// */}
         <div className="filtersContainer" style={styles.filtersContainer}>
           <PrinterFilterPanel
             preselectedApplications={applicationFilterCriteria}
@@ -214,31 +230,40 @@ export default function ContentPrinters() {
             dimensionChangeHandler={dimensionChangeHandler}
           />
         </div>
-        <div className="itemList" style={styles.itemListColumn}>
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : (
-            data.slice(startIndex, endIndex).map((printer) => {
-              return (
-                <PrinterCard
-                  key={printer.name}
-                  printerImageUrl={printer.imageUrl}
-                  name={printer.name}
-                  description={printer.description}
-                  builVolume={printer.builVolume}
-                  technology={printer.technology.value}
-                />
-              );
-            })
-          )}
-        </div>
-        <div className="paginationContainer" style={styles.paginationContainer}>
-          <Pagination
-            current={currentPage}
-            pageSize={itemsPerPage}
-            total={isLoading ? 1 : data.length}
-            onChange={pageChangeHandler}
-          />
+        {/* /////////////////////////////////////////////////////////////////////////////// */}
+        <div
+          className="printerListContainer"
+          style={styles.printerlistContainer}
+        >
+          <div className="printerList" style={styles.printerList}>
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              data.slice(startIndex, endIndex).map((printer) => {
+                return (
+                  <PrinterCard
+                    key={printer.name}
+                    printerImageUrl={printer.imageUrl}
+                    name={printer.name}
+                    description={printer.description}
+                    builVolume={printer.builVolume}
+                    technology={printer.technology.value}
+                  />
+                );
+              })
+            )}
+          </div>
+          <div
+            className="paginationContainer"
+            style={styles.paginationContainer}
+          >
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={isLoading ? 1 : data.length}
+              onChange={pageChangeHandler}
+            />
+          </div>
         </div>
       </div>
     </SpecialContent>
