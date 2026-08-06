@@ -30,7 +30,7 @@ export default function TitleMessageContainer({
       display: "flex",
       flexDirection: "column",
       ...(isWideScreen && {
-        width: "1440px",
+        width: globalStyle.contentMaxWidth,
       }),
     },
     title: {
@@ -78,7 +78,7 @@ export default function TitleMessageContainer({
         gap: "40px",
       }),
       ...(isWideScreen && {
-        width: "1440px",
+        width: globalStyle.contentMaxWidth,
       }),
     },
   };

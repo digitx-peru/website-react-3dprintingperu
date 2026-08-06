@@ -25,14 +25,14 @@ export default function SpecialContent({ children }) {
       }),
       ...(isWideScreen && {
         padding: `${globalStyle.verticalPadding.desktop} 0`,
-        width: BREAKPOINTS.xl,
+        width: globalStyle.contentMaxWidth,
       }),
     },
   };
 
   return (
     <div className="SpecialContentContainer" style={styles.container}>
-      <div style={styles.layout}>{children}</div>
+      <div className="SpecialContentLayout" style={styles.layout}>{children}</div>
     </div>
   );
 }

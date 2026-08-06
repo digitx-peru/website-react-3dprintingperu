@@ -1,4 +1,5 @@
 import useBreakpoints from "../../hooks/useBreakpoints.js";
+import globalStyle from "../../Style/globalStyle.js";
 
 import FooterNav from "./FooterNav/FooterNav.jsx";
 import FooterPrivacyNav from "./FooterPrivacyNav.jsx";
@@ -30,7 +31,7 @@ export default function Footer() {
       ...(isWideScreen && {
         flexDirection: "row",
         padding: "50px 0",
-        width: "1440px",
+        width: globalStyle.contentMaxWidth,
       }),
     },
     footerPrivacyContentContainer: {

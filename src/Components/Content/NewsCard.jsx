@@ -19,9 +19,6 @@ export default function NewsCard({ redirectUrl, title, message, image }) {
       height: "150px",
       boxShadow:
         "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.8)",
-      ...(isTablet && {
-        height: "150px",
-      }),
       ...(isDesktop && {
         height: "400px",
         flex: "1 1 33.333%",

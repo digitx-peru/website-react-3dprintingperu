@@ -152,7 +152,7 @@ export default function ContentPrinters() {
     layout: {
       display: "flex",
       flexDirection: "column",
-      gap: "20px",
+      gap: "50px",
       ...(isTablet && {
         gap: "40px",
       }),
@@ -220,7 +220,7 @@ export default function ContentPrinters() {
 
   return (
     <SpecialContent>
-      <div style={styles.layout}>
+      <div className="printersContentLayout" style={styles.layout}>
         {/* /////////////////////////////////////////////////////////////////////////////// */}
         <div className="filtersContainer" style={styles.filtersContainer}>
           <PrinterFilterPanel

@@ -13,6 +13,7 @@ export const globalStyle = {
         desktop: "30px",
         wide: "30px"
     },
+    contentMaxWidth: "1280px"
 };
 
 export default globalStyle;
