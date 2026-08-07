@@ -1,5 +1,5 @@
 import PageContent from "../../../Components/PageContent";
-import CustomContentProsthesis from "../../../Content/Applications/Health/CustomContentProsthesis"
+import CustomContentProsthesis from "../../../Content/Applications/Health/CustomContentProsthesis";
 
 export default function CustomProsthesis() {
   return (
@@ -7,7 +7,7 @@ export default function CustomProsthesis() {
       <PageContent
         heroTitle={"Cada paciente un caso diferente"}
         heroMessage={
-          "La Impresion 3D es la forma de atender las necesidades especificas de cada uno"
+          "La Impresión 3D es la forma de atender las necesidades especificas de cada uno"
         }
         backgroundImage={"/images/hero/hero_health.jpg"}
       >

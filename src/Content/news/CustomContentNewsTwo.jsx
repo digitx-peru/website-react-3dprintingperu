@@ -51,7 +51,7 @@ export default function CustomContentNewsTwo() {
         </p>
         <img
           style={styles.images}
-          src={"/images/news/newsTwo/news_image_user_washing.jpg"}
+          src={"/images/pages/news/newsTwo/news_image_user_washing.jpg"}
           alt=""
         />
         <p>

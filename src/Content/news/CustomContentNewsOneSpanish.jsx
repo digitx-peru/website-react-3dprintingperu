@@ -61,7 +61,7 @@ export default function CustomContentNewsOneSpanish() {
       </p>
       <img
         style={styles.images}
-        src={"/images/news/newsOne/news_image_skull_design_fix.png"}
+        src={"/images/pages/news/newsOne/news_image_skull_design_fix.png"}
         alt=""
       />
       <p>
@@ -107,7 +107,7 @@ export default function CustomContentNewsOneSpanish() {
       </p>
       <img
         style={styles.images}
-        src={"/images/news/newsOne/news_image_user_printer.jpg"}
+        src={"/images/pages/news/newsOne/news_image_user_printer.jpg"}
         alt=""
       />
     </div>

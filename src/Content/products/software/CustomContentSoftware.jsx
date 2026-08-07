@@ -28,7 +28,7 @@ export default function CustomContentSoftware({ width }) {
       <TextImageRow
         sectionName={"rowOne"}
         imageRight={true}
-        imageName={"products/software/software_teddy.jpg"}
+        imageName={"/images/pages/products/software/software_teddy.jpg"}
       >
         <h2 ref={designersRef}>
           El arte del pavé y el dominio de las piedras preciosas
@@ -37,7 +37,7 @@ export default function CustomContentSoftware({ width }) {
           Diseñar con piedras preciosas es más que precisión: se trata de crear
           emoción, belleza e impacto. RhinoArtisan reimagina el diseño con pavé
           y piedras preciosas, dándole la libertad de explorar sin límites y la
-          confianza para lograr resultados impecables.Sienta la fluidez de las
+          confianza para lograr resultados impecables. Sienta la fluidez de las
           herramientas intuitivas, el poder de la perfección instantánea y la
           alegría de ver cómo sus ideas brillan y se hacen realidad. Desde el
           delicado pavé hasta las atrevidas declaraciones con piedras preciosas,
@@ -48,7 +48,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
-        imageName={"products/software/software_lion.jpg"}
+        imageName={"/images/pages/products/software/software_lion.jpg"}
       >
         <h2>Utilice bocetos e imágenes: Simplifique el modelado complejo</h2>
         <p>
@@ -71,7 +71,7 @@ export default function CustomContentSoftware({ width }) {
       <TextImageRow
         sectionName={"rowThree"}
         imageRight={true}
-        imageName={"products/software/software_ring.jpg"}
+        imageName={"/images/pages/products/software/software_ring.jpg"}
       >
         <h2 ref={manufacturesRef}>Sistema avanzado de diseño de bebederos</h2>
         <p>
@@ -106,7 +106,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowFour"}
-        imageName={"products/software/software_ring_model.jpg"}
+        imageName={"/images/pages/products/software/software_ring_model.jpg"}
       >
         <h2>Reparación automática de STL: Como por arte de magia</h2>
         <p>
@@ -127,7 +127,7 @@ export default function CustomContentSoftware({ width }) {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowFive"}
-        imageName={"products/software/software_showcase.jpg"}
+        imageName={"/images/pages/products/software/software_showcase.jpg"}
       >
         <p ref={storesRef}>
           Dentro del módulo Boutique, puede elegir un diseño, presentárselo al

@@ -50,7 +50,7 @@ export default function CustomContentNewsThree() {
         <img
           style={styles.images}
           src={
-            "/images/news/newsThree/news_image_new_ext_1270_titan_pellet.png"
+            "/images/pages/news/newsThree/news_image_new_ext_1270_titan_pellet.png"
           }
           alt=""
         />

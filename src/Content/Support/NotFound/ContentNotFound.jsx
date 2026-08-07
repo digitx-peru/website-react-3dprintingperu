@@ -72,7 +72,7 @@ export default function ContentNotFound() {
           </div>
           <div style={styles.imageContainer}>
             <img
-              src="/images/support/notfound/notfound_printer.png"
+              src="/images/pages/support/notfound/notfound_printer.png"
               alt="broken printer"
               style={styles.image}
             />

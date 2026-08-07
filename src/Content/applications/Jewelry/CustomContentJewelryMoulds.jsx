@@ -6,7 +6,7 @@ export default function CustomContentJewelryMoulds() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/jewelry/moulds/jewelry_mould_ring.png"}
+        imageName={"/images/pages/applications/jewelry/moulds/jewelry_mould_ring.png"}
       >
         <h2>Moldes de caucho o silicona</h2>
         <p>

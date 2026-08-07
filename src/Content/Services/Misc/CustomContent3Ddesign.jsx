@@ -6,7 +6,7 @@ export default function CustomContent3Ddesign() {
       <TextImageRow
         sectionName={"rowOne"}
         imageRight={true}
-        imageName={"services/misc/3ddesign/3d_model_blue.png"}
+        imageName={"/images/pages/services/misc/3ddesign/3d_model_blue.png"}
       >
         <p>
           3D Printing Peru ofrece servicios integrales de diseño CAD 3D,
@@ -22,7 +22,7 @@ export default function CustomContent3Ddesign() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowTwo"}
-        imageName={"services/misc/3ddesign/3d_model_colors.png"}
+        imageName={"/images/pages/services/misc/3ddesign/3d_model_colors.png"}
         backgroundColor={"#C9C6CA"}
       >
         <ul>

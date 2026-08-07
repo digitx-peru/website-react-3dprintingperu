@@ -7,7 +7,7 @@ export default function CustomContentMachineSupport() {
         sectionName={"rowOne"}
         imageRight={true}
         imageName={
-          "services/Maintenance/MachineSupport/machine_support_3dprinter.png"
+          "/images/pages/services/maintenance/machineSupport/machine_support_3dprinter.png"
         }
       >
         <h2>Especialistas en mantenimiento</h2>

@@ -6,7 +6,7 @@ export default function CustomContentFurniture() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/consumer/furniture/furniture_esker_chair.png"}
+        imageName={"/images/pages/applications/consumer/furniture/furniture_esker_chair.png"}
       >
         <h2>Libertad de tamaño y diseño</h2>
         <p>
@@ -27,7 +27,7 @@ export default function CustomContentFurniture() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/consumer/furniture/furniture_bulb.png"}
+        imageName={"/images/pages/applications/consumer/furniture/furniture_bulb.png"}
       >
         <h2>Hazlo Sostenible</h2>
         <p>

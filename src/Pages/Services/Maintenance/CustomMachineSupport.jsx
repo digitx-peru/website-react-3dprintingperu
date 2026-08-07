@@ -6,7 +6,7 @@ export default function CustomMachineSupport() {
     <>
       <PageContent
         heroTitle={"Soporte y mantenimiento de impresoras 3D"}
-        heroMessage={"Cuida tu inversion en manufactura aditiva"}
+        heroMessage={"Cuida tu inversión en manufactura aditiva"}
         contactFormDefaultOption={"supportOption"}
       >
         <CustomContentMachineSupport />

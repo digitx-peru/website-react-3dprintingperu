@@ -6,7 +6,7 @@ export default function CustomContentFoundryCasting() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/foundry/casting/foundry_casting_propulsor.png"}
+        imageName={"/images/pages/applications/foundry/casting/foundry_casting_propulsor.png"}
       >
         <h2>Patrones de cera</h2>
         <p>
@@ -25,7 +25,7 @@ export default function CustomContentFoundryCasting() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/foundry/casting/foundry_casting_white_piece.png"}
+        imageName={"/images/pages/applications/foundry/casting/foundry_casting_white_piece.png"}
       >
         <h2>Complejidad y flexibilidad de diseño</h2>
         <p>
@@ -42,7 +42,7 @@ export default function CustomContentFoundryCasting() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"applications/foundry/casting/foundry_casting_grey_piece.png"}
+        imageName={"/images/pages/applications/foundry/casting/foundry_casting_grey_piece.png"}
         backgroundColor={"#7BEFB1"}
       >
         <h2>Reducción de costos</h2>

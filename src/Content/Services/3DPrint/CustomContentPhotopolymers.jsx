@@ -15,11 +15,11 @@ export default function CustomContentPhotopolymers() {
         <h2>Figure 4</h2>
         <p>
           Tecnología ultra-rapida para conseguir prototipos y partes de uso
-          final en un solo dia. Ideal para producciones de bajo volumen
+          final en un solo día. Ideal para producciones de bajo volumen
         </p>
-        <p>Algunas aplicaciones exitosas de esta tecnologia son:</p>
+        <p>Algunas aplicaciones exitosas de esta tecnología son:</p>
         <ul>
-          <li>Patrones de sacrificio para joyeria</li>
+          <li>Patrones de sacrificio para joyería</li>
           <li>Conectores eléctricos</li>
           <li>Piezas para drones</li>
         </ul>
@@ -35,7 +35,7 @@ export default function CustomContentPhotopolymers() {
         <IconInfoCard
           title={"Modelos de Concepto"}
           message={
-            "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
+            "La velocidad, precisión y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
           }
           iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_concept.png"
           backgroundColor={"#D9D9D8"}
@@ -43,7 +43,7 @@ export default function CustomContentPhotopolymers() {
         <IconInfoCard
           title={"Prototipado rápido"}
           message={
-            "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rigidos"
+            "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rígidos"
           }
           iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_piece.png"
           backgroundColor={"#D9D9D8"}
@@ -51,7 +51,7 @@ export default function CustomContentPhotopolymers() {
         <IconInfoCard
           title={"Manufactura Directa"}
           message={
-            "La alta precision y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyeccion de plastico."
+            "La alta precisión y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyección de plástico."
           }
           iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_printer.png"
           backgroundColor={"#D9D9D8"}
@@ -72,7 +72,7 @@ export default function CustomContentPhotopolymers() {
       >
         <h2>Acabado superficial</h2>
         <p>
-          Una de las caracteristicas mas importantes de esta tecnología es su
+          Una de las características mas importantes de esta tecnología es su
           resolución superficial (1920 x 1080 pixels), con la cual logra piezas
           de un acabado superficial excelente sea liso o texturado.
         </p>

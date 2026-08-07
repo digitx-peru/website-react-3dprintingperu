@@ -7,7 +7,7 @@ export default function CustomSoftware() {
       <PageContent
         heroTitle={"RhinoArtisan"}
         heroMessage={
-          "Herramientas avanzadas para diseño de joyeria en 3D, por los creadores de RhinoGold"
+          "Herramientas avanzadas para diseño de joyería en 3D, por los creadores de RhinoGold"
         }
         backgroundImage={
           "/images/hero/hero_software_artisan.jpeg"

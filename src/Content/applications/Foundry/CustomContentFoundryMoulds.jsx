@@ -6,7 +6,7 @@ export default function CustomContentFoundryMoulds() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/foundry/moulds/foundry_mould_grey_metal.png"}
+        imageName={"/images/pages/applications/foundry/moulds/foundry_mould_grey_metal.png"}
       >
         <h2>Patrones para moldes de arena</h2>
         <p>
@@ -28,7 +28,7 @@ export default function CustomContentFoundryMoulds() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/foundry/moulds/foundry_mould_white_metal.png"}
+        imageName={"/images/pages/applications/foundry/moulds/foundry_mould_white_metal.png"}
       >
         <h2>Complejidad y flexibilidad de diseño</h2>
         <p>
@@ -45,7 +45,7 @@ export default function CustomContentFoundryMoulds() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"applications/foundry/moulds/foundry_mould_printing.png"}
+        imageName={"/images/pages/applications/foundry/moulds/foundry_mould_printing.png"}
       >
         <h2>Alternativas para diferentes tamaños de piezas</h2>
         <p>

@@ -33,7 +33,7 @@ export default function FooterNav() {
       {/* ///////////////////////////////////////////////////////////////////////////// */}
       <FooterNavColumn title={"Aplicaciones"}>
         <FootNavListItem
-          linkTitle={"Protesis"}
+          linkTitle={"Prótesis"}
           linkpath={"/aplicaciones/salud/protesis"}
         />
         <FootNavListItem
@@ -72,7 +72,7 @@ export default function FooterNav() {
           linkpath={"/servicios/impresion-3D/fotopolimeros"}
         />
         <FootNavListItem
-          linkTitle={"Patrones de joyeria"}
+          linkTitle={"Patrones de joyería"}
           linkpath={"/servicios/impresion-3D/patrones-de-joyeria"}
         />
         <FootNavListItem
@@ -84,7 +84,7 @@ export default function FooterNav() {
           linkpath={"/servicios/otros/diseño-3d"}
         />
         <FootNavListItem
-          linkTitle={"Soporte Tecnico"}
+          linkTitle={"Soporte Técnico"}
           linkpath={"/servicios/mantenimiento/soporte-tecnico"}
         />
       </FooterNavColumn>

@@ -26,66 +26,66 @@ import {
 function getPrinterImageUsingName(printerName) {
   switch (printerName) {
     case "Projet CJP 660 Pro":
-      return "/images/products/3dprint/printers/printer_image_cjp_660Pro.png";
+      return "/images/pages/products/3dprint/printers/printer_image_cjp_660Pro.png";
     case "DMP Flex 100":
-      return "/images/products/3dprint/printers/printer_image_dmp_flex_100.png";
+      return "/images/pages/products/3dprint/printers/printer_image_dmp_flex_100.png";
     case "DMP Flex 200":
-      return "/images/products/3dprint/printers/printer_image_dmp_flex_200.png";
+      return "/images/pages/products/3dprint/printers/printer_image_dmp_flex_200.png";
     case "DMP Flex 350":
-      return "/images/products/3dprint/printers/printer_image_dmp_flex_350.png";
+      return "/images/pages/products/3dprint/printers/printer_image_dmp_flex_350.png";
     case "DMP Factory 500":
-      return "/images/products/3dprint/printers/printer_image_dmp_factory_500.png";
+      return "/images/pages/products/3dprint/printers/printer_image_dmp_factory_500.png";
     case "EXT 220 MED":
-      return "/images/products/3dprint/printers/printer_image_ext_220_MED.png";
+      return "/images/pages/products/3dprint/printers/printer_image_ext_220_MED.png";
     case "EXT 800 Titan Pellet":
-      return "/images/products/3dprint/printers/printer_image_ext_800_titan_pellet.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_ext_800_titan_pellet.jpg";
     case "EXT 1070 Titan Pellet":
-      return "/images/products/3dprint/printers/printer_image_ext_1070_titan_pellet.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_ext_1070_titan_pellet.jpg";
     case "EXT 1270 Titan Pellet":
-      return "/images/products/3dprint/printers/printer_image_ext_1270_titan.png";
+      return "/images/pages/products/3dprint/printers/printer_image_ext_1270_titan.png";
     case "Figure 4 Jewelry":
-      return "/images/products/3dprint/printers/printer_image_figure_4_jewelry.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_figure_4_jewelry.jpg";
     case "Figure 4 Modular":
-      return "/images/products/3dprint/printers/printer_image_figure_4_modular.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_figure_4_modular.jpg";
     case "Figure 4 Produccion":
-      return "/images/products/3dprint/printers/printer_image_figure_4_production.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_figure_4_production.jpg";
     case "Figure 4 Standalone":
-      return "/images/products/3dprint/printers/printer_image_figure_4_standalone.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_figure_4_standalone.jpg";
     case "Funmat HT":
-      return "/images/products/3dprint/printers/printer_image_HT.png";
+      return "/images/pages/products/3dprint/printers/printer_image_HT.png";
     case "Funmat Pro 310 Neo":
-      return "/images/products/3dprint/printers/printer_image_funmatpro_ext_310.png";
+      return "/images/pages/products/3dprint/printers/printer_image_funmatpro_ext_310.png";
     case "Funmat Pro 310 Apollo":
-      return "/images/products/3dprint/printers/printer_image_310_apollo.png";
+      return "/images/pages/products/3dprint/printers/printer_image_310_apollo.png";
     case "Funmat Pro 410":
-      return "/images/products/3dprint/printers/printer_image_funmatpro_ext_410.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_funmatpro_ext_410.jpg";
     case "Funmat Pro 610LT":
-      return "/images/products/3dprint/printers/printer_image_funmatpro_ext_610.png";
+      return "/images/pages/products/3dprint/printers/printer_image_funmatpro_ext_610.png";
     case "Funmat Pro 610HT":
-      return "/images/products/3dprint/printers/printer_image_funmatpro_ext_610.png";
+      return "/images/pages/products/3dprint/printers/printer_image_funmatpro_ext_610.png";
     case "MJP 300W Plus":
-      return "/images/products/3dprint/printers/printer_image_mjp_300Wplus.png";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_300Wplus.png";
     case "Projet MJP 2500 Plus":
-      return "/images/products/3dprint/printers/printer_image_mjp_2500.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_2500.jpg";
     case "Projet MJP 2500IC":
-      return "/images/products/3dprint/printers/printer_image_mjp_2500IC.png";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_2500IC.png";
     case "Projet MJP 2500W Plus":
-      return "/images/products/3dprint/printers/printer_image_mjp_2500W_plus.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_2500W_plus.jpg";
     case "Projet MJP 6000":
-      return "/images/products/3dprint/printers/printer_image_mjp_6000.png";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_6000.png";
     case "Projet MJP 7000":
-      return "/images/products/3dprint/printers/printer_image_mjp_7000.png";
+      return "/images/pages/products/3dprint/printers/printer_image_mjp_7000.png";
     case "SLA 750":
-      return "/images/products/3dprint/printers/printer_image_sla_750.png";
+      return "/images/pages/products/3dprint/printers/printer_image_sla_750.png";
     case "SLA 825 Dual":
-      return "/images/products/3dprint/printers/printer_image_sla_825_dual.png";
+      return "/images/pages/products/3dprint/printers/printer_image_sla_825_dual.png";
     case "SLS 300":
-      return "/images/products/3dprint/printers/printer_image_sls_300.png";
+      return "/images/pages/products/3dprint/printers/printer_image_sls_300.png";
     case "SLS 380":
-      return "/images/products/3dprint/printers/printer_image_sls_380.png";
+      return "/images/pages/products/3dprint/printers/printer_image_sls_380.png";
 
     default:
-      return "/images/products/3dprint/printers/printer_image_not_available.jpg";
+      return "/images/pages/products/3dprint/printers/printer_image_not_available.jpg";
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////

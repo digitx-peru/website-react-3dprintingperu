@@ -6,7 +6,7 @@ export default function CustomContentJewelryCasting() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"applications/jewelry/casting/jewelry_casting_blue.png"}
+        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_blue.png"}
       >
         <h2>Patrones para vaciado</h2>
         <p>
@@ -27,7 +27,7 @@ export default function CustomContentJewelryCasting() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"applications/jewelry/casting/jewelry_casting_green.png"}
+        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_green.png"}
       >
         <h2>Pequeñas joyerías</h2>
         <p>
@@ -47,7 +47,7 @@ export default function CustomContentJewelryCasting() {
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
         sectionName={"rowThree"}
-        imageName={"applications/jewelry/casting/jewelry_casting_red.png"}
+        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_red.png"}
       >
         <h2>Maxima productividad</h2>
         <p>
@@ -73,9 +73,9 @@ export default function CustomContentJewelryCasting() {
 
       {/* //////////////////////////////////////////////////////////////////////////////////// */}
       <TextImageRow
-        sectionName={"rowTwo"}
+        sectionName={"rowFour"}
         imageRight={true}
-        imageName={"applications/jewelry/casting/jewelry_casting_whirl.png"}
+        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_whirl.png"}
       >
         <h2>Joyería especializada</h2>
         <p>
