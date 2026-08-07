@@ -6,7 +6,7 @@ export default function CustomContentPolyurethane() {
     <>
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"services/production/silicone_urethane/urethane.jpg"}
+        imageName={"/images/pages/services/production/silicone_urethane/urethane.jpg"}
       >
         <h2>Vaciado de uretano</h2>
         <p>
@@ -30,7 +30,7 @@ export default function CustomContentPolyurethane() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"services/production/silicone_urethane/silicone.jpg"}
+        imageName={"/images/pages/services/production/silicone_urethane/silicone.jpg"}
       >
         <h2>Vaciado de silicona</h2>
         <p>

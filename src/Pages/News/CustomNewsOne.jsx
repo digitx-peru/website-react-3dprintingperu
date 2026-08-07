@@ -9,6 +9,7 @@ export default function CustomNewsOne() {
         heroTitle={
           "El Hospital de la Universidad de Salzburgo realiza una cirugía innovadora"
         }
+        backgroundImage={"/images/hero/hero_news.jpg"}
       >
         <CustomContentNewsOne />
       </PageContent>

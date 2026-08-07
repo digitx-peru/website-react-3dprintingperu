@@ -10,7 +10,7 @@ export default function CustomContentPhotopolymers() {
     <>
       <TextImageRow
         sectionName={"rowOne"}
-        imageName={"services/3dprint/photopolymers/photopolymers_figure_4.png"}
+        imageName={"/images/pages/services/3dprint/photopolymers/photopolymers_figure_4.png"}
       >
         <h2>Figure 4</h2>
         <p>
@@ -37,7 +37,7 @@ export default function CustomContentPhotopolymers() {
           message={
             "La velocidad, precision y gran acabado superficial de las piezas de la Figure 4, permite a los desarrolladores de producto crear piezas de los diseños durante todo el proceso"
           }
-          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_concept.png"
+          iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_concept.png"
           backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
@@ -45,7 +45,7 @@ export default function CustomContentPhotopolymers() {
           message={
             "Los prototipos de la Figure 4 son 100% funcionales, con materiales que pueden simular polipropileno, policarbonato, ABS y compuestos rigidos"
           }
-          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_piece.png"
+          iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_piece.png"
           backgroundColor={"#D9D9D8"}
         />
         <IconInfoCard
@@ -53,7 +53,7 @@ export default function CustomContentPhotopolymers() {
           message={
             "La alta precision y consistencia de la Figure 4 la hacen ideal para producir lotes intermedios (cuando la cantidad no justifica utilizar inyeccion de plastico."
           }
-          iconImagePath="/images/components/PhotopolymersPage/infocard/info_card_icon_printer.png"
+          iconImagePath="/images/pages/services/3dprint/photopolymers/infocard/info_card_icon_printer.png"
           backgroundColor={"#D9D9D8"}
         />
       </TitleMessageContainer>
@@ -67,7 +67,7 @@ export default function CustomContentPhotopolymers() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageName={
-          "services/3dprint/photopolymers/photopolymers_surface_finishing.png"
+          "/images/pages/services/3dprint/photopolymers/photopolymers_surface_finishing.png"
         }
       >
         <h2>Acabado superficial</h2>

@@ -10,7 +10,7 @@ export default function CustomSoftware() {
           "Herramientas avanzadas para diseño de joyeria en 3D, por los creadores de RhinoGold"
         }
         backgroundImage={
-          "/images/products/software/software_artisan_background.jpeg"
+          "/images/hero/hero_software_artisan.jpeg"
         }
         contactFormDefaultOption={"softwareOption"}
       >

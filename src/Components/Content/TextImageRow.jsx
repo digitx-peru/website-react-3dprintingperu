@@ -79,7 +79,7 @@ export default function TextImageRow({
             <div className={"imageHolder"} style={styles.imageSection}>
               <img
                 style={styles.image}
-                src={`/images/${imageName}`}
+                src={imageName}
                 alt={altTextImage}
               />
             </div>
