@@ -6,7 +6,7 @@ export default function Printers() {
   return (
     <PageContent
       heroTitle={"Impresoras"}
-      backgroundImage={"/images/heroImasro_img_printings.png"}
+      backgroundImage={"/images/hero/hero_printers.png"}
     >
       <ContentPrinters />
     </PageContent>

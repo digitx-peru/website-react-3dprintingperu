@@ -7,6 +7,7 @@ export default function CustomJewelryCasting() {
       <PageContent
         heroTitle={"Libertad de diseño y mayor calidad"}
         heroMessage={"Incrementa la productividad en la manufactura de joyería"}
+        backgroundImage={"/images/hero/hero_jewelry_casting.jpg"}
       >
         <CustomContentJewelryCasting />
       </PageContent>

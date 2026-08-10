@@ -7,6 +7,7 @@ export default function CustomFoundryCasting() {
       <PageContent
         heroTitle={"Reduce costos y tiempos de entrega"}
         heroMessage={"Incrementa tu capacidad de producir piezas mas complejas"}
+        backgroundImage={"/images/hero/hero_foundry_casting.webp"}
       >
         <CustomContentFoundryCasting />
       </PageContent>

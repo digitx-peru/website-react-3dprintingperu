@@ -9,6 +9,7 @@ export default function CustomSeals() {
         heroMessage={
           "Acelera la iteración de diseño y la validación de uso final de prototipos con silicona 100% o elastómeros biocompatibles"
         }
+        backgroundImage={"/images/hero/hero_seals_and_joints.jpg"}
       >
         <CustomContentSeals />
       </PageContent>
