@@ -1,138 +1,73 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
-import Navbar from "./Navbar";
-import NavMenu from "./NavMenu";
-import Hero from "../Hero";
+import Navbar from "./Navbar/Navbar";
+import NavMenu from "./Navbar/NavMenu";
+import Hero from "../Hero/Hero";
 
-import ApplicationsDropdown from "./NavbarDropDownOptions/ApplicationsDropdown"
-import ProductsDropdown from "./NavbarDropDownOptions/ProductsDropdown";
-import ServicesDropdown from "./NavbarDropDownOptions/ServicesDropdown";
-import ResourcesDropdown from "./NavbarDropDownOptions/ResourcesDropdown";
+import HeaderLogoNavBar from "./HeaderLogoNavBar";
+import HeroOverlay from "./HeroOverlay";
 
-export default function Header({ heroTitle, heroMessage, heroImage }) {
+import HeaderHeroOverlay from "../Overlays/HeaderHeroOverlay";
 
-  //Check windows size
-  const isMobile = useMediaQuery(480);
-  const isTablet = useMediaQuery(768);
-
+export default function Header({ backgroundImage }) {
   // State to track overlay visibility
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [activeNavBarCategory, setActiveNavBarCategory] = useState(null);
   const overlayRef = useRef(null);
+  const navRef = useRef(null);
 
-    useEffect(() => {
+  useEffect(() => {
     function handleClickableOverlay(event) {
-      if (isOverlayVisible &&
+      if (
+        isOverlayVisible &&
         overlayRef.current &&
-        !overlayRef.current.contains(event.target)) {
+        !overlayRef.current.contains(event.target) &&
+        !navRef.current.contains(event.target) // ignore nav clicks
+      ) {
         setOverlayVisible(false);
         setActiveNavBarCategory(null);
       }
     }
 
     document.addEventListener("mousedown", handleClickableOverlay);
-    return () => document.removeEventListener("mousedown", handleClickableOverlay);
+    return () =>
+      document.removeEventListener("mousedown", handleClickableOverlay);
   }, [isOverlayVisible]);
 
   //Styles
   const styles = {
-    header: {
-      position: 'relative',
+    mainContainer: {
+      position: "relative",
       display: "flex",
       flexDirection: "column",
-      backgroundImage: heroImage ? `url(${heroImage})` : "none",
-      backgroundColor: heroImage ? "none" : "white",
+      width: "100%",
+      backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
+      backgroundColor: backgroundImage ? "none" : "white",
       backgroundSize: "cover",
       backgroundPosition: "center",
-    },
-    headerNavigationContainer: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: isMobile || isTablet ? "space-between" : "space-between",
-      borderBottom: "1px solid rgb(239,251,246)",
-      columnGap: 50,
-      background: 'none',
-      zIndex: 3,
-      padding: isMobile || isTablet ? "10px 30px" : "10px 100px"
-    },
-    icon: {
-      height: isMobile || isTablet ? 40 : 60,
-      objectFit: "contain",
-    },
-    backgroundImageOverlay: {
-      position: "absolute",
-      top: "0",
-      left: "0",
-      width: "100%",
-      height: "100%",
-      backgroundColor: "black",
-      opacity: "0.7",
-      display: "flex",
-      alignItems: "center",
-    },
-    dropdownOverlay: {
-      position: "absolute",
-      top: "85px", // Adjust based on navbar height
-      left: 0,
-      width: "100%",
-      height: "calc(100% - 85px)", // Covers the Hero component
-      backgroundColor: "rgba(0, 0, 0, 0.98)", // Dark overlay
-      display: isOverlayVisible ? "flex" : "none",
-      justifyContent: "center",
-      alignItems: "start",
-      color: "white",
-      fontSize: "24px",
-      zIndex: 2, // Above the background but below navbar
+      backgroundAttachment: "fixed",
     },
   };
 
   return (
-    <header
-      style={styles.header}
-    >
-      {/* BackgroundImage Overlay */}
-      <div className="backgroundOverlay" style={styles.backgroundImageOverlay}></div>
+    <header style={styles.mainContainer}>
+      <HeaderHeroOverlay />
 
       {/* Logo + NavBar */}
-      <div className="headerNavigationContainer" style={styles.headerNavigationContainer}>
-        <Link to="/">
-          <img
-            src={require("../../assets/icons/3dp_logo.png")}
-            style={styles.icon}
-            alt=""
-          />
-        </Link>
-        {isMobile || isTablet ? <NavMenu /> : <Navbar activeNavBarCategory={activeNavBarCategory} setOverlayVisible={setOverlayVisible} setActiveNavBarCategory={setActiveNavBarCategory} />}
-      </div>
+      <HeaderLogoNavBar
+        activeNavBarCategory={activeNavBarCategory}
+        setActiveNavBarCategory={setActiveNavBarCategory}
+        setOverlayVisible={setOverlayVisible}
+        navReference={navRef}
+      />
 
       {/* Clickable Overlay */}
-      <div ref={overlayRef} style={styles.dropdownOverlay}>
-        <div className="dropdownSelector">
-
-          {/* ///////////////////////////////////// */}
-          {activeNavBarCategory === "aplicaciones" && (
-            <ApplicationsDropdown />
-          )}
-
-          {activeNavBarCategory === "producto" && (
-            <ProductsDropdown />
-          )}
-
-          {activeNavBarCategory === "servicios" && (
-            <ServicesDropdown />
-          )}
-
-          {activeNavBarCategory === "recursos" && (
-            <ResourcesDropdown />
-          )}
-        </div>
-      </div>
-
-      {/* Hero Component */}
-      <Hero title={heroTitle} message={heroMessage} />
+      <HeroOverlay
+        isOverlayVisible={isOverlayVisible}
+        activeNavBarCategory={activeNavBarCategory}
+        overlayRef={overlayRef}
+      />
     </header>
   );
 }

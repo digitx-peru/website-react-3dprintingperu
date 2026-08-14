@@ -1,22 +1,27 @@
 import { Table } from "antd";
 
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
-import ExpansionTable from "./ExpansionTable";
-import ExpansionTableDevice from "./ExpansionTableDevice";
+import ExpansionTable from "./ExpansionTable/ExpansionTable";
+import ExpansionTableDevice from "./ExpansionTable/ExpansionTableDevice/ExpansionTableDevice";
 import { mainColumns } from "./materialListingTableHeaders";
 
 export default function MaterialListingTable({ data }) {
-  const isDevice = useMediaQuery(768);
+  const { isTablet, isDesktop } = useBreakpoints();
 
   return (
     <Table
       columns={mainColumns}
       dataSource={data}
-      size="small"  
+      size="small"
       expandable={{
-        expandedRowRender: (record) => isDevice ? <ExpansionTableDevice record={record} /> : <ExpansionTable record={record} />,
-        expandRowByClick: isDevice ? true : false,
+        expandedRowRender: (record) =>
+          isDesktop ? (
+            <ExpansionTable record={record} />
+          ) : (
+            <ExpansionTableDevice record={record} />
+          ),
+        expandRowByClick: isDesktop ? false : true,
       }}
     />
   );

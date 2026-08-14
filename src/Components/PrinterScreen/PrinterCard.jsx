@@ -29,7 +29,7 @@ export default function PrinterCard({
       flexDirection: 'column',
       gap: '10px',
       padding: "10px",
-      borderTop: "4px solid rgb(99,218,178)",
+      borderTop: "1px solid #0A4F4F"
     },
     printerName: {
       fontSize: "24px",
@@ -91,7 +91,10 @@ export default function PrinterCard({
           <Button style={{
             backgroundColor: "#0A4F4F",
             borderColor: "#0A4F4F",
-            width: "120px"
+            width: "120px",
+            height: "37px",
+            marginTop: "10px",
+            marginBottom: "10px"
           }} type="primary">Me interesa</Button>
 
         </div>

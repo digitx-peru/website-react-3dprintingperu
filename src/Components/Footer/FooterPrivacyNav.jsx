@@ -12,7 +12,7 @@ export default function FooterPrivacyNav() {
   return (
     <div className="footerSocial" style={styles.footerSocial}>
       <Link style={styles.footerNavLink} to="/politica-privacidad">
-        Privacy Policy
+        Política de privacidad
       </Link>
     </div>
   );

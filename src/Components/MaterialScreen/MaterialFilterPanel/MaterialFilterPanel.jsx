@@ -56,7 +56,7 @@ export default function MaterialFilterPanel({
         />
       </Collapse.Panel>
 
-      <Collapse.Panel header="Tecnologia" key="2">
+      <Collapse.Panel header="Tecnología" key="2">
         <Checkbox.Group
           options={
             techNameListData.isLoading

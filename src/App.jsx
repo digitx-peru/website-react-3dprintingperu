@@ -1,44 +1,126 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
-import CustomFoundry from "./Pages/Industrias/CustomFoundry";
-import CustomJewelry from "./Pages/Industrias/CustomJewelry";
 
-import CustomDevices from "./Pages/Salud/CustomDevices";
+/////////////////////SERVICES
+import CustomPolyurethane from "./Pages/Services/Production/CustomPolyurethane";
+import Custom3Ddesign from "./Pages/Services/Misc/Custom3Ddesign";
+import CustomJewelryPatterns from "./Pages/Services/3DPrint/CustomJewelryPatterns";
+import CustomPhotopolymers from "./Pages/Services/3DPrint/CustomPhotopolymers";
+import CustomMachineSupport from "./Pages/Services/Maintenance/CustomMachineSupport";
 
-import Impresoras from "./Pages/Productos/Impresoras";
-import Materiales from "./Pages/Productos/Materiales";
+/////////////////////PRODUCTS
+import Printers from "./Pages/Products/Printers";
+import Materials from "./Pages/Products/Materials";
+import CustomSoftware from "./Pages/Products/Software/CustomSoftware";
 
-import CustomNewsOne from "./Pages/Noticias/CustomNewsOne";
-import CustomNewsTwo from "./Pages/Noticias/CustomNewsTwo";
-import CustomNewsThree from "./Pages/Noticias/CustomNewsThree";
-import CustomPrototype from "./Pages/Industrias/CustomPrototype";
+/////////////////////APPLICATIONS
+import CustomCasing from "./Pages/Applications/Consumer/CustomCasing";
+import CustomFurniture from "./Pages/Applications/Consumer/CustomFurniture";
+import CustomSeals from "./Pages/Applications/Consumer/CustomSeals";
+import CustomJewelryCasting from "./Pages/Applications/Jewelry/CustomJewelryCasting";
+import CustomJewelryMoulds from "./Pages/Applications/Jewelry/CustomJewelryMoulds";
+import CustomFoundryCasting from "./Pages/Applications/Foundry/CustomFoundryCasting";
+import CustomFoundryMoulds from "./Pages/Applications/Foundry/CustomFoundryMoulds";
+import CustomProsthesis from "./Pages/Applications/Health/CustomProsthesis";
 
-import PrivacyPolitic from "./Pages/Politicas/Privacidad";
-import Landing from "./Pages/Landing/Landing";
+/////////////////////NEWS
+import CustomNewsOne from "./Pages/News/CustomNewsOne";
+import CustomNewsTwo from "./Pages/News/CustomNewsTwo";
+import CustomNewsThree from "./Pages/News/CustomNewsThree";
 
-import "./globalStyles.css"
+/////////////////////LANDING
+import Landing from "./Pages/Landing/PageLanding";
+
+/////////////////////SUPPORT
+import PrivacyPolicy from "./Pages/Support/Policies/PagePrivacy";
+import NotFound from "./Pages/Support/NotFound/NotFound";
+
+import "./globalStyles.css";
 
 export default function App() {
   return (
     <Routes>
+      {/* HOME */}
       <Route path="/" exact element={<Home />} />
-      <Route path="/industrias/fundicion" element={<CustomFoundry />} />
-      <Route path="/industrias/joyeria" element={<CustomJewelry />} />
-      <Route path="/industrias/prototipos-y-arte" element={<CustomPrototype />} />
 
-      <Route path="/salud/:healthType" element={<CustomDevices />} />
+      {/* SERVICES */}
+      <Route
+        path="/servicios/produccion/silicona-y-poliuretano"
+        element={<CustomPolyurethane />}
+      />
+      <Route path="/servicios/otros/diseño-3d" element={<Custom3Ddesign />} />
+      <Route
+        path="/servicios/impresion-3D/patrones-de-joyeria"
+        element={<CustomJewelryPatterns />}
+      />
+      <Route
+        path="/servicios/impresion-3D/fotopolimeros"
+        element={<CustomPhotopolymers />}
+      />
+      <Route
+        path="/servicios/mantenimiento/soporte-tecnico"
+        element={<CustomMachineSupport />}
+      />
 
-      <Route path="/productos/impresoras" element={<Impresoras />} />
-      <Route path="/productos/materiales" element={<Materiales />} />
+      {/* PRODUCTS */}
+      <Route path="/productos/impresoras" element={<Printers />} />
+      <Route path="/productos/materiales" element={<Materials />} />
+      <Route
+        path="/productos/software/rhino-artisan"
+        element={<CustomSoftware />}
+      />
 
-      <Route path="/noticias/universidad-salsburgo-realiza-cirugia" element={<CustomNewsOne />} />
+      {/* APPLICATIONS */}
+      <Route
+        path="/aplicaciones/consumidor-final/muebles"
+        element={<CustomFurniture />}
+      />
+      <Route
+        path="/aplicaciones/consumidor-final/carcasas-cubiertas"
+        element={<CustomCasing />}
+      />
+      <Route
+        path="/aplicaciones/consumidor-final/sellos-juntas"
+        element={<CustomSeals />}
+      />
+      <Route
+        path="/aplicaciones/joyeria/vaciado"
+        element={<CustomJewelryCasting />}
+      />
+      <Route
+        path="/aplicaciones/joyeria/moldes"
+        element={<CustomJewelryMoulds />}
+      />
+      <Route
+        path="/aplicaciones/fundicion/vaciado"
+        element={<CustomFoundryCasting />}
+      />
+      <Route
+        path="/aplicaciones/fundicion/moldes"
+        element={<CustomFoundryMoulds />}
+      />
+      <Route
+        path="/aplicaciones/salud/protesis"
+        element={<CustomProsthesis />}
+      />
+
+      {/* NEWS */}
+      <Route
+        path="/noticias/universidad-salsburgo-realiza-cirugia"
+        element={<CustomNewsOne />}
+      />
       <Route path="/noticias/la-nueva-sls-300" element={<CustomNewsTwo />} />
       <Route path="/noticias/la-nueva-ext-1270" element={<CustomNewsThree />} />
 
-      <Route path="/politica-privacidad" element={<PrivacyPolitic />} />
+      {/* LANDING */}
       <Route path="/nextwebinar" element={<Landing />} />
 
+      {/* PRIVACY */}
+      <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+
+      {/* NOT FOUND */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

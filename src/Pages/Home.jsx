@@ -1,74 +1,74 @@
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
-import NewsCard from "../Components/HomeScreen/NewsCard";
-import Hero from "../Components/Hero";
-import ContactUs from "../Components/ContactUs";
-import useMediaQuery from "../hooks/useMediaQuery";
+import PageContent from "../Components/PageContent";
 
-import HeroImageHome from "../assets/heroImages/hero_img_home.jpg"
-
-import newsOneThumbnail from "../assets/newsImages/newsOne/news_image_thumbail_3dprint_organs.jpeg"
-import newsTwoThumbnail from "../assets/newsImages/newsTwo/news_image_thumbnail_new_sls_300.png"
-import newsThreeThumbnail from "../assets/newsImages/newsThree/news_image_new_ext_1270_titan_pellet.png"
-
-import FloatButton from "../Components/FloatButton";
+import NewsCard from "../Components/Content/NewsCard";
+import HomePageBrandsBanner from "../Components/HomeScreen/HomePageBrandsBanner";
+import TitleMessageContainer from "../Components/Content/TitleMessageComponent/TitleMessageContainer";
+import IconInfoCard from "../Components/Content/TitleMessageComponent/IconInfoCard";
 
 export default function Home() {
-  //Esto marca el punto en el que pasa de tener un layout columna a fila
-  const isColumnLayoutWidth = useMediaQuery(1024);
-
-  const heroContent = {
-    title: "Desafia los limites con la Impresion 3D Industrial",
-    message: null,
-    heroImage: HeroImageHome,
-  };
-
-  const styles = {
-    mainContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 50,
-      alignItems: "center",
-      // position:"absolute",
-      // zIndex:2,
-      width:"100%"
-    },
-    newsCardContainer: {
-      display: "flex",
-      flexDirection: isColumnLayoutWidth ? "column" : "row",
-      gap: 40,
-      justifyContent: "space-between",
-      padding: 15,
-    },
-  };
-
   return (
     <>
-      <Header heroTitle={heroContent.title} heroMessage={heroContent.message} heroImage={heroContent.heroImage}/>
-      <div className="mainContainer" style={styles.mainContainer}>
-        <div style={styles.newsCardContainer}>
+      <PageContent
+        heroTitle={"Desafia los límites con la Impresión 3D Industrial"}
+        heroMessage={null}
+        backgroundImage={"/images/hero/hero_home.jpg"}
+      >
+        {/* //////////////////////////////////////////////////////////////////////////////////// */}
+        <HomePageBrandsBanner />
+        {/* //////////////////////////////////////////////////////////////////////////////////// */}
+        <TitleMessageContainer
+          title={"Noticias"}
+        >
           <NewsCard
             redirectUrl="/noticias/universidad-salsburgo-realiza-cirugia"
             title="La universidad de Salsburgo realiza sorprendente cirugía"
-            // message="Lorem ipsum"
-            image={newsOneThumbnail}
+            image={
+              "/images/pages/news/newsOne/news_image_thumbail_3dprint_organs.jpeg"
+            }
           />
           <NewsCard
             redirectUrl="/noticias/la-nueva-sls-300"
             title="La nueva SLS 300"
-            image={newsTwoThumbnail}
-            // message="Lorem ipsum"
+            image={"/images/pages/news/newsTwo/news_image_thumbnail_new_sls_300.png"}
           />
           <NewsCard
             redirectUrl="/noticias/la-nueva-ext-1270"
             title="La nueva EXT 1270"
-            image={newsThreeThumbnail}
-            // message="Lorem ipsum"
+            image={
+              "/images/pages/news/newsThree/news_image_new_ext_1270_titan_pellet.png"
+            }
           />
-        </div>
-        <ContactUs />
-        <Footer />
-      </div>
+        </TitleMessageContainer>
+        {/* //////////////////////////////////////////////////////////////////////////////////// */}
+        <TitleMessageContainer
+          title={"En todo el proceso de Manufactura Digital"}
+        >
+          <IconInfoCard
+            title={"En todo el ciclo de producción"}
+            message={
+              "Acompañamos tu proyecto desde el prototipo hasta la producción, garantizando rapidez, calidad y eficiencia en costos."
+            }
+            iconImagePath="/images/pages/home/infocard/info_card_icon_1.png"
+            backgroundColor={"#7BEFB1"}
+          />
+          <IconInfoCard
+            title={"Diseño 3D y Prototipado Rápido"}
+            message={
+              "Obtén retroalimentación de tu diseño 3D desde la cotización para optimizar el diseño antes de fabricar y luego prototipalo con facilidad."
+            }
+            iconImagePath="/images/pages/home/infocard/info_card_icon_2.png"
+            backgroundColor={"#7BEFB1"}
+          />
+          <IconInfoCard
+            title={"Producción a Corto Plazo"}
+            message={
+              "Soluciones de fabricación de componentes industriales para necesidades rápidas y lotes de piezas chicos a medianos."
+            }
+            iconImagePath="/images/pages/home/infocard/info_card_icon_3.png"
+            backgroundColor={"#7BEFB1"}
+          />
+        </TitleMessageContainer>
+      </PageContent>
     </>
   );
 }
