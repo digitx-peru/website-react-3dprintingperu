@@ -20,7 +20,7 @@ export default function ContentLanding({ width }) {
       textAlign: "justify",
       columnGap: 100,
       width: width,
-      fontSize: isDevice ? "16px" : "20px",
+      fontSize: isDevice ? "16px" : "18px",
       lineHeight: "1.5",
     },
     information: {
@@ -35,38 +35,30 @@ export default function ContentLanding({ width }) {
       <div className="columnContainer" style={styles.columnContainer}>
         <div className="column1">
           <p style={styles.information}>
-            Más allá de la Impresión 3D de escritorio: Cuándo Dar el Salto de la
-            Impresión por Filamento Industrial Descubre las diferencias clave
-            entre impresoras 3D de escritorio y industriales. Exploraremos
-            características, ventajas y limitaciones, y veremos ejemplos de
-            casos de éxito en:
+            Diseña más rápido, imprime con precisión y funde sin sorpresas.
+            En 45 minutos te mostramos el flujo completo con las impresoras de joyería del portafolio de 3D Printing Perú y RhinoArtisan, el nuevo software de diseño para joyería,
+             que distribuimos en Perú. En este evento hablaremos de:
+
             <ul>
-              <li>Industria aeroespacial</li>
-              <li>Fundición</li>
-              <li>Medicina y salud</li>
-              <li>Transporte</li>
+              <li>RhinoArtisan: Y sus principales caracteristicas: modelado paramétrico de anillos y engastes, bibliotecas de gemas, tallas automáticas y exportación directa a STL</li>
+              <li>Impresión para joyería: Qué resinas calcinable usar, cómo lograr detalle fino y superficies limpias para microfusión Ideal para:</li>
             </ul>
-            ¡Únete a nosotros para descubrir cómo la impresión 3D puede
-            revolucionar tu industria o negocio!
+          
+            Ideal para:
+
+            <ul>
+              <li>Diseñadores de joyería</li>
+              <li>Orfebres</li>
+              <li>Talleres de fundición</li>
+              <li>Marcas de joyería que busquen optimizar sus procesos</li>
+            </ul>            
+
+            Presentan equipo de 3D Printing Perú junto a 2Shapes, desarrolladores de RhinoArtisan.
+            
           </p>
         </div>
         <div className="column2">
-          <iframe
-            title="Landing event form"
-            width={isDevice ? "324px" : "600px"}
-            height="720px"
-            src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAFKUIcyc0hUOUNUT1o3OTU0UFQyWkROMVlRTDBDN0dHTS4u&embed=true"
-            frameborder="0"
-            marginwidth="0"
-            marginheight="0"
-            style={{ maxWheight: "100vh" }}
-            allowfullscreen
-            webkitallowfullscreen
-            mozallowfullscreen
-            msallowfullscreen
-          >
-            {" "}
-          </iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeXMZdyCXzpjfjzYmN9uGLFUqNRqqffqlta1Vjx3wBv5koO8A/viewform?embedded=true" width="640" height="1024" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
       </div>
     </div>
