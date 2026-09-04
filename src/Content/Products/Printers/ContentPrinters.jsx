@@ -83,6 +83,8 @@ function getPrinterImageUsingName(printerName) {
       return "/images/pages/products/3dprint/printers/printer_image_sls_300.png";
     case "SLS 380":
       return "/images/pages/products/3dprint/printers/printer_image_sls_380.png";
+    case "WJ51C":
+      return "/images/pages/products/3dprint/printers/printer_WJ51C.png";
 
     default:
       return "/images/pages/products/3dprint/printers/printer_image_not_available.jpg";

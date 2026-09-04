@@ -13,7 +13,7 @@ export default function Custom3Ddesign() {
         backgroundImage={
           "/images/hero/hero_3ddesign.png"
         }
-        contactFormDefaultOption={"softwareOption"}
+        contactFormDefaultOption={"printOption"}
       >
         <CustomContent3Ddesign />
       </PageContent>

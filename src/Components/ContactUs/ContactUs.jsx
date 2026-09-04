@@ -18,7 +18,7 @@ export default function ContactUs({ defaultOption = "buyOption" }) {
     "Hola 3DP,\n\nQuisiera solicitar la fabricación de una pieza, son piñones, que servirán como pieza de repuesto para mi maquinaria. La pieza estará expuesta a líquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza.\n\nMuchas gracias, Mi nombre";
 
   const supportOption =
-    "Hola 3DP,\n\nQuisiera solicitar el mantenimiento de una impresora 3D, son piñones, que servirán como pieza de repuesto para mi maquinaria. La pieza estará expuesta a líquidos abrasivos y al medio ambiente. La cantidad estimada de piezas que necesitaré imprimir es 20 por semana. Sí cuento con un diseño 3D (archivo .stl) de la pieza.\n\nMuchas gracias, Mi nombre";
+    "Hola 3DP,\n\nQuisiera solicitar el mantenimiento de una impresora 3D, de marca <3DS> y modelo <modelo>. Pueden recoger el equipo en la dirección: <dirección>.\n\nMuchas gracias, Mi nombre";
 
   const softwareOption =
     "Hola 3DP,\n\nQuisiera solicitar una demostración del software rhynoArtisan. Tengo disponibilidad en los siguientes horarios: <Martes XX, a las 4pm> <Viernes XX, a las 10am>.\n\nMuchas gracias, <Mi nombre>";

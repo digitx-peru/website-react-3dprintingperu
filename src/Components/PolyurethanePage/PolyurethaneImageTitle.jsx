@@ -31,7 +31,7 @@ export default function PolyurethaneImageTitle() {
       }),
     },
     image: {
-      width: "100%",
+      width: "50%",
     },
     title: {
       textAlign: "center",
