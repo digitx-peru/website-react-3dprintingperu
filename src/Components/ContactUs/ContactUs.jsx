@@ -233,14 +233,8 @@ export default function ContactUs({ defaultOption = "buyOption" }) {
         <div style={styles.formItemGroup}>
           <Form.Item
             label={<label style={styles.formItemLabel}>¿Qué necesita?</label>}
-            name="requirement"
+            // name="requirement". ENABLE THIS ONLY IF IS NECESSARY TO SEND THIS VALUE TO THE BACKEND.
             style={styles.formItem}
-            rules={[
-              {
-                required: true,
-                message: "Phone required",
-              },
-            ]}
           >
             <Select
               defaultValue={defaultOptionValue(defaultOption).res2}
@@ -269,6 +263,7 @@ export default function ContactUs({ defaultOption = "buyOption" }) {
             </label>
           }
           //This form doesn't have a name because creates conflict with the value in TextArea.
+          name="message"
           style={styles.formItem}
         >
           <Input.TextArea
