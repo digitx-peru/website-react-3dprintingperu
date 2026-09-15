@@ -13,8 +13,8 @@ export default function CustomContentJewelryCasting() {
           Si estas buscando la producción de piezas con la mejor calidad que se
           puede lograr, debes implementar el proceso de cera perdida para la
           producción de piezas. Y los equipos de nuestro portafolio que se usan
-          para este proceso son la Figure 4 y la MJP 300W Plus, siendo la ultima
-          la impresora usada por los líderes mundiales en joyería.
+          para este proceso son la WJ51C de Flashforge y la MJP 300W Plus de 3D Systems, siendo la ultima
+          la impresora usada por los líderes mundiales en joyería, por su alta calidad y alto volumen de producción.
         </p>
         <p>
           Nuestras soluciones de impresión en 3D permiten la creación, iteración
@@ -27,20 +27,19 @@ export default function CustomContentJewelryCasting() {
       <TextImageRow
         sectionName={"rowTwo"}
         imageRight={true}
-        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_green.png"}
+        imageName={"/images/pages/applications/jewelry/casting/jewelry_casting_ffplatform.jpg"}
       >
         <h2>Pequeñas joyerías</h2>
         <p>
-          Nuestra solucion para joyerias la <b>Figure 4 Standalone</b>. Esta
-          impresora utiliza <b>JCAST-GRN 20</b>, plástico fundible, que fue
-          desarrollado específicamente para facilitar la fundición de joyería
-          con un mínimo de ceniza y residuos después de la quema.
+          Nuestra solucion para joyerias la <b>WJ51C de Flashforge</b>. Esta
+          impresora utiliza cera lo que permite una fundición de alta calidad. 
+          Migrar a la impresión 3D de cera permite a los joyeros simplificar su proceso ya que no requiere del paso previo de generar un molde para luego vaciar la cera, 
+          sino que se puede imprimir directamente el patrón de cera.
         </p>
         <p>
-          Rápida ejecución: velocidad de construcción vertical de 15 mm/h.
-          Soportes de punta ultrafina MicroPoint™ que permiten un acabado de
+          Rápida ejecución: Impresión de piezas a 15µm. Soportes de cera solubles que permiten un acabado de
           superficie suave, reducen la mano de obra de postprocesamiento y
-          aceleran la producción al minimizar el pulido.
+          aceleran la producción al eliminar el pulido. 
         </p>
       </TextImageRow>
 
@@ -64,7 +63,7 @@ export default function CustomContentJewelryCasting() {
           </li>
           <li>Respuesta rápida y alto rendimiento a escala de fábrica.</li>
           <li>
-            Resolución superior y soportes disolubles/fundibles que permiten
+            Resolución superior de hasta 8µm y soportes disolubles/fundibles que permiten
             reducir la mano de obra de acabado y el pulido de metales preciosos
             costosos, así como una libertad de diseño última.
           </li>

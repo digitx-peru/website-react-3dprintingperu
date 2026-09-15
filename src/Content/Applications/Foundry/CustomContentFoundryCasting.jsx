@@ -13,7 +13,7 @@ export default function CustomContentFoundryCasting() {
           Un área donde la manufactura aditiva ha hecho avances significativos
           es en el proceso de cera perdida o investment casting.
           Tradicionalmente, los patrones de cera (patrones de sacrificio) eran
-          creados usando molde por inyección (link to wiki) o tallando
+          creados usando <a href="https://es.wikipedia.org/wiki/Moldeo_por_inyecci%C3%B3n" target="_blank" rel="noopener noreferrer">molde por inyección</a> o tallando
           manualmente la cera, pero la impresión 3D ha traido nuevas
           posibilidades y ventajas a este proceso. En este sentido, las
           impresión 3D permite fabricar los patrones de cera o los moldes
