@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Button, Form, Input, Modal, Select } from "antd";
 
@@ -115,6 +115,13 @@ export default function ContactUs({ defaultOption = "buyOption" }) {
       fontSize: typography.fluid.body,
     },
   };
+
+  // Sync the React state with the Ant Design Form field
+  useEffect(() => {
+    form.setFieldsValue({
+      emailMessage: currentTextValue,
+    });
+  }, [currentTextValue, form]);
 
   //OnFinish eventHandler
   const onFinishFailed = (errorInfo) => {
@@ -263,7 +270,7 @@ export default function ContactUs({ defaultOption = "buyOption" }) {
             </label>
           }
           //This form doesn't have a name because creates conflict with the value in TextArea.
-          name="message"
+          name="emailMessage"
           style={styles.formItem}
         >
           <Input.TextArea

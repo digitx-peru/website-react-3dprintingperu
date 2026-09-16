@@ -9,8 +9,8 @@ export default function sendEmail(values) {
   const templateParams = {
     // Replace with your EmailJS template parameters
     customerName: values.customerName,
-    company: values.companyName,
-    message: values.message,
+    companyName: values.companyName,
+    message: values.emailMessage,
     phone: values.phone,
     email: values.email,
   };
